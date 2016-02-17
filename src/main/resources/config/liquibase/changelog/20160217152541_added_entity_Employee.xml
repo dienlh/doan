@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Employee.
+    -->
+    <changeSet id="20160217152541" author="jhipster">
+        <createTable tableName="employee">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="full_name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="birthday" type="date"/>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="perman_resid" type="varchar(255)"/>
+            <column name="birthplace" type="varchar(255)"/>
+            <column name="father_name" type="varchar(100)"/>
+            <column name="mother_name" type="varchar(100)"/>
+            <column name="phone_number" type="varchar(20)"/>
+            <column name="homephone" type="varchar(20)"/>
+            <column name="identity_card_number" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="identity_card_number_prov_date" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="identity_card_number_prov_add" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="bank_account" type="varchar(20)"/>
+            <column name="social_insurence_number" type="varchar(20)"/>
+            <column name="social_insurence_date" type="date"/>
+            <column name="create_date" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_modified_date" type="timestamp"/>
+            <column name="gender_id" type="bigint"/>
+            <column name="ethnic_id" type="bigint"/>
+            <column name="religion_id" type="bigint"/>
+            <column name="father_job_id" type="bigint"/>
+            <column name="mother_job_id" type="bigint"/>
+            <column name="education_level_id" type="bigint"/>
+            <column name="major_id" type="bigint"/>
+            <column name="school_id" type="bigint"/>
+            <column name="marital_status_id" type="bigint"/>
+            <column name="came_component_id" type="bigint"/>
+            <column name="bank_id" type="bigint"/>
+            <column name="create_by_id" type="bigint"/>
+            <column name="last_modified_by_id" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="employee" columnName="create_date" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="employee" columnName="last_modified_date" columnDataType="datetime"/>
+
+        
+        <addForeignKeyConstraint baseColumnNames="gender_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_gender_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gender"/>
+
+        <addForeignKeyConstraint baseColumnNames="ethnic_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_ethnic_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ethnic"/>
+
+        <addForeignKeyConstraint baseColumnNames="religion_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_religion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="religion"/>
+
+        <addForeignKeyConstraint baseColumnNames="father_job_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_father_job_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+
+        <addForeignKeyConstraint baseColumnNames="mother_job_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_mother_job_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+
+        <addForeignKeyConstraint baseColumnNames="education_level_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_education_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="education_level"/>
+
+        <addForeignKeyConstraint baseColumnNames="major_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_major_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="major"/>
+
+        <addForeignKeyConstraint baseColumnNames="school_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_school_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school"/>
+
+        <addForeignKeyConstraint baseColumnNames="marital_status_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_marital_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="marital_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="came_component_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_came_component_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="came_component"/>
+
+        <addForeignKeyConstraint baseColumnNames="bank_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_bank_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bank"/>
+
+        <addForeignKeyConstraint baseColumnNames="create_by_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_create_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="last_modified_by_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_last_modified_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

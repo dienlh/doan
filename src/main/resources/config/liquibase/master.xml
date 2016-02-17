@@ -15,5 +15,6 @@
     <include file="classpath:config/liquibase/changelog/20160217093846_added_entity_Marital_status.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160217093923_added_entity_Came_component.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160217094103_added_entity_Bank.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160217152541_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
