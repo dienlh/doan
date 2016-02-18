@@ -1,0 +1,24 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160218095111",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "pagination"
+}
