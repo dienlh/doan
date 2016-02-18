@@ -66,9 +66,8 @@ public class ProfileResourceIntTest {
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
     private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
-    private static final ZonedDateTime DEFAULT_LAST_MODIFIED_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
-    private static final ZonedDateTime UPDATED_LAST_MODIFIED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-    private static final String DEFAULT_LAST_MODIFIED_DATE_STR = dateTimeFormatter.format(DEFAULT_LAST_MODIFIED_DATE);
+    private static final Long DEFAULT_LAST_MODIFIED_DATE = 1L;
+    private static final Long UPDATED_LAST_MODIFIED_DATE = 2L;
 
     @Inject
     private ProfileRepository profileRepository;
@@ -165,7 +164,7 @@ public class ProfileResourceIntTest {
                 .andExpect(jsonPath("$.[*].salary_basic").value(hasItem(DEFAULT_SALARY_BASIC.intValue())))
                 .andExpect(jsonPath("$.[*].salary").value(hasItem(DEFAULT_SALARY.intValue())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
-                .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE_STR)));
+                .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE.intValue())));
     }
 
     @Test
@@ -184,7 +183,7 @@ public class ProfileResourceIntTest {
             .andExpect(jsonPath("$.salary_basic").value(DEFAULT_SALARY_BASIC.intValue()))
             .andExpect(jsonPath("$.salary").value(DEFAULT_SALARY.intValue()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
-            .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE_STR));
+            .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE.intValue()));
     }
 
     @Test

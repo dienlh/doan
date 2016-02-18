@@ -41,7 +41,7 @@ public class Profile implements Serializable {
     private ZonedDateTime create_date;
 
     @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
+    private Long last_modified_date;
 
     @ManyToOne
     @JoinColumn(name = "position_id")
@@ -52,11 +52,12 @@ public class Profile implements Serializable {
     private Department department;
 
     @ManyToOne
+    @JoinColumn(name = "currency_id")
+    private Currency currency;
+
+    @ManyToOne
     @JoinColumn(name = "status_profile_id")
     private Status_profile status_profile;
-
-    @OneToOne
-    private Employee employee;
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")
@@ -65,6 +66,9 @@ public class Profile implements Serializable {
     @ManyToOne
     @JoinColumn(name = "last_modified_by_id")
     private User last_modified_by;
+
+    @OneToOne
+    private Employee employee;
 
     public Long getId() {
         return id;
@@ -107,18 +111,18 @@ public class Profile implements Serializable {
     }
 
     public ZonedDateTime getCreate_date() {
-        return ZonedDateTime.now();
+        return create_date;
     }
 
     public void setCreate_date(ZonedDateTime create_date) {
         this.create_date = create_date;
     }
 
-    public ZonedDateTime getLast_modified_date() {
+    public Long getLast_modified_date() {
         return last_modified_date;
     }
 
-    public void setLast_modified_date(ZonedDateTime last_modified_date) {
+    public void setLast_modified_date(Long last_modified_date) {
         this.last_modified_date = last_modified_date;
     }
 
@@ -138,20 +142,20 @@ public class Profile implements Serializable {
         this.department = department;
     }
 
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
     public Status_profile getStatus_profile() {
         return status_profile;
     }
 
     public void setStatus_profile(Status_profile status_profile) {
         this.status_profile = status_profile;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
 
     public User getCreate_by() {
@@ -168,6 +172,14 @@ public class Profile implements Serializable {
 
     public void setLast_modified_by(User user) {
         this.last_modified_by = user;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override

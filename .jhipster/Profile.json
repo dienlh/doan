@@ -16,19 +16,17 @@
         },
         {
             "relationshipId": 3,
+            "relationshipName": "currency",
+            "otherEntityName": "currency",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipId": 4,
             "relationshipName": "status_profile",
             "otherEntityName": "status_profile",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
-        },
-        {
-            "relationshipId": 4,
-            "relationshipName": "employee",
-            "otherEntityName": "employee",
-            "relationshipType": "one-to-one",
-            "otherEntityField": "full_name",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "profile"
         },
         {
             "relationshipId": 5,
@@ -43,6 +41,15 @@
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 7,
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "full_name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "profile"
         }
     ],
     "fields": [
@@ -61,7 +68,7 @@
             "fieldValidateRules": [
                 "min"
             ],
-            "fieldValidateRulesMin": "0"
+            "fieldValidateRulesMin": 0
         },
         {
             "fieldId": 3,
@@ -89,10 +96,10 @@
         {
             "fieldId": 6,
             "fieldName": "last_modified_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "Long"
         }
     ],
-    "changelogDate": "20160218024433",
+    "changelogDate": "20160218042430",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

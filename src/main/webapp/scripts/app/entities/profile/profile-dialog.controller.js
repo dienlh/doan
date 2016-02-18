@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('hotelApp').controller('ProfileDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Profile', 'Position', 'Department', 'Status_profile', 'Employee', 'User',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Profile, Position, Department, Status_profile, Employee, User) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Profile', 'Position', 'Department', 'Currency', 'Status_profile', 'User', 'Employee',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, Profile, Position, Department, Currency, Status_profile, User, Employee) {
 
         $scope.profile = entity;
         $scope.positions = Position.query();
         $scope.departments = Department.query();
+        $scope.currencys = Currency.query();
         $scope.status_profiles = Status_profile.query();
+        $scope.users = User.query();
         $scope.employees = Employee.query({filter: 'profile-is-null'});
         $q.all([$scope.profile.$promise, $scope.employees.$promise]).then(function() {
             if (!$scope.profile.employee || !$scope.profile.employee.id) {
@@ -17,7 +19,6 @@ angular.module('hotelApp').controller('ProfileDialogController',
         }).then(function(employee) {
             $scope.employees.push(employee);
         });
-        $scope.users = User.query();
         $scope.load = function(id) {
             Profile.get({id : id}, function(result) {
                 $scope.profile = result;
@@ -63,14 +64,5 @@ angular.module('hotelApp').controller('ProfileDialogController',
 
         $scope.datePickerForCreate_dateOpen = function($event) {
             $scope.datePickerForCreate_date.status.opened = true;
-        };
-        $scope.datePickerForLast_modified_date = {};
-
-        $scope.datePickerForLast_modified_date.status = {
-            opened: false
-        };
-
-        $scope.datePickerForLast_modified_dateOpen = function($event) {
-            $scope.datePickerForLast_modified_date.status.opened = true;
         };
 }]);

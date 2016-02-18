@@ -85,11 +85,9 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
-            <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="profile.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
+            <input type="number" class="form-control" name="last_modified_date" id="field_last_modified_date"
+                    ng-model="profile.last_modified_date"
+                     />
         </div>
 
         <div class="form-group">
@@ -105,14 +103,14 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="field_status_profile">status_profile</label>
-            <select class="form-control" id="field_status_profile" name="status_profile" ng-model="profile.status_profile" ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
+            <label for="field_currency">currency</label>
+            <select class="form-control" id="field_currency" name="currency" ng-model="profile.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_employee">employee</label>
-            <select class="form-control" id="field_employee" name="employee" ng-model="profile.employee" ng-options="employee as employee.full_name for employee in employees | orderBy:'id' track by employee.id">
+            <label for="field_status_profile">status_profile</label>
+            <select class="form-control" id="field_status_profile" name="status_profile" ng-model="profile.status_profile" ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
                 <option value=""></option>
             </select>
         </div>
@@ -125,6 +123,12 @@
         <div class="form-group">
             <label for="field_last_modified_by">last_modified_by</label>
             <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="profile.last_modified_by" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_employee">employee</label>
+            <select class="form-control" id="field_employee" name="employee" ng-model="profile.employee" ng-options="employee as employee.full_name for employee in employees | orderBy:'id' track by employee.id">
                 <option value=""></option>
             </select>
         </div>

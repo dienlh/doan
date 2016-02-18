@@ -2,45 +2,33 @@
 
 describe('Controller Tests', function() {
 
-    describe('Profile Detail Controller', function() {
+    describe('Currency Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockProfile, MockPosition, MockDepartment, MockCurrency, MockStatus_profile, MockUser, MockEmployee;
+        var MockEntity, MockCurrency;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockProfile = jasmine.createSpy('MockProfile');
-            MockPosition = jasmine.createSpy('MockPosition');
-            MockDepartment = jasmine.createSpy('MockDepartment');
             MockCurrency = jasmine.createSpy('MockCurrency');
-            MockStatus_profile = jasmine.createSpy('MockStatus_profile');
-            MockUser = jasmine.createSpy('MockUser');
-            MockEmployee = jasmine.createSpy('MockEmployee');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'Profile': MockProfile,
-                'Position': MockPosition,
-                'Department': MockDepartment,
-                'Currency': MockCurrency,
-                'Status_profile': MockStatus_profile,
-                'User': MockUser,
-                'Employee': MockEmployee
+                'Currency': MockCurrency
             };
             createController = function() {
-                $injector.get('$controller')("ProfileDetailController", locals);
+                $injector.get('$controller')("CurrencyDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'hotelApp:profileUpdate';
+                var eventType = 'hotelApp:currencyUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

@@ -20,5 +20,8 @@
     <include file="classpath:config/liquibase/changelog/20160217180734_added_entity_Status_profile.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160218023927_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160218024433_added_entity_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160218041036_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160218042131_added_entity_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160218042430_added_entity_Profile.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

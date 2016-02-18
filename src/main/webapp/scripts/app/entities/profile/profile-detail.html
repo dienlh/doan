@@ -55,7 +55,7 @@
                     <span>Last_modified_date</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{profile.last_modified_date | date:'medium'}}</span>
+                    <span class="form-control-static">{{profile.last_modified_date}}</span>
                 </td>
             </tr>
             <tr>
@@ -76,18 +76,18 @@
             </tr>
             <tr>
                 <td>
-                    <span>status_profile</span>
+                    <span>currency</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="status_profile.detail({id:profile.status_profile.id})">{{profile.status_profile.name}}</a>
+                    <a class="form-control-static" ui-sref="currency.detail({id:profile.currency.id})">{{profile.currency.code}}</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>employee</span>
+                    <span>status_profile</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="employee.detail({id:profile.employee.id})">{{profile.employee.full_name}}</a>
+                    <a class="form-control-static" ui-sref="status_profile.detail({id:profile.status_profile.id})">{{profile.status_profile.name}}</a>
                 </td>
             </tr>
             <tr>
@@ -104,6 +104,14 @@
                 </td>
                 <td>
                     {{profile.last_modified_by.login}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>employee</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="employee.detail({id:profile.employee.id})">{{profile.employee.full_name}}</a>
                 </td>
             </tr>
             </tbody>

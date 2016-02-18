@@ -10,7 +10,6 @@ angular.module('hotelApp')
                     data = angular.fromJson(data);
                     data.join_date = DateUtils.convertLocaleDateFromServer(data.join_date);
                     data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
-                    data.last_modified_date = DateUtils.convertDateTimeFromServer(data.last_modified_date);
                     return data;
                 }
             },
