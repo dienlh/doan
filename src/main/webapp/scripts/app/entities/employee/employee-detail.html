@@ -1,0 +1,270 @@
+
+<div>
+    <h2><span>Employee</span> {{employee.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Full_name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.full_name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Birthday</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.birthday | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Address</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.address}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Birthplace</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.birthplace}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Perman_resid</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.perman_resid}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Father_name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.father_name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Mother_name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.mother_name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Telephone</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.telephone}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Homephone</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.homephone}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Email</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.email}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Identity_card_number</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.identity_card_number}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Identity_card_prov_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.identity_card_prov_date | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Identity_card_prov_add</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.identity_card_prov_add}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Bank_account</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.bank_account}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Social_insurence_number</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.social_insurence_number}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Social_insurence_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.social_insurence_date | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Last_modified_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{employee.last_modified_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>gender</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="gender.detail({id:employee.gender.id})">{{employee.gender.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>ethnic</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="ethnic.detail({id:employee.ethnic.id})">{{employee.ethnic.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>religion</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="religion.detail({id:employee.religion.id})">{{employee.religion.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>father_job</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="job.detail({id:employee.father_job.id})">{{employee.father_job.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>mother_job</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="job.detail({id:employee.mother_job.id})">{{employee.mother_job.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>education_level</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="education_level.detail({id:employee.education_level.id})">{{employee.education_level.level}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>major</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="major.detail({id:employee.major.id})">{{employee.major.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>school</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="school.detail({id:employee.school.id})">{{employee.school.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>marital_status</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="marital_status.detail({id:employee.marital_status.id})">{{employee.marital_status.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>came_component</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="came_component.detail({id:employee.came_component.id})">{{employee.came_component.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>bank</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.bank_code}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{employee.create_by.login}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>last_modified_by</span>
+                </td>
+                <td>
+                    {{employee.last_modified_by.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

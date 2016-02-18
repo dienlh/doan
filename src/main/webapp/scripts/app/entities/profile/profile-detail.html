@@ -1,0 +1,118 @@
+
+<div>
+    <h2><span>Profile</span> {{profile.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Join_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.join_date | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Salary_subsidies</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.salary_subsidies}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Salary_basic</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.salary_basic}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Salary</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.salary}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Last_modified_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{profile.last_modified_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>position</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="position.detail({id:profile.position.id})">{{profile.position.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>department</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="department.detail({id:profile.department.id})">{{profile.department.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>status_profile</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="status_profile.detail({id:profile.status_profile.id})">{{profile.status_profile.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>employee</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="employee.detail({id:profile.employee.id})">{{profile.employee.full_name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{profile.create_by.login}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>last_modified_by</span>
+                </td>
+                <td>
+                    {{profile.last_modified_by.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

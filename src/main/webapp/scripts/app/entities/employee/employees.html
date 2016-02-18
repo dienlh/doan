@@ -1,0 +1,137 @@
+<div>
+    <h2>Employees</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="employee.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Employee</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="full_name"><span>Full_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthday"><span>Birthday</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span>Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthplace"><span>Birthplace</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="perman_resid"><span>Perman_resid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="father_name"><span>Father_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mother_name"><span>Mother_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="telephone"><span>Telephone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="homephone"><span>Homephone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span>Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identity_card_number"><span>Identity_card_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identity_card_prov_date"><span>Identity_card_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identity_card_prov_add"><span>Identity_card_prov_add</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank_account"><span>Bank_account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="social_insurence_number"><span>Social_insurence_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="social_insurence_date"><span>Social_insurence_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gender.name"><span>gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ethnic.name"><span>ethnic</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="religion.name"><span>religion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="father_job.name"><span>father_job</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mother_job.name"><span>mother_job</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="education_level.level"><span>education_level</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="major.name"><span>major</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="school.name"><span>school</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="marital_status.name"><span>marital_status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="came_component.name"><span>came_component</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank.bank_code"><span>bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees track by employee.id">
+                    <td><a ui-sref="employee.detail({id:employee.id})">{{employee.id}}</a></td>
+                    <td>{{employee.full_name}}</td>
+                        <td>{{employee.birthday | date:'mediumDate'}}</td>
+                    <td>{{employee.address}}</td>
+                    <td>{{employee.birthplace}}</td>
+                    <td>{{employee.perman_resid}}</td>
+                    <td>{{employee.father_name}}</td>
+                    <td>{{employee.mother_name}}</td>
+                    <td>{{employee.telephone}}</td>
+                    <td>{{employee.homephone}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.identity_card_number}}</td>
+                        <td>{{employee.identity_card_prov_date | date:'mediumDate'}}</td>
+                    <td>{{employee.identity_card_prov_add}}</td>
+                    <td>{{employee.bank_account}}</td>
+                    <td>{{employee.social_insurence_number}}</td>
+                        <td>{{employee.social_insurence_date | date:'mediumDate'}}</td>
+                    <td>{{employee.create_date | date:'medium'}}</td>
+                    <td>{{employee.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="gender.detail({id:employee.gender.id})">{{employee.gender.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ethnic.detail({id:employee.ethnic.id})">{{employee.ethnic.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="religion.detail({id:employee.religion.id})">{{employee.religion.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="job.detail({id:employee.father_job.id})">{{employee.father_job.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="job.detail({id:employee.mother_job.id})">{{employee.mother_job.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="education_level.detail({id:employee.education_level.id})">{{employee.education_level.level}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="major.detail({id:employee.major.id})">{{employee.major.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="school.detail({id:employee.school.id})">{{employee.school.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="marital_status.detail({id:employee.marital_status.id})">{{employee.marital_status.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="came_component.detail({id:employee.came_component.id})">{{employee.came_component.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.bank_code}}</a>
+                    </td>
+                    <td>
+                        {{employee.create_by.login}}
+                    </td>
+                    <td>
+                        {{employee.last_modified_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="employee.detail({id:employee.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="employee.edit({id:employee.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="employee.delete({id:employee.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>
