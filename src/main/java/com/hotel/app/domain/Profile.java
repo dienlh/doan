@@ -107,7 +107,7 @@ public class Profile implements Serializable {
     }
 
     public ZonedDateTime getCreate_date() {
-        return create_date;
+        return ZonedDateTime.now();
     }
 
     public void setCreate_date(ZonedDateTime create_date) {
