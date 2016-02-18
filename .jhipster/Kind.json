@@ -1,0 +1,57 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "policy",
+            "otherEntityName": "policy",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "code",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "event",
+            "otherEntityName": "event",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "code",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "create_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "decription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160218093224",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "pagination"
+}
