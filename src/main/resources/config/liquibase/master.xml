@@ -33,5 +33,9 @@
     <include file="classpath:config/liquibase/changelog/20160220132120_added_entity_Company.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160220132905_added_entity_Customer.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160220143958_added_entity_Room.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221043404_added_entity_Method_booking.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221043529_added_entity_Status_register.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221043645_added_entity_Method_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221043756_added_entity_Status_payment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
