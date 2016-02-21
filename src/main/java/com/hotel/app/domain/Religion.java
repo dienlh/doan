@@ -1,9 +1,12 @@
 package com.hotel.app.domain;
 
+import java.time.ZonedDateTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -18,9 +21,16 @@ public class Religion implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 20)
-    @Column(name = "name", length = 20, nullable = false)
+    @Size(max = 255)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
+
+    @Column(name = "create_date")
+    private ZonedDateTime create_date;
+
+    @ManyToOne
+    @JoinColumn(name = "create_by_id")
+    private User create_by;
 
     public Long getId() {
         return id;
@@ -36,6 +46,22 @@ public class Religion implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ZonedDateTime getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(ZonedDateTime create_date) {
+        this.create_date = create_date;
+    }
+
+    public User getCreate_by() {
+        return create_by;
+    }
+
+    public void setCreate_by(User user) {
+        this.create_by = user;
     }
 
     @Override
@@ -60,6 +86,7 @@ public class Religion implements Serializable {
         return "Religion{" +
             "id=" + id +
             ", name='" + name + "'" +
+            ", create_date='" + create_date + "'" +
             '}';
     }
 }

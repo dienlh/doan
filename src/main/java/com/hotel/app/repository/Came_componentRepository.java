@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface Came_componentRepository extends JpaRepository<Came_component,Long> {
 
+    @Query("select came_component from Came_component came_component where came_component.create_by.login = ?#{principal.username}")
+    List<Came_component> findByCreate_byIsCurrentUser();
+
 }

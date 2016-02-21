@@ -23,17 +23,15 @@ public class Employee implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 100)
-    @Column(name = "full_name", length = 100, nullable = false)
+    @Size(max = 255)
+    @Column(name = "full_name", length = 255, nullable = false)
     private String full_name;
 
-    @NotNull
-    @Column(name = "birthday", nullable = false)
+    @Column(name = "birthday")
     private LocalDate birthday;
 
-    @NotNull
     @Size(max = 255)
-    @Column(name = "address", length = 255, nullable = false)
+    @Column(name = "address", length = 255)
     private String address;
 
     @Size(max = 255)
@@ -44,12 +42,12 @@ public class Employee implements Serializable {
     @Column(name = "perman_resid", length = 255)
     private String perman_resid;
 
-    @Size(max = 100)
-    @Column(name = "father_name", length = 100)
+    @Size(max = 255)
+    @Column(name = "father_name", length = 255)
     private String father_name;
 
-    @Size(max = 100)
-    @Column(name = "mother_name", length = 100)
+    @Size(max = 255)
+    @Column(name = "mother_name", length = 255)
     private String mother_name;
 
     @Size(max = 20)
@@ -60,34 +58,31 @@ public class Employee implements Serializable {
     @Column(name = "homephone", length = 20)
     private String homephone;
 
-    @Size(max = 100)
-    @Column(name = "email", length = 100)
+    @Size(max = 255)
+    @Column(name = "email", length = 255)
     private String email;
 
-    @NotNull
     @Size(max = 20)
-    @Column(name = "identity_card_number", length = 20, nullable = false)
-    private String identity_card_number;
+    @Column(name = "ic_number", length = 20)
+    private String ic_number;
 
-    @NotNull
-    @Column(name = "identity_card_prov_date", nullable = false)
-    private LocalDate identity_card_prov_date;
+    @Column(name = "ic_prov_date")
+    private LocalDate ic_prov_date;
 
-    @NotNull
     @Size(max = 255)
-    @Column(name = "identity_card_prov_add", length = 255, nullable = false)
-    private String identity_card_prov_add;
+    @Column(name = "ic_prov_add", length = 255)
+    private String ic_prov_add;
 
     @Size(max = 20)
     @Column(name = "bank_account", length = 20)
     private String bank_account;
 
     @Size(max = 20)
-    @Column(name = "social_insurence_number", length = 20)
-    private String social_insurence_number;
+    @Column(name = "si_number", length = 20)
+    private String si_number;
 
-    @Column(name = "social_insurence_date")
-    private LocalDate social_insurence_date;
+    @Column(name = "si_prov_date")
+    private LocalDate si_prov_date;
 
     @Column(name = "create_date")
     private ZonedDateTime create_date;
@@ -239,28 +234,28 @@ public class Employee implements Serializable {
         this.email = email;
     }
 
-    public String getIdentity_card_number() {
-        return identity_card_number;
+    public String getIc_number() {
+        return ic_number;
     }
 
-    public void setIdentity_card_number(String identity_card_number) {
-        this.identity_card_number = identity_card_number;
+    public void setIc_number(String ic_number) {
+        this.ic_number = ic_number;
     }
 
-    public LocalDate getIdentity_card_prov_date() {
-        return identity_card_prov_date;
+    public LocalDate getIc_prov_date() {
+        return ic_prov_date;
     }
 
-    public void setIdentity_card_prov_date(LocalDate identity_card_prov_date) {
-        this.identity_card_prov_date = identity_card_prov_date;
+    public void setIc_prov_date(LocalDate ic_prov_date) {
+        this.ic_prov_date = ic_prov_date;
     }
 
-    public String getIdentity_card_prov_add() {
-        return identity_card_prov_add;
+    public String getIc_prov_add() {
+        return ic_prov_add;
     }
 
-    public void setIdentity_card_prov_add(String identity_card_prov_add) {
-        this.identity_card_prov_add = identity_card_prov_add;
+    public void setIc_prov_add(String ic_prov_add) {
+        this.ic_prov_add = ic_prov_add;
     }
 
     public String getBank_account() {
@@ -271,20 +266,20 @@ public class Employee implements Serializable {
         this.bank_account = bank_account;
     }
 
-    public String getSocial_insurence_number() {
-        return social_insurence_number;
+    public String getSi_number() {
+        return si_number;
     }
 
-    public void setSocial_insurence_number(String social_insurence_number) {
-        this.social_insurence_number = social_insurence_number;
+    public void setSi_number(String si_number) {
+        this.si_number = si_number;
     }
 
-    public LocalDate getSocial_insurence_date() {
-        return social_insurence_date;
+    public LocalDate getSi_prov_date() {
+        return si_prov_date;
     }
 
-    public void setSocial_insurence_date(LocalDate social_insurence_date) {
-        this.social_insurence_date = social_insurence_date;
+    public void setSi_prov_date(LocalDate si_prov_date) {
+        this.si_prov_date = si_prov_date;
     }
 
     public ZonedDateTime getCreate_date() {
@@ -446,12 +441,12 @@ public class Employee implements Serializable {
             ", telephone='" + telephone + "'" +
             ", homephone='" + homephone + "'" +
             ", email='" + email + "'" +
-            ", identity_card_number='" + identity_card_number + "'" +
-            ", identity_card_prov_date='" + identity_card_prov_date + "'" +
-            ", identity_card_prov_add='" + identity_card_prov_add + "'" +
+            ", ic_number='" + ic_number + "'" +
+            ", ic_prov_date='" + ic_prov_date + "'" +
+            ", ic_prov_add='" + ic_prov_add + "'" +
             ", bank_account='" + bank_account + "'" +
-            ", social_insurence_number='" + social_insurence_number + "'" +
-            ", social_insurence_date='" + social_insurence_date + "'" +
+            ", si_number='" + si_number + "'" +
+            ", si_prov_date='" + si_prov_date + "'" +
             ", create_date='" + create_date + "'" +
             ", last_modified_date='" + last_modified_date + "'" +
             '}';

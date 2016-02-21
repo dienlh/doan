@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('Education_levelDetailController', function ($scope, $rootScope, $stateParams, entity, Education_level) {
+    .controller('Education_levelDetailController', function ($scope, $rootScope, $stateParams, entity, Education_level, User) {
         $scope.education_level = entity;
         $scope.load = function (id) {
             Education_level.get({id: id}, function(result) {

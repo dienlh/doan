@@ -70,20 +70,20 @@ public class EmployeeResourceIntTest {
     private static final String UPDATED_HOMEPHONE = "BBBBB";
     private static final String DEFAULT_EMAIL = "AAAAA";
     private static final String UPDATED_EMAIL = "BBBBB";
-    private static final String DEFAULT_IDENTITY_CARD_NUMBER = "AAAAA";
-    private static final String UPDATED_IDENTITY_CARD_NUMBER = "BBBBB";
+    private static final String DEFAULT_IC_NUMBER = "AAAAA";
+    private static final String UPDATED_IC_NUMBER = "BBBBB";
 
-    private static final LocalDate DEFAULT_IDENTITY_CARD_PROV_DATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_IDENTITY_CARD_PROV_DATE = LocalDate.now(ZoneId.systemDefault());
-    private static final String DEFAULT_IDENTITY_CARD_PROV_ADD = "AAAAA";
-    private static final String UPDATED_IDENTITY_CARD_PROV_ADD = "BBBBB";
+    private static final LocalDate DEFAULT_IC_PROV_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_IC_PROV_DATE = LocalDate.now(ZoneId.systemDefault());
+    private static final String DEFAULT_IC_PROV_ADD = "AAAAA";
+    private static final String UPDATED_IC_PROV_ADD = "BBBBB";
     private static final String DEFAULT_BANK_ACCOUNT = "AAAAA";
     private static final String UPDATED_BANK_ACCOUNT = "BBBBB";
-    private static final String DEFAULT_SOCIAL_INSURENCE_NUMBER = "AAAAA";
-    private static final String UPDATED_SOCIAL_INSURENCE_NUMBER = "BBBBB";
+    private static final String DEFAULT_SI_NUMBER = "AAAAA";
+    private static final String UPDATED_SI_NUMBER = "BBBBB";
 
-    private static final LocalDate DEFAULT_SOCIAL_INSURENCE_DATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_SOCIAL_INSURENCE_DATE = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_SI_PROV_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_SI_PROV_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -132,12 +132,12 @@ public class EmployeeResourceIntTest {
         employee.setTelephone(DEFAULT_TELEPHONE);
         employee.setHomephone(DEFAULT_HOMEPHONE);
         employee.setEmail(DEFAULT_EMAIL);
-        employee.setIdentity_card_number(DEFAULT_IDENTITY_CARD_NUMBER);
-        employee.setIdentity_card_prov_date(DEFAULT_IDENTITY_CARD_PROV_DATE);
-        employee.setIdentity_card_prov_add(DEFAULT_IDENTITY_CARD_PROV_ADD);
+        employee.setIc_number(DEFAULT_IC_NUMBER);
+        employee.setIc_prov_date(DEFAULT_IC_PROV_DATE);
+        employee.setIc_prov_add(DEFAULT_IC_PROV_ADD);
         employee.setBank_account(DEFAULT_BANK_ACCOUNT);
-        employee.setSocial_insurence_number(DEFAULT_SOCIAL_INSURENCE_NUMBER);
-        employee.setSocial_insurence_date(DEFAULT_SOCIAL_INSURENCE_DATE);
+        employee.setSi_number(DEFAULT_SI_NUMBER);
+        employee.setSi_prov_date(DEFAULT_SI_PROV_DATE);
         employee.setCreate_date(DEFAULT_CREATE_DATE);
         employee.setLast_modified_date(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -168,12 +168,12 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getTelephone()).isEqualTo(DEFAULT_TELEPHONE);
         assertThat(testEmployee.getHomephone()).isEqualTo(DEFAULT_HOMEPHONE);
         assertThat(testEmployee.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testEmployee.getIdentity_card_number()).isEqualTo(DEFAULT_IDENTITY_CARD_NUMBER);
-        assertThat(testEmployee.getIdentity_card_prov_date()).isEqualTo(DEFAULT_IDENTITY_CARD_PROV_DATE);
-        assertThat(testEmployee.getIdentity_card_prov_add()).isEqualTo(DEFAULT_IDENTITY_CARD_PROV_ADD);
+        assertThat(testEmployee.getIc_number()).isEqualTo(DEFAULT_IC_NUMBER);
+        assertThat(testEmployee.getIc_prov_date()).isEqualTo(DEFAULT_IC_PROV_DATE);
+        assertThat(testEmployee.getIc_prov_add()).isEqualTo(DEFAULT_IC_PROV_ADD);
         assertThat(testEmployee.getBank_account()).isEqualTo(DEFAULT_BANK_ACCOUNT);
-        assertThat(testEmployee.getSocial_insurence_number()).isEqualTo(DEFAULT_SOCIAL_INSURENCE_NUMBER);
-        assertThat(testEmployee.getSocial_insurence_date()).isEqualTo(DEFAULT_SOCIAL_INSURENCE_DATE);
+        assertThat(testEmployee.getSi_number()).isEqualTo(DEFAULT_SI_NUMBER);
+        assertThat(testEmployee.getSi_prov_date()).isEqualTo(DEFAULT_SI_PROV_DATE);
         assertThat(testEmployee.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
         assertThat(testEmployee.getLast_modified_date()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -184,96 +184,6 @@ public class EmployeeResourceIntTest {
         int databaseSizeBeforeTest = employeeRepository.findAll().size();
         // set the field null
         employee.setFull_name(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(employee)))
-                .andExpect(status().isBadRequest());
-
-        List<Employee> employees = employeeRepository.findAll();
-        assertThat(employees).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkBirthdayIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setBirthday(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(employee)))
-                .andExpect(status().isBadRequest());
-
-        List<Employee> employees = employeeRepository.findAll();
-        assertThat(employees).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkAddressIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setAddress(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(employee)))
-                .andExpect(status().isBadRequest());
-
-        List<Employee> employees = employeeRepository.findAll();
-        assertThat(employees).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkIdentity_card_numberIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setIdentity_card_number(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(employee)))
-                .andExpect(status().isBadRequest());
-
-        List<Employee> employees = employeeRepository.findAll();
-        assertThat(employees).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkIdentity_card_prov_dateIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setIdentity_card_prov_date(null);
-
-        // Create the Employee, which fails.
-
-        restEmployeeMockMvc.perform(post("/api/employees")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(employee)))
-                .andExpect(status().isBadRequest());
-
-        List<Employee> employees = employeeRepository.findAll();
-        assertThat(employees).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkIdentity_card_prov_addIsRequired() throws Exception {
-        int databaseSizeBeforeTest = employeeRepository.findAll().size();
-        // set the field null
-        employee.setIdentity_card_prov_add(null);
 
         // Create the Employee, which fails.
 
@@ -307,12 +217,12 @@ public class EmployeeResourceIntTest {
                 .andExpect(jsonPath("$.[*].telephone").value(hasItem(DEFAULT_TELEPHONE.toString())))
                 .andExpect(jsonPath("$.[*].homephone").value(hasItem(DEFAULT_HOMEPHONE.toString())))
                 .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-                .andExpect(jsonPath("$.[*].identity_card_number").value(hasItem(DEFAULT_IDENTITY_CARD_NUMBER.toString())))
-                .andExpect(jsonPath("$.[*].identity_card_prov_date").value(hasItem(DEFAULT_IDENTITY_CARD_PROV_DATE.toString())))
-                .andExpect(jsonPath("$.[*].identity_card_prov_add").value(hasItem(DEFAULT_IDENTITY_CARD_PROV_ADD.toString())))
+                .andExpect(jsonPath("$.[*].ic_number").value(hasItem(DEFAULT_IC_NUMBER.toString())))
+                .andExpect(jsonPath("$.[*].ic_prov_date").value(hasItem(DEFAULT_IC_PROV_DATE.toString())))
+                .andExpect(jsonPath("$.[*].ic_prov_add").value(hasItem(DEFAULT_IC_PROV_ADD.toString())))
                 .andExpect(jsonPath("$.[*].bank_account").value(hasItem(DEFAULT_BANK_ACCOUNT.toString())))
-                .andExpect(jsonPath("$.[*].social_insurence_number").value(hasItem(DEFAULT_SOCIAL_INSURENCE_NUMBER.toString())))
-                .andExpect(jsonPath("$.[*].social_insurence_date").value(hasItem(DEFAULT_SOCIAL_INSURENCE_DATE.toString())))
+                .andExpect(jsonPath("$.[*].si_number").value(hasItem(DEFAULT_SI_NUMBER.toString())))
+                .andExpect(jsonPath("$.[*].si_prov_date").value(hasItem(DEFAULT_SI_PROV_DATE.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
                 .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE_STR)));
     }
@@ -338,12 +248,12 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.telephone").value(DEFAULT_TELEPHONE.toString()))
             .andExpect(jsonPath("$.homephone").value(DEFAULT_HOMEPHONE.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
-            .andExpect(jsonPath("$.identity_card_number").value(DEFAULT_IDENTITY_CARD_NUMBER.toString()))
-            .andExpect(jsonPath("$.identity_card_prov_date").value(DEFAULT_IDENTITY_CARD_PROV_DATE.toString()))
-            .andExpect(jsonPath("$.identity_card_prov_add").value(DEFAULT_IDENTITY_CARD_PROV_ADD.toString()))
+            .andExpect(jsonPath("$.ic_number").value(DEFAULT_IC_NUMBER.toString()))
+            .andExpect(jsonPath("$.ic_prov_date").value(DEFAULT_IC_PROV_DATE.toString()))
+            .andExpect(jsonPath("$.ic_prov_add").value(DEFAULT_IC_PROV_ADD.toString()))
             .andExpect(jsonPath("$.bank_account").value(DEFAULT_BANK_ACCOUNT.toString()))
-            .andExpect(jsonPath("$.social_insurence_number").value(DEFAULT_SOCIAL_INSURENCE_NUMBER.toString()))
-            .andExpect(jsonPath("$.social_insurence_date").value(DEFAULT_SOCIAL_INSURENCE_DATE.toString()))
+            .andExpect(jsonPath("$.si_number").value(DEFAULT_SI_NUMBER.toString()))
+            .andExpect(jsonPath("$.si_prov_date").value(DEFAULT_SI_PROV_DATE.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
             .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE_STR));
     }
@@ -375,12 +285,12 @@ public class EmployeeResourceIntTest {
         employee.setTelephone(UPDATED_TELEPHONE);
         employee.setHomephone(UPDATED_HOMEPHONE);
         employee.setEmail(UPDATED_EMAIL);
-        employee.setIdentity_card_number(UPDATED_IDENTITY_CARD_NUMBER);
-        employee.setIdentity_card_prov_date(UPDATED_IDENTITY_CARD_PROV_DATE);
-        employee.setIdentity_card_prov_add(UPDATED_IDENTITY_CARD_PROV_ADD);
+        employee.setIc_number(UPDATED_IC_NUMBER);
+        employee.setIc_prov_date(UPDATED_IC_PROV_DATE);
+        employee.setIc_prov_add(UPDATED_IC_PROV_ADD);
         employee.setBank_account(UPDATED_BANK_ACCOUNT);
-        employee.setSocial_insurence_number(UPDATED_SOCIAL_INSURENCE_NUMBER);
-        employee.setSocial_insurence_date(UPDATED_SOCIAL_INSURENCE_DATE);
+        employee.setSi_number(UPDATED_SI_NUMBER);
+        employee.setSi_prov_date(UPDATED_SI_PROV_DATE);
         employee.setCreate_date(UPDATED_CREATE_DATE);
         employee.setLast_modified_date(UPDATED_LAST_MODIFIED_DATE);
 
@@ -403,12 +313,12 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getTelephone()).isEqualTo(UPDATED_TELEPHONE);
         assertThat(testEmployee.getHomephone()).isEqualTo(UPDATED_HOMEPHONE);
         assertThat(testEmployee.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testEmployee.getIdentity_card_number()).isEqualTo(UPDATED_IDENTITY_CARD_NUMBER);
-        assertThat(testEmployee.getIdentity_card_prov_date()).isEqualTo(UPDATED_IDENTITY_CARD_PROV_DATE);
-        assertThat(testEmployee.getIdentity_card_prov_add()).isEqualTo(UPDATED_IDENTITY_CARD_PROV_ADD);
+        assertThat(testEmployee.getIc_number()).isEqualTo(UPDATED_IC_NUMBER);
+        assertThat(testEmployee.getIc_prov_date()).isEqualTo(UPDATED_IC_PROV_DATE);
+        assertThat(testEmployee.getIc_prov_add()).isEqualTo(UPDATED_IC_PROV_ADD);
         assertThat(testEmployee.getBank_account()).isEqualTo(UPDATED_BANK_ACCOUNT);
-        assertThat(testEmployee.getSocial_insurence_number()).isEqualTo(UPDATED_SOCIAL_INSURENCE_NUMBER);
-        assertThat(testEmployee.getSocial_insurence_date()).isEqualTo(UPDATED_SOCIAL_INSURENCE_DATE);
+        assertThat(testEmployee.getSi_number()).isEqualTo(UPDATED_SI_NUMBER);
+        assertThat(testEmployee.getSi_prov_date()).isEqualTo(UPDATED_SI_PROV_DATE);
         assertThat(testEmployee.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
         assertThat(testEmployee.getLast_modified_date()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }

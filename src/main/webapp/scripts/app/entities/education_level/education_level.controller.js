@@ -30,6 +30,7 @@ angular.module('hotelApp')
             $scope.education_level = {
                 level: null,
                 decription: null,
+                create_date: null,
                 id: null
             };
         };

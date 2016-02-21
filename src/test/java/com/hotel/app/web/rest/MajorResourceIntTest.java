@@ -24,6 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,10 +46,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class MajorResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
     private static final String DEFAULT_DECRIPTION = "AAAAA";
     private static final String UPDATED_DECRIPTION = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
     @Inject
     private MajorRepository majorRepository;
@@ -78,6 +88,7 @@ public class MajorResourceIntTest {
         major = new Major();
         major.setName(DEFAULT_NAME);
         major.setDecription(DEFAULT_DECRIPTION);
+        major.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -98,6 +109,7 @@ public class MajorResourceIntTest {
         Major testMajor = majors.get(majors.size() - 1);
         assertThat(testMajor.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testMajor.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
+        assertThat(testMajor.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -130,7 +142,8 @@ public class MajorResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(major.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
     @Test
@@ -145,7 +158,8 @@ public class MajorResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(major.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()));
+            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
     @Test
@@ -167,6 +181,7 @@ public class MajorResourceIntTest {
         // Update the major
         major.setName(UPDATED_NAME);
         major.setDecription(UPDATED_DECRIPTION);
+        major.setCreate_date(UPDATED_CREATE_DATE);
 
         restMajorMockMvc.perform(put("/api/majors")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -179,6 +194,7 @@ public class MajorResourceIntTest {
         Major testMajor = majors.get(majors.size() - 1);
         assertThat(testMajor.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testMajor.getDecription()).isEqualTo(UPDATED_DECRIPTION);
+        assertThat(testMajor.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 
     @Test

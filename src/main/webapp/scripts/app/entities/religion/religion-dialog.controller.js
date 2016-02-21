@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('ReligionDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Religion',
-        function($scope, $stateParams, $uibModalInstance, entity, Religion) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Religion', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Religion, User) {
 
         $scope.religion = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Religion.get({id : id}, function(result) {
                 $scope.religion = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('ReligionDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

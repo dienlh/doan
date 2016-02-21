@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface Education_levelRepository extends JpaRepository<Education_level,Long> {
 
+    @Query("select education_level from Education_level education_level where education_level.create_by.login = ?#{principal.username}")
+    List<Education_level> findByCreate_byIsCurrentUser();
+
 }

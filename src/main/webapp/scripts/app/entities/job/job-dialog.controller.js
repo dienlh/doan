@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('JobDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Job',
-        function($scope, $stateParams, $uibModalInstance, entity, Job) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Job', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Job, User) {
 
         $scope.job = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Job.get({id : id}, function(result) {
                 $scope.job = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('JobDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

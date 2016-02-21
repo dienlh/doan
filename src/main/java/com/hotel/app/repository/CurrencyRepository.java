@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface CurrencyRepository extends JpaRepository<Currency,Long> {
 
+    @Query("select currency from Currency currency where currency.create_by.login = ?#{principal.username}")
+    List<Currency> findByCreate_byIsCurrentUser();
+
 }

@@ -18,6 +18,8 @@
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="code"><span>Code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -26,6 +28,10 @@
                     <td><a ui-sref="currency.detail({id:currency.id})">{{currency.id}}</a></td>
                     <td>{{currency.code}}</td>
                     <td>{{currency.name}}</td>
+                    <td>{{currency.create_date | date:'medium'}}</td>
+                    <td>
+                        {{currency.create_by.login}}
+                    </td>
                     <td>
                         <button type="submit"
                                 ui-sref="currency.detail({id:currency.id})"
@@ -47,5 +53,7 @@
             </tbody>
         </table>
     </div>
-    <uib-pager total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pager>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
 </div>

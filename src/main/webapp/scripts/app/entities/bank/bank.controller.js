@@ -30,6 +30,7 @@ angular.module('hotelApp')
             $scope.bank = {
                 bank_code: null,
                 name: null,
+                create_date: null,
                 id: null
             };
         };

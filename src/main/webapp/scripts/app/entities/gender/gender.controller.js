@@ -29,6 +29,7 @@ angular.module('hotelApp')
         $scope.clear = function () {
             $scope.gender = {
                 name: null,
+                create_date: null,
                 id: null
             };
         };

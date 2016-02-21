@@ -30,6 +30,7 @@ angular.module('hotelApp')
             $scope.currency = {
                 code: null,
                 name: null,
+                create_date: null,
                 id: null
             };
         };

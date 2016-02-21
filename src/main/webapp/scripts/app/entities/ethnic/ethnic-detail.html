@@ -18,6 +18,22 @@
                     <span class="form-control-static">{{ethnic.name}}</span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{ethnic.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{ethnic.create_by.login}}
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

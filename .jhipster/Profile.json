@@ -96,10 +96,10 @@
         {
             "fieldId": 6,
             "fieldName": "last_modified_date",
-            "fieldType": "Long"
+            "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160218042430",
+    "changelogDate": "20160221145342",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

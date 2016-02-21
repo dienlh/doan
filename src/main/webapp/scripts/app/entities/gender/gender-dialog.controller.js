@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('GenderDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Gender',
-        function($scope, $stateParams, $uibModalInstance, entity, Gender) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Gender', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Gender, User) {
 
         $scope.gender = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Gender.get({id : id}, function(result) {
                 $scope.gender = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('GenderDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

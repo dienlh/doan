@@ -54,6 +54,7 @@ angular.module('hotelApp')
                                 return {
                                     name: null,
                                     decription: null,
+                                    create_date: null,
                                     id: null
                                 };
                             }

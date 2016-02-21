@@ -26,6 +26,22 @@
                     <span class="form-control-static">{{came_component.decription}}</span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{came_component.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{came_component.create_by.login}}
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

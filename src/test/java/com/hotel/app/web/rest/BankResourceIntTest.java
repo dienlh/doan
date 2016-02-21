@@ -24,6 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,10 +46,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class BankResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_BANK_CODE = "AAAAA";
     private static final String UPDATED_BANK_CODE = "BBBBB";
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
     @Inject
     private BankRepository bankRepository;
@@ -78,6 +88,7 @@ public class BankResourceIntTest {
         bank = new Bank();
         bank.setBank_code(DEFAULT_BANK_CODE);
         bank.setName(DEFAULT_NAME);
+        bank.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -98,6 +109,7 @@ public class BankResourceIntTest {
         Bank testBank = banks.get(banks.size() - 1);
         assertThat(testBank.getBank_code()).isEqualTo(DEFAULT_BANK_CODE);
         assertThat(testBank.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testBank.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -130,7 +142,8 @@ public class BankResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(bank.getId().intValue())))
                 .andExpect(jsonPath("$.[*].bank_code").value(hasItem(DEFAULT_BANK_CODE.toString())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
     @Test
@@ -145,7 +158,8 @@ public class BankResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(bank.getId().intValue()))
             .andExpect(jsonPath("$.bank_code").value(DEFAULT_BANK_CODE.toString()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
     @Test
@@ -167,6 +181,7 @@ public class BankResourceIntTest {
         // Update the bank
         bank.setBank_code(UPDATED_BANK_CODE);
         bank.setName(UPDATED_NAME);
+        bank.setCreate_date(UPDATED_CREATE_DATE);
 
         restBankMockMvc.perform(put("/api/banks")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -179,6 +194,7 @@ public class BankResourceIntTest {
         Bank testBank = banks.get(banks.size() - 1);
         assertThat(testBank.getBank_code()).isEqualTo(UPDATED_BANK_CODE);
         assertThat(testBank.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testBank.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 
     @Test

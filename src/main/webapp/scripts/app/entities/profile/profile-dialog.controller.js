@@ -65,4 +65,13 @@ angular.module('hotelApp').controller('ProfileDialogController',
         $scope.datePickerForCreate_dateOpen = function($event) {
             $scope.datePickerForCreate_date.status.opened = true;
         };
+        $scope.datePickerForLast_modified_date = {};
+
+        $scope.datePickerForLast_modified_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForLast_modified_dateOpen = function($event) {
+            $scope.datePickerForLast_modified_date.status.opened = true;
+        };
 }]);

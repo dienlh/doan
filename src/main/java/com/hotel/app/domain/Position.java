@@ -21,17 +21,16 @@ public class Position implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 50)
-    @Column(name = "name", length = 50, nullable = false)
+    @Size(max = 255)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
     @Size(max = 255)
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @NotNull
-    @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date=ZonedDateTime.now();
+    @Column(name = "create_date")
+    private ZonedDateTime create_date;
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")

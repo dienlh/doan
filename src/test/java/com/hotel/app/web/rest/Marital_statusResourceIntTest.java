@@ -24,6 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,10 +46,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class Marital_statusResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
     private static final String DEFAULT_DECRIPTION = "AAAAA";
     private static final String UPDATED_DECRIPTION = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
     @Inject
     private Marital_statusRepository marital_statusRepository;
@@ -78,6 +88,7 @@ public class Marital_statusResourceIntTest {
         marital_status = new Marital_status();
         marital_status.setName(DEFAULT_NAME);
         marital_status.setDecription(DEFAULT_DECRIPTION);
+        marital_status.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -98,6 +109,7 @@ public class Marital_statusResourceIntTest {
         Marital_status testMarital_status = marital_statuss.get(marital_statuss.size() - 1);
         assertThat(testMarital_status.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testMarital_status.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
+        assertThat(testMarital_status.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -130,7 +142,8 @@ public class Marital_statusResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(marital_status.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
     @Test
@@ -145,7 +158,8 @@ public class Marital_statusResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(marital_status.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()));
+            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
     @Test
@@ -167,6 +181,7 @@ public class Marital_statusResourceIntTest {
         // Update the marital_status
         marital_status.setName(UPDATED_NAME);
         marital_status.setDecription(UPDATED_DECRIPTION);
+        marital_status.setCreate_date(UPDATED_CREATE_DATE);
 
         restMarital_statusMockMvc.perform(put("/api/marital_statuss")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -179,6 +194,7 @@ public class Marital_statusResourceIntTest {
         Marital_status testMarital_status = marital_statuss.get(marital_statuss.size() - 1);
         assertThat(testMarital_status.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testMarital_status.getDecription()).isEqualTo(UPDATED_DECRIPTION);
+        assertThat(testMarital_status.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 
     @Test

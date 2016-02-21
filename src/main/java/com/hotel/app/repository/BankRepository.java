@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface BankRepository extends JpaRepository<Bank,Long> {
 
+    @Query("select bank from Bank bank where bank.create_by.login = ?#{principal.username}")
+    List<Bank> findByCreate_byIsCurrentUser();
+
 }

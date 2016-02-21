@@ -54,23 +54,23 @@ angular.module('hotelApp').controller('EmployeeDialogController',
         $scope.datePickerForBirthdayOpen = function($event) {
             $scope.datePickerForBirthday.status.opened = true;
         };
-        $scope.datePickerForIdentity_card_prov_date = {};
+        $scope.datePickerForIc_prov_date = {};
 
-        $scope.datePickerForIdentity_card_prov_date.status = {
+        $scope.datePickerForIc_prov_date.status = {
             opened: false
         };
 
-        $scope.datePickerForIdentity_card_prov_dateOpen = function($event) {
-            $scope.datePickerForIdentity_card_prov_date.status.opened = true;
+        $scope.datePickerForIc_prov_dateOpen = function($event) {
+            $scope.datePickerForIc_prov_date.status.opened = true;
         };
-        $scope.datePickerForSocial_insurence_date = {};
+        $scope.datePickerForSi_prov_date = {};
 
-        $scope.datePickerForSocial_insurence_date.status = {
+        $scope.datePickerForSi_prov_date.status = {
             opened: false
         };
 
-        $scope.datePickerForSocial_insurence_dateOpen = function($event) {
-            $scope.datePickerForSocial_insurence_date.status.opened = true;
+        $scope.datePickerForSi_prov_dateOpen = function($event) {
+            $scope.datePickerForSi_prov_date.status.opened = true;
         };
         $scope.datePickerForCreate_date = {};
 

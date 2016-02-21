@@ -1,5 +1,13 @@
 {
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "create_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        }
+    ],
     "fields": [
         {
             "fieldId": 1,
@@ -9,7 +17,7 @@
                 "required",
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "50"
+            "fieldValidateRulesMaxlength": 20
         },
         {
             "fieldId": 2,
@@ -18,11 +26,16 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160217094103",
+    "changelogDate": "20160221142004",
     "dto": "no",
     "service": "serviceImpl",
-    "pagination": "pager"
+    "pagination": "pagination"
 }

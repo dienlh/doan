@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('Came_componentDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Came_component',
-        function($scope, $stateParams, $uibModalInstance, entity, Came_component) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Came_component', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Came_component, User) {
 
         $scope.came_component = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Came_component.get({id : id}, function(result) {
                 $scope.came_component = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('Came_componentDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

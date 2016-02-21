@@ -24,6 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,8 +46,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class GenderResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
     @Inject
     private GenderRepository genderRepository;
@@ -75,6 +85,7 @@ public class GenderResourceIntTest {
     public void initTest() {
         gender = new Gender();
         gender.setName(DEFAULT_NAME);
+        gender.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -94,6 +105,7 @@ public class GenderResourceIntTest {
         assertThat(genders).hasSize(databaseSizeBeforeCreate + 1);
         Gender testGender = genders.get(genders.size() - 1);
         assertThat(testGender.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testGender.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
@@ -125,7 +137,8 @@ public class GenderResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(gender.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
     @Test
@@ -139,7 +152,8 @@ public class GenderResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(gender.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
     @Test
@@ -160,6 +174,7 @@ public class GenderResourceIntTest {
 
         // Update the gender
         gender.setName(UPDATED_NAME);
+        gender.setCreate_date(UPDATED_CREATE_DATE);
 
         restGenderMockMvc.perform(put("/api/genders")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -171,6 +186,7 @@ public class GenderResourceIntTest {
         assertThat(genders).hasSize(databaseSizeBeforeUpdate);
         Gender testGender = genders.get(genders.size() - 1);
         assertThat(testGender.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testGender.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 
     @Test

@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface MajorRepository extends JpaRepository<Major,Long> {
 
+    @Query("select major from Major major where major.create_by.login = ?#{principal.username}")
+    List<Major> findByCreate_byIsCurrentUser();
+
 }

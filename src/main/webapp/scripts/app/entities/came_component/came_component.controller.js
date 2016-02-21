@@ -30,6 +30,7 @@ angular.module('hotelApp')
             $scope.came_component = {
                 name: null,
                 decription: null,
+                create_date: null,
                 id: null
             };
         };

@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('EthnicDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Ethnic',
-        function($scope, $stateParams, $uibModalInstance, entity, Ethnic) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Ethnic', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Ethnic, User) {
 
         $scope.ethnic = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Ethnic.get({id : id}, function(result) {
                 $scope.ethnic = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('EthnicDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

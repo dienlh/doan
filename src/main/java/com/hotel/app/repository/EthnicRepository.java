@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface EthnicRepository extends JpaRepository<Ethnic,Long> {
 
+    @Query("select ethnic from Ethnic ethnic where ethnic.create_by.login = ?#{principal.username}")
+    List<Ethnic> findByCreate_byIsCurrentUser();
+
 }

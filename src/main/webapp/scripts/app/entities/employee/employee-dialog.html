@@ -17,42 +17,32 @@
             <label class="control-label" for="field_full_name">Full_name</label>
             <input type="text" class="form-control" name="full_name" id="field_full_name"
                     ng-model="employee.full_name"
-                    required ng-maxlength="100" />
+                    required ng-maxlength="255" />
             <div ng-show="editForm.full_name.$invalid">
                 <p class="help-block"
                     ng-show="editForm.full_name.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.full_name.$error.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
+                    ng-show="editForm.full_name.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_birthday">Birthday</label>
             <input id="field_birthday" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.birthday" is-open="datePickerForBirthday.status.opened"
-            required/>
+            />
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="datePickerForBirthdayOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
-            <div ng-show="editForm.birthday.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.birthday.$error.required">
-                    This field is required.
-                </p>
-            </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_address">Address</label>
             <input type="text" class="form-control" name="address" id="field_address"
                     ng-model="employee.address"
-                    required ng-maxlength="255" />
+                    ng-maxlength="255" />
             <div ng-show="editForm.address.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.address.$error.required">
-                    This field is required.
-                </p>
                 <p class="help-block"
                     ng-show="editForm.address.$error.maxlength" translate-value-max="255">
                     This field cannot be longer than 255 characters.
@@ -87,11 +77,11 @@
             <label class="control-label" for="field_father_name">Father_name</label>
             <input type="text" class="form-control" name="father_name" id="field_father_name"
                     ng-model="employee.father_name"
-                    ng-maxlength="100" />
+                    ng-maxlength="255" />
             <div ng-show="editForm.father_name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.father_name.$error.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
+                    ng-show="editForm.father_name.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
@@ -99,11 +89,11 @@
             <label class="control-label" for="field_mother_name">Mother_name</label>
             <input type="text" class="form-control" name="mother_name" id="field_mother_name"
                     ng-model="employee.mother_name"
-                    ng-maxlength="100" />
+                    ng-maxlength="255" />
             <div ng-show="editForm.mother_name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.mother_name.$error.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
+                    ng-show="editForm.mother_name.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
@@ -135,56 +125,42 @@
             <label class="control-label" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                     ng-model="employee.email"
-                    ng-maxlength="100" />
+                    ng-maxlength="255" />
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.email.$error.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
+                    ng-show="editForm.email.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_identity_card_number">Identity_card_number</label>
-            <input type="text" class="form-control" name="identity_card_number" id="field_identity_card_number"
-                    ng-model="employee.identity_card_number"
-                    required ng-maxlength="20" />
-            <div ng-show="editForm.identity_card_number.$invalid">
+            <label class="control-label" for="field_ic_number">Ic_number</label>
+            <input type="text" class="form-control" name="ic_number" id="field_ic_number"
+                    ng-model="employee.ic_number"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.ic_number.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.identity_card_number.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.identity_card_number.$error.maxlength" translate-value-max="20">
+                    ng-show="editForm.ic_number.$error.maxlength" translate-value-max="20">
                     This field cannot be longer than 20 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_identity_card_prov_date">Identity_card_prov_date</label>
-            <input id="field_identity_card_prov_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.identity_card_prov_date" is-open="datePickerForIdentity_card_prov_date.status.opened"
-            required/>
+            <label class="control-label" for="field_ic_prov_date">Ic_prov_date</label>
+            <input id="field_ic_prov_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.ic_prov_date" is-open="datePickerForIc_prov_date.status.opened"
+            />
             <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForIdentity_card_prov_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                <button type="button" class="btn btn-default" ng-click="datePickerForIc_prov_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
-            <div ng-show="editForm.identity_card_prov_date.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.identity_card_prov_date.$error.required">
-                    This field is required.
-                </p>
-            </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_identity_card_prov_add">Identity_card_prov_add</label>
-            <input type="text" class="form-control" name="identity_card_prov_add" id="field_identity_card_prov_add"
-                    ng-model="employee.identity_card_prov_add"
-                    required ng-maxlength="255" />
-            <div ng-show="editForm.identity_card_prov_add.$invalid">
+            <label class="control-label" for="field_ic_prov_add">Ic_prov_add</label>
+            <input type="text" class="form-control" name="ic_prov_add" id="field_ic_prov_add"
+                    ng-model="employee.ic_prov_add"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.ic_prov_add.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.identity_card_prov_add.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.identity_card_prov_add.$error.maxlength" translate-value-max="255">
+                    ng-show="editForm.ic_prov_add.$error.maxlength" translate-value-max="255">
                     This field cannot be longer than 255 characters.
                 </p>
             </div>
@@ -202,23 +178,23 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_social_insurence_number">Social_insurence_number</label>
-            <input type="text" class="form-control" name="social_insurence_number" id="field_social_insurence_number"
-                    ng-model="employee.social_insurence_number"
+            <label class="control-label" for="field_si_number">Si_number</label>
+            <input type="text" class="form-control" name="si_number" id="field_si_number"
+                    ng-model="employee.si_number"
                     ng-maxlength="20" />
-            <div ng-show="editForm.social_insurence_number.$invalid">
+            <div ng-show="editForm.si_number.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.social_insurence_number.$error.maxlength" translate-value-max="20">
+                    ng-show="editForm.si_number.$error.maxlength" translate-value-max="20">
                     This field cannot be longer than 20 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_social_insurence_date">Social_insurence_date</label>
-            <input id="field_social_insurence_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.social_insurence_date" is-open="datePickerForSocial_insurence_date.status.opened"
+            <label class="control-label" for="field_si_prov_date">Si_prov_date</label>
+            <input id="field_si_prov_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.si_prov_date" is-open="datePickerForSi_prov_date.status.opened"
             />
             <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForSocial_insurence_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                <button type="button" class="btn btn-default" ng-click="datePickerForSi_prov_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
         </div>
         <div class="form-group">

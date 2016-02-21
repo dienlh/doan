@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface ReligionRepository extends JpaRepository<Religion,Long> {
 
+    @Query("select religion from Religion religion where religion.create_by.login = ?#{principal.username}")
+    List<Religion> findByCreate_byIsCurrentUser();
+
 }

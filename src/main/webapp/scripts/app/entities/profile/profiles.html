@@ -40,7 +40,7 @@
                     <td>{{profile.salary_basic}}</td>
                     <td>{{profile.salary}}</td>
                     <td>{{profile.create_date | date:'medium'}}</td>
-                    <td>{{profile.last_modified_date}}</td>
+                    <td>{{profile.last_modified_date | date:'medium'}}</td>
                     <td>
                         <a ui-sref="position.detail({id:profile.position.id})">{{profile.position.name}}</a>
                     </td>

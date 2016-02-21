@@ -26,12 +26,12 @@
                     <th jh-sort-by="telephone"><span>Telephone</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="homephone"><span>Homephone</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="email"><span>Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="identity_card_number"><span>Identity_card_number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="identity_card_prov_date"><span>Identity_card_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="identity_card_prov_add"><span>Identity_card_prov_add</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_number"><span>Ic_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_prov_date"><span>Ic_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_prov_add"><span>Ic_prov_add</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bank_account"><span>Bank_account</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="social_insurence_number"><span>Social_insurence_number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="social_insurence_date"><span>Social_insurence_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="si_number"><span>Si_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="si_prov_date"><span>Si_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="gender.name"><span>gender</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -63,12 +63,12 @@
                     <td>{{employee.telephone}}</td>
                     <td>{{employee.homephone}}</td>
                     <td>{{employee.email}}</td>
-                    <td>{{employee.identity_card_number}}</td>
-                        <td>{{employee.identity_card_prov_date | date:'mediumDate'}}</td>
-                    <td>{{employee.identity_card_prov_add}}</td>
+                    <td>{{employee.ic_number}}</td>
+                        <td>{{employee.ic_prov_date | date:'mediumDate'}}</td>
+                    <td>{{employee.ic_prov_add}}</td>
                     <td>{{employee.bank_account}}</td>
-                    <td>{{employee.social_insurence_number}}</td>
-                        <td>{{employee.social_insurence_date | date:'mediumDate'}}</td>
+                    <td>{{employee.si_number}}</td>
+                        <td>{{employee.si_prov_date | date:'mediumDate'}}</td>
                     <td>{{employee.create_date | date:'medium'}}</td>
                     <td>{{employee.last_modified_date | date:'medium'}}</td>
                     <td>

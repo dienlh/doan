@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('Came_componentDetailController', function ($scope, $rootScope, $stateParams, entity, Came_component) {
+    .controller('Came_componentDetailController', function ($scope, $rootScope, $stateParams, entity, Came_component, User) {
         $scope.came_component = entity;
         $scope.load = function (id) {
             Came_component.get({id: id}, function(result) {

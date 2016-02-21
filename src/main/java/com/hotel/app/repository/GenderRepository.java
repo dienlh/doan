@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface GenderRepository extends JpaRepository<Gender,Long> {
 
+    @Query("select gender from Gender gender where gender.create_by.login = ?#{principal.username}")
+    List<Gender> findByCreate_byIsCurrentUser();
+
 }

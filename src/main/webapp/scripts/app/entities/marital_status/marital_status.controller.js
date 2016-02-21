@@ -30,6 +30,7 @@ angular.module('hotelApp')
             $scope.marital_status = {
                 name: null,
                 decription: null,
+                create_date: null,
                 id: null
             };
         };

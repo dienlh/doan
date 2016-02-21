@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('CurrencyDetailController', function ($scope, $rootScope, $stateParams, entity, Currency) {
+    .controller('CurrencyDetailController', function ($scope, $rootScope, $stateParams, entity, Currency, User) {
         $scope.currency = entity;
         $scope.load = function (id) {
             Currency.get({id: id}, function(result) {

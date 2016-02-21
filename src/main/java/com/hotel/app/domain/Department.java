@@ -33,8 +33,7 @@ public class Department implements Serializable {
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @NotNull
-    @Column(name = "create_date", nullable = false)
+    @Column(name = "create_date")
     private ZonedDateTime create_date;
 
     @ManyToOne

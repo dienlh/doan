@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('Marital_statusDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Marital_status',
-        function($scope, $stateParams, $uibModalInstance, entity, Marital_status) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Marital_status', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Marital_status, User) {
 
         $scope.marital_status = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Marital_status.get({id : id}, function(result) {
                 $scope.marital_status = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('Marital_statusDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

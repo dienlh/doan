@@ -9,8 +9,8 @@ angular.module('hotelApp')
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
                     data.birthday = DateUtils.convertLocaleDateFromServer(data.birthday);
-                    data.identity_card_prov_date = DateUtils.convertLocaleDateFromServer(data.identity_card_prov_date);
-                    data.social_insurence_date = DateUtils.convertLocaleDateFromServer(data.social_insurence_date);
+                    data.ic_prov_date = DateUtils.convertLocaleDateFromServer(data.ic_prov_date);
+                    data.si_prov_date = DateUtils.convertLocaleDateFromServer(data.si_prov_date);
                     data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
                     data.last_modified_date = DateUtils.convertDateTimeFromServer(data.last_modified_date);
                     return data;
@@ -20,8 +20,8 @@ angular.module('hotelApp')
                 method: 'PUT',
                 transformRequest: function (data) {
                     data.birthday = DateUtils.convertLocaleDateToServer(data.birthday);
-                    data.identity_card_prov_date = DateUtils.convertLocaleDateToServer(data.identity_card_prov_date);
-                    data.social_insurence_date = DateUtils.convertLocaleDateToServer(data.social_insurence_date);
+                    data.ic_prov_date = DateUtils.convertLocaleDateToServer(data.ic_prov_date);
+                    data.si_prov_date = DateUtils.convertLocaleDateToServer(data.si_prov_date);
                     return angular.toJson(data);
                 }
             },
@@ -29,8 +29,8 @@ angular.module('hotelApp')
                 method: 'POST',
                 transformRequest: function (data) {
                     data.birthday = DateUtils.convertLocaleDateToServer(data.birthday);
-                    data.identity_card_prov_date = DateUtils.convertLocaleDateToServer(data.identity_card_prov_date);
-                    data.social_insurence_date = DateUtils.convertLocaleDateToServer(data.social_insurence_date);
+                    data.ic_prov_date = DateUtils.convertLocaleDateToServer(data.ic_prov_date);
+                    data.si_prov_date = DateUtils.convertLocaleDateToServer(data.si_prov_date);
                     return angular.toJson(data);
                 }
             }

@@ -18,6 +18,22 @@
                     <span class="form-control-static">{{religion.name}}</span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{religion.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{religion.create_by.login}}
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

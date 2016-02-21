@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('Education_levelDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Education_level',
-        function($scope, $stateParams, $uibModalInstance, entity, Education_level) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Education_level', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Education_level, User) {
 
         $scope.education_level = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Education_level.get({id : id}, function(result) {
                 $scope.education_level = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('Education_levelDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);

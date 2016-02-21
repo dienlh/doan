@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface Status_profileRepository extends JpaRepository<Status_profile,Long> {
 
+    @Query("select status_profile from Status_profile status_profile where status_profile.create_by.login = ?#{principal.username}")
+    List<Status_profile> findByCreate_byIsCurrentUser();
+
 }

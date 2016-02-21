@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface JobRepository extends JpaRepository<Job,Long> {
 
+    @Query("select job from Job job where job.create_by.login = ?#{principal.username}")
+    List<Job> findByCreate_byIsCurrentUser();
+
 }

@@ -109,22 +109,18 @@
                 "required",
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 2,
             "fieldName": "birthday",
-            "fieldType": "LocalDate",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "LocalDate"
         },
         {
             "fieldId": 3,
             "fieldName": "address",
             "fieldType": "String",
             "fieldValidateRules": [
-                "required",
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "255"
@@ -154,7 +150,7 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 7,
@@ -163,7 +159,7 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 8,
@@ -190,32 +186,27 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 11,
-            "fieldName": "identity_card_number",
+            "fieldName": "ic_number",
             "fieldType": "String",
             "fieldValidateRules": [
-                "required",
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": 20
         },
         {
             "fieldId": 12,
-            "fieldName": "identity_card_prov_date",
-            "fieldType": "LocalDate",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldName": "ic_prov_date",
+            "fieldType": "LocalDate"
         },
         {
             "fieldId": 13,
-            "fieldName": "identity_card_prov_add",
+            "fieldName": "ic_prov_add",
             "fieldType": "String",
             "fieldValidateRules": [
-                "required",
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "255"
@@ -231,7 +222,7 @@
         },
         {
             "fieldId": 15,
-            "fieldName": "social_insurence_number",
+            "fieldName": "si_number",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength"
@@ -240,7 +231,7 @@
         },
         {
             "fieldId": 16,
-            "fieldName": "social_insurence_date",
+            "fieldName": "si_prov_date",
             "fieldType": "LocalDate"
         },
         {
@@ -254,7 +245,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160218023927",
+    "changelogDate": "20160221145038",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

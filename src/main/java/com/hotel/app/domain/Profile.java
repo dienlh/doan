@@ -41,7 +41,7 @@ public class Profile implements Serializable {
     private ZonedDateTime create_date;
 
     @Column(name = "last_modified_date")
-    private Long last_modified_date;
+    private ZonedDateTime last_modified_date;
 
     @ManyToOne
     @JoinColumn(name = "position_id")
@@ -118,11 +118,11 @@ public class Profile implements Serializable {
         this.create_date = create_date;
     }
 
-    public Long getLast_modified_date() {
+    public ZonedDateTime getLast_modified_date() {
         return last_modified_date;
     }
 
-    public void setLast_modified_date(Long last_modified_date) {
+    public void setLast_modified_date(ZonedDateTime last_modified_date) {
         this.last_modified_date = last_modified_date;
     }
 

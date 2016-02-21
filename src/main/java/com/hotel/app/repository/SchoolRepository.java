@@ -11,4 +11,7 @@ import java.util.List;
  */
 public interface SchoolRepository extends JpaRepository<School,Long> {
 
+    @Query("select school from School school where school.create_by.login = ?#{principal.username}")
+    List<School> findByCreate_byIsCurrentUser();
+
 }

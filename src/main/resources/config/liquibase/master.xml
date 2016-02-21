@@ -5,37 +5,21 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093239_added_entity_Gender.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093326_added_entity_Ethnic.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093356_added_entity_Religion.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093459_added_entity_Job.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093619_added_entity_Education_level.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093701_added_entity_Major.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093800_added_entity_School.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093846_added_entity_Marital_status.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217093923_added_entity_Came_component.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217094103_added_entity_Bank.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217180526_added_entity_Position.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217180650_added_entity_Department.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160217180734_added_entity_Status_profile.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218023927_added_entity_Employee.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218024433_added_entity_Profile.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218041036_added_entity_Currency.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218042131_added_entity_Profile.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218042430_added_entity_Profile.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218092240_added_entity_Status_pe.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218092659_added_entity_Policy.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218093030_added_entity_Event.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218093224_added_entity_Kind.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218094930_added_entity_Funiture.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218095111_added_entity_Image.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160218095200_added_entity_Status_room.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160220132120_added_entity_Company.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160220132905_added_entity_Customer.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160220143958_added_entity_Room.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221043404_added_entity_Method_booking.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221043529_added_entity_Status_register.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221043645_added_entity_Method_payment.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221043756_added_entity_Status_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142004_added_entity_Bank.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142143_added_entity_Gender.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142235_added_entity_Ethnic.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142318_added_entity_Religion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142424_added_entity_Job.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142531_added_entity_Education_level.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142620_added_entity_Major.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142731_added_entity_School.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221142939_added_entity_Marital_status.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221143020_added_entity_Came_component.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221143811_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221143917_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221144005_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221144109_added_entity_Status_profile.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221145038_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160221145342_added_entity_Profile.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

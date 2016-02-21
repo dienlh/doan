@@ -132,24 +132,6 @@ public class PositionResourceIntTest {
 
     @Test
     @Transactional
-    public void checkCreate_dateIsRequired() throws Exception {
-        int databaseSizeBeforeTest = positionRepository.findAll().size();
-        // set the field null
-        position.setCreate_date(null);
-
-        // Create the Position, which fails.
-
-        restPositionMockMvc.perform(post("/api/positions")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(position)))
-                .andExpect(status().isBadRequest());
-
-        List<Position> positions = positionRepository.findAll();
-        assertThat(positions).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllPositions() throws Exception {
         // Initialize the database
         positionRepository.saveAndFlush(position);

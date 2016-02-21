@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('SchoolDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'School',
-        function($scope, $stateParams, $uibModalInstance, entity, School) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'School', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, School, User) {
 
         $scope.school = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             School.get({id : id}, function(result) {
                 $scope.school = result;
@@ -32,5 +33,14 @@ angular.module('hotelApp').controller('SchoolDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForCreate_date = {};
+
+        $scope.datePickerForCreate_date.status = {
+            opened: false
+        };
+
+        $scope.datePickerForCreate_dateOpen = function($event) {
+            $scope.datePickerForCreate_date.status.opened = true;
         };
 }]);
