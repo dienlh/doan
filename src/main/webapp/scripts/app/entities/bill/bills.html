@@ -1,0 +1,93 @@
+<div>
+    <h2>Bills</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="bill.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Bill</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_room"><span>Fees_room</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_service"><span>Fees_service</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_other"><span>Fees_other</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_bonus"><span>Fees_bonus</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_vat"><span>Fees_vat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fees_total"><span>Fees_total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reservation.id"><span>reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer.full_name"><span>customer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="method_payment.name"><span>method_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_payment.name"><span>status_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_bill.name"><span>status_bill</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bill in bills track by bill.id">
+                    <td><a ui-sref="bill.detail({id:bill.id})">{{bill.id}}</a></td>
+                    <td>{{bill.fees_room}}</td>
+                    <td>{{bill.fees_service}}</td>
+                    <td>{{bill.fees_other}}</td>
+                    <td>{{bill.fees_bonus}}</td>
+                    <td>{{bill.fees_vat}}</td>
+                    <td>{{bill.fees_total}}</td>
+                    <td>{{bill.decription}}</td>
+                    <td>{{bill.create_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="reservation.detail({id:bill.reservation.id})">{{bill.reservation.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="customer.detail({id:bill.customer.id})">{{bill.customer.full_name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="currency.detail({id:bill.currency.id})">{{bill.currency.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="method_payment.detail({id:bill.method_payment.id})">{{bill.method_payment.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_payment.detail({id:bill.status_payment.id})">{{bill.status_payment.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_bill.detail({id:bill.status_bill.id})">{{bill.status_bill.name}}</a>
+                    </td>
+                    <td>
+                        {{bill.create_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="bill.detail({id:bill.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="bill.edit({id:bill.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="bill.delete({id:bill.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

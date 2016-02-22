@@ -1,0 +1,108 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "person_checkin",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "full_name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "person_checkout",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "full_name"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "full_name",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 4,
+            "relationshipName": "register_info",
+            "otherEntityName": "register_info",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "reservation"
+        },
+        {
+            "relationshipId": 5,
+            "relationshipName": "status_reservation",
+            "otherEntityName": "status_reservation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 6,
+            "relationshipName": "create_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 7,
+            "relationshipName": "last_modified_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 8,
+            "relationshipName": "bill",
+            "otherEntityName": "bill",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "reservation"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "time_checkin",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "note_checkin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "time_checkout",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "note_checkout",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "last_modified_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160222171524",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "pagination"
+}
