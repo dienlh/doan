@@ -1,0 +1,85 @@
+<div>
+    <h2>Customers</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="customer.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Customer</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="full_name"><span>Full_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_number"><span>Ic_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_prov_date"><span>Ic_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ic_prov_add"><span>Ic_prov_add</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span>Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone_number"><span>Phone_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="birthday"><span>Birthday</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span>Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gender.name"><span>gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="company.name"><span>company</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers track by customer.id">
+                    <td><a ui-sref="customer.detail({id:customer.id})">{{customer.id}}</a></td>
+                    <td>{{customer.full_name}}</td>
+                    <td>{{customer.ic_number}}</td>
+                        <td>{{customer.ic_prov_date | date:'mediumDate'}}</td>
+                    <td>{{customer.ic_prov_add}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.phone_number}}</td>
+                        <td>{{customer.birthday | date:'mediumDate'}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.create_date | date:'medium'}}</td>
+                    <td>{{customer.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="gender.detail({id:customer.gender.id})">{{customer.gender.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="company.detail({id:customer.company.id})">{{customer.company.name}}</a>
+                    </td>
+                    <td>
+                        {{customer.create_by.login}}
+                    </td>
+                    <td>
+                        {{customer.last_modified_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="customer.detail({id:customer.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="customer.edit({id:customer.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="customer.delete({id:customer.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>
