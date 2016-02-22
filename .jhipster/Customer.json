@@ -9,20 +9,34 @@
         },
         {
             "relationshipId": 2,
+            "relationshipName": "ethnic",
+            "otherEntityName": "ethnic",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "religion",
+            "otherEntityName": "religion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 4,
             "relationshipName": "company",
             "otherEntityName": "company",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
         },
         {
-            "relationshipId": 3,
+            "relationshipId": 5,
             "relationshipName": "create_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
         },
         {
-            "relationshipId": 4,
+            "relationshipId": 6,
             "relationshipName": "last_modified_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
@@ -52,7 +66,8 @@
         {
             "fieldId": 3,
             "fieldName": "ic_prov_date",
-            "fieldType": "LocalDate"
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
         },
         {
             "fieldId": 4,
@@ -70,7 +85,7 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "100"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 6,
@@ -106,7 +121,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160222131752",
+    "changelogDate": "20160222133536",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

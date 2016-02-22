@@ -27,6 +27,8 @@
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="gender.name"><span>gender</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ethnic.name"><span>ethnic</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="religion.name"><span>religion</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="company.name"><span>company</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -48,6 +50,12 @@
                     <td>{{customer.last_modified_date | date:'medium'}}</td>
                     <td>
                         <a ui-sref="gender.detail({id:customer.gender.id})">{{customer.gender.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ethnic.detail({id:customer.ethnic.id})">{{customer.ethnic.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="religion.detail({id:customer.religion.id})">{{customer.religion.name}}</a>
                     </td>
                     <td>
                         <a ui-sref="company.detail({id:customer.company.id})">{{customer.company.name}}</a>

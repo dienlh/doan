@@ -37,8 +37,8 @@ public class Customer implements Serializable {
     @Column(name = "ic_prov_add", length = 255)
     private String ic_prov_add;
 
-    @Size(max = 100)
-    @Column(name = "email", length = 100)
+    @Size(max = 255)
+    @Column(name = "email", length = 255)
     private String email;
 
     @Size(max = 20)
@@ -61,6 +61,14 @@ public class Customer implements Serializable {
     @ManyToOne
     @JoinColumn(name = "gender_id")
     private Gender gender;
+
+    @ManyToOne
+    @JoinColumn(name = "ethnic_id")
+    private Ethnic ethnic;
+
+    @ManyToOne
+    @JoinColumn(name = "religion_id")
+    private Religion religion;
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -168,6 +176,22 @@ public class Customer implements Serializable {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public Ethnic getEthnic() {
+        return ethnic;
+    }
+
+    public void setEthnic(Ethnic ethnic) {
+        this.ethnic = ethnic;
+    }
+
+    public Religion getReligion() {
+        return religion;
+    }
+
+    public void setReligion(Religion religion) {
+        this.religion = religion;
     }
 
     public Company getCompany() {

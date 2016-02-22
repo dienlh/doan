@@ -65,11 +65,11 @@
             <label class="control-label" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                     ng-model="customer.email"
-                    ng-maxlength="100" />
+                    ng-maxlength="255" />
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.email.$error.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
+                    ng-show="editForm.email.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
@@ -125,6 +125,18 @@
         <div class="form-group">
             <label for="field_gender">gender</label>
             <select class="form-control" id="field_gender" name="gender" ng-model="customer.gender" ng-options="gender as gender.name for gender in genders track by gender.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_ethnic">ethnic</label>
+            <select class="form-control" id="field_ethnic" name="ethnic" ng-model="customer.ethnic" ng-options="ethnic as ethnic.name for ethnic in ethnics track by ethnic.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_religion">religion</label>
+            <select class="form-control" id="field_religion" name="religion" ng-model="customer.religion" ng-options="religion as religion.name for religion in religions track by religion.id">
                 <option value=""></option>
             </select>
         </div>
