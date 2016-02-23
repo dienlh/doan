@@ -1,0 +1,60 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "currency",
+            "otherEntityName": "currency",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "create_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "last_modified_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "price",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "last_modified_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160223043327",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "pagination"
+}
