@@ -1,9 +1,9 @@
 package com.hotel.app.web.rest;
 
 import com.hotel.app.Application;
-import com.hotel.app.domain.Amenity;
-import com.hotel.app.repository.AmenityRepository;
-import com.hotel.app.service.AmenityService;
+import com.hotel.app.domain.Type_room;
+import com.hotel.app.repository.Type_roomRepository;
+import com.hotel.app.service.Type_roomService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,15 +36,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 /**
- * Test class for the AmenityResource REST controller.
+ * Test class for the Type_roomResource REST controller.
  *
- * @see AmenityResource
+ * @see Type_roomResource
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest
-public class AmenityResourceIntTest {
+public class Type_roomResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
 
@@ -58,10 +58,10 @@ public class AmenityResourceIntTest {
     private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
     @Inject
-    private AmenityRepository amenityRepository;
+    private Type_roomRepository type_roomRepository;
 
     @Inject
-    private AmenityService amenityService;
+    private Type_roomService type_roomService;
 
     @Inject
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -69,78 +69,78 @@ public class AmenityResourceIntTest {
     @Inject
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-    private MockMvc restAmenityMockMvc;
+    private MockMvc restType_roomMockMvc;
 
-    private Amenity amenity;
+    private Type_room type_room;
 
     @PostConstruct
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        AmenityResource amenityResource = new AmenityResource();
-        ReflectionTestUtils.setField(amenityResource, "amenityService", amenityService);
-        this.restAmenityMockMvc = MockMvcBuilders.standaloneSetup(amenityResource)
+        Type_roomResource type_roomResource = new Type_roomResource();
+        ReflectionTestUtils.setField(type_roomResource, "type_roomService", type_roomService);
+        this.restType_roomMockMvc = MockMvcBuilders.standaloneSetup(type_roomResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setMessageConverters(jacksonMessageConverter).build();
     }
 
     @Before
     public void initTest() {
-        amenity = new Amenity();
-        amenity.setName(DEFAULT_NAME);
-        amenity.setDecription(DEFAULT_DECRIPTION);
-        amenity.setCreate_date(DEFAULT_CREATE_DATE);
+        type_room = new Type_room();
+        type_room.setName(DEFAULT_NAME);
+        type_room.setDecription(DEFAULT_DECRIPTION);
+        type_room.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
     @Test
     @Transactional
-    public void createAmenity() throws Exception {
-        int databaseSizeBeforeCreate = amenityRepository.findAll().size();
+    public void createType_room() throws Exception {
+        int databaseSizeBeforeCreate = type_roomRepository.findAll().size();
 
-        // Create the Amenity
+        // Create the Type_room
 
-        restAmenityMockMvc.perform(post("/api/amenitys")
+        restType_roomMockMvc.perform(post("/api/type_rooms")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(amenity)))
+                .content(TestUtil.convertObjectToJsonBytes(type_room)))
                 .andExpect(status().isCreated());
 
-        // Validate the Amenity in the database
-        List<Amenity> amenitys = amenityRepository.findAll();
-        assertThat(amenitys).hasSize(databaseSizeBeforeCreate + 1);
-        Amenity testAmenity = amenitys.get(amenitys.size() - 1);
-        assertThat(testAmenity.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testAmenity.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
-        assertThat(testAmenity.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
+        // Validate the Type_room in the database
+        List<Type_room> type_rooms = type_roomRepository.findAll();
+        assertThat(type_rooms).hasSize(databaseSizeBeforeCreate + 1);
+        Type_room testType_room = type_rooms.get(type_rooms.size() - 1);
+        assertThat(testType_room.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testType_room.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
+        assertThat(testType_room.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
     @Transactional
     public void checkNameIsRequired() throws Exception {
-        int databaseSizeBeforeTest = amenityRepository.findAll().size();
+        int databaseSizeBeforeTest = type_roomRepository.findAll().size();
         // set the field null
-        amenity.setName(null);
+        type_room.setName(null);
 
-        // Create the Amenity, which fails.
+        // Create the Type_room, which fails.
 
-        restAmenityMockMvc.perform(post("/api/amenitys")
+        restType_roomMockMvc.perform(post("/api/type_rooms")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(amenity)))
+                .content(TestUtil.convertObjectToJsonBytes(type_room)))
                 .andExpect(status().isBadRequest());
 
-        List<Amenity> amenitys = amenityRepository.findAll();
-        assertThat(amenitys).hasSize(databaseSizeBeforeTest);
+        List<Type_room> type_rooms = type_roomRepository.findAll();
+        assertThat(type_rooms).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
-    public void getAllAmenitys() throws Exception {
+    public void getAllType_rooms() throws Exception {
         // Initialize the database
-        amenityRepository.saveAndFlush(amenity);
+        type_roomRepository.saveAndFlush(type_room);
 
-        // Get all the amenitys
-        restAmenityMockMvc.perform(get("/api/amenitys?sort=id,desc"))
+        // Get all the type_rooms
+        restType_roomMockMvc.perform(get("/api/type_rooms?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.[*].id").value(hasItem(amenity.getId().intValue())))
+                .andExpect(jsonPath("$.[*].id").value(hasItem(type_room.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
@@ -148,15 +148,15 @@ public class AmenityResourceIntTest {
 
     @Test
     @Transactional
-    public void getAmenity() throws Exception {
+    public void getType_room() throws Exception {
         // Initialize the database
-        amenityRepository.saveAndFlush(amenity);
+        type_roomRepository.saveAndFlush(type_room);
 
-        // Get the amenity
-        restAmenityMockMvc.perform(get("/api/amenitys/{id}", amenity.getId()))
+        // Get the type_room
+        restType_roomMockMvc.perform(get("/api/type_rooms/{id}", type_room.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.id").value(amenity.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(type_room.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
@@ -164,54 +164,54 @@ public class AmenityResourceIntTest {
 
     @Test
     @Transactional
-    public void getNonExistingAmenity() throws Exception {
-        // Get the amenity
-        restAmenityMockMvc.perform(get("/api/amenitys/{id}", Long.MAX_VALUE))
+    public void getNonExistingType_room() throws Exception {
+        // Get the type_room
+        restType_roomMockMvc.perform(get("/api/type_rooms/{id}", Long.MAX_VALUE))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     @Transactional
-    public void updateAmenity() throws Exception {
+    public void updateType_room() throws Exception {
         // Initialize the database
-        amenityRepository.saveAndFlush(amenity);
+        type_roomRepository.saveAndFlush(type_room);
 
-		int databaseSizeBeforeUpdate = amenityRepository.findAll().size();
+		int databaseSizeBeforeUpdate = type_roomRepository.findAll().size();
 
-        // Update the amenity
-        amenity.setName(UPDATED_NAME);
-        amenity.setDecription(UPDATED_DECRIPTION);
-        amenity.setCreate_date(UPDATED_CREATE_DATE);
+        // Update the type_room
+        type_room.setName(UPDATED_NAME);
+        type_room.setDecription(UPDATED_DECRIPTION);
+        type_room.setCreate_date(UPDATED_CREATE_DATE);
 
-        restAmenityMockMvc.perform(put("/api/amenitys")
+        restType_roomMockMvc.perform(put("/api/type_rooms")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(amenity)))
+                .content(TestUtil.convertObjectToJsonBytes(type_room)))
                 .andExpect(status().isOk());
 
-        // Validate the Amenity in the database
-        List<Amenity> amenitys = amenityRepository.findAll();
-        assertThat(amenitys).hasSize(databaseSizeBeforeUpdate);
-        Amenity testAmenity = amenitys.get(amenitys.size() - 1);
-        assertThat(testAmenity.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testAmenity.getDecription()).isEqualTo(UPDATED_DECRIPTION);
-        assertThat(testAmenity.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
+        // Validate the Type_room in the database
+        List<Type_room> type_rooms = type_roomRepository.findAll();
+        assertThat(type_rooms).hasSize(databaseSizeBeforeUpdate);
+        Type_room testType_room = type_rooms.get(type_rooms.size() - 1);
+        assertThat(testType_room.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testType_room.getDecription()).isEqualTo(UPDATED_DECRIPTION);
+        assertThat(testType_room.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 
     @Test
     @Transactional
-    public void deleteAmenity() throws Exception {
+    public void deleteType_room() throws Exception {
         // Initialize the database
-        amenityRepository.saveAndFlush(amenity);
+        type_roomRepository.saveAndFlush(type_room);
 
-		int databaseSizeBeforeDelete = amenityRepository.findAll().size();
+		int databaseSizeBeforeDelete = type_roomRepository.findAll().size();
 
-        // Get the amenity
-        restAmenityMockMvc.perform(delete("/api/amenitys/{id}", amenity.getId())
+        // Get the type_room
+        restType_roomMockMvc.perform(delete("/api/type_rooms/{id}", type_room.getId())
                 .accept(TestUtil.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk());
 
         // Validate the database is empty
-        List<Amenity> amenitys = amenityRepository.findAll();
-        assertThat(amenitys).hasSize(databaseSizeBeforeDelete - 1);
+        List<Type_room> type_rooms = type_roomRepository.findAll();
+        assertThat(type_rooms).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

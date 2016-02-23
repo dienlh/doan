@@ -1,11 +1,11 @@
 <div>
-    <h2>Amenitys</h2>
+    <h2>Type_rooms</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="amenity.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Amenity</span>
+                <button class="btn btn-primary" ui-sref="type_room.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Type_room</span>
                 </button>
             </div>
         </div>
@@ -24,27 +24,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="amenity in amenitys track by amenity.id">
-                    <td><a ui-sref="amenity.detail({id:amenity.id})">{{amenity.id}}</a></td>
-                    <td>{{amenity.name}}</td>
-                    <td>{{amenity.decription}}</td>
-                    <td>{{amenity.create_date | date:'medium'}}</td>
+                <tr ng-repeat="type_room in type_rooms track by type_room.id">
+                    <td><a ui-sref="type_room.detail({id:type_room.id})">{{type_room.id}}</a></td>
+                    <td>{{type_room.name}}</td>
+                    <td>{{type_room.decription}}</td>
+                    <td>{{type_room.create_date | date:'medium'}}</td>
                     <td>
-                        {{amenity.create_by.login}}
+                        {{type_room.create_by.login}}
                     </td>
                     <td>
                         <button type="submit"
-                                ui-sref="amenity.detail({id:amenity.id})"
+                                ui-sref="type_room.detail({id:type_room.id})"
                                 class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
                         </button>
                         <button type="submit"
-                                ui-sref="amenity.edit({id:amenity.id})"
+                                ui-sref="type_room.edit({id:type_room.id})"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
                         </button>
                         <button type="submit"
-                                ui-sref="amenity.delete({id:amenity.id})"
+                                ui-sref="type_room.delete({id:type_room.id})"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
                         </button>

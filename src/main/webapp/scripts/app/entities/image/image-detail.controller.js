@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('ImageDetailController', function ($scope, $rootScope, $stateParams, entity, Image, User) {
+    .controller('ImageDetailController', function ($scope, $rootScope, $stateParams, entity, Image) {
         $scope.image = entity;
         $scope.load = function (id) {
             Image.get({id: id}, function(result) {

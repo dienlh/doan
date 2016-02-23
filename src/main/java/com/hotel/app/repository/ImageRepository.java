@@ -11,7 +11,4 @@ import java.util.List;
  */
 public interface ImageRepository extends JpaRepository<Image,Long> {
 
-    @Query("select image from Image image where image.create_by.login = ?#{principal.username}")
-    List<Image> findByCreate_byIsCurrentUser();
-
 }

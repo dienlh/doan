@@ -1,17 +1,17 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('AmenityController', function ($scope, $state, Amenity, ParseLinks) {
+    .controller('Type_roomController', function ($scope, $state, Type_room, ParseLinks) {
 
-        $scope.amenitys = [];
+        $scope.type_rooms = [];
         $scope.predicate = 'id';
         $scope.reverse = true;
         $scope.page = 1;
         $scope.loadAll = function() {
-            Amenity.query({page: $scope.page - 1, size: 20, sort: [$scope.predicate + ',' + ($scope.reverse ? 'asc' : 'desc'), 'id']}, function(result, headers) {
+            Type_room.query({page: $scope.page - 1, size: 20, sort: [$scope.predicate + ',' + ($scope.reverse ? 'asc' : 'desc'), 'id']}, function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 $scope.totalItems = headers('X-Total-Count');
-                $scope.amenitys = result;
+                $scope.type_rooms = result;
             });
         };
         $scope.loadPage = function(page) {
@@ -27,7 +27,7 @@ angular.module('hotelApp')
         };
 
         $scope.clear = function () {
-            $scope.amenity = {
+            $scope.type_room = {
                 name: null,
                 decription: null,
                 create_date: null,

@@ -3,51 +3,51 @@
 angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('amenity', {
+            .state('type_room', {
                 parent: 'entity',
-                url: '/amenitys',
+                url: '/type_rooms',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'Amenitys'
+                    pageTitle: 'Type_rooms'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/amenity/amenitys.html',
-                        controller: 'AmenityController'
+                        templateUrl: 'scripts/app/entities/type_room/type_rooms.html',
+                        controller: 'Type_roomController'
                     }
                 },
                 resolve: {
                 }
             })
-            .state('amenity.detail', {
+            .state('type_room.detail', {
                 parent: 'entity',
-                url: '/amenity/{id}',
+                url: '/type_room/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'Amenity'
+                    pageTitle: 'Type_room'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/amenity/amenity-detail.html',
-                        controller: 'AmenityDetailController'
+                        templateUrl: 'scripts/app/entities/type_room/type_room-detail.html',
+                        controller: 'Type_roomDetailController'
                     }
                 },
                 resolve: {
-                    entity: ['$stateParams', 'Amenity', function($stateParams, Amenity) {
-                        return Amenity.get({id : $stateParams.id});
+                    entity: ['$stateParams', 'Type_room', function($stateParams, Type_room) {
+                        return Type_room.get({id : $stateParams.id});
                     }]
                 }
             })
-            .state('amenity.new', {
-                parent: 'amenity',
+            .state('type_room.new', {
+                parent: 'type_room',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/amenity/amenity-dialog.html',
-                        controller: 'AmenityDialogController',
+                        templateUrl: 'scripts/app/entities/type_room/type_room-dialog.html',
+                        controller: 'Type_roomDialogController',
                         size: 'lg',
                         resolve: {
                             entity: function () {
@@ -60,53 +60,53 @@ angular.module('hotelApp')
                             }
                         }
                     }).result.then(function(result) {
-                        $state.go('amenity', null, { reload: true });
+                        $state.go('type_room', null, { reload: true });
                     }, function() {
-                        $state.go('amenity');
+                        $state.go('type_room');
                     })
                 }]
             })
-            .state('amenity.edit', {
-                parent: 'amenity',
+            .state('type_room.edit', {
+                parent: 'type_room',
                 url: '/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/amenity/amenity-dialog.html',
-                        controller: 'AmenityDialogController',
+                        templateUrl: 'scripts/app/entities/type_room/type_room-dialog.html',
+                        controller: 'Type_roomDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: ['Amenity', function(Amenity) {
-                                return Amenity.get({id : $stateParams.id});
+                            entity: ['Type_room', function(Type_room) {
+                                return Type_room.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('amenity', null, { reload: true });
+                        $state.go('type_room', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
                 }]
             })
-            .state('amenity.delete', {
-                parent: 'amenity',
+            .state('type_room.delete', {
+                parent: 'type_room',
                 url: '/{id}/delete',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/amenity/amenity-delete-dialog.html',
-                        controller: 'AmenityDeleteController',
+                        templateUrl: 'scripts/app/entities/type_room/type_room-delete-dialog.html',
+                        controller: 'Type_roomDeleteController',
                         size: 'md',
                         resolve: {
-                            entity: ['Amenity', function(Amenity) {
-                                return Amenity.get({id : $stateParams.id});
+                            entity: ['Type_room', function(Type_room) {
+                                return Type_room.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('amenity', null, { reload: true });
+                        $state.go('type_room', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })

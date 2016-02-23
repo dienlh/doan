@@ -5,14 +5,16 @@ import java.time.ZonedDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
- * A Image.
+ * A Type_room.
  */
 @Entity
-@Table(name = "image")
-public class Image implements Serializable {
+@Table(name = "type_room")
+public class Type_room implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,11 +22,19 @@ public class Image implements Serializable {
 
     @NotNull
     @Size(max = 255)
-    @Column(name = "url", length = 255, nullable = false)
-    private String url;
+    @Column(name = "name", length = 255, nullable = false)
+    private String name;
+
+    @Size(max = 255)
+    @Column(name = "decription", length = 255)
+    private String decription;
 
     @Column(name = "create_date")
     private ZonedDateTime create_date;
+
+    @ManyToOne
+    @JoinColumn(name = "create_by_id")
+    private User create_by;
 
     public Long getId() {
         return id;
@@ -34,12 +44,20 @@ public class Image implements Serializable {
         this.id = id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getName() {
+        return name;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDecription() {
+        return decription;
+    }
+
+    public void setDecription(String decription) {
+        this.decription = decription;
     }
 
     public ZonedDateTime getCreate_date() {
@@ -50,6 +68,14 @@ public class Image implements Serializable {
         this.create_date = create_date;
     }
 
+    public User getCreate_by() {
+        return create_by;
+    }
+
+    public void setCreate_by(User user) {
+        this.create_by = user;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -58,8 +84,8 @@ public class Image implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Image image = (Image) o;
-        return Objects.equals(id, image.id);
+        Type_room type_room = (Type_room) o;
+        return Objects.equals(id, type_room.id);
     }
 
     @Override
@@ -69,9 +95,10 @@ public class Image implements Serializable {
 
     @Override
     public String toString() {
-        return "Image{" +
+        return "Type_room{" +
             "id=" + id +
-            ", url='" + url + "'" +
+            ", name='" + name + "'" +
+            ", decription='" + decription + "'" +
             ", create_date='" + create_date + "'" +
             '}';
     }

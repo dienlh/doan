@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span>Amenity</span> {{amenity.id}}</h2>
+    <h2><span>Type_room</span> {{type_room.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -15,7 +15,7 @@
                     <span>Name</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{amenity.name}}</span>
+                    <span class="form-control-static">{{type_room.name}}</span>
                 </td>
             </tr>
             <tr>
@@ -23,7 +23,7 @@
                     <span>Decription</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{amenity.decription}}</span>
+                    <span class="form-control-static">{{type_room.decription}}</span>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <span>Create_date</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{amenity.create_date | date:'medium'}}</span>
+                    <span class="form-control-static">{{type_room.create_date | date:'medium'}}</span>
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
                     <span>create_by</span>
                 </td>
                 <td>
-                    {{amenity.create_by.login}}
+                    {{type_room.create_by.login}}
                 </td>
             </tr>
             </tbody>

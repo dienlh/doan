@@ -1,13 +1,5 @@
 {
-    "relationships": [
-        {
-            "relationshipId": 1,
-            "relationshipName": "create_by",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login"
-        }
-    ],
+    "relationships": [],
     "fields": [
         {
             "fieldId": 1,
@@ -25,7 +17,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160223152905",
+    "changelogDate": "20160223160455",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"
