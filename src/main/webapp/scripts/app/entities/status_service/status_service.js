@@ -53,7 +53,7 @@ angular.module('hotelApp')
                             entity: function () {
                                 return {
                                     name: null,
-                                    decription: null,
+                                    decrition: null,
                                     create_date: null,
                                     id: null
                                 };

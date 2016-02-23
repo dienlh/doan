@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('CompanyDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Company', 'User',
-        function($scope, $stateParams, $uibModalInstance, entity, Company, User) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Company', 'Bank', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Company, Bank, User) {
 
         $scope.company = entity;
+        $scope.banks = Bank.query();
         $scope.users = User.query();
         $scope.load = function(id) {
             Company.get({id : id}, function(result) {

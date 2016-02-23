@@ -34,7 +34,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160223150847",
+    "changelogDate": "20160223153550",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

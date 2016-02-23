@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('hotelApp').controller('ImageDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Image',
-        function($scope, $stateParams, $uibModalInstance, entity, Image) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Image', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Image, User) {
 
         $scope.image = entity;
+        $scope.users = User.query();
         $scope.load = function(id) {
             Image.get({id : id}, function(result) {
                 $scope.image = result;

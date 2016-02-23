@@ -33,7 +33,7 @@ angular.module('hotelApp')
                 fax: null,
                 phone_number: null,
                 tax_code: null,
-                bank_account_number: null,
+                bank_account: null,
                 create_date: null,
                 last_modified_date: null,
                 id: null

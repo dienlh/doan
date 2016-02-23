@@ -5,6 +5,8 @@ import java.time.ZonedDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -25,6 +27,10 @@ public class Image implements Serializable {
 
     @Column(name = "create_date")
     private ZonedDateTime create_date;
+
+    @ManyToOne
+    @JoinColumn(name = "create_by_id")
+    private User create_by;
 
     public Long getId() {
         return id;
@@ -48,6 +54,14 @@ public class Image implements Serializable {
 
     public void setCreate_date(ZonedDateTime create_date) {
         this.create_date = create_date;
+    }
+
+    public User getCreate_by() {
+        return create_by;
+    }
+
+    public void setCreate_by(User user) {
+        this.create_by = user;
     }
 
     @Override

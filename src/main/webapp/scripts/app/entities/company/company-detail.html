@@ -52,10 +52,10 @@
             </tr>
             <tr>
                 <td>
-                    <span>Bank_account_number</span>
+                    <span>Bank_account</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{company.bank_account_number}}</span>
+                    <span class="form-control-static">{{company.bank_account}}</span>
                 </td>
             </tr>
             <tr>
@@ -72,6 +72,14 @@
                 </td>
                 <td>
                     <span class="form-control-static">{{company.last_modified_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>bank</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="bank.detail({id:company.bank.id})">{{company.bank.bank_code}}</a>
                 </td>
             </tr>
             <tr>

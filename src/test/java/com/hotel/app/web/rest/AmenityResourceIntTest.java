@@ -50,8 +50,6 @@ public class AmenityResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
-    private static final String DEFAULT_DECRIPTION = "AAAAA";
-    private static final String UPDATED_DECRIPTION = "BBBBB";
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -87,7 +85,6 @@ public class AmenityResourceIntTest {
     public void initTest() {
         amenity = new Amenity();
         amenity.setName(DEFAULT_NAME);
-        amenity.setDecription(DEFAULT_DECRIPTION);
         amenity.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
@@ -108,7 +105,6 @@ public class AmenityResourceIntTest {
         assertThat(amenitys).hasSize(databaseSizeBeforeCreate + 1);
         Amenity testAmenity = amenitys.get(amenitys.size() - 1);
         assertThat(testAmenity.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testAmenity.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
         assertThat(testAmenity.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
@@ -142,7 +138,6 @@ public class AmenityResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(amenity.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
@@ -158,7 +153,6 @@ public class AmenityResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(amenity.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
@@ -180,7 +174,6 @@ public class AmenityResourceIntTest {
 
         // Update the amenity
         amenity.setName(UPDATED_NAME);
-        amenity.setDecription(UPDATED_DECRIPTION);
         amenity.setCreate_date(UPDATED_CREATE_DATE);
 
         restAmenityMockMvc.perform(put("/api/amenitys")
@@ -193,7 +186,6 @@ public class AmenityResourceIntTest {
         assertThat(amenitys).hasSize(databaseSizeBeforeUpdate);
         Amenity testAmenity = amenitys.get(amenitys.size() - 1);
         assertThat(testAmenity.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testAmenity.getDecription()).isEqualTo(UPDATED_DECRIPTION);
         assertThat(testAmenity.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 

@@ -58,8 +58,8 @@ public class CompanyResourceIntTest {
     private static final String UPDATED_PHONE_NUMBER = "BBBBB";
     private static final String DEFAULT_TAX_CODE = "AAAAA";
     private static final String UPDATED_TAX_CODE = "BBBBB";
-    private static final String DEFAULT_BANK_ACCOUNT_NUMBER = "AAAAA";
-    private static final String UPDATED_BANK_ACCOUNT_NUMBER = "BBBBB";
+    private static final String DEFAULT_BANK_ACCOUNT = "AAAAA";
+    private static final String UPDATED_BANK_ACCOUNT = "BBBBB";
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -103,7 +103,7 @@ public class CompanyResourceIntTest {
         company.setFax(DEFAULT_FAX);
         company.setPhone_number(DEFAULT_PHONE_NUMBER);
         company.setTax_code(DEFAULT_TAX_CODE);
-        company.setBank_account_number(DEFAULT_BANK_ACCOUNT_NUMBER);
+        company.setBank_account(DEFAULT_BANK_ACCOUNT);
         company.setCreate_date(DEFAULT_CREATE_DATE);
         company.setLast_modified_date(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -129,7 +129,7 @@ public class CompanyResourceIntTest {
         assertThat(testCompany.getFax()).isEqualTo(DEFAULT_FAX);
         assertThat(testCompany.getPhone_number()).isEqualTo(DEFAULT_PHONE_NUMBER);
         assertThat(testCompany.getTax_code()).isEqualTo(DEFAULT_TAX_CODE);
-        assertThat(testCompany.getBank_account_number()).isEqualTo(DEFAULT_BANK_ACCOUNT_NUMBER);
+        assertThat(testCompany.getBank_account()).isEqualTo(DEFAULT_BANK_ACCOUNT);
         assertThat(testCompany.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
         assertThat(testCompany.getLast_modified_date()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -168,7 +168,7 @@ public class CompanyResourceIntTest {
                 .andExpect(jsonPath("$.[*].fax").value(hasItem(DEFAULT_FAX.toString())))
                 .andExpect(jsonPath("$.[*].phone_number").value(hasItem(DEFAULT_PHONE_NUMBER.toString())))
                 .andExpect(jsonPath("$.[*].tax_code").value(hasItem(DEFAULT_TAX_CODE.toString())))
-                .andExpect(jsonPath("$.[*].bank_account_number").value(hasItem(DEFAULT_BANK_ACCOUNT_NUMBER.toString())))
+                .andExpect(jsonPath("$.[*].bank_account").value(hasItem(DEFAULT_BANK_ACCOUNT.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
                 .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE_STR)));
     }
@@ -189,7 +189,7 @@ public class CompanyResourceIntTest {
             .andExpect(jsonPath("$.fax").value(DEFAULT_FAX.toString()))
             .andExpect(jsonPath("$.phone_number").value(DEFAULT_PHONE_NUMBER.toString()))
             .andExpect(jsonPath("$.tax_code").value(DEFAULT_TAX_CODE.toString()))
-            .andExpect(jsonPath("$.bank_account_number").value(DEFAULT_BANK_ACCOUNT_NUMBER.toString()))
+            .andExpect(jsonPath("$.bank_account").value(DEFAULT_BANK_ACCOUNT.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
             .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE_STR));
     }
@@ -216,7 +216,7 @@ public class CompanyResourceIntTest {
         company.setFax(UPDATED_FAX);
         company.setPhone_number(UPDATED_PHONE_NUMBER);
         company.setTax_code(UPDATED_TAX_CODE);
-        company.setBank_account_number(UPDATED_BANK_ACCOUNT_NUMBER);
+        company.setBank_account(UPDATED_BANK_ACCOUNT);
         company.setCreate_date(UPDATED_CREATE_DATE);
         company.setLast_modified_date(UPDATED_LAST_MODIFIED_DATE);
 
@@ -234,7 +234,7 @@ public class CompanyResourceIntTest {
         assertThat(testCompany.getFax()).isEqualTo(UPDATED_FAX);
         assertThat(testCompany.getPhone_number()).isEqualTo(UPDATED_PHONE_NUMBER);
         assertThat(testCompany.getTax_code()).isEqualTo(UPDATED_TAX_CODE);
-        assertThat(testCompany.getBank_account_number()).isEqualTo(UPDATED_BANK_ACCOUNT_NUMBER);
+        assertThat(testCompany.getBank_account()).isEqualTo(UPDATED_BANK_ACCOUNT);
         assertThat(testCompany.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
         assertThat(testCompany.getLast_modified_date()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }

@@ -21,9 +21,10 @@
                     <th jh-sort-by="fax"><span>Fax</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="phone_number"><span>Phone_number</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="tax_code"><span>Tax_code</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bank_account_number"><span>Bank_account_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank_account"><span>Bank_account</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank.bank_code"><span>bank</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -37,9 +38,12 @@
                     <td>{{company.fax}}</td>
                     <td>{{company.phone_number}}</td>
                     <td>{{company.tax_code}}</td>
-                    <td>{{company.bank_account_number}}</td>
+                    <td>{{company.bank_account}}</td>
                     <td>{{company.create_date | date:'medium'}}</td>
                     <td>{{company.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="bank.detail({id:company.bank.id})">{{company.bank.bank_code}}</a>
+                    </td>
                     <td>
                         {{company.create_by.login}}
                     </td>

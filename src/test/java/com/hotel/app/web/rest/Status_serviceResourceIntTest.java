@@ -50,8 +50,8 @@ public class Status_serviceResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
-    private static final String DEFAULT_DECRIPTION = "AAAAA";
-    private static final String UPDATED_DECRIPTION = "BBBBB";
+    private static final String DEFAULT_DECRITION = "AAAAA";
+    private static final String UPDATED_DECRITION = "BBBBB";
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -87,7 +87,7 @@ public class Status_serviceResourceIntTest {
     public void initTest() {
         status_service = new Status_service();
         status_service.setName(DEFAULT_NAME);
-        status_service.setDecription(DEFAULT_DECRIPTION);
+        status_service.setDecrition(DEFAULT_DECRITION);
         status_service.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
@@ -108,7 +108,7 @@ public class Status_serviceResourceIntTest {
         assertThat(status_services).hasSize(databaseSizeBeforeCreate + 1);
         Status_service testStatus_service = status_services.get(status_services.size() - 1);
         assertThat(testStatus_service.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testStatus_service.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
+        assertThat(testStatus_service.getDecrition()).isEqualTo(DEFAULT_DECRITION);
         assertThat(testStatus_service.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
@@ -142,7 +142,7 @@ public class Status_serviceResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(status_service.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].decrition").value(hasItem(DEFAULT_DECRITION.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
@@ -158,7 +158,7 @@ public class Status_serviceResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(status_service.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
+            .andExpect(jsonPath("$.decrition").value(DEFAULT_DECRITION.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
@@ -180,7 +180,7 @@ public class Status_serviceResourceIntTest {
 
         // Update the status_service
         status_service.setName(UPDATED_NAME);
-        status_service.setDecription(UPDATED_DECRIPTION);
+        status_service.setDecrition(UPDATED_DECRITION);
         status_service.setCreate_date(UPDATED_CREATE_DATE);
 
         restStatus_serviceMockMvc.perform(put("/api/status_services")
@@ -193,7 +193,7 @@ public class Status_serviceResourceIntTest {
         assertThat(status_services).hasSize(databaseSizeBeforeUpdate);
         Status_service testStatus_service = status_services.get(status_services.size() - 1);
         assertThat(testStatus_service.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testStatus_service.getDecription()).isEqualTo(UPDATED_DECRIPTION);
+        assertThat(testStatus_service.getDecrition()).isEqualTo(UPDATED_DECRITION);
         assertThat(testStatus_service.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 

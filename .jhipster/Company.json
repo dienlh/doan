@@ -2,13 +2,20 @@
     "relationships": [
         {
             "relationshipId": 1,
+            "relationshipName": "bank",
+            "otherEntityName": "bank",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "bank_code"
+        },
+        {
+            "relationshipId": 2,
             "relationshipName": "create_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
         },
         {
-            "relationshipId": 2,
+            "relationshipId": 3,
             "relationshipName": "last_modified_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
@@ -64,7 +71,7 @@
         },
         {
             "fieldId": 6,
-            "fieldName": "bank_account_number",
+            "fieldName": "bank_account",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength"
@@ -82,7 +89,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160223144024",
+    "changelogDate": "20160223153134",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

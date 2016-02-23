@@ -42,14 +42,18 @@ public class Company implements Serializable {
     private String tax_code;
 
     @Size(max = 20)
-    @Column(name = "bank_account_number", length = 20)
-    private String bank_account_number;
+    @Column(name = "bank_account", length = 20)
+    private String bank_account;
 
     @Column(name = "create_date")
     private ZonedDateTime create_date;
 
     @Column(name = "last_modified_date")
     private ZonedDateTime last_modified_date;
+
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
+    private Bank bank;
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")
@@ -107,12 +111,12 @@ public class Company implements Serializable {
         this.tax_code = tax_code;
     }
 
-    public String getBank_account_number() {
-        return bank_account_number;
+    public String getBank_account() {
+        return bank_account;
     }
 
-    public void setBank_account_number(String bank_account_number) {
-        this.bank_account_number = bank_account_number;
+    public void setBank_account(String bank_account) {
+        this.bank_account = bank_account;
     }
 
     public ZonedDateTime getCreate_date() {
@@ -129,6 +133,14 @@ public class Company implements Serializable {
 
     public void setLast_modified_date(ZonedDateTime last_modified_date) {
         this.last_modified_date = last_modified_date;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 
     public User getCreate_by() {
@@ -173,7 +185,7 @@ public class Company implements Serializable {
             ", fax='" + fax + "'" +
             ", phone_number='" + phone_number + "'" +
             ", tax_code='" + tax_code + "'" +
-            ", bank_account_number='" + bank_account_number + "'" +
+            ", bank_account='" + bank_account + "'" +
             ", create_date='" + create_date + "'" +
             ", last_modified_date='" + last_modified_date + "'" +
             '}';

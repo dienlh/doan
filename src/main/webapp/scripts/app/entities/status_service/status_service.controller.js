@@ -29,7 +29,7 @@ angular.module('hotelApp')
         $scope.clear = function () {
             $scope.status_service = {
                 name: null,
-                decription: null,
+                decrition: null,
                 create_date: null,
                 id: null
             };

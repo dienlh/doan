@@ -17,7 +17,7 @@
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decrition"><span>Decrition</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -27,7 +27,7 @@
                 <tr ng-repeat="status_service in status_services track by status_service.id">
                     <td><a ui-sref="status_service.detail({id:status_service.id})">{{status_service.id}}</a></td>
                     <td>{{status_service.name}}</td>
-                    <td>{{status_service.decription}}</td>
+                    <td>{{status_service.decrition}}</td>
                     <td>{{status_service.create_date | date:'medium'}}</td>
                     <td>
                         {{status_service.create_by.login}}

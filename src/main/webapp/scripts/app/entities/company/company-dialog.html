@@ -78,13 +78,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_bank_account_number">Bank_account_number</label>
-            <input type="text" class="form-control" name="bank_account_number" id="field_bank_account_number"
-                    ng-model="company.bank_account_number"
+            <label class="control-label" for="field_bank_account">Bank_account</label>
+            <input type="text" class="form-control" name="bank_account" id="field_bank_account"
+                    ng-model="company.bank_account"
                     ng-maxlength="20" />
-            <div ng-show="editForm.bank_account_number.$invalid">
+            <div ng-show="editForm.bank_account.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.bank_account_number.$error.maxlength" translate-value-max="20">
+                    ng-show="editForm.bank_account.$error.maxlength" translate-value-max="20">
                     This field cannot be longer than 20 characters.
                 </p>
             </div>
@@ -106,6 +106,12 @@
             </span>
         </div>
 
+        <div class="form-group">
+            <label for="field_bank">bank</label>
+            <select class="form-control" id="field_bank" name="bank" ng-model="company.bank" ng-options="bank as bank.bank_code for bank in banks track by bank.id">
+                <option value=""></option>
+            </select>
+        </div>
         <div class="form-group">
             <label for="field_create_by">create_by</label>
             <select class="form-control" id="field_create_by" name="create_by" ng-model="company.create_by" ng-options="user as user.login for user in users track by user.id">
