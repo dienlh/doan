@@ -1,0 +1,237 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "type_room",
+            "otherEntityName": "type_room",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "image",
+            "otherEntityName": "image",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "url",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "amenity",
+            "otherEntityName": "amenity",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 4,
+            "relationshipName": "currency",
+            "otherEntityName": "currency",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipId": 5,
+            "relationshipName": "status_room",
+            "otherEntityName": "status_room",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 6,
+            "relationshipName": "create_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 7,
+            "relationshipName": "last_modified_by",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "key_code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "is_pet",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "is_bed_kid",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "number_of_livingroom",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "1"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "number_of_bedroom",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "3"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "number_of_toilet",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "3"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "number_of_kitchen",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "1"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "number_of_bathroom",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "3"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "floor",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldId": 12,
+            "fieldName": "orientation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 13,
+            "fieldName": "surface_size",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "255"
+        },
+        {
+            "fieldId": 14,
+            "fieldName": "max_adults",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "10"
+        },
+        {
+            "fieldId": 15,
+            "fieldName": "max_kids",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": "10"
+        },
+        {
+            "fieldId": 16,
+            "fieldName": "daily_price",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldId": 17,
+            "fieldName": "monthly_price",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldId": 18,
+            "fieldName": "create_date",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldId": 19,
+            "fieldName": "last_modified_date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160223161435",
+    "dto": "no",
+    "service": "serviceImpl",
+    "pagination": "pagination"
+}

@@ -1,0 +1,107 @@
+<div>
+    <h2>Rooms</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="room.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Room</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span>Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_code"><span>Key_code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="title"><span>Title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="is_pet"><span>Is_pet</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="is_bed_kid"><span>Is_bed_kid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_livingroom"><span>Number_of_livingroom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_bedroom"><span>Number_of_bedroom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_toilet"><span>Number_of_toilet</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_kitchen"><span>Number_of_kitchen</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_bathroom"><span>Number_of_bathroom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="floor"><span>Floor</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="orientation"><span>Orientation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="surface_size"><span>Surface_size</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="max_adults"><span>Max_adults</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="max_kids"><span>Max_kids</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="daily_price"><span>Daily_price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="monthly_price"><span>Monthly_price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_room.name"><span>type_room</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_room.name"><span>status_room</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="room in rooms track by room.id">
+                    <td><a ui-sref="room.detail({id:room.id})">{{room.id}}</a></td>
+                    <td>{{room.code}}</td>
+                    <td>{{room.key_code}}</td>
+                    <td>{{room.title}}</td>
+                    <td>{{room.is_pet}}</td>
+                    <td>{{room.is_bed_kid}}</td>
+                    <td>{{room.number_of_livingroom}}</td>
+                    <td>{{room.number_of_bedroom}}</td>
+                    <td>{{room.number_of_toilet}}</td>
+                    <td>{{room.number_of_kitchen}}</td>
+                    <td>{{room.number_of_bathroom}}</td>
+                    <td>{{room.floor}}</td>
+                    <td>{{room.orientation}}</td>
+                    <td>{{room.surface_size}}</td>
+                    <td>{{room.max_adults}}</td>
+                    <td>{{room.max_kids}}</td>
+                    <td>{{room.daily_price}}</td>
+                    <td>{{room.monthly_price}}</td>
+                    <td>{{room.create_date | date:'medium'}}</td>
+                    <td>{{room.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="type_room.detail({id:room.type_room.id})">{{room.type_room.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="currency.detail({id:room.currency.id})">{{room.currency.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_room.detail({id:room.status_room.id})">{{room.status_room.name}}</a>
+                    </td>
+                    <td>
+                        {{room.create_by.login}}
+                    </td>
+                    <td>
+                        {{room.last_modified_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="room.detail({id:room.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="room.edit({id:room.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="room.delete({id:room.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

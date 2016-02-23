@@ -28,5 +28,6 @@
     <include file="classpath:config/liquibase/changelog/20160223160426_added_entity_Amenity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160223160455_added_entity_Image.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160223160531_added_entity_Status_room.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223161435_added_entity_Room.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

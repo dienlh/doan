@@ -1,0 +1,352 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myRoomLabel">Create or edit a Room</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="room.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="room.code"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.code.$error.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_key_code">Key_code</label>
+            <input type="text" class="form-control" name="key_code" id="field_key_code"
+                    ng-model="room.key_code"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.key_code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.key_code.$error.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                    ng-model="room.title"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.title.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_is_pet">Is_pet</label>
+            <input type="checkbox" class="form-control" name="is_pet" id="field_is_pet"
+                    ng-model="room.is_pet"
+                     />
+            <div ng-show="editForm.is_pet.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.is_pet.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_is_bed_kid">Is_bed_kid</label>
+            <input type="checkbox" class="form-control" name="is_bed_kid" id="field_is_bed_kid"
+                    ng-model="room.is_bed_kid"
+                     />
+            <div ng-show="editForm.is_bed_kid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.is_bed_kid.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_number_of_livingroom">Number_of_livingroom</label>
+            <input type="number" class="form-control" name="number_of_livingroom" id="field_number_of_livingroom"
+                    ng-model="room.number_of_livingroom"
+                    min="0" max="1" />
+            <div ng-show="editForm.number_of_livingroom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_of_livingroom.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_livingroom.$error.max" translate-value-max="1">
+                    This field cannot be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_livingroom.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_number_of_bedroom">Number_of_bedroom</label>
+            <input type="number" class="form-control" name="number_of_bedroom" id="field_number_of_bedroom"
+                    ng-model="room.number_of_bedroom"
+                    min="0" max="3" />
+            <div ng-show="editForm.number_of_bedroom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_of_bedroom.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_bedroom.$error.max" translate-value-max="3">
+                    This field cannot be more than 3.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_bedroom.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_number_of_toilet">Number_of_toilet</label>
+            <input type="number" class="form-control" name="number_of_toilet" id="field_number_of_toilet"
+                    ng-model="room.number_of_toilet"
+                    min="0" max="3" />
+            <div ng-show="editForm.number_of_toilet.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_of_toilet.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_toilet.$error.max" translate-value-max="3">
+                    This field cannot be more than 3.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_toilet.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_number_of_kitchen">Number_of_kitchen</label>
+            <input type="number" class="form-control" name="number_of_kitchen" id="field_number_of_kitchen"
+                    ng-model="room.number_of_kitchen"
+                    min="0" max="1" />
+            <div ng-show="editForm.number_of_kitchen.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_of_kitchen.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_kitchen.$error.max" translate-value-max="1">
+                    This field cannot be more than 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_kitchen.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_number_of_bathroom">Number_of_bathroom</label>
+            <input type="number" class="form-control" name="number_of_bathroom" id="field_number_of_bathroom"
+                    ng-model="room.number_of_bathroom"
+                    min="0" max="3" />
+            <div ng-show="editForm.number_of_bathroom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_of_bathroom.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_bathroom.$error.max" translate-value-max="3">
+                    This field cannot be more than 3.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_of_bathroom.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_floor">Floor</label>
+            <input type="text" class="form-control" name="floor" id="field_floor"
+                    ng-model="room.floor"
+                    ng-maxlength="50" />
+            <div ng-show="editForm.floor.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.floor.$error.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_orientation">Orientation</label>
+            <input type="text" class="form-control" name="orientation" id="field_orientation"
+                    ng-model="room.orientation"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.orientation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.orientation.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_surface_size">Surface_size</label>
+            <input type="text" class="form-control" name="surface_size" id="field_surface_size"
+                    ng-model="room.surface_size"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.surface_size.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.surface_size.$error.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_max_adults">Max_adults</label>
+            <input type="number" class="form-control" name="max_adults" id="field_max_adults"
+                    ng-model="room.max_adults"
+                    min="0" max="10" />
+            <div ng-show="editForm.max_adults.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.max_adults.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.max_adults.$error.max" translate-value-max="10">
+                    This field cannot be more than 10.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.max_adults.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_max_kids">Max_kids</label>
+            <input type="number" class="form-control" name="max_kids" id="field_max_kids"
+                    ng-model="room.max_kids"
+                    min="0" max="10" />
+            <div ng-show="editForm.max_kids.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.max_kids.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.max_kids.$error.max" translate-value-max="10">
+                    This field cannot be more than 10.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.max_kids.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_daily_price">Daily_price</label>
+            <input type="number" class="form-control" name="daily_price" id="field_daily_price"
+                    ng-model="room.daily_price"
+                    min="0" />
+            <div ng-show="editForm.daily_price.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.daily_price.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.daily_price.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_monthly_price">Monthly_price</label>
+            <input type="number" class="form-control" name="monthly_price" id="field_monthly_price"
+                    ng-model="room.monthly_price"
+                    min="0" />
+            <div ng-show="editForm.monthly_price.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.monthly_price.$error.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monthly_price.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_create_date">Create_date</label>
+            <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="room.create_date" is-open="datePickerForCreate_date.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
+            <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="room.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="field_type_room">type_room</label>
+            <select class="form-control" id="field_type_room" name="type_room" ng-model="room.type_room" ng-options="type_room as type_room.name for type_room in type_rooms track by type_room.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_image">image</label>
+            <select class="form-control" id="field_image" multiple name="image" ng-model="room.images" ng-options="image as image.url for image in images track by image.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_amenity">amenity</label>
+            <select class="form-control" id="field_amenity" multiple name="amenity" ng-model="room.amenitys" ng-options="amenity as amenity.name for amenity in amenitys track by amenity.id"></select>
+        </div>
+        <div class="form-group">
+            <label for="field_currency">currency</label>
+            <select class="form-control" id="field_currency" name="currency" ng-model="room.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_status_room">status_room</label>
+            <select class="form-control" id="field_status_room" name="status_room" ng-model="room.status_room" ng-options="status_room as status_room.name for status_room in status_rooms track by status_room.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_create_by">create_by</label>
+            <select class="form-control" id="field_create_by" name="create_by" ng-model="room.create_by" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_last_modified_by">last_modified_by</label>
+            <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="room.last_modified_by" ng-options="user as user.login for user in users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
