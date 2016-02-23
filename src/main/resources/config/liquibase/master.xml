@@ -24,24 +24,10 @@
     <include file="classpath:config/liquibase/changelog/20160221180058_added_entity_Status_pe.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160221180704_added_entity_Policy.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160221181509_added_entity_Event.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221182154_added_entity_Kind.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221182612_added_entity_Image.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160221182657_added_entity_Status_room.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222124531_added_entity_Amenity.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222130431_added_entity_Room.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222131217_added_entity_Company.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222133536_added_entity_Customer.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222135532_added_entity_Method_register.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222135628_added_entity_Status_register.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222135721_added_entity_Method_payment.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222135840_added_entity_Status_payment.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222142037_added_entity_Status_reservation.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222162214_added_entity_Status_bill.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222163517_added_entity_Register_info.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222171524_added_entity_Reservation.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160222172927_added_entity_Bill.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160223014428_added_entity_Status_service.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160223040645_added_entity_Status_bill_service.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160223043327_added_entity_Services.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223143657_added_entity_Amenity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223143734_added_entity_Image.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223143816_added_entity_Status_room.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223144024_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223144427_added_entity_Kind.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

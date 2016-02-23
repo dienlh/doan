@@ -9,7 +9,6 @@ angular.module('hotelApp')
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
                     data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
-                    data.last_modified_date = DateUtils.convertDateTimeFromServer(data.last_modified_date);
                     return data;
                 }
             },

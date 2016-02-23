@@ -55,7 +55,6 @@ angular.module('hotelApp')
                                     name: null,
                                     decription: null,
                                     create_date: null,
-                                    last_modified_date: null,
                                     id: null
                                 };
                             }

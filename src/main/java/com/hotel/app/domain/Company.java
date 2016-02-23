@@ -52,10 +52,6 @@ public class Company implements Serializable {
     private ZonedDateTime last_modified_date;
 
     @ManyToOne
-    @JoinColumn(name = "bank_id")
-    private Bank bank;
-
-    @ManyToOne
     @JoinColumn(name = "create_by_id")
     private User create_by;
 
@@ -133,14 +129,6 @@ public class Company implements Serializable {
 
     public void setLast_modified_date(ZonedDateTime last_modified_date) {
         this.last_modified_date = last_modified_date;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
     }
 
     public User getCreate_by() {

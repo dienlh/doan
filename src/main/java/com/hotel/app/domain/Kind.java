@@ -32,28 +32,9 @@ public class Kind implements Serializable {
     @Column(name = "create_date")
     private ZonedDateTime create_date;
 
-    @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
-
-    @ManyToMany
-    @JoinTable(name = "kind_policy",
-               joinColumns = @JoinColumn(name="kinds_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="policys_id", referencedColumnName="ID"))
-    private Set<Policy> policys = new HashSet<>();
-
-    @ManyToMany
-    @JoinTable(name = "kind_event",
-               joinColumns = @JoinColumn(name="kinds_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="events_id", referencedColumnName="ID"))
-    private Set<Event> events = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "create_by_id")
     private User create_by;
-
-    @ManyToOne
-    @JoinColumn(name = "last_modified_by_id")
-    private User last_modified_by;
 
     public Long getId() {
         return id;
@@ -87,44 +68,12 @@ public class Kind implements Serializable {
         this.create_date = create_date;
     }
 
-    public ZonedDateTime getLast_modified_date() {
-        return last_modified_date;
-    }
-
-    public void setLast_modified_date(ZonedDateTime last_modified_date) {
-        this.last_modified_date = last_modified_date;
-    }
-
-    public Set<Policy> getPolicys() {
-        return policys;
-    }
-
-    public void setPolicys(Set<Policy> policys) {
-        this.policys = policys;
-    }
-
-    public Set<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(Set<Event> events) {
-        this.events = events;
-    }
-
     public User getCreate_by() {
         return create_by;
     }
 
     public void setCreate_by(User user) {
         this.create_by = user;
-    }
-
-    public User getLast_modified_by() {
-        return last_modified_by;
-    }
-
-    public void setLast_modified_by(User user) {
-        this.last_modified_by = user;
     }
 
     @Override
@@ -151,7 +100,6 @@ public class Kind implements Serializable {
             ", name='" + name + "'" +
             ", decription='" + decription + "'" +
             ", create_date='" + create_date + "'" +
-            ", last_modified_date='" + last_modified_date + "'" +
             '}';
     }
 }

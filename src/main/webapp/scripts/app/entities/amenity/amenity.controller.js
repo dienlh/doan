@@ -29,6 +29,7 @@ angular.module('hotelApp')
         $scope.clear = function () {
             $scope.amenity = {
                 name: null,
+                decription: null,
                 create_date: null,
                 id: null
             };

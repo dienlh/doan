@@ -36,46 +36,10 @@
             </tr>
             <tr>
                 <td>
-                    <span>Last_modified_date</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{kind.last_modified_date | date:'medium'}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>policy</span>
-                </td>
-                <td>
-                    <span ng-repeat="policy in kind.policys">
-                        <a class="form-control-static" ui-sref="policy.detail({id: {{policy.id}}})">{{policy.title}}</a>{{$last ? '' : ', '}}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>event</span>
-                </td>
-                <td>
-                    <span ng-repeat="event in kind.events">
-                        <a class="form-control-static" ui-sref="event.detail({id: {{event.id}}})">{{event.title}}</a>{{$last ? '' : ', '}}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <span>create_by</span>
                 </td>
                 <td>
                     {{kind.create_by.login}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>last_modified_by</span>
-                </td>
-                <td>
-                    {{kind.last_modified_by.login}}
                 </td>
             </tr>
             </tbody>

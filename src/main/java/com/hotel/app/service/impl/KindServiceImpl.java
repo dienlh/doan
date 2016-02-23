@@ -54,7 +54,7 @@ public class KindServiceImpl implements KindService{
     @Transactional(readOnly = true) 
     public Kind findOne(Long id) {
         log.debug("Request to get Kind : {}", id);
-        Kind kind = kindRepository.findOneWithEagerRelationships(id);
+        Kind kind = kindRepository.findOne(id);
         return kind;
     }
 

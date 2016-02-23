@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hotelApp')
-    .controller('KindDetailController', function ($scope, $rootScope, $stateParams, entity, Kind, Policy, Event, User) {
+    .controller('KindDetailController', function ($scope, $rootScope, $stateParams, entity, Kind, User) {
         $scope.kind = entity;
         $scope.load = function (id) {
             Kind.get({id: id}, function(result) {

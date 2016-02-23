@@ -25,6 +25,10 @@ public class Amenity implements Serializable {
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
+    @Size(max = 255)
+    @Column(name = "decription", length = 255)
+    private String decription;
+
     @Column(name = "create_date")
     private ZonedDateTime create_date;
 
@@ -46,6 +50,14 @@ public class Amenity implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDecription() {
+        return decription;
+    }
+
+    public void setDecription(String decription) {
+        this.decription = decription;
     }
 
     public ZonedDateTime getCreate_date() {
@@ -86,6 +98,7 @@ public class Amenity implements Serializable {
         return "Amenity{" +
             "id=" + id +
             ", name='" + name + "'" +
+            ", decription='" + decription + "'" +
             ", create_date='" + create_date + "'" +
             '}';
     }

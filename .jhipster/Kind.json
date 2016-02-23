@@ -2,30 +2,7 @@
     "relationships": [
         {
             "relationshipId": 1,
-            "relationshipName": "policy",
-            "otherEntityName": "policy",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "title",
-            "ownerSide": true
-        },
-        {
-            "relationshipId": 2,
-            "relationshipName": "event",
-            "otherEntityName": "event",
-            "relationshipType": "many-to-many",
-            "otherEntityField": "title",
-            "ownerSide": true
-        },
-        {
-            "relationshipId": 3,
             "relationshipName": "create_by",
-            "otherEntityName": "user",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "login"
-        },
-        {
-            "relationshipId": 4,
-            "relationshipName": "last_modified_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
@@ -55,14 +32,9 @@
             "fieldId": 3,
             "fieldName": "create_date",
             "fieldType": "ZonedDateTime"
-        },
-        {
-            "fieldId": 4,
-            "fieldName": "last_modified_date",
-            "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160221182154",
+    "changelogDate": "20160223144427",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

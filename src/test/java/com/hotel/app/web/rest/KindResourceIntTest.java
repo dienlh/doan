@@ -57,10 +57,6 @@ public class KindResourceIntTest {
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
     private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
 
-    private static final ZonedDateTime DEFAULT_LAST_MODIFIED_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
-    private static final ZonedDateTime UPDATED_LAST_MODIFIED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-    private static final String DEFAULT_LAST_MODIFIED_DATE_STR = dateTimeFormatter.format(DEFAULT_LAST_MODIFIED_DATE);
-
     @Inject
     private KindRepository kindRepository;
 
@@ -93,7 +89,6 @@ public class KindResourceIntTest {
         kind.setName(DEFAULT_NAME);
         kind.setDecription(DEFAULT_DECRIPTION);
         kind.setCreate_date(DEFAULT_CREATE_DATE);
-        kind.setLast_modified_date(DEFAULT_LAST_MODIFIED_DATE);
     }
 
     @Test
@@ -115,7 +110,6 @@ public class KindResourceIntTest {
         assertThat(testKind.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testKind.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
         assertThat(testKind.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
-        assertThat(testKind.getLast_modified_date()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
 
     @Test
@@ -149,8 +143,7 @@ public class KindResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(kind.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
-                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
-                .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE_STR)));
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
     @Test
@@ -166,8 +159,7 @@ public class KindResourceIntTest {
             .andExpect(jsonPath("$.id").value(kind.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
-            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
-            .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE_STR));
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
     @Test
@@ -190,7 +182,6 @@ public class KindResourceIntTest {
         kind.setName(UPDATED_NAME);
         kind.setDecription(UPDATED_DECRIPTION);
         kind.setCreate_date(UPDATED_CREATE_DATE);
-        kind.setLast_modified_date(UPDATED_LAST_MODIFIED_DATE);
 
         restKindMockMvc.perform(put("/api/kinds")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -204,7 +195,6 @@ public class KindResourceIntTest {
         assertThat(testKind.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testKind.getDecription()).isEqualTo(UPDATED_DECRIPTION);
         assertThat(testKind.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
-        assertThat(testKind.getLast_modified_date()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }
 
     @Test
