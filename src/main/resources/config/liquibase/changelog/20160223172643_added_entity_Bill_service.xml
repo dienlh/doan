@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Bill_service.
+    -->
+    <changeSet id="20160223172643" author="jhipster">
+        <createTable tableName="bill_service">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="quantity" type="integer"/>
+            <column name="total" type="bigint"/>
+            <column name="decription" type="varchar(255)"/>
+            <column name="create_date" type="timestamp"/>
+            <column name="services_id" type="bigint"/>
+            <column name="currency_id" type="bigint"/>
+            <column name="reservation_id" type="bigint"/>
+            <column name="status_bill_service_id" type="bigint"/>
+            <column name="create_by_id" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="bill_service" columnName="create_date" columnDataType="datetime"/>
+
+        
+        <addForeignKeyConstraint baseColumnNames="services_id"
+                                 baseTableName="bill_service"
+                                 constraintName="fk_bill_service_services_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="services"/>
+
+        <addForeignKeyConstraint baseColumnNames="currency_id"
+                                 baseTableName="bill_service"
+                                 constraintName="fk_bill_service_currency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="reservation_id"
+                                 baseTableName="bill_service"
+                                 constraintName="fk_bill_service_reservation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reservation"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_bill_service_id"
+                                 baseTableName="bill_service"
+                                 constraintName="fk_bill_service_status_bill_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_bill_service"/>
+
+        <addForeignKeyConstraint baseColumnNames="create_by_id"
+                                 baseTableName="bill_service"
+                                 constraintName="fk_bill_service_create_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>
