@@ -40,6 +40,10 @@ public class Services implements Serializable {
     private ZonedDateTime last_modified_date;
 
     @ManyToOne
+    @JoinColumn(name = "currency_id")
+    private Currency currency;
+
+    @ManyToOne
     @JoinColumn(name = "status_service_id")
     private Status_service status_service;
 
@@ -97,6 +101,14 @@ public class Services implements Serializable {
 
     public void setLast_modified_date(ZonedDateTime last_modified_date) {
         this.last_modified_date = last_modified_date;
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
 
     public Status_service getStatus_service() {

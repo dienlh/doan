@@ -21,6 +21,7 @@
                     <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="status_service.name"><span>status_service</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -35,6 +36,9 @@
                     <td>{{services.decription}}</td>
                     <td>{{services.create_date | date:'medium'}}</td>
                     <td>{{services.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="currency.detail({id:services.currency.id})">{{services.currency.code}}</a>
+                    </td>
                     <td>
                         <a ui-sref="status_service.detail({id:services.status_service.id})">{{services.status_service.name}}</a>
                     </td>

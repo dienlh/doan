@@ -75,6 +75,12 @@
         </div>
 
         <div class="form-group">
+            <label for="field_currency">currency</label>
+            <select class="form-control" id="field_currency" name="currency" ng-model="services.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
             <label for="field_status_service">status_service</label>
             <select class="form-control" id="field_status_service" name="status_service" ng-model="services.status_service" ng-options="status_service as status_service.name for status_service in status_services track by status_service.id">
                 <option value=""></option>
