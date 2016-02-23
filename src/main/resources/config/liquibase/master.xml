@@ -33,5 +33,11 @@
     <include file="classpath:config/liquibase/changelog/20160223162014_added_entity_Method_register.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160223162100_added_entity_Status_register.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160223162529_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223162952_added_entity_Method_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223163026_added_entity_Status_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223163110_added_entity_Status_reservation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223163149_added_entity_Status_bill.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223163225_added_entity_Status_bill_service.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160223163258_added_entity_Status_service.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
