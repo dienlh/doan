@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity Register_info.
+    -->
+    <changeSet id="20160225192825" author="jhipster">
+        <createTable tableName="register_info">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="date_checkin" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_checkout" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="number_of_adult" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="number_of_kid" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="other_request" type="varchar(255)"/>
+            <column name="deposit_value" type="decimal(10,2)">
+                <constraints nullable="false" />
+            </column>
+            <column name="create_date" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_modified_date" type="timestamp"/>
+            <column name="currency_id" type="bigint"/>
+            <column name="room_id" type="bigint"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="method_payment_id" type="bigint"/>
+            <column name="status_payment_id" type="bigint"/>
+            <column name="method_register_id" type="bigint"/>
+            <column name="status_register_id" type="bigint"/>
+            <column name="create_by_id" type="bigint"/>
+            <column name="last_modified_by_id" type="bigint"/>
+        </createTable>
+        <dropDefaultValue tableName="register_info" columnName="create_date" columnDataType="datetime"/>
+
+        <dropDefaultValue tableName="register_info" columnName="last_modified_date" columnDataType="datetime"/>
+
+        
+        <addForeignKeyConstraint baseColumnNames="currency_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_currency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="room_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="room"/>
+
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+
+        <addForeignKeyConstraint baseColumnNames="method_payment_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_method_payment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="method_payment"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_payment_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_status_payment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_payment"/>
+
+        <addForeignKeyConstraint baseColumnNames="method_register_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_method_register_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="method_register"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_register_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_status_register_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_register"/>
+
+        <addForeignKeyConstraint baseColumnNames="create_by_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_create_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="last_modified_by_id"
+                                 baseTableName="register_info"
+                                 constraintName="fk_register_info_last_modified_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

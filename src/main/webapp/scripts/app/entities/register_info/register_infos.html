@@ -1,0 +1,101 @@
+<div>
+    <h2>Register_infos</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="register_info.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Register_info</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_checkin"><span>Date_checkin</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_checkout"><span>Date_checkout</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_adult"><span>Number_of_adult</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_of_kid"><span>Number_of_kid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="other_request"><span>Other_request</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="deposit_value"><span>Deposit_value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="room.code"><span>room</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer.full_name"><span>customer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="method_payment.name"><span>method_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_payment.name"><span>status_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="method_register.name"><span>method_register</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_register.name"><span>status_register</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="register_info in register_infos track by register_info.id">
+                    <td><a ui-sref="register_info.detail({id:register_info.id})">{{register_info.id}}</a></td>
+                        <td>{{register_info.date_checkin | date:'mediumDate'}}</td>
+                        <td>{{register_info.date_checkout | date:'mediumDate'}}</td>
+                    <td>{{register_info.number_of_adult}}</td>
+                    <td>{{register_info.number_of_kid}}</td>
+                    <td>{{register_info.other_request}}</td>
+                    <td>{{register_info.deposit_value}}</td>
+                    <td>{{register_info.create_date | date:'medium'}}</td>
+                    <td>{{register_info.last_modified_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="currency.detail({id:register_info.currency.id})">{{register_info.currency.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="room.detail({id:register_info.room.id})">{{register_info.room.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="customer.detail({id:register_info.customer.id})">{{register_info.customer.full_name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="method_payment.detail({id:register_info.method_payment.id})">{{register_info.method_payment.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_payment.detail({id:register_info.status_payment.id})">{{register_info.status_payment.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="method_register.detail({id:register_info.method_register.id})">{{register_info.method_register.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_register.detail({id:register_info.status_register.id})">{{register_info.status_register.name}}</a>
+                    </td>
+                    <td>
+                        {{register_info.create_by.login}}
+                    </td>
+                    <td>
+                        {{register_info.last_modified_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="register_info.detail({id:register_info.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="register_info.edit({id:register_info.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="register_info.delete({id:register_info.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>
