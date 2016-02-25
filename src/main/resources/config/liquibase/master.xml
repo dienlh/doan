@@ -28,5 +28,13 @@
     <include file="classpath:config/liquibase/changelog/20160225150305_added_entity_Room.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225175504_added_entity_Company.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225180317_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225180902_added_entity_Method_register.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181008_added_entity_Status_register.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181218_added_entity_Status_reservation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181326_added_entity_Method_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181503_added_entity_Status_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181601_added_entity_Status_bill.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181701_added_entity_Status_bill_service.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225181743_added_entity_Status_service.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
