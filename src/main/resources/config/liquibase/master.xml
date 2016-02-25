@@ -5,21 +5,26 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225144909_added_entity_Amenity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225123616_added_entity_Bank.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225123809_added_entity_Came_component.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225142323_added_entity_Currency.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124759_added_entity_Department.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124127_added_entity_Education_level.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225141619_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225123037_added_entity_Ethnic.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225122953_added_entity_Gender.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225145018_added_entity_Images.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124210_added_entity_Job.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124305_added_entity_Major.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225123656_added_entity_Marital_status.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124510_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225142557_added_entity_Profile.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225123125_added_entity_Religion.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225150305_added_entity_Room.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225124405_added_entity_School.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160225125013_added_entity_Status_profile.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160225141619_added_entity_Employee.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160225142323_added_entity_Currency.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160225142557_added_entity_Profile.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225144333_added_entity_Status_room.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160225144427_added_entity_Type_room.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

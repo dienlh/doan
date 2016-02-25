@@ -23,7 +23,7 @@
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="position.position"><span>position</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="position.name"><span>position</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="department.name"><span>department</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="employee.full_name"><span>employee</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="status_profile.name"><span>status_profile</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -45,7 +45,7 @@
                         <a ui-sref="currency.detail({id:profile.currency.id})">{{profile.currency.code}}</a>
                     </td>
                     <td>
-                        <a ui-sref="position.detail({id:profile.position.id})">{{profile.position.position}}</a>
+                        <a ui-sref="position.detail({id:profile.position.id})">{{profile.position.name}}</a>
                     </td>
                     <td>
                         <a ui-sref="department.detail({id:profile.department.id})">{{profile.department.name}}</a>
