@@ -29,7 +29,8 @@ public class Job implements Serializable {
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne

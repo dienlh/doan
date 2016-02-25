@@ -26,7 +26,7 @@
             "fieldValidateRules": [
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": 20
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldId": 3,
@@ -40,10 +40,13 @@
         {
             "fieldId": 4,
             "fieldName": "create_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20160221143917",
+    "changelogDate": "20160225124759",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

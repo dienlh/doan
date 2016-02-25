@@ -28,7 +28,7 @@ angular.module('hotelApp')
 
         $scope.clear = function () {
             $scope.position = {
-                name: null,
+                position: null,
                 decription: null,
                 create_date: null,
                 id: null

@@ -124,18 +124,18 @@
             </tr>
             <tr>
                 <td>
-                    <span>Si_number</span>
+                    <span>Si_date</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{employee.si_number}}</span>
+                    <span class="form-control-static">{{employee.si_date | date:'mediumDate'}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>Si_prov_date</span>
+                    <span>Si_number</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{employee.si_prov_date | date:'mediumDate'}}</span>
+                    <span class="form-control-static">{{employee.si_number}}</span>
                 </td>
             </tr>
             <tr>
@@ -239,7 +239,7 @@
                     <span>bank</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.bank_code}}</a>
+                    <a class="form-control-static" ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.code}}</a>
                 </td>
             </tr>
             <tr>

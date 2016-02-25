@@ -25,15 +25,16 @@ public class Department implements Serializable {
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Size(max = 20)
-    @Column(name = "phone_number", length = 20)
+    @Size(max = 255)
+    @Column(name = "phone_number", length = 255)
     private String phone_number;
 
     @Size(max = 255)
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne

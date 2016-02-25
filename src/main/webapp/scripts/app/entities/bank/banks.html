@@ -16,7 +16,7 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bank_code"><span>Bank_code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span>Code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -26,7 +26,7 @@
             <tbody>
                 <tr ng-repeat="bank in banks track by bank.id">
                     <td><a ui-sref="bank.detail({id:bank.id})">{{bank.id}}</a></td>
-                    <td>{{bank.bank_code}}</td>
+                    <td>{{bank.code}}</td>
                     <td>{{bank.name}}</td>
                     <td>{{bank.create_date | date:'medium'}}</td>
                     <td>

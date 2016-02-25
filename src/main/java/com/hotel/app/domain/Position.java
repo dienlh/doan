@@ -22,14 +22,15 @@ public class Position implements Serializable {
 
     @NotNull
     @Size(max = 255)
-    @Column(name = "name", length = 255, nullable = false)
-    private String name;
+    @Column(name = "position", length = 255, nullable = false)
+    private String position;
 
     @Size(max = 255)
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne
@@ -44,12 +45,12 @@ public class Position implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPosition() {
+        return position;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getDecription() {
@@ -97,7 +98,7 @@ public class Position implements Serializable {
     public String toString() {
         return "Position{" +
             "id=" + id +
-            ", name='" + name + "'" +
+            ", position='" + position + "'" +
             ", decription='" + decription + "'" +
             ", create_date='" + create_date + "'" +
             '}';

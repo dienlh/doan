@@ -30,8 +30,8 @@
                     <th jh-sort-by="ic_prov_date"><span>Ic_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="ic_prov_add"><span>Ic_prov_add</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bank_account"><span>Bank_account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="si_date"><span>Si_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="si_number"><span>Si_number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="si_prov_date"><span>Si_prov_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="gender.name"><span>gender</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -44,7 +44,7 @@
                     <th jh-sort-by="school.name"><span>school</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="marital_status.name"><span>marital_status</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="came_component.name"><span>came_component</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bank.bank_code"><span>bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank.code"><span>bank</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -67,8 +67,8 @@
                         <td>{{employee.ic_prov_date | date:'mediumDate'}}</td>
                     <td>{{employee.ic_prov_add}}</td>
                     <td>{{employee.bank_account}}</td>
+                        <td>{{employee.si_date | date:'mediumDate'}}</td>
                     <td>{{employee.si_number}}</td>
-                        <td>{{employee.si_prov_date | date:'mediumDate'}}</td>
                     <td>{{employee.create_date | date:'medium'}}</td>
                     <td>{{employee.last_modified_date | date:'medium'}}</td>
                     <td>
@@ -102,7 +102,7 @@
                         <a ui-sref="came_component.detail({id:employee.came_component.id})">{{employee.came_component.name}}</a>
                     </td>
                     <td>
-                        <a ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.bank_code}}</a>
+                        <a ui-sref="bank.detail({id:employee.bank.id})">{{employee.bank.code}}</a>
                     </td>
                     <td>
                         {{employee.create_by.login}}

@@ -25,7 +25,8 @@ public class Ethnic implements Serializable {
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne

@@ -52,7 +52,7 @@ angular.module('hotelApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    bank_code: null,
+                                    code: null,
                                     name: null,
                                     create_date: null,
                                     id: null

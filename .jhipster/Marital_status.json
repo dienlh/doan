@@ -21,20 +21,14 @@
         },
         {
             "fieldId": 2,
-            "fieldName": "decription",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": "255"
-        },
-        {
-            "fieldId": 3,
             "fieldName": "create_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20160221142939",
+    "changelogDate": "20160225123656",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

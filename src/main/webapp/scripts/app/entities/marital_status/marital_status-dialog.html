@@ -30,24 +30,22 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_decription">Decription</label>
-            <input type="text" class="form-control" name="decription" id="field_decription"
-                    ng-model="marital_status.decription"
-                    ng-maxlength="255" />
-            <div ng-show="editForm.decription.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.decription.$error.maxlength" translate-value-max="255">
-                    This field cannot be longer than 255 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" for="field_create_date">Create_date</label>
             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="marital_status.create_date" is-open="datePickerForCreate_date.status.opened"
-            />
+            required/>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
+            <div ng-show="editForm.create_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
         </div>
 
         <div class="form-group">

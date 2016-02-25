@@ -14,17 +14,17 @@
                     ng-model="position.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="position.name"
+            <label class="control-label" for="field_position">Position</label>
+            <input type="text" class="form-control" name="position" id="field_position"
+                    ng-model="position.position"
                     required ng-maxlength="255" />
-            <div ng-show="editForm.name.$invalid">
+            <div ng-show="editForm.position.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.name.$error.required">
+                    ng-show="editForm.position.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.name.$error.maxlength" translate-value-max="255">
+                    ng-show="editForm.position.$error.maxlength" translate-value-max="255">
                     This field cannot be longer than 255 characters.
                 </p>
             </div>
@@ -44,10 +44,20 @@
         <div class="form-group">
             <label class="control-label" for="field_create_date">Create_date</label>
             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="position.create_date" is-open="datePickerForCreate_date.status.opened"
-            />
+            required/>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
+            <div ng-show="editForm.create_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
         </div>
 
         <div class="form-group">

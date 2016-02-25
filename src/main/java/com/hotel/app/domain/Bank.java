@@ -22,14 +22,15 @@ public class Bank implements Serializable {
 
     @NotNull
     @Size(max = 20)
-    @Column(name = "bank_code", length = 20, nullable = false)
-    private String bank_code;
+    @Column(name = "code", length = 20, nullable = false)
+    private String code;
 
     @Size(max = 255)
     @Column(name = "name", length = 255)
     private String name;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne
@@ -44,12 +45,12 @@ public class Bank implements Serializable {
         this.id = id;
     }
 
-    public String getBank_code() {
-        return bank_code;
+    public String getCode() {
+        return code;
     }
 
-    public void setBank_code(String bank_code) {
-        this.bank_code = bank_code;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -97,7 +98,7 @@ public class Bank implements Serializable {
     public String toString() {
         return "Bank{" +
             "id=" + id +
-            ", bank_code='" + bank_code + "'" +
+            ", code='" + code + "'" +
             ", name='" + name + "'" +
             ", create_date='" + create_date + "'" +
             '}';

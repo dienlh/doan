@@ -21,11 +21,12 @@ public class Gender implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 100)
-    @Column(name = "name", length = 100, nullable = false)
+    @Size(max = 255)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @ManyToOne

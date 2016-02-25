@@ -132,6 +132,24 @@ public class MajorResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = majorRepository.findAll().size();
+        // set the field null
+        major.setCreate_date(null);
+
+        // Create the Major, which fails.
+
+        restMajorMockMvc.perform(post("/api/majors")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(major)))
+                .andExpect(status().isBadRequest());
+
+        List<Major> majors = majorRepository.findAll();
+        assertThat(majors).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllMajors() throws Exception {
         // Initialize the database
         majorRepository.saveAndFlush(major);

@@ -28,7 +28,7 @@ angular.module('hotelApp')
 
         $scope.clear = function () {
             $scope.bank = {
-                bank_code: null,
+                code: null,
                 name: null,
                 create_date: null,
                 id: null

@@ -132,6 +132,24 @@ public class Status_profileResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = status_profileRepository.findAll().size();
+        // set the field null
+        status_profile.setCreate_date(null);
+
+        // Create the Status_profile, which fails.
+
+        restStatus_profileMockMvc.perform(post("/api/status_profiles")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(status_profile)))
+                .andExpect(status().isBadRequest());
+
+        List<Status_profile> status_profiles = status_profileRepository.findAll();
+        assertThat(status_profiles).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllStatus_profiles() throws Exception {
         // Initialize the database
         status_profileRepository.saveAndFlush(status_profile);

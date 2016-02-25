@@ -132,6 +132,24 @@ public class Education_levelResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = education_levelRepository.findAll().size();
+        // set the field null
+        education_level.setCreate_date(null);
+
+        // Create the Education_level, which fails.
+
+        restEducation_levelMockMvc.perform(post("/api/education_levels")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(education_level)))
+                .andExpect(status().isBadRequest());
+
+        List<Education_level> education_levels = education_levelRepository.findAll();
+        assertThat(education_levels).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEducation_levels() throws Exception {
         // Initialize the database
         education_levelRepository.saveAndFlush(education_level);

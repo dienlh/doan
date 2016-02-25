@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('hotelApp').controller('EmployeeDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Employee', 'Gender', 'Ethnic', 'Religion', 'Job', 'Education_level', 'Major', 'School', 'Marital_status', 'Came_component', 'Bank', 'User', 'Profile',
-        function($scope, $stateParams, $uibModalInstance, entity, Employee, Gender, Ethnic, Religion, Job, Education_level, Major, School, Marital_status, Came_component, Bank, User, Profile) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Employee', 'Gender', 'Ethnic', 'Religion', 'Job', 'Education_level', 'Major', 'School', 'Marital_status', 'Came_component', 'Bank', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Employee, Gender, Ethnic, Religion, Job, Education_level, Major, School, Marital_status, Came_component, Bank, User) {
 
         $scope.employee = entity;
         $scope.genders = Gender.query();
@@ -16,7 +16,6 @@ angular.module('hotelApp').controller('EmployeeDialogController',
         $scope.came_components = Came_component.query();
         $scope.banks = Bank.query();
         $scope.users = User.query();
-        $scope.profiles = Profile.query();
         $scope.load = function(id) {
             Employee.get({id : id}, function(result) {
                 $scope.employee = result;
@@ -63,14 +62,14 @@ angular.module('hotelApp').controller('EmployeeDialogController',
         $scope.datePickerForIc_prov_dateOpen = function($event) {
             $scope.datePickerForIc_prov_date.status.opened = true;
         };
-        $scope.datePickerForSi_prov_date = {};
+        $scope.datePickerForSi_date = {};
 
-        $scope.datePickerForSi_prov_date.status = {
+        $scope.datePickerForSi_date.status = {
             opened: false
         };
 
-        $scope.datePickerForSi_prov_dateOpen = function($event) {
-            $scope.datePickerForSi_prov_date.status.opened = true;
+        $scope.datePickerForSi_dateOpen = function($event) {
+            $scope.datePickerForSi_date.status.opened = true;
         };
         $scope.datePickerForCreate_date = {};
 

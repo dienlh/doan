@@ -11,7 +11,7 @@
     "fields": [
         {
             "fieldId": 1,
-            "fieldName": "bank_code",
+            "fieldName": "code",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required",
@@ -31,10 +31,13 @@
         {
             "fieldId": 3,
             "fieldName": "create_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20160221142004",
+    "changelogDate": "20160225123616",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

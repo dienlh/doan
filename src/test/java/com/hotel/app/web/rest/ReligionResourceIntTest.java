@@ -128,6 +128,24 @@ public class ReligionResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = religionRepository.findAll().size();
+        // set the field null
+        religion.setCreate_date(null);
+
+        // Create the Religion, which fails.
+
+        restReligionMockMvc.perform(post("/api/religions")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(religion)))
+                .andExpect(status().isBadRequest());
+
+        List<Religion> religions = religionRepository.findAll();
+        assertThat(religions).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllReligions() throws Exception {
         // Initialize the database
         religionRepository.saveAndFlush(religion);

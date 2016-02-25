@@ -31,10 +31,13 @@
         {
             "fieldId": 3,
             "fieldName": "create_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20160221144109",
+    "changelogDate": "20160225125013",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

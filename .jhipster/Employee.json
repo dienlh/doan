@@ -90,14 +90,6 @@
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
-        },
-        {
-            "relationshipId": 14,
-            "relationshipName": "profile",
-            "otherEntityName": "profile",
-            "relationshipType": "one-to-one",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "employee"
         }
     ],
     "fields": [
@@ -222,22 +214,21 @@
         },
         {
             "fieldId": 15,
-            "fieldName": "si_number",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "maxlength"
-            ],
-            "fieldValidateRulesMaxlength": 20
+            "fieldName": "si_date",
+            "fieldType": "LocalDate"
         },
         {
             "fieldId": 16,
-            "fieldName": "si_prov_date",
-            "fieldType": "LocalDate"
+            "fieldName": "si_number",
+            "fieldType": "String"
         },
         {
             "fieldId": 17,
             "fieldName": "create_date",
-            "fieldType": "ZonedDateTime"
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldId": 18,
@@ -245,7 +236,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160221145038",
+    "changelogDate": "20160225125609",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

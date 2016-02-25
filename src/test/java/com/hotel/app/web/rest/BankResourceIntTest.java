@@ -48,8 +48,8 @@ public class BankResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_BANK_CODE = "AAAAA";
-    private static final String UPDATED_BANK_CODE = "BBBBB";
+    private static final String DEFAULT_CODE = "AAAAA";
+    private static final String UPDATED_CODE = "BBBBB";
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
@@ -86,7 +86,7 @@ public class BankResourceIntTest {
     @Before
     public void initTest() {
         bank = new Bank();
-        bank.setBank_code(DEFAULT_BANK_CODE);
+        bank.setCode(DEFAULT_CODE);
         bank.setName(DEFAULT_NAME);
         bank.setCreate_date(DEFAULT_CREATE_DATE);
     }
@@ -107,17 +107,35 @@ public class BankResourceIntTest {
         List<Bank> banks = bankRepository.findAll();
         assertThat(banks).hasSize(databaseSizeBeforeCreate + 1);
         Bank testBank = banks.get(banks.size() - 1);
-        assertThat(testBank.getBank_code()).isEqualTo(DEFAULT_BANK_CODE);
+        assertThat(testBank.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testBank.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testBank.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
     @Transactional
-    public void checkBank_codeIsRequired() throws Exception {
+    public void checkCodeIsRequired() throws Exception {
         int databaseSizeBeforeTest = bankRepository.findAll().size();
         // set the field null
-        bank.setBank_code(null);
+        bank.setCode(null);
+
+        // Create the Bank, which fails.
+
+        restBankMockMvc.perform(post("/api/banks")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(bank)))
+                .andExpect(status().isBadRequest());
+
+        List<Bank> banks = bankRepository.findAll();
+        assertThat(banks).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = bankRepository.findAll().size();
+        // set the field null
+        bank.setCreate_date(null);
 
         // Create the Bank, which fails.
 
@@ -141,7 +159,7 @@ public class BankResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(bank.getId().intValue())))
-                .andExpect(jsonPath("$.[*].bank_code").value(hasItem(DEFAULT_BANK_CODE.toString())))
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
@@ -157,7 +175,7 @@ public class BankResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(bank.getId().intValue()))
-            .andExpect(jsonPath("$.bank_code").value(DEFAULT_BANK_CODE.toString()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
@@ -179,7 +197,7 @@ public class BankResourceIntTest {
 		int databaseSizeBeforeUpdate = bankRepository.findAll().size();
 
         // Update the bank
-        bank.setBank_code(UPDATED_BANK_CODE);
+        bank.setCode(UPDATED_CODE);
         bank.setName(UPDATED_NAME);
         bank.setCreate_date(UPDATED_CREATE_DATE);
 
@@ -192,7 +210,7 @@ public class BankResourceIntTest {
         List<Bank> banks = bankRepository.findAll();
         assertThat(banks).hasSize(databaseSizeBeforeUpdate);
         Bank testBank = banks.get(banks.size() - 1);
-        assertThat(testBank.getBank_code()).isEqualTo(UPDATED_BANK_CODE);
+        assertThat(testBank.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testBank.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testBank.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }

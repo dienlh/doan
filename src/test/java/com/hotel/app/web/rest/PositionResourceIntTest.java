@@ -48,8 +48,8 @@ public class PositionResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_NAME = "AAAAA";
-    private static final String UPDATED_NAME = "BBBBB";
+    private static final String DEFAULT_POSITION = "AAAAA";
+    private static final String UPDATED_POSITION = "BBBBB";
     private static final String DEFAULT_DECRIPTION = "AAAAA";
     private static final String UPDATED_DECRIPTION = "BBBBB";
 
@@ -86,7 +86,7 @@ public class PositionResourceIntTest {
     @Before
     public void initTest() {
         position = new Position();
-        position.setName(DEFAULT_NAME);
+        position.setPosition(DEFAULT_POSITION);
         position.setDecription(DEFAULT_DECRIPTION);
         position.setCreate_date(DEFAULT_CREATE_DATE);
     }
@@ -107,17 +107,35 @@ public class PositionResourceIntTest {
         List<Position> positions = positionRepository.findAll();
         assertThat(positions).hasSize(databaseSizeBeforeCreate + 1);
         Position testPosition = positions.get(positions.size() - 1);
-        assertThat(testPosition.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testPosition.getPosition()).isEqualTo(DEFAULT_POSITION);
         assertThat(testPosition.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
         assertThat(testPosition.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
     @Test
     @Transactional
-    public void checkNameIsRequired() throws Exception {
+    public void checkPositionIsRequired() throws Exception {
         int databaseSizeBeforeTest = positionRepository.findAll().size();
         // set the field null
-        position.setName(null);
+        position.setPosition(null);
+
+        // Create the Position, which fails.
+
+        restPositionMockMvc.perform(post("/api/positions")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(position)))
+                .andExpect(status().isBadRequest());
+
+        List<Position> positions = positionRepository.findAll();
+        assertThat(positions).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = positionRepository.findAll().size();
+        // set the field null
+        position.setCreate_date(null);
 
         // Create the Position, which fails.
 
@@ -141,7 +159,7 @@ public class PositionResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(position.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].position").value(hasItem(DEFAULT_POSITION.toString())))
                 .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
@@ -157,7 +175,7 @@ public class PositionResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(position.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.position").value(DEFAULT_POSITION.toString()))
             .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
@@ -179,7 +197,7 @@ public class PositionResourceIntTest {
 		int databaseSizeBeforeUpdate = positionRepository.findAll().size();
 
         // Update the position
-        position.setName(UPDATED_NAME);
+        position.setPosition(UPDATED_POSITION);
         position.setDecription(UPDATED_DECRIPTION);
         position.setCreate_date(UPDATED_CREATE_DATE);
 
@@ -192,7 +210,7 @@ public class PositionResourceIntTest {
         List<Position> positions = positionRepository.findAll();
         assertThat(positions).hasSize(databaseSizeBeforeUpdate);
         Position testPosition = positions.get(positions.size() - 1);
-        assertThat(testPosition.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testPosition.getPosition()).isEqualTo(UPDATED_POSITION);
         assertThat(testPosition.getDecription()).isEqualTo(UPDATED_DECRIPTION);
         assertThat(testPosition.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }

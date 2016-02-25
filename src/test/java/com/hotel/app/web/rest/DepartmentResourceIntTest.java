@@ -136,6 +136,24 @@ public class DepartmentResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = departmentRepository.findAll().size();
+        // set the field null
+        department.setCreate_date(null);
+
+        // Create the Department, which fails.
+
+        restDepartmentMockMvc.perform(post("/api/departments")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(department)))
+                .andExpect(status().isBadRequest());
+
+        List<Department> departments = departmentRepository.findAll();
+        assertThat(departments).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllDepartments() throws Exception {
         // Initialize the database
         departmentRepository.saveAndFlush(department);

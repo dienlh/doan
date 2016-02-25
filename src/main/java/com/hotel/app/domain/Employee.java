@@ -1,6 +1,5 @@
 package com.hotel.app.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
@@ -77,14 +76,14 @@ public class Employee implements Serializable {
     @Column(name = "bank_account", length = 20)
     private String bank_account;
 
-    @Size(max = 20)
-    @Column(name = "si_number", length = 20)
+    @Column(name = "si_date")
+    private LocalDate si_date;
+
+    @Column(name = "si_number")
     private String si_number;
 
-    @Column(name = "si_prov_date")
-    private LocalDate si_prov_date;
-
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @Column(name = "last_modified_date")
@@ -141,10 +140,6 @@ public class Employee implements Serializable {
     @ManyToOne
     @JoinColumn(name = "last_modified_by_id")
     private User last_modified_by;
-
-    @OneToOne(mappedBy = "employee")
-    @JsonIgnore
-    private Profile profile;
 
     public Long getId() {
         return id;
@@ -266,20 +261,20 @@ public class Employee implements Serializable {
         this.bank_account = bank_account;
     }
 
+    public LocalDate getSi_date() {
+        return si_date;
+    }
+
+    public void setSi_date(LocalDate si_date) {
+        this.si_date = si_date;
+    }
+
     public String getSi_number() {
         return si_number;
     }
 
     public void setSi_number(String si_number) {
         this.si_number = si_number;
-    }
-
-    public LocalDate getSi_prov_date() {
-        return si_prov_date;
-    }
-
-    public void setSi_prov_date(LocalDate si_prov_date) {
-        this.si_prov_date = si_prov_date;
     }
 
     public ZonedDateTime getCreate_date() {
@@ -402,14 +397,6 @@ public class Employee implements Serializable {
         this.last_modified_by = user;
     }
 
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -445,8 +432,8 @@ public class Employee implements Serializable {
             ", ic_prov_date='" + ic_prov_date + "'" +
             ", ic_prov_add='" + ic_prov_add + "'" +
             ", bank_account='" + bank_account + "'" +
+            ", si_date='" + si_date + "'" +
             ", si_number='" + si_number + "'" +
-            ", si_prov_date='" + si_prov_date + "'" +
             ", create_date='" + create_date + "'" +
             ", last_modified_date='" + last_modified_date + "'" +
             '}';

@@ -128,6 +128,24 @@ public class EthnicResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = ethnicRepository.findAll().size();
+        // set the field null
+        ethnic.setCreate_date(null);
+
+        // Create the Ethnic, which fails.
+
+        restEthnicMockMvc.perform(post("/api/ethnics")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(ethnic)))
+                .andExpect(status().isBadRequest());
+
+        List<Ethnic> ethnics = ethnicRepository.findAll();
+        assertThat(ethnics).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEthnics() throws Exception {
         // Initialize the database
         ethnicRepository.saveAndFlush(ethnic);

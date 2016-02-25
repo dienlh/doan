@@ -132,6 +132,24 @@ public class JobResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = jobRepository.findAll().size();
+        // set the field null
+        job.setCreate_date(null);
+
+        // Create the Job, which fails.
+
+        restJobMockMvc.perform(post("/api/jobs")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(job)))
+                .andExpect(status().isBadRequest());
+
+        List<Job> jobs = jobRepository.findAll();
+        assertThat(jobs).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllJobs() throws Exception {
         // Initialize the database
         jobRepository.saveAndFlush(job);

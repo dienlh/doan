@@ -128,6 +128,24 @@ public class GenderResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = genderRepository.findAll().size();
+        // set the field null
+        gender.setCreate_date(null);
+
+        // Create the Gender, which fails.
+
+        restGenderMockMvc.perform(post("/api/genders")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(gender)))
+                .andExpect(status().isBadRequest());
+
+        List<Gender> genders = genderRepository.findAll();
+        assertThat(genders).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGenders() throws Exception {
         // Initialize the database
         genderRepository.saveAndFlush(gender);

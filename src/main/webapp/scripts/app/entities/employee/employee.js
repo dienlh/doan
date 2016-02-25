@@ -66,8 +66,8 @@ angular.module('hotelApp')
                                     ic_prov_date: null,
                                     ic_prov_add: null,
                                     bank_account: null,
+                                    si_date: null,
                                     si_number: null,
-                                    si_prov_date: null,
                                     create_date: null,
                                     last_modified_date: null,
                                     id: null

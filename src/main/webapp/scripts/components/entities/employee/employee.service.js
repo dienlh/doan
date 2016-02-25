@@ -10,7 +10,7 @@ angular.module('hotelApp')
                     data = angular.fromJson(data);
                     data.birthday = DateUtils.convertLocaleDateFromServer(data.birthday);
                     data.ic_prov_date = DateUtils.convertLocaleDateFromServer(data.ic_prov_date);
-                    data.si_prov_date = DateUtils.convertLocaleDateFromServer(data.si_prov_date);
+                    data.si_date = DateUtils.convertLocaleDateFromServer(data.si_date);
                     data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
                     data.last_modified_date = DateUtils.convertDateTimeFromServer(data.last_modified_date);
                     return data;
@@ -21,7 +21,7 @@ angular.module('hotelApp')
                 transformRequest: function (data) {
                     data.birthday = DateUtils.convertLocaleDateToServer(data.birthday);
                     data.ic_prov_date = DateUtils.convertLocaleDateToServer(data.ic_prov_date);
-                    data.si_prov_date = DateUtils.convertLocaleDateToServer(data.si_prov_date);
+                    data.si_date = DateUtils.convertLocaleDateToServer(data.si_date);
                     return angular.toJson(data);
                 }
             },
@@ -30,7 +30,7 @@ angular.module('hotelApp')
                 transformRequest: function (data) {
                     data.birthday = DateUtils.convertLocaleDateToServer(data.birthday);
                     data.ic_prov_date = DateUtils.convertLocaleDateToServer(data.ic_prov_date);
-                    data.si_prov_date = DateUtils.convertLocaleDateToServer(data.si_prov_date);
+                    data.si_date = DateUtils.convertLocaleDateToServer(data.si_date);
                     return angular.toJson(data);
                 }
             }

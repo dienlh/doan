@@ -50,8 +50,6 @@ public class Came_componentResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
-    private static final String DEFAULT_DECRIPTION = "AAAAA";
-    private static final String UPDATED_DECRIPTION = "BBBBB";
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -87,7 +85,6 @@ public class Came_componentResourceIntTest {
     public void initTest() {
         came_component = new Came_component();
         came_component.setName(DEFAULT_NAME);
-        came_component.setDecription(DEFAULT_DECRIPTION);
         came_component.setCreate_date(DEFAULT_CREATE_DATE);
     }
 
@@ -108,7 +105,6 @@ public class Came_componentResourceIntTest {
         assertThat(came_components).hasSize(databaseSizeBeforeCreate + 1);
         Came_component testCame_component = came_components.get(came_components.size() - 1);
         assertThat(testCame_component.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testCame_component.getDecription()).isEqualTo(DEFAULT_DECRIPTION);
         assertThat(testCame_component.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
     }
 
@@ -118,6 +114,24 @@ public class Came_componentResourceIntTest {
         int databaseSizeBeforeTest = came_componentRepository.findAll().size();
         // set the field null
         came_component.setName(null);
+
+        // Create the Came_component, which fails.
+
+        restCame_componentMockMvc.perform(post("/api/came_components")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(came_component)))
+                .andExpect(status().isBadRequest());
+
+        List<Came_component> came_components = came_componentRepository.findAll();
+        assertThat(came_components).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = came_componentRepository.findAll().size();
+        // set the field null
+        came_component.setCreate_date(null);
 
         // Create the Came_component, which fails.
 
@@ -142,7 +156,6 @@ public class Came_componentResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(came_component.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].decription").value(hasItem(DEFAULT_DECRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)));
     }
 
@@ -158,7 +171,6 @@ public class Came_componentResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(came_component.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.decription").value(DEFAULT_DECRIPTION.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR));
     }
 
@@ -180,7 +192,6 @@ public class Came_componentResourceIntTest {
 
         // Update the came_component
         came_component.setName(UPDATED_NAME);
-        came_component.setDecription(UPDATED_DECRIPTION);
         came_component.setCreate_date(UPDATED_CREATE_DATE);
 
         restCame_componentMockMvc.perform(put("/api/came_components")
@@ -193,7 +204,6 @@ public class Came_componentResourceIntTest {
         assertThat(came_components).hasSize(databaseSizeBeforeUpdate);
         Came_component testCame_component = came_components.get(came_components.size() - 1);
         assertThat(testCame_component.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testCame_component.getDecription()).isEqualTo(UPDATED_DECRIPTION);
         assertThat(testCame_component.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
     }
 

@@ -79,11 +79,11 @@ public class EmployeeResourceIntTest {
     private static final String UPDATED_IC_PROV_ADD = "BBBBB";
     private static final String DEFAULT_BANK_ACCOUNT = "AAAAA";
     private static final String UPDATED_BANK_ACCOUNT = "BBBBB";
+
+    private static final LocalDate DEFAULT_SI_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_SI_DATE = LocalDate.now(ZoneId.systemDefault());
     private static final String DEFAULT_SI_NUMBER = "AAAAA";
     private static final String UPDATED_SI_NUMBER = "BBBBB";
-
-    private static final LocalDate DEFAULT_SI_PROV_DATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_SI_PROV_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -136,8 +136,8 @@ public class EmployeeResourceIntTest {
         employee.setIc_prov_date(DEFAULT_IC_PROV_DATE);
         employee.setIc_prov_add(DEFAULT_IC_PROV_ADD);
         employee.setBank_account(DEFAULT_BANK_ACCOUNT);
+        employee.setSi_date(DEFAULT_SI_DATE);
         employee.setSi_number(DEFAULT_SI_NUMBER);
-        employee.setSi_prov_date(DEFAULT_SI_PROV_DATE);
         employee.setCreate_date(DEFAULT_CREATE_DATE);
         employee.setLast_modified_date(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -172,8 +172,8 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getIc_prov_date()).isEqualTo(DEFAULT_IC_PROV_DATE);
         assertThat(testEmployee.getIc_prov_add()).isEqualTo(DEFAULT_IC_PROV_ADD);
         assertThat(testEmployee.getBank_account()).isEqualTo(DEFAULT_BANK_ACCOUNT);
+        assertThat(testEmployee.getSi_date()).isEqualTo(DEFAULT_SI_DATE);
         assertThat(testEmployee.getSi_number()).isEqualTo(DEFAULT_SI_NUMBER);
-        assertThat(testEmployee.getSi_prov_date()).isEqualTo(DEFAULT_SI_PROV_DATE);
         assertThat(testEmployee.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
         assertThat(testEmployee.getLast_modified_date()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
     }
@@ -184,6 +184,24 @@ public class EmployeeResourceIntTest {
         int databaseSizeBeforeTest = employeeRepository.findAll().size();
         // set the field null
         employee.setFull_name(null);
+
+        // Create the Employee, which fails.
+
+        restEmployeeMockMvc.perform(post("/api/employees")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(employee)))
+                .andExpect(status().isBadRequest());
+
+        List<Employee> employees = employeeRepository.findAll();
+        assertThat(employees).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = employeeRepository.findAll().size();
+        // set the field null
+        employee.setCreate_date(null);
 
         // Create the Employee, which fails.
 
@@ -221,8 +239,8 @@ public class EmployeeResourceIntTest {
                 .andExpect(jsonPath("$.[*].ic_prov_date").value(hasItem(DEFAULT_IC_PROV_DATE.toString())))
                 .andExpect(jsonPath("$.[*].ic_prov_add").value(hasItem(DEFAULT_IC_PROV_ADD.toString())))
                 .andExpect(jsonPath("$.[*].bank_account").value(hasItem(DEFAULT_BANK_ACCOUNT.toString())))
+                .andExpect(jsonPath("$.[*].si_date").value(hasItem(DEFAULT_SI_DATE.toString())))
                 .andExpect(jsonPath("$.[*].si_number").value(hasItem(DEFAULT_SI_NUMBER.toString())))
-                .andExpect(jsonPath("$.[*].si_prov_date").value(hasItem(DEFAULT_SI_PROV_DATE.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
                 .andExpect(jsonPath("$.[*].last_modified_date").value(hasItem(DEFAULT_LAST_MODIFIED_DATE_STR)));
     }
@@ -252,8 +270,8 @@ public class EmployeeResourceIntTest {
             .andExpect(jsonPath("$.ic_prov_date").value(DEFAULT_IC_PROV_DATE.toString()))
             .andExpect(jsonPath("$.ic_prov_add").value(DEFAULT_IC_PROV_ADD.toString()))
             .andExpect(jsonPath("$.bank_account").value(DEFAULT_BANK_ACCOUNT.toString()))
+            .andExpect(jsonPath("$.si_date").value(DEFAULT_SI_DATE.toString()))
             .andExpect(jsonPath("$.si_number").value(DEFAULT_SI_NUMBER.toString()))
-            .andExpect(jsonPath("$.si_prov_date").value(DEFAULT_SI_PROV_DATE.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
             .andExpect(jsonPath("$.last_modified_date").value(DEFAULT_LAST_MODIFIED_DATE_STR));
     }
@@ -289,8 +307,8 @@ public class EmployeeResourceIntTest {
         employee.setIc_prov_date(UPDATED_IC_PROV_DATE);
         employee.setIc_prov_add(UPDATED_IC_PROV_ADD);
         employee.setBank_account(UPDATED_BANK_ACCOUNT);
+        employee.setSi_date(UPDATED_SI_DATE);
         employee.setSi_number(UPDATED_SI_NUMBER);
-        employee.setSi_prov_date(UPDATED_SI_PROV_DATE);
         employee.setCreate_date(UPDATED_CREATE_DATE);
         employee.setLast_modified_date(UPDATED_LAST_MODIFIED_DATE);
 
@@ -317,8 +335,8 @@ public class EmployeeResourceIntTest {
         assertThat(testEmployee.getIc_prov_date()).isEqualTo(UPDATED_IC_PROV_DATE);
         assertThat(testEmployee.getIc_prov_add()).isEqualTo(UPDATED_IC_PROV_ADD);
         assertThat(testEmployee.getBank_account()).isEqualTo(UPDATED_BANK_ACCOUNT);
+        assertThat(testEmployee.getSi_date()).isEqualTo(UPDATED_SI_DATE);
         assertThat(testEmployee.getSi_number()).isEqualTo(UPDATED_SI_NUMBER);
-        assertThat(testEmployee.getSi_prov_date()).isEqualTo(UPDATED_SI_PROV_DATE);
         assertThat(testEmployee.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
         assertThat(testEmployee.getLast_modified_date()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
     }

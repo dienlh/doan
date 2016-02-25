@@ -178,32 +178,36 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="control-label" for="field_si_date">Si_date</label>
+            <input id="field_si_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.si_date" is-open="datePickerForSi_date.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForSi_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
             <label class="control-label" for="field_si_number">Si_number</label>
             <input type="text" class="form-control" name="si_number" id="field_si_number"
                     ng-model="employee.si_number"
-                    ng-maxlength="20" />
-            <div ng-show="editForm.si_number.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.si_number.$error.maxlength" translate-value-max="20">
-                    This field cannot be longer than 20 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_si_prov_date">Si_prov_date</label>
-            <input id="field_si_prov_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.si_prov_date" is-open="datePickerForSi_prov_date.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForSi_prov_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
+                     />
         </div>
         <div class="form-group">
             <label class="control-label" for="field_create_date">Create_date</label>
             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="employee.create_date" is-open="datePickerForCreate_date.status.opened"
-            />
+            required/>
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
+            <div ng-show="editForm.create_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
@@ -276,7 +280,7 @@
         </div>
         <div class="form-group">
             <label for="field_bank">bank</label>
-            <select class="form-control" id="field_bank" name="bank" ng-model="employee.bank" ng-options="bank as bank.bank_code for bank in banks track by bank.id">
+            <select class="form-control" id="field_bank" name="bank" ng-model="employee.bank" ng-options="bank as bank.code for bank in banks track by bank.id">
                 <option value=""></option>
             </select>
         </div>

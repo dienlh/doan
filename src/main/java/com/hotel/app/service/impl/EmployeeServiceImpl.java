@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing Employee.
@@ -47,20 +45,6 @@ public class EmployeeServiceImpl implements EmployeeService{
         log.debug("Request to get all Employees");
         Page<Employee> result = employeeRepository.findAll(pageable); 
         return result;
-    }
-
-
-    /**
-     *  get all the employees where Profile is null.
-     *  @return the list of entities
-     */
-    @Transactional(readOnly = true) 
-    public List<Employee> findAllWhereProfileIsNull() {
-        log.debug("Request to get all employees where Profile is null");
-        return StreamSupport
-            .stream(employeeRepository.findAll().spliterator(), false)
-            .filter(employee -> employee.getProfile() == null)
-            .collect(Collectors.toList());
     }
 
     /**

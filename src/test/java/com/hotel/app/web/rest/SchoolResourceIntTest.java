@@ -132,6 +132,24 @@ public class SchoolResourceIntTest {
 
     @Test
     @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = schoolRepository.findAll().size();
+        // set the field null
+        school.setCreate_date(null);
+
+        // Create the School, which fails.
+
+        restSchoolMockMvc.perform(post("/api/schools")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(school)))
+                .andExpect(status().isBadRequest());
+
+        List<School> schools = schoolRepository.findAll();
+        assertThat(schools).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllSchools() throws Exception {
         // Initialize the database
         schoolRepository.saveAndFlush(school);
