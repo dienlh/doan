@@ -189,7 +189,13 @@
             <label class="control-label" for="field_si_number">Si_number</label>
             <input type="text" class="form-control" name="si_number" id="field_si_number"
                     ng-model="employee.si_number"
-                     />
+                    ng-maxlength="20" />
+            <div ng-show="editForm.si_number.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.si_number.$error.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="field_create_date">Create_date</label>

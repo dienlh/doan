@@ -1,5 +1,6 @@
 package com.hotel.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
@@ -79,7 +80,8 @@ public class Employee implements Serializable {
     @Column(name = "si_date")
     private LocalDate si_date;
 
-    @Column(name = "si_number")
+    @Size(max = 20)
+    @Column(name = "si_number", length = 20)
     private String si_number;
 
     @NotNull
@@ -132,6 +134,10 @@ public class Employee implements Serializable {
     @ManyToOne
     @JoinColumn(name = "bank_id")
     private Bank bank;
+
+    @OneToOne(mappedBy = "employee")
+    @JsonIgnore
+    private Profile profile;
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")
@@ -379,6 +385,14 @@ public class Employee implements Serializable {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     public User getCreate_by() {

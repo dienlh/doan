@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('hotelApp').controller('EmployeeDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Employee', 'Gender', 'Ethnic', 'Religion', 'Job', 'Education_level', 'Major', 'School', 'Marital_status', 'Came_component', 'Bank', 'User',
-        function($scope, $stateParams, $uibModalInstance, entity, Employee, Gender, Ethnic, Religion, Job, Education_level, Major, School, Marital_status, Came_component, Bank, User) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Employee', 'Gender', 'Ethnic', 'Religion', 'Job', 'Education_level', 'Major', 'School', 'Marital_status', 'Came_component', 'Bank', 'Profile', 'User',
+        function($scope, $stateParams, $uibModalInstance, entity, Employee, Gender, Ethnic, Religion, Job, Education_level, Major, School, Marital_status, Came_component, Bank, Profile, User) {
 
         $scope.employee = entity;
         $scope.genders = Gender.query();
@@ -15,6 +15,7 @@ angular.module('hotelApp').controller('EmployeeDialogController',
         $scope.marital_statuss = Marital_status.query();
         $scope.came_components = Came_component.query();
         $scope.banks = Bank.query();
+        $scope.profiles = Profile.query();
         $scope.users = User.query();
         $scope.load = function(id) {
             Employee.get({id : id}, function(result) {

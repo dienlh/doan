@@ -75,17 +75,25 @@
             "relationshipName": "bank",
             "otherEntityName": "bank",
             "relationshipType": "many-to-one",
-            "otherEntityField": "bank_code"
+            "otherEntityField": "code"
         },
         {
             "relationshipId": 12,
+            "relationshipName": "profile",
+            "otherEntityName": "profile",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "employee"
+        },
+        {
+            "relationshipId": 13,
             "relationshipName": "create_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
         },
         {
-            "relationshipId": 13,
+            "relationshipId": 14,
             "relationshipName": "last_modified_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
@@ -220,7 +228,11 @@
         {
             "fieldId": 16,
             "fieldName": "si_number",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
         },
         {
             "fieldId": 17,
@@ -236,7 +248,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160225125609",
+    "changelogDate": "20160225141619",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

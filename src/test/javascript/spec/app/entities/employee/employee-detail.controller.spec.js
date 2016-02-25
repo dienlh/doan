@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Employee Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockEmployee, MockGender, MockEthnic, MockReligion, MockJob, MockEducation_level, MockMajor, MockSchool, MockMarital_status, MockCame_component, MockBank, MockUser;
+        var MockEntity, MockEmployee, MockGender, MockEthnic, MockReligion, MockJob, MockEducation_level, MockMajor, MockSchool, MockMarital_status, MockCame_component, MockBank, MockProfile, MockUser;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -22,6 +22,7 @@ describe('Controller Tests', function() {
             MockMarital_status = jasmine.createSpy('MockMarital_status');
             MockCame_component = jasmine.createSpy('MockCame_component');
             MockBank = jasmine.createSpy('MockBank');
+            MockProfile = jasmine.createSpy('MockProfile');
             MockUser = jasmine.createSpy('MockUser');
             
 
@@ -40,6 +41,7 @@ describe('Controller Tests', function() {
                 'Marital_status': MockMarital_status,
                 'Came_component': MockCame_component,
                 'Bank': MockBank,
+                'Profile': MockProfile,
                 'User': MockUser
             };
             createController = function() {

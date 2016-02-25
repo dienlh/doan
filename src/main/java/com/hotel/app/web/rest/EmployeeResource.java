@@ -21,6 +21,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Employee.
@@ -77,8 +79,13 @@ public class EmployeeResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Employee>> getAllEmployees(Pageable pageable)
+    public ResponseEntity<List<Employee>> getAllEmployees(Pageable pageable, @RequestParam(required = false) String filter)
         throws URISyntaxException {
+        if ("profile-is-null".equals(filter)) {
+            log.debug("REST request to get all Employees where profile is null");
+            return new ResponseEntity<>(employeeService.findAllWhereProfileIsNull(),
+                    HttpStatus.OK);
+        }
         log.debug("REST request to get a page of Employees");
         Page<Employee> page = employeeService.findAll(pageable); 
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/employees");

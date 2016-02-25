@@ -22,6 +22,11 @@ public interface EmployeeService {
      *  @return the list of entities
      */
     public Page<Employee> findAll(Pageable pageable);
+    /**
+     *  get all the employees where Profile is null.
+     *  @return the list of entities
+     */
+    public List<Employee> findAllWhereProfileIsNull();
 
     /**
      *  get the "id" employee.
