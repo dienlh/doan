@@ -1,0 +1,77 @@
+<div>
+    <h2>Bill_services</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="bill_service.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Bill_service</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span>Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span>Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="services.name"><span>services</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reservation.id"><span>reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_bill_service.name"><span>status_bill_service</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bill_service in bill_services track by bill_service.id">
+                    <td><a ui-sref="bill_service.detail({id:bill_service.id})">{{bill_service.id}}</a></td>
+                    <td>{{bill_service.quantity}}</td>
+                    <td>{{bill_service.total}}</td>
+                    <td>{{bill_service.decription}}</td>
+                    <td>{{bill_service.create_date | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="currency.detail({id:bill_service.currency.id})">{{bill_service.currency.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="services.detail({id:bill_service.services.id})">{{bill_service.services.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="reservation.detail({id:bill_service.reservation.id})">{{bill_service.reservation.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="status_bill_service.detail({id:bill_service.status_bill_service.id})">{{bill_service.status_bill_service.name}}</a>
+                    </td>
+                    <td>
+                        {{bill_service.create_by.login}}
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="bill_service.detail({id:bill_service.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="bill_service.edit({id:bill_service.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="bill_service.delete({id:bill_service.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>
