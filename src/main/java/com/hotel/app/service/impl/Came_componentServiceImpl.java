@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Came_componentService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Came_component;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Came_componentRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Came_componentServiceImpl implements Came_componentService{
     @Inject
     private Came_componentRepository came_componentRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a came_component.
      * @return the persisted entity
      */
     public Came_component save(Came_component came_component) {
         log.debug("Request to save Came_component : {}", came_component);
+        if(came_component.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            came_component.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Came_component result = came_componentRepository.save(came_component);
         return result;
     }

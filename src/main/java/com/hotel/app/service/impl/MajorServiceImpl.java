@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.MajorService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Major;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.MajorRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class MajorServiceImpl implements MajorService{
     @Inject
     private MajorRepository majorRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a major.
      * @return the persisted entity
      */
     public Major save(Major major) {
         log.debug("Request to save Major : {}", major);
+        if(major.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            major.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Major result = majorRepository.save(major);
         return result;
     }

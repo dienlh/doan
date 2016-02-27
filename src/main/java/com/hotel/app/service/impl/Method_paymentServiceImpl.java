@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Method_paymentService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Method_payment;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Method_paymentRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Method_paymentServiceImpl implements Method_paymentService{
     @Inject
     private Method_paymentRepository method_paymentRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a method_payment.
      * @return the persisted entity
      */
     public Method_payment save(Method_payment method_payment) {
         log.debug("Request to save Method_payment : {}", method_payment);
+        if(method_payment.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            method_payment.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Method_payment result = method_paymentRepository.save(method_payment);
         return result;
     }

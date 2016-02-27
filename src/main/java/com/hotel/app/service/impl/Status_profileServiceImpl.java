@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Status_profileService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Status_profile;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Status_profileRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Status_profileServiceImpl implements Status_profileService{
     @Inject
     private Status_profileRepository status_profileRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a status_profile.
      * @return the persisted entity
      */
     public Status_profile save(Status_profile status_profile) {
         log.debug("Request to save Status_profile : {}", status_profile);
+        if(status_profile.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            status_profile.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Status_profile result = status_profileRepository.save(status_profile);
         return result;
     }

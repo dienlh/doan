@@ -1,12 +1,20 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.BankService;
+import com.hotel.app.service.UserService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Bank;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.BankRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -26,12 +34,26 @@ public class BankServiceImpl implements BankService{
     @Inject
     private BankRepository bankRepository;
     
+    @Inject
+    private UserRepository userRepository;
+    
     /**
      * Save a bank.
      * @return the persisted entity
      */
     public Bank save(Bank bank) {
-        log.debug("Request to save Bank : {}", bank);
+        log.debug("Request to save Bank : {}", bank);   
+        if(bank.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            bank.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
+        
         Bank result = bankRepository.save(bank);
         return result;
     }

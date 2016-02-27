@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.EthnicService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Ethnic;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.EthnicRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class EthnicServiceImpl implements EthnicService{
     @Inject
     private EthnicRepository ethnicRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a ethnic.
      * @return the persisted entity
      */
     public Ethnic save(Ethnic ethnic) {
         log.debug("Request to save Ethnic : {}", ethnic);
+        if(ethnic.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            ethnic.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Ethnic result = ethnicRepository.save(ethnic);
         return result;
     }

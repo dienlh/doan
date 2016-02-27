@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Education_levelService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Education_level;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Education_levelRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Education_levelServiceImpl implements Education_levelService{
     @Inject
     private Education_levelRepository education_levelRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a education_level.
      * @return the persisted entity
      */
     public Education_level save(Education_level education_level) {
         log.debug("Request to save Education_level : {}", education_level);
+        if(education_level.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            education_level.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Education_level result = education_levelRepository.save(education_level);
         return result;
     }

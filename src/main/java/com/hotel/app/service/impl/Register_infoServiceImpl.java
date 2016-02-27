@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Register_infoService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Register_info;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Register_infoRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -11,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,12 +35,32 @@ public class Register_infoServiceImpl implements Register_infoService{
     @Inject
     private Register_infoRepository register_infoRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a register_info.
      * @return the persisted entity
      */
     public Register_info save(Register_info register_info) {
         log.debug("Request to save Register_info : {}", register_info);
+        if(register_info.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            register_info.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }else{
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            User user=new User();
+            user.setId(optional.get().getId());
+//            user.setLogin(optional.get().getLogin());
+            register_info.setLast_modified_by(user);
+            register_info.setLast_modified_date(ZonedDateTime.now());
+        }
         Register_info result = register_infoRepository.save(register_info);
         return result;
     }

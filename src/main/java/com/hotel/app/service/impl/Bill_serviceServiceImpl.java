@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Bill_serviceService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Bill_service;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Bill_serviceRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Bill_serviceServiceImpl implements Bill_serviceService{
     @Inject
     private Bill_serviceRepository bill_serviceRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a bill_service.
      * @return the persisted entity
      */
     public Bill_service save(Bill_service bill_service) {
         log.debug("Request to save Bill_service : {}", bill_service);
+        if(bill_service.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            bill_service.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Bill_service result = bill_serviceRepository.save(bill_service);
         return result;
     }

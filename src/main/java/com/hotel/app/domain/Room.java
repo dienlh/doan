@@ -111,12 +111,12 @@ public class Room implements Serializable {
     @Column(name = "monthly_price", precision=10, scale=2, nullable = false)
     private BigDecimal monthly_price;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
+    private ZonedDateTime last_modified_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "type_room_id")

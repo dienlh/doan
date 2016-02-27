@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.ReligionService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Religion;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.ReligionRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class ReligionServiceImpl implements ReligionService{
     @Inject
     private ReligionRepository religionRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a religion.
      * @return the persisted entity
      */
     public Religion save(Religion religion) {
         log.debug("Request to save Religion : {}", religion);
+        if(religion.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            religion.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Religion result = religionRepository.save(religion);
         return result;
     }

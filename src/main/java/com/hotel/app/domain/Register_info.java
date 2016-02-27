@@ -50,12 +50,12 @@ public class Register_info implements Serializable {
     @Column(name = "deposit_value", precision=10, scale=2, nullable = false)
     private BigDecimal deposit_value;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
+    private ZonedDateTime last_modified_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "currency_id")

@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.SchoolService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.School;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.SchoolRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class SchoolServiceImpl implements SchoolService{
     @Inject
     private SchoolRepository schoolRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a school.
      * @return the persisted entity
      */
     public School save(School school) {
         log.debug("Request to save School : {}", school);
+        if(school.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            school.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         School result = schoolRepository.save(school);
         return result;
     }

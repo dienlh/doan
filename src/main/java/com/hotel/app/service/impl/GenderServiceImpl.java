@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.GenderService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Gender;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.GenderRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class GenderServiceImpl implements GenderService{
     @Inject
     private GenderRepository genderRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a gender.
      * @return the persisted entity
      */
     public Gender save(Gender gender) {
         log.debug("Request to save Gender : {}", gender);
+        if(gender.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            gender.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Gender result = genderRepository.save(gender);
         return result;
     }

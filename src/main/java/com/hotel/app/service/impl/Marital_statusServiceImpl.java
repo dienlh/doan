@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Marital_statusService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Marital_status;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Marital_statusRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class Marital_statusServiceImpl implements Marital_statusService{
     @Inject
     private Marital_statusRepository marital_statusRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a marital_status.
      * @return the persisted entity
      */
     public Marital_status save(Marital_status marital_status) {
         log.debug("Request to save Marital_status : {}", marital_status);
+        if(marital_status.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            marital_status.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Marital_status result = marital_statusRepository.save(marital_status);
         return result;
     }

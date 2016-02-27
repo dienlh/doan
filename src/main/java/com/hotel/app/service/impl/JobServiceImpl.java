@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.JobService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Job;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.JobRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class JobServiceImpl implements JobService{
     @Inject
     private JobRepository jobRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a job.
      * @return the persisted entity
      */
     public Job save(Job job) {
         log.debug("Request to save Job : {}", job);
+        if(job.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            job.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Job result = jobRepository.save(job);
         return result;
     }

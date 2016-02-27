@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.PositionService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Position;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.PositionRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class PositionServiceImpl implements PositionService{
     @Inject
     private PositionRepository positionRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a position.
      * @return the persisted entity
      */
     public Position save(Position position) {
         log.debug("Request to save Position : {}", position);
+        if(position.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            position.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Position result = positionRepository.save(position);
         return result;
     }

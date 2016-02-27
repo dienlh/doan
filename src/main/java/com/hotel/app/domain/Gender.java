@@ -25,9 +25,9 @@ public class Gender implements Serializable {
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")

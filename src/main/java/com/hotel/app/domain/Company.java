@@ -46,9 +46,9 @@ public class Company implements Serializable {
     @Column(name = "bank_account", length = 20)
     private String bank_account;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "bank_id")

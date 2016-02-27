@@ -84,12 +84,12 @@ public class Employee implements Serializable {
     @Column(name = "si_number", length = 20)
     private String si_number;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
+    private ZonedDateTime last_modified_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "gender_id")

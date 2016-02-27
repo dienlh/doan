@@ -23,9 +23,9 @@ public class Images implements Serializable {
     @Column(name = "url", length = 100, nullable = false)
     private String url;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     public Long getId() {
         return id;

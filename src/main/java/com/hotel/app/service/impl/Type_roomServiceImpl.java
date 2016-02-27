@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Type_roomService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Type_room;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.Type_roomRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,23 @@ public class Type_roomServiceImpl implements Type_roomService{
     @Inject
     private Type_roomRepository type_roomRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a type_room.
      * @return the persisted entity
      */
     public Type_room save(Type_room type_room) {
         log.debug("Request to save Type_room : {}", type_room);
+        if (type_room.getId() == null) {
+			Optional<ManagedUserDTO> optional = userRepository
+					.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).map(ManagedUserDTO::new);
+			User user = new User();
+			user.setId(optional.get().getId());
+			user.setLogin(optional.get().getLogin());
+			type_room.setCreate_by(user);
+			log.info("Preshow user" + user);
+		}
         Type_room result = type_roomRepository.save(type_room);
         return result;
     }

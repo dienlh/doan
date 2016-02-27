@@ -29,9 +29,9 @@ public class Status_register implements Serializable {
     @Column(name = "decription", length = 255)
     private String decription;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "create_by_id")

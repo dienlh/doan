@@ -35,12 +35,12 @@ public class Reservation implements Serializable {
     @Column(name = "note_checkout", length = 255)
     private String note_checkout;
 
-    @NotNull
+//    @NotNull
     @Column(name = "create_date", nullable = false)
-    private ZonedDateTime create_date;
+    private ZonedDateTime create_date = ZonedDateTime.now();
 
     @Column(name = "last_modified_date")
-    private ZonedDateTime last_modified_date;
+    private ZonedDateTime last_modified_date = ZonedDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "person_checkin_id")

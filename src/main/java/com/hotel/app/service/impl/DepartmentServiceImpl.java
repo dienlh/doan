@@ -1,8 +1,13 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.DepartmentService;
+import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Department;
+import com.hotel.app.domain.User;
 import com.hotel.app.repository.DepartmentRepository;
+import com.hotel.app.repository.UserRepository;
+import com.hotel.app.security.SecurityUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -26,12 +31,24 @@ public class DepartmentServiceImpl implements DepartmentService{
     @Inject
     private DepartmentRepository departmentRepository;
     
+    @Inject
+    private UserRepository userRepository;
     /**
      * Save a department.
      * @return the persisted entity
      */
     public Department save(Department department) {
         log.debug("Request to save Department : {}", department);
+        if(department.getId()==null){
+        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
+                    .map(ManagedUserDTO::new);
+            
+            User user=new User();
+            user.setId(optional.get().getId());
+            user.setLogin(optional.get().getLogin());
+            department.setCreate_by(user);
+            log.info("Preshow user"+ user);
+        }
         Department result = departmentRepository.save(department);
         return result;
     }
