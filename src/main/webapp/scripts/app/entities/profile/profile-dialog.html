@@ -4,17 +4,17 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myProfileLabel">Create or edit a Profile</h4>
+        <h4 class="modal-title" id="myProfileLabel">Tạo hồ sơ nhân viên</h4>
     </div>
-    <div class="modal-body">
+    <div class="modal-body ">
         <jh-alert-error></jh-alert-error>
-        <div class="form-group">
+        <div class="form-group hide">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="profile.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_join_date">Join_date</label>
+            <label class="control-label" for="field_join_date">Ngày vào làm</label>
             <input id="field_join_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="profile.join_date" is-open="datePickerForJoin_date.status.opened"
             required/>
             <span class="input-group-btn">
@@ -28,9 +28,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_salary_subsidies">Salary_subsidies</label>
+            <label class="control-label" for="field_salary_subsidies">Lương phụ cấp</label>
             <input type="number" class="form-control" name="salary_subsidies" id="field_salary_subsidies"
-                    ng-model="profile.salary_subsidies"
+                    ng-model="profile.salary_subsidies" ng-init="profile.salary_subsidies=0"
                     required min="0" />
             <div ng-show="editForm.salary_subsidies.$invalid">
                 <p class="help-block"
@@ -48,11 +48,11 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_salary_basic">Salary_basic</label>
+            <label class="control-label" for="field_salary_basic">Lương cơ bản</label>
             <input type="number" class="form-control" name="salary_basic" id="field_salary_basic"
-                    ng-model="profile.salary_basic"
+                    ng-model="profile.salary_basic" ng-init="profile.salary_basic=0"
                     required min="0" />
-            <div ng-show="editForm.salary_basic.$invalid">
+            <div ng-show="editForm.salary_basic.$invalid" >
                 <p class="help-block"
                     ng-show="editForm.salary_basic.$error.required">
                     This field is required.
@@ -68,10 +68,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_salary">Salary</label>
+            <label class="control-label" for="field_salary">Lương chính</label>
             <input type="number" class="form-control" name="salary" id="field_salary"
-                    ng-model="profile.salary"
-                    required min="0" />
+                    ng-model="profile.salary=profile.salary_subsidies+profile.salary_basic"
+                    required min="0" readonly/>
             <div ng-show="editForm.salary.$invalid">
                 <p class="help-block"
                     ng-show="editForm.salary.$error.required">
@@ -105,41 +105,41 @@
 <!--                 </p> -->
 <!--             </div> -->
 <!--         </div> -->
-        <div class="form-group">
-            <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
-            <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="profile.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-        </div>
+<!--         <div class="form-group"> -->
+<!--             <label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
+<!--             <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="profile.last_modified_date" is-open="datePickerForLast_modified_date.status.opened" -->
+<!--             /> -->
+<!--             <span class="input-group-btn"> -->
+<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
+<!--             </span> -->
+<!--         </div> -->
 
         <div class="form-group">
-            <label for="field_currency">currency</label>
+            <label for="field_currency">Đơn vị tính</label>
             <select class="form-control" id="field_currency" name="currency" ng-model="profile.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_position">position</label>
-            <select class="form-control" id="field_position" name="position" ng-model="profile.position" ng-options="position as position.name for position in positions track by position.id">
+            <label for="field_position">Vị trí</label>
+            <select class="form-control" id="field_position" name="position" ng-model="profile.position" ng-options="position as position.position for position in positions track by position.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_department">department</label>
+            <label for="field_department">Phòng ban</label>
             <select class="form-control" id="field_department" name="department" ng-model="profile.department" ng-options="department as department.name for department in departments track by department.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_employee">employee</label>
+            <label for="field_employee">Nhân viên</label>
             <select class="form-control" id="field_employee" name="employee" ng-model="profile.employee" ng-options="employee as employee.full_name for employee in employees | orderBy:'id' track by employee.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_status_profile">status_profile</label>
+            <label for="field_status_profile">Trạng thái</label>
             <select class="form-control" id="field_status_profile" name="status_profile" ng-model="profile.status_profile" ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
                 <option value=""></option>
             </select>
@@ -150,12 +150,12 @@
 <!--                 <option value=""></option> -->
 <!--             </select> -->
 <!--         </div> -->
-        <div class="form-group">
-            <label for="field_last_modified_by">last_modified_by</label>
-            <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="profile.last_modified_by" ng-options="user as user.login for user in users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
+<!--         <div class="form-group"> -->
+<!--             <label for="field_last_modified_by">last_modified_by</label> -->
+<!--             <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="profile.last_modified_by" ng-options="user as user.login for user in users track by user.id"> -->
+<!--                 <option value=""></option> -->
+<!--             </select> -->
+<!--         </div> -->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
