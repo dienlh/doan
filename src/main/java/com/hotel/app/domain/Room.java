@@ -26,8 +26,9 @@ public class Room implements Serializable {
     @Column(name = "code", length = 10, nullable = false)
     private String code;
 
+    @NotNull
     @Size(max = 10)
-    @Column(name = "key_code", length = 10)
+    @Column(name = "key_code", length = 10, nullable = false)
     private String key_code;
 
     @Size(max = 255)
@@ -126,6 +127,12 @@ public class Room implements Serializable {
     @JoinColumn(name = "currency_id")
     private Currency currency;
 
+    @ManyToMany
+    @JoinTable(name = "room_images",
+               joinColumns = @JoinColumn(name="rooms_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="imagess_id", referencedColumnName="ID"))
+    private Set<Images> imagess = new HashSet<>();
+
     @ManyToOne
     @JoinColumn(name = "status_room_id")
     private Status_room status_room;
@@ -137,6 +144,12 @@ public class Room implements Serializable {
     @ManyToOne
     @JoinColumn(name = "last_modified_by_id")
     private User last_modified_by;
+
+    @ManyToMany
+    @JoinTable(name = "room_amenity",
+               joinColumns = @JoinColumn(name="rooms_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="amenitys_id", referencedColumnName="ID"))
+    private Set<Amenity> amenitys = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -322,6 +335,14 @@ public class Room implements Serializable {
         this.currency = currency;
     }
 
+    public Set<Images> getImagess() {
+        return imagess;
+    }
+
+    public void setImagess(Set<Images> imagess) {
+        this.imagess = imagess;
+    }
+
     public Status_room getStatus_room() {
         return status_room;
     }
@@ -344,6 +365,14 @@ public class Room implements Serializable {
 
     public void setLast_modified_by(User user) {
         this.last_modified_by = user;
+    }
+
+    public Set<Amenity> getAmenitys() {
+        return amenitys;
+    }
+
+    public void setAmenitys(Set<Amenity> amenitys) {
+        this.amenitys = amenitys;
     }
 
     @Override

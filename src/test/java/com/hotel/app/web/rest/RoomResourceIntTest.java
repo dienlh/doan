@@ -215,6 +215,24 @@ public class RoomResourceIntTest {
 
     @Test
     @Transactional
+    public void checkKey_codeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = roomRepository.findAll().size();
+        // set the field null
+        room.setKey_code(null);
+
+        // Create the Room, which fails.
+
+        restRoomMockMvc.perform(post("/api/rooms")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(room)))
+                .andExpect(status().isBadRequest());
+
+        List<Room> rooms = roomRepository.findAll();
+        assertThat(rooms).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void checkIs_petIsRequired() throws Exception {
         int databaseSizeBeforeTest = roomRepository.findAll().size();
         // set the field null

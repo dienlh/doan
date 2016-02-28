@@ -16,24 +16,40 @@
         },
         {
             "relationshipId": 3,
+            "relationshipName": "images",
+            "otherEntityName": "images",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "url",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 4,
             "relationshipName": "status_room",
             "otherEntityName": "status_room",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
         },
         {
-            "relationshipId": 4,
+            "relationshipId": 5,
             "relationshipName": "create_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
         },
         {
-            "relationshipId": 5,
+            "relationshipId": 6,
             "relationshipName": "last_modified_by",
             "otherEntityName": "user",
             "relationshipType": "many-to-one",
             "otherEntityField": "login"
+        },
+        {
+            "relationshipId": 7,
+            "relationshipName": "amenity",
+            "otherEntityName": "amenity",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "name",
+            "ownerSide": true
         }
     ],
     "fields": [
@@ -52,6 +68,7 @@
             "fieldName": "key_code",
             "fieldType": "String",
             "fieldValidateRules": [
+                "required",
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": "10"
@@ -236,7 +253,7 @@
             "fieldType": "ZonedDateTime"
         }
     ],
-    "changelogDate": "20160225150305",
+    "changelogDate": "20160228082733",
     "dto": "no",
     "service": "serviceImpl",
     "pagination": "pagination"

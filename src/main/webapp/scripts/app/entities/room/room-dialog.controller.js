@@ -1,14 +1,16 @@
 'use strict';
 
 angular.module('hotelApp').controller('RoomDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Room', 'Type_room', 'Currency', 'Status_room', 'User',
-        function($scope, $stateParams, $uibModalInstance, entity, Room, Type_room, Currency, Status_room, User) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Room', 'Type_room', 'Currency', 'Images', 'Status_room', 'User', 'Amenity',
+        function($scope, $stateParams, $uibModalInstance, entity, Room, Type_room, Currency, Images, Status_room, User, Amenity) {
 
         $scope.room = entity;
         $scope.type_rooms = Type_room.query();
         $scope.currencys = Currency.query();
+        $scope.imagess = Images.query();
         $scope.status_rooms = Status_room.query();
         $scope.users = User.query();
+        $scope.amenitys = Amenity.query();
         $scope.load = function(id) {
             Room.get({id : id}, function(result) {
                 $scope.room = result;
