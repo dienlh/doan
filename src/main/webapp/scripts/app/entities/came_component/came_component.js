@@ -4,14 +4,14 @@ angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('came_component', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/came_components',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Came_components'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/came_component/came_components.html',
                         controller: 'Came_componentController'
                     }
@@ -20,14 +20,14 @@ angular.module('hotelApp')
                 }
             })
             .state('came_component.detail', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/came_component/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Came_component'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/came_component/came_component-detail.html',
                         controller: 'Came_componentDetailController'
                     }

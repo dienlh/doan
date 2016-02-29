@@ -4,14 +4,14 @@ angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('reservation', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/reservations',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Reservations'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/reservation/reservations.html',
                         controller: 'ReservationController'
                     }
@@ -20,14 +20,14 @@ angular.module('hotelApp')
                 }
             })
             .state('reservation.detail', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/reservation/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Reservation'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/reservation/reservation-detail.html',
                         controller: 'ReservationDetailController'
                     }

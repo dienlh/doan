@@ -4,14 +4,14 @@ angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('method_register', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/method_registers',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Method_registers'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/method_register/method_registers.html',
                         controller: 'Method_registerController'
                     }
@@ -20,14 +20,14 @@ angular.module('hotelApp')
                 }
             })
             .state('method_register.detail', {
-                parent: 'entity',
+                parent: 'app',
                 url: '/method_register/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Method_register'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/entities/method_register/method_register-detail.html',
                         controller: 'Method_registerDetailController'
                     }
