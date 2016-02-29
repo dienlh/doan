@@ -1,18 +1,18 @@
 
 <div>
-    <h2><span>Religion</span> {{religion.id}}</h2>
+    <h2><span>Tôn giáo : </span> {{religion.name}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Field</th>
-                <th>Value</th>
+                <th>Thông tin</th>
+                <th>Giá trị</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>
-                    <span>Name</span>
+                    <span>Tên tôn giáo</span>
                 </td>
                 <td>
                     <span class="form-control-static">{{religion.name}}</span>
@@ -20,15 +20,15 @@
             </tr>
             <tr>
                 <td>
-                    <span>Create_date</span>
+                    <span>Ngày tạo</span>
                 </td>
                 <td>
-                    <span class="form-control-static">{{religion.create_date | date:'medium'}}</span>
+                    <span class="form-control-static">{{religion.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>create_by</span>
+                    <span>Người tạo</span>
                 </td>
                 <td>
                     {{religion.create_by.login}}

@@ -1,5 +1,5 @@
 <div>
-    <h2>Ethnics</h2>
+    <h2>Danh sách dân tộc</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
@@ -15,18 +15,18 @@
         <table class="table table-striped">
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id"><span>STT</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Tên</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="ethnic in ethnics track by ethnic.id">
-                    <td><a ui-sref="ethnic.detail({id:ethnic.id})">{{ethnic.id}}</a></td>
+                    <td><a ui-sref="ethnic.detail({id:ethnic.id})">{{$index+1}}</a></td>
                     <td>{{ethnic.name}}</td>
-                    <td>{{ethnic.create_date | date:'medium'}}</td>
+                    <td>{{ethnic.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
                     <td>
                         {{ethnic.create_by.login}}
                     </td>

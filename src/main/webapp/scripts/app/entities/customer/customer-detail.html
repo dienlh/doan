@@ -1,150 +1,106 @@
 
 <div>
-    <h2><span>Customer</span> {{customer.id}}</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <span>Full_name</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.full_name}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Ic_passport_number</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.ic_passport_number}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Ic_passport_prov_date</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.ic_passport_prov_date | date:'mediumDate'}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Ic_passport_prov_add</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.ic_passport_prov_add}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Email</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.email}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Phone_number</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.phone_number}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Birthday</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.birthday | date:'mediumDate'}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Address</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.address}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Create_date</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.create_date | date:'medium'}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>Last_modified_date</span>
-                </td>
-                <td>
-                    <span class="form-control-static">{{customer.last_modified_date | date:'medium'}}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>gender</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="gender.detail({id:customer.gender.id})">{{customer.gender.name}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>ethnic</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="ethnic.detail({id:customer.ethnic.id})">{{customer.ethnic.name}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>religion</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="religion.detail({id:customer.religion.id})">{{customer.religion.name}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>company</span>
-                </td>
-                <td>
-                    <a class="form-control-static" ui-sref="company.detail({id:customer.company.id})">{{customer.company.name}}</a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>create_by</span>
-                </td>
-                <td>
-                    {{customer.create_by.login}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>last_modified_by</span>
-                </td>
-                <td>
-                    {{customer.last_modified_by.login}}
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+	<h2>
+		<span>Khách hàng : </span> {{customer.full_name}}
+	</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Thông tin</th>
+					<th>Giá trị</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span>Họ tên</span></td>
+					<td><span class="form-control-static">{{customer.full_name}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>CMND/Passport</span></td>
+					<td><span class="form-control-static">{{customer.ic_passport_number}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Ngày cấp</span></td>
+					<td><span class="form-control-static">{{customer.ic_passport_prov_date
+							| date:'mediumDate'}}</span></td>
+				</tr>
+				<tr>
+					<td><span>Nơi cấp</span></td>
+					<td><span class="form-control-static">{{customer.ic_passport_prov_add}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Email</span></td>
+					<td><span class="form-control-static">{{customer.email}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Số điện thoại</span></td>
+					<td><span class="form-control-static">{{customer.phone_number}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Ngày sinh</span></td>
+					<td><span class="form-control-static">{{customer.birthday
+							| date:'mediumDate'}}</span></td>
+				</tr>
+				<tr>
+					<td><span>Địa chỉ</span></td>
+					<td><span class="form-control-static">{{customer.address}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Giới tính</span></td>
+					<td><a class="form-control-static"
+						ui-sref="gender.detail({id:customer.gender.id})">{{customer.gender.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Dân tộc</span></td>
+					<td><a class="form-control-static"
+						ui-sref="ethnic.detail({id:customer.ethnic.id})">{{customer.ethnic.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Tôn giáo</span></td>
+					<td><a class="form-control-static"
+						ui-sref="religion.detail({id:customer.religion.id})">{{customer.religion.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Công ty</span></td>
+					<td><a class="form-control-static"
+						ui-sref="company.detail({id:customer.company.id})">{{customer.company.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Người tạo</span></td>
+					<td>{{customer.create_by.login}}</td>
+				</tr>
+				<tr>
+					<td><span>Ngày tạo</span></td>
+					<td><span class="form-control-static">{{customer.create_date
+							| date:'medium'}}</span></td>
+				</tr>
+				<tr>
+					<td><span>Người sửa cuối</span></td>
+					<td>{{customer.last_modified_by.login}}</td>
+				</tr>
+				<tr>
+					<td><span>Ngày sửa cuối</span></td>
+					<td><span class="form-control-static">{{customer.last_modified_date
+							| date:'medium'}}</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-    <button type="submit"
-            onclick="window.history.back()"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
-    </button>
+	<button type="submit" onclick="window.history.back()"
+		class="btn btn-info">
+		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span>
+			Back</span>
+	</button>
 </div>

@@ -1,11 +1,11 @@
 <div>
-    <h2>Bill_services</h2>
+    <h2>Danh sách cung cấp dịch vụ</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="bill_service.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Bill_service</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>Tạo mới</span>
                 </button>
             </div>
         </div>
@@ -15,16 +15,16 @@
         <table class="table table-striped">
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="quantity"><span>Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="total"><span>Total</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="currency.code"><span>currency</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="services.name"><span>services</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="reservation.id"><span>reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status_bill_service.name"><span>status_bill_service</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id"><span>STT</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span>Số lượng</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span>Tổng thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="services.name"><span>Tên dịch vụ</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reservation.id"><span>Mã nhận trả phòng</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status_bill_service.name"><span>Trạng thái</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -32,9 +32,8 @@
                 <tr ng-repeat="bill_service in bill_services track by bill_service.id">
                     <td><a ui-sref="bill_service.detail({id:bill_service.id})">{{bill_service.id}}</a></td>
                     <td>{{bill_service.quantity}}</td>
-                    <td>{{bill_service.total}}</td>
+                    <td>{{bill_service.total | currency : "" : 0}}</td>
                     <td>{{bill_service.decription}}</td>
-                    <td>{{bill_service.create_date | date:'medium'}}</td>
                     <td>
                         <a ui-sref="currency.detail({id:bill_service.currency.id})">{{bill_service.currency.code}}</a>
                     </td>
@@ -50,6 +49,7 @@
                     <td>
                         {{bill_service.create_by.login}}
                     </td>
+                    <td>{{bill_service.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="bill_service.detail({id:bill_service.id})"

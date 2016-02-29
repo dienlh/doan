@@ -4,17 +4,17 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myCustomerLabel">Create or edit a Customer</h4>
+        <h4 class="modal-title" id="myCustomerLabel">Tạo hoặc sửa thông tin khách hàng</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
-        <div class="form-group">
+        <div class="form-group hide">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="customer.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_full_name">Full_name</label>
+            <label class="control-label" for="field_full_name">Họ tên</label>
             <input type="text" class="form-control" name="full_name" id="field_full_name"
                     ng-model="customer.full_name"
                     required ng-maxlength="255" />
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_ic_passport_number">Ic_passport_number</label>
+            <label class="control-label" for="field_ic_passport_number">CMND/Passport</label>
             <input type="text" class="form-control" name="ic_passport_number" id="field_ic_passport_number"
                     ng-model="customer.ic_passport_number"
                     ng-maxlength="20" />
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_ic_passport_prov_date">Ic_passport_prov_date</label>
+            <label class="control-label" for="field_ic_passport_prov_date">Ngày cấp</label>
             <input id="field_ic_passport_prov_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="customer.ic_passport_prov_date" is-open="datePickerForIc_passport_prov_date.status.opened"
             />
             <span class="input-group-btn">
@@ -50,7 +50,7 @@
             </span>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_ic_passport_prov_add">Ic_passport_prov_add</label>
+            <label class="control-label" for="field_ic_passport_prov_add">Nơi cấp</label>
             <input type="text" class="form-control" name="ic_passport_prov_add" id="field_ic_passport_prov_add"
                     ng-model="customer.ic_passport_prov_add"
                     ng-maxlength="255" />
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_phone_number">Phone_number</label>
+            <label class="control-label" for="field_phone_number">Số điện thoại</label>
             <input type="text" class="form-control" name="phone_number" id="field_phone_number"
                     ng-model="customer.phone_number"
                     ng-maxlength="20" />
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_birthday">Birthday</label>
+            <label class="control-label" for="field_birthday">Ngày sinh</label>
             <input id="field_birthday" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="customer.birthday" is-open="datePickerForBirthday.status.opened"
             />
             <span class="input-group-btn">
@@ -94,7 +94,7 @@
             </span>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_address">Address</label>
+            <label class="control-label" for="field_address">Địa chỉ</label>
             <input type="text" class="form-control" name="address" id="field_address"
                     ng-model="customer.address"
                     ng-maxlength="255" />
@@ -123,35 +123,35 @@
 <!--                 </p> -->
 <!--             </div> -->
 <!--         </div> -->
-        <div class="form-group">
-            <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
-            <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="customer.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-        </div>
+<!--         <div class="form-group"> -->
+<!--             <label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
+<!--             <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="customer.last_modified_date" is-open="datePickerForLast_modified_date.status.opened" -->
+<!--             /> -->
+<!--             <span class="input-group-btn"> -->
+<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
+<!--             </span> -->
+<!--         </div> -->
 
         <div class="form-group">
-            <label for="field_gender">gender</label>
+            <label for="field_gender">Giới tính</label>
             <select class="form-control" id="field_gender" name="gender" ng-model="customer.gender" ng-options="gender as gender.name for gender in genders track by gender.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_ethnic">ethnic</label>
+            <label for="field_ethnic">Dân tộc</label>
             <select class="form-control" id="field_ethnic" name="ethnic" ng-model="customer.ethnic" ng-options="ethnic as ethnic.name for ethnic in ethnics track by ethnic.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_religion">religion</label>
+            <label for="field_religion">Tôn giáo</label>
             <select class="form-control" id="field_religion" name="religion" ng-model="customer.religion" ng-options="religion as religion.name for religion in religions track by religion.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label for="field_company">company</label>
+            <label for="field_company">Công ty</label>
             <select class="form-control" id="field_company" name="company" ng-model="customer.company" ng-options="company as company.name for company in companys track by company.id">
                 <option value=""></option>
             </select>
@@ -162,12 +162,12 @@
 <!--                 <option value=""></option> -->
 <!--             </select> -->
 <!--         </div> -->
-        <div class="form-group">
-            <label for="field_last_modified_by">last_modified_by</label>
-            <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="customer.last_modified_by" ng-options="user as user.login for user in users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
+<!--         <div class="form-group"> -->
+<!--             <label for="field_last_modified_by">last_modified_by</label> -->
+<!--             <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="customer.last_modified_by" ng-options="user as user.login for user in users track by user.id"> -->
+<!--                 <option value=""></option> -->
+<!--             </select> -->
+<!--         </div> -->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

@@ -1,71 +1,80 @@
 <div>
-    <h2>Companys</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="company.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Company</span>
-                </button>
-            </div>
-        </div>
-    </div>
+	<h2>Danh sách công ty</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<button class="btn btn-primary" ui-sref="company.new">
+					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
+						mới</span>
+				</button>
+			</div>
+		</div>
+	</div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="address"><span>Address</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="fax"><span>Fax</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="phone_number"><span>Phone_number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_code"><span>Tax_code</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bank_account"><span>Bank_account</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bank.code"><span>bank</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="company in companys track by company.id">
-                    <td><a ui-sref="company.detail({id:company.id})">{{company.id}}</a></td>
-                    <td>{{company.name}}</td>
-                    <td>{{company.address}}</td>
-                    <td>{{company.fax}}</td>
-                    <td>{{company.phone_number}}</td>
-                    <td>{{company.tax_code}}</td>
-                    <td>{{company.bank_account}}</td>
-                    <td>{{company.create_date | date:'medium'}}</td>
-                    <td>
-                        <a ui-sref="bank.detail({id:company.bank.id})">{{company.bank.code}}</a>
-                    </td>
-                    <td>
-                        {{company.create_by.login}}
-                    </td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="company.detail({id:company.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="company.edit({id:company.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="company.delete({id:company.id})"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="text-center">
-        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
-    </div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>STT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="name"><span>Tên công ty</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="address"><span>Địa chỉ công ty</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fax"><span>Fax</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="phone_number"><span>Số điện thoại</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="tax_code"><span>Mã số thuế</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="bank_account"><span>Tài khoản ngân hàng</span>
+						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="bank.code"><span>Tên ngân hàng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="company in companys track by company.id">
+					<td><a ui-sref="company.detail({id:company.id})">{{$index+1}}</a></td>
+					<td>{{company.name}}</td>
+					<td>{{company.address}}</td>
+					<td>{{company.fax}}</td>
+					<td>{{company.phone_number}}</td>
+					<td>{{company.tax_code}}</td>
+					<td>{{company.bank_account}}</td>
+					<td><a ui-sref="bank.detail({id:company.bank.id})">{{company.bank.code}}</a>
+					</td>
+					<td>{{company.create_by.login}}</td>
+					<td>{{company.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<td>
+						<button type="submit" ui-sref="company.detail({id:company.id})"
+							class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span>
+								View</span>
+						</button>
+						<button type="submit" ui-sref="company.edit({id:company.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Edit</span>
+						</button>
+						<button type="submit" ui-sref="company.delete({id:company.id})"
+							class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
+								Delete</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
 </div>

@@ -46,11 +46,11 @@ public class ReservationServiceImpl implements ReservationService{
         if(reservation.getId()==null){
         	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
                     .map(ManagedUserDTO::new);
-            
             User user=new User();
             user.setId(optional.get().getId());
-            user.setLogin(optional.get().getLogin());
+//            user.setLogin(optional.get().getLogin());
             reservation.setCreate_by(user);
+            reservation.setTime_checkin(ZonedDateTime.now());
             log.info("Preshow user"+ user);
         }else{
         	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())

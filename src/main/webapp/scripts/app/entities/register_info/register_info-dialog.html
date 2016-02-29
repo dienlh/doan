@@ -1,206 +1,222 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+<form name="editForm" role="form" novalidate ng-submit="save()"
+	show-validation>
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myRegister_infoLabel">Create or edit a Register_info</h4>
-    </div>
-    <div class="modal-body">
-        <jh-alert-error></jh-alert-error>
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="register_info.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_date_checkin">Date_checkin</label>
-            <input id="field_date_checkin" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="register_info.date_checkin" is-open="datePickerForDate_checkin.status.opened"
-            required/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForDate_checkinOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-            <div ng-show="editForm.date_checkin.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.date_checkin.$error.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_date_checkout">Date_checkout</label>
-            <input id="field_date_checkout" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="register_info.date_checkout" is-open="datePickerForDate_checkout.status.opened"
-            required/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForDate_checkoutOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-            <div ng-show="editForm.date_checkout.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.date_checkout.$error.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_number_of_adult">Number_of_adult</label>
-            <input type="number" class="form-control" name="number_of_adult" id="field_number_of_adult"
-                    ng-model="register_info.number_of_adult"
-                    required min="0" />
-            <div ng-show="editForm.number_of_adult.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.number_of_adult.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.number_of_adult.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.number_of_adult.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_number_of_kid">Number_of_kid</label>
-            <input type="number" class="form-control" name="number_of_kid" id="field_number_of_kid"
-                    ng-model="register_info.number_of_kid"
-                    required min="0" />
-            <div ng-show="editForm.number_of_kid.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.number_of_kid.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.number_of_kid.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.number_of_kid.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_other_request">Other_request</label>
-            <input type="text" class="form-control" name="other_request" id="field_other_request"
-                    ng-model="register_info.other_request"
-                    ng-maxlength="255" />
-            <div ng-show="editForm.other_request.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.other_request.$error.maxlength" translate-value-max="255">
-                    This field cannot be longer than 255 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_deposit_value">Deposit_value</label>
-            <input type="number" class="form-control" name="deposit_value" id="field_deposit_value"
-                    ng-model="register_info.deposit_value"
-                    required min="0" />
-            <div ng-show="editForm.deposit_value.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.deposit_value.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.deposit_value.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.deposit_value.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-<!--         <div class="form-group"> -->
-<!--             <label class="control-label" for="field_create_date">Create_date</label> -->
-<!--             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="register_info.create_date" is-open="datePickerForCreate_date.status.opened" -->
-<!--             required/> -->
-<!--             <span class="input-group-btn"> -->
-<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
-<!--             </span> -->
-<!--             <div ng-show="editForm.create_date.$invalid"> -->
-<!--                 <p class="help-block" -->
-<!--                     ng-show="editForm.create_date.$error.required"> -->
-<!--                     This field is required. -->
-<!--                 </p> -->
-<!--                 <p class="help-block" -->
-<!--                     ng-show="editForm.create_date.$error.ZonedDateTimelocal"> -->
-<!--                     This field should be a date and time. -->
-<!--                 </p> -->
-<!--             </div> -->
-<!--         </div> -->
-        <div class="form-group">
-            <label class="control-label" for="field_last_modified_date">Last_modified_date</label>
-            <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="register_info.last_modified_date" is-open="datePickerForLast_modified_date.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-        </div>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title" id="myRegister_infoLabel">Tạo mới hoặc sửa thông tin đăng ký</h4>
+	</div>
+	<div class="modal-body">
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group">
+			<label for="id">ID</label> <input type="text" class="form-control"
+				id="id" name="id" ng-model="register_info.id" readonly />
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_date_checkin">Ngày check-in</label>
+			<input id="field_date_checkin" type="text" class="form-control"
+				uib-datepicker-popup="{{dateformat}}"
+				ng-model="register_info.date_checkin"
+				is-open="datePickerForDate_checkin.status.opened" required /> <span
+				class="input-group-btn">
+				<button type="button" class="btn btn-default"
+					ng-click="datePickerForDate_checkinOpen($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+			</span>
+			<div ng-show="editForm.date_checkin.$invalid">
+				<p class="help-block"
+					ng-show="editForm.date_checkin.$error.required">This field is
+					required.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_date_checkout">Ngày check-out</label>
+			<input id="field_date_checkout" type="text" class="form-control"
+				uib-datepicker-popup="{{dateformat}}"
+				ng-model="register_info.date_checkout"
+				is-open="datePickerForDate_checkout.status.opened" required /> <span
+				class="input-group-btn">
+				<button type="button" class="btn btn-default"
+					ng-click="datePickerForDate_checkoutOpen($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+			</span>
+			<div ng-show="editForm.date_checkout.$invalid">
+				<p class="help-block"
+					ng-show="editForm.date_checkout.$error.required">This field is
+					required.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_number_of_adult">Số lượng người lớn</label>
+			<input type="number" class="form-control" name="number_of_adult"
+				id="field_number_of_adult" ng-model="register_info.number_of_adult"
+				required min="0" />
+			<div ng-show="editForm.number_of_adult.$invalid">
+				<p class="help-block"
+					ng-show="editForm.number_of_adult.$error.required">This field
+					is required.</p>
+				<p class="help-block" ng-show="editForm.number_of_adult.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block"
+					ng-show="editForm.number_of_adult.$error.number">This field
+					should be a number.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_number_of_kid">Số lượng trẻ em</label>
+			<input type="number" class="form-control" name="number_of_kid"
+				id="field_number_of_kid" ng-model="register_info.number_of_kid"
+				required min="0" />
+			<div ng-show="editForm.number_of_kid.$invalid">
+				<p class="help-block"
+					ng-show="editForm.number_of_kid.$error.required">This field is
+					required.</p>
+				<p class="help-block" ng-show="editForm.number_of_kid.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block" ng-show="editForm.number_of_kid.$error.number">
+					This field should be a number.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_other_request">Yêu cầu khác</label>
+			<textarea type="text" class="form-control" name="other_request"
+				id="field_other_request" ng-model="register_info.other_request"
+				ng-maxlength="255" ></textarea>
+			<div ng-show="editForm.other_request.$invalid">
+				<p class="help-block"
+					ng-show="editForm.other_request.$error.maxlength"
+					translate-value-max="255">This field cannot be longer than 255
+					characters.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_deposit_value">Giá trị đặt cọc</label>
+			<input type="number" class="form-control" name="deposit_value"
+				id="field_deposit_value" ng-model="register_info.deposit_value"
+				required min="0" />
+			<div ng-show="editForm.deposit_value.$invalid">
+				<p class="help-block"
+					ng-show="editForm.deposit_value.$error.required">This field is
+					required.</p>
+				<p class="help-block" ng-show="editForm.deposit_value.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block" ng-show="editForm.deposit_value.$error.number">
+					This field should be a number.</p>
+			</div>
+		</div>
+		<!--         <div class="form-group"> -->
+		<!--             <label class="control-label" for="field_create_date">Create_date</label> -->
+		<!--             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="register_info.create_date" is-open="datePickerForCreate_date.status.opened" -->
+		<!--             required/> -->
+		<!--             <span class="input-group-btn"> -->
+		<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
+		<!--             </span> -->
+		<!--             <div ng-show="editForm.create_date.$invalid"> -->
+		<!--                 <p class="help-block" -->
+		<!--                     ng-show="editForm.create_date.$error.required"> -->
+		<!--                     This field is required. -->
+		<!--                 </p> -->
+		<!--                 <p class="help-block" -->
+		<!--                     ng-show="editForm.create_date.$error.ZonedDateTimelocal"> -->
+		<!--                     This field should be a date and time. -->
+		<!--                 </p> -->
+		<!--             </div> -->
+		<!--         </div> -->
+<!-- 		<div class="form-group"> -->
+<!-- 			<label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
+<!-- 			<input id="field_last_modified_date" type="text" class="form-control" -->
+<!-- 				uib-datepicker-popup="{{dateformat}}" -->
+<!-- 				ng-model="register_info.last_modified_date" -->
+<!-- 				is-open="datePickerForLast_modified_date.status.opened" /> -->
+<!-- 			<span class="input-group-btn"> -->
+<!-- 				<button type="button" class="btn btn-default" -->
+<!-- 					ng-click="datePickerForLast_modified_dateOpen($event)"> -->
+<!-- 					<i class="glyphicon glyphicon-calendar"></i> -->
+<!-- 				</button> -->
+<!-- 			</span> -->
+<!-- 		</div> -->
 
-        <div class="form-group">
-            <label for="field_currency">currency</label>
-            <select class="form-control" id="field_currency" name="currency" ng-model="register_info.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_room">room</label>
-            <select class="form-control" id="field_room" name="room" ng-model="register_info.room" ng-options="room as room.code for room in rooms track by room.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_customer">customer</label>
-            <select class="form-control" id="field_customer" name="customer" ng-model="register_info.customer" ng-options="customer as customer.full_name for customer in customers track by customer.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_method_payment">method_payment</label>
-            <select class="form-control" id="field_method_payment" name="method_payment" ng-model="register_info.method_payment" ng-options="method_payment as method_payment.name for method_payment in method_payments track by method_payment.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_status_payment">status_payment</label>
-            <select class="form-control" id="field_status_payment" name="status_payment" ng-model="register_info.status_payment" ng-options="status_payment as status_payment.name for status_payment in status_payments track by status_payment.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_method_register">method_register</label>
-            <select class="form-control" id="field_method_register" name="method_register" ng-model="register_info.method_register" ng-options="method_register as method_register.name for method_register in method_registers track by method_register.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_status_register">status_register</label>
-            <select class="form-control" id="field_status_register" name="status_register" ng-model="register_info.status_register" ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id">
-                <option value=""></option>
-            </select>
-        </div>
-<!--         <div class="form-group"> -->
-<!--             <label for="field_create_by">create_by</label> -->
-<!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="register_info.create_by" ng-options="user as user.login for user in users track by user.id"> -->
-<!--                 <option value=""></option> -->
-<!--             </select> -->
-<!--         </div> -->
-        <div class="form-group">
-            <label for="field_last_modified_by">last_modified_by</label>
-            <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="register_info.last_modified_by" ng-options="user as user.login for user in users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
-        </button>
-    </div>
+		<div class="form-group">
+			<label for="field_currency">Đơn vị tính</label> <select
+				class="form-control" id="field_currency" name="currency"
+				ng-model="register_info.currency"
+				ng-options="currency as currency.code for currency in currencys track by currency.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_room">Mã phòng</label> <select class="form-control"
+				id="field_room" name="room" ng-model="register_info.room"
+				ng-options="room as room.code for room in rooms track by room.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_customer">Khách hàng</label> <select
+				class="form-control" id="field_customer" name="customer"
+				ng-model="register_info.customer"
+				ng-options="customer as customer.full_name for customer in customers track by customer.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_method_payment">Phương thức thanh toán</label> <select
+				class="form-control" id="field_method_payment" name="method_payment"
+				ng-model="register_info.method_payment"
+				ng-options="method_payment as method_payment.name for method_payment in method_payments track by method_payment.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_status_payment">Trạng thái thanh toán</label> <select
+				class="form-control" id="field_status_payment" name="status_payment"
+				ng-model="register_info.status_payment"
+				ng-options="status_payment as status_payment.name for status_payment in status_payments track by status_payment.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_method_register">Phương thức đăng ký</label> <select
+				class="form-control" id="field_method_register"
+				name="method_register" ng-model="register_info.method_register"
+				ng-options="method_register as method_register.name for method_register in method_registers track by method_register.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_status_register">Trạng thái đăng ký</label> <select
+				class="form-control" id="field_status_register"
+				name="status_register" ng-model="register_info.status_register"
+				ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<!--         <div class="form-group"> -->
+		<!--             <label for="field_create_by">create_by</label> -->
+		<!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="register_info.create_by" ng-options="user as user.login for user in users track by user.id"> -->
+		<!--                 <option value=""></option> -->
+		<!--             </select> -->
+		<!--         </div> -->
+<!-- 		<div class="form-group"> -->
+<!-- 			<label for="field_last_modified_by">last_modified_by</label> <select -->
+<!-- 				class="form-control" id="field_last_modified_by" -->
+<!-- 				name="last_modified_by" ng-model="register_info.last_modified_by" -->
+<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
+<!-- 				<option value=""></option> -->
+<!-- 			</select> -->
+<!-- 		</div> -->
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="clear()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+		</button>
+	</div>
 </form>
