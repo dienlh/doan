@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span>Kind_of_policy</span> {{kind_of_policy.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{kind_of_policy.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Decription</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{kind_of_policy.decription}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Create_date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{kind_of_policy.create_date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>create_by</span>
+                </td>
+                <td>
+                    {{kind_of_policy.create_by.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

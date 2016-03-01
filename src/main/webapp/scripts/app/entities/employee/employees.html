@@ -3,6 +3,18 @@
 	<jh-alert></jh-alert>
 	<div class="container">
 		<div class="row">
+			<form class="form-inline col-sm-8" role="form">
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputEmail2">Nhập email</label> <input type="email" class="form-control"
+						id="exampleInputEmail2" placeholder="Nhập email">
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="exampleInputPassword2">Nhập CMND</label>
+					<input type="password" class="form-control"
+						id="exampleInputPassword2" placeholder="Nhập CMND">
+				</div>
+				<button type="submit" class="btn btn-default">Tìm kiếm</button>
+			</form>
 			<div class="col-md-4">
 				<button class="btn btn-primary" ui-sref="employee.new">
 					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
@@ -18,7 +30,7 @@
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
 					<th jh-sort-by="id" width="1%"><span>STT</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="full_name"><span>Họ tên</span> <span
+					<th jh-sort-by="full_name" width="5%%"><span>Họ tên</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="birthday"><span>Sinh nhật</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
@@ -92,7 +104,11 @@
 					<td>{{employee.birthplace}}</td>
 					<td>{{employee.perman_resid}}</td>
 					<td>{{employee.father_name}}</td>
+					<td><a ui-sref="job.detail({id:employee.father_job.id})">{{employee.father_job.name}}</a>
+					</td>
 					<td>{{employee.mother_name}}</td>
+					<td><a ui-sref="job.detail({id:employee.mother_job.id})">{{employee.mother_job.name}}</a>
+					</td>
 					<td>{{employee.telephone}}</td>
 					<td>{{employee.homephone}}</td>
 					<td>{{employee.email}}</td>
@@ -108,10 +124,7 @@
 					</td>
 					<td><a ui-sref="religion.detail({id:employee.religion.id})">{{employee.religion.name}}</a>
 					</td>
-					<td><a ui-sref="job.detail({id:employee.father_job.id})">{{employee.father_job.name}}</a>
-					</td>
-					<td><a ui-sref="job.detail({id:employee.mother_job.id})">{{employee.mother_job.name}}</a>
-					</td>
+
 					<td><a
 						ui-sref="education_level.detail({id:employee.education_level.id})">{{employee.education_level.level}}</a>
 					</td>
@@ -130,7 +143,8 @@
 					<td>{{employee.create_by.login}}</td>
 					<td>{{employee.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
 					<td>{{employee.last_modified_by.login}}</td>
-					<td>{{employee.last_modified_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<td>{{employee.last_modified_date | date:'dd/MM/yyyy
+						hh:mm:ss'}}</td>
 					<td>
 						<button type="submit" ui-sref="employee.detail({id:employee.id})"
 							class="btn btn-info btn-sm">
