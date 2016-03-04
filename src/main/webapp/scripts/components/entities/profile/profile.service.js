@@ -4,6 +4,8 @@ angular.module('hotelApp')
     .factory('Profile', function ($resource, DateUtils) {
         return $resource('api/profiles/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'findByMultiAttr': { method: 'GET', isArray: true, url: 'api/profiles/findByMultiAttr'},
+            'findByMultiAttrWithRanger': { method: 'GET', isArray: true, url: 'api/profiles/findByMultiAttrWithRanger'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

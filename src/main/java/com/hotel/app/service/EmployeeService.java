@@ -38,4 +38,14 @@ public interface EmployeeService {
      *  delete the "id" employee.
      */
     public void delete(Long id);
+    
+    /**
+     *  get all the employees.
+     *  @return the list of entities
+     */
+//    public Page<Employee> findAllByEmailContainingOrIc_numberContaining(Pageable pageable, String email, String ic_number);
+    
+    public Page<Employee> findAllByIc_numberAndEmail(Pageable pageable,String ic,String email);
+    
+    public Employee findByIc(String ic);
 }

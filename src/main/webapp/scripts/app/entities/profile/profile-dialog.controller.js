@@ -74,4 +74,5 @@ angular.module('hotelApp').controller('ProfileDialogController',
         $scope.datePickerForLast_modified_dateOpen = function($event) {
             $scope.datePickerForLast_modified_date.status.opened = true;
         };
+ 
 }]);

@@ -31,7 +31,7 @@
             <label class="control-label" for="field_salary_subsidies">Lương phụ cấp</label>
             <input type="number" class="form-control" name="salary_subsidies" id="field_salary_subsidies"
                     ng-model="profile.salary_subsidies" ng-init="profile.salary_subsidies=0"
-                    required min="0" />
+                    required min="0"/>
             <div ng-show="editForm.salary_subsidies.$invalid">
                 <p class="help-block"
                     ng-show="editForm.salary_subsidies.$error.required">
@@ -70,8 +70,8 @@
         <div class="form-group">
             <label class="control-label" for="field_salary">Lương chính</label>
             <input type="number" class="form-control" name="salary" id="field_salary"
-                    ng-model="profile.salary=profile.salary_subsidies+profile.salary_basic"
-                    required min="0" readonly/>
+                    ng-model="profile.salary"
+                    required min="0" ng-init="profile.salary=0"/>
             <div ng-show="editForm.salary.$invalid">
                 <p class="help-block"
                     ng-show="editForm.salary.$error.required">
@@ -138,13 +138,15 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="field_status_profile">Trạng thái</label>
-            <select class="form-control" id="field_status_profile" name="status_profile" ng-model="profile.status_profile" ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
-                <option value=""></option>
-            </select>
-        </div>
-<!--         <div class="form-group"> -->
+		<div class="form-group">
+			<label for="field_status_profile">Trạng thái</label> <select
+				class="form-control" id="field_status_profile" name="status_profile"
+				ng-model="profile.status_profile"
+				ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<!--         <div class="form-group"> -->
 <!--             <label for="field_create_by">create_by</label> -->
 <!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="profile.create_by" ng-options="user as user.login for user in users track by user.id"> -->
 <!--                 <option value=""></option> -->

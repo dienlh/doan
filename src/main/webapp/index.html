@@ -77,358 +77,515 @@
 	<script src="js/directives/ui-validate.js"></script>
 	<script src="js/controllers/bootstrap.js"></script>
 	<!-- Lazy loading -->
-	
-	
+
+
 	<!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-<!--         <script src="bower_components/jquery/dist/jquery.js"></script> -->
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-aria/angular-aria.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-<!--         <script src="bower_components/angular-cookies/angular-cookies.js"></script> -->
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-        <script src="bower_components/json3/lib/json3.js"></script>
-        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-        <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+	<!-- bower:js -->
+	<!--         <script src="bower_components/jquery/dist/jquery.js"></script> -->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script
+		src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+	<!--         <script src="bower_components/angular-cookies/angular-cookies.js"></script> -->
+	<script
+		src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+	<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script
+		src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script
+		src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="bower_components/json3/lib/json3.js"></script>
+	<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+	<script
+		src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
 
 
-    <!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
-    <script src="scripts/app/app.js"></script>
-    <script src="scripts/app/app.constants.js"></script>
-    <script src="scripts/components/auth/auth.service.js"></script>
-    <script src="scripts/components/auth/principal.service.js"></script>
-    <script src="scripts/components/auth/authority.directive.js"></script>
-    <script src="scripts/components/auth/services/account.service.js"></script>
-    <script src="scripts/components/auth/services/activate.service.js"></script>
-    <script src="scripts/components/auth/services/password.service.js"></script>
-    <script src="scripts/components/auth/services/register.service.js"></script>
-    <script src="scripts/components/form/form.directive.js"></script>
-    <script src="scripts/components/form/maxbytes.directive.js"></script>
-    <script src="scripts/components/form/minbytes.directive.js"></script>
-    <script src="scripts/components/form/uib-pager.config.js"></script>
-    <script src="scripts/components/form/uib-pagination.config.js"></script>
-    <script src="scripts/components/admin/audits.service.js"></script>
-    <script src="scripts/components/admin/logs.service.js"></script>
-    <script src="scripts/components/admin/configuration.service.js"></script>
-    <script src="scripts/components/admin/monitoring.service.js"></script>
-    <script src="scripts/components/interceptor/auth.interceptor.js"></script>
-    <script src="scripts/components/interceptor/errorhandler.interceptor.js"></script>
-    <script src="scripts/components/interceptor/notification.interceptor.js"></script>
-    <script src="scripts/components/navbar/navbar.directive.js"></script>
-    <script src="scripts/components/navbar/navbar.controller.js"></script>
-    <script src="scripts/components/user/user.service.js"></script>
-    <script src="scripts/components/util/truncate.filter.js"></script>
-    <script src="scripts/components/util/base64.service.js"></script>
-    <script src="scripts/components/util/capitalize.filter.js"></script>
-    <script src="scripts/components/alert/alert.service.js"></script>
-    <script src="scripts/components/alert/alert.directive.js"></script>
-    <script src="scripts/components/util/parse-links.service.js"></script>
-    <script src="scripts/components/util/date-util.service.js"></script>
-    <script src="scripts/components/util/data-util.service.js"></script>
-    <script src="scripts/components/util/sort.directive.js"></script>
-    <script src="scripts/app/account/account.js"></script>
-    <script src="scripts/app/account/activate/activate.js"></script>
-    <script src="scripts/app/account/activate/activate.controller.js"></script>
-    <script src="scripts/app/account/login/login.js"></script>
-    <script src="scripts/app/account/login/login.controller.js"></script>
-    <script src="scripts/app/account/password/password.js"></script>
-    <script src="scripts/app/account/password/password.controller.js"></script>
-    <script src="scripts/app/account/password/password.directive.js"></script>
-    <script src="scripts/app/account/register/register.js"></script>
-    <script src="scripts/app/account/register/register.controller.js"></script>
-    <script src="scripts/app/account/settings/settings.js"></script>
-    <script src="scripts/app/account/settings/settings.controller.js"></script>
-    <script src="scripts/app/account/reset/finish/reset.finish.controller.js"></script>
-    <script src="scripts/app/account/reset/finish/reset.finish.js"></script>
-    <script src="scripts/app/account/reset/request/reset.request.controller.js"></script>
-    <script src="scripts/app/account/reset/request/reset.request.js"></script>
-    <script src="scripts/app/admin/admin.js"></script>
-    <script src="scripts/app/admin/audits/audits.js"></script>
-    <script src="scripts/app/admin/audits/audits.controller.js"></script>
-    <script src="scripts/app/admin/configuration/configuration.js"></script>
-    <script src="scripts/app/admin/configuration/configuration.controller.js"></script>
-    <script src="scripts/app/admin/docs/docs.js"></script>
-    <script src="scripts/app/admin/health/health.js"></script>
-    <script src="scripts/app/admin/health/health.controller.js"></script>
-    <script src="scripts/app/admin/health/health.modal.controller.js"></script>
-    <script src="scripts/app/admin/logs/logs.js"></script>
-    <script src="scripts/app/admin/logs/logs.controller.js"></script>
-    <script src="scripts/app/admin/metrics/metrics.js"></script>
-    <script src="scripts/app/admin/metrics/metrics.controller.js"></script>
-    <script src="scripts/app/admin/metrics/metrics.modal.controller.js"></script>
-    <script src="scripts/app/admin/user-management/user-management-detail.controller.js"></script>
-    <script src="scripts/app/admin/user-management/user-management-dialog.controller.js"></script>
-    <script src="scripts/app/admin/user-management/user-management-delete-dialog.controller.js"></script>
-    <script src="scripts/app/admin/user-management/user-management.controller.js"></script>
-    <script src="scripts/app/admin/user-management/user-management.js"></script>
-    <script src="scripts/app/entities/entity.js"></script>
-    <script src="scripts/app/error/error.js"></script>
-    <script src="scripts/app/main/main.js"></script>
-    <script src="scripts/app/main/main.controller.js"></script>
-    <script src="scripts/components/auth/services/sessions.service.js"></script>
-    <script src="scripts/components/auth/provider/auth.session.service.js"></script>
-    <script src="scripts/app/account/sessions/sessions.js"></script>
-    <script src="scripts/app/account/sessions/sessions.controller.js"></script>
-    <script src="scripts/app/entities/bank/bank.js"></script>
-    <script src="scripts/app/entities/bank/bank.controller.js"></script>
-    <script src="scripts/app/entities/bank/bank-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bank/bank-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bank/bank-detail.controller.js"></script>
-    <script src="scripts/components/entities/bank/bank.service.js"></script>
-    <script src="scripts/app/entities/came_component/came_component.js"></script>
-    <script src="scripts/app/entities/came_component/came_component.controller.js"></script>
-    <script src="scripts/app/entities/came_component/came_component-dialog.controller.js"></script>
-    <script src="scripts/app/entities/came_component/came_component-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/came_component/came_component-detail.controller.js"></script>
-    <script src="scripts/components/entities/came_component/came_component.service.js"></script>
-    <script src="scripts/app/entities/department/department.js"></script>
-    <script src="scripts/app/entities/department/department.controller.js"></script>
-    <script src="scripts/app/entities/department/department-dialog.controller.js"></script>
-    <script src="scripts/app/entities/department/department-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/department/department-detail.controller.js"></script>
-    <script src="scripts/components/entities/department/department.service.js"></script>
-    <script src="scripts/app/entities/education_level/education_level.js"></script>
-    <script src="scripts/app/entities/education_level/education_level.controller.js"></script>
-    <script src="scripts/app/entities/education_level/education_level-dialog.controller.js"></script>
-    <script src="scripts/app/entities/education_level/education_level-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/education_level/education_level-detail.controller.js"></script>
-    <script src="scripts/components/entities/education_level/education_level.service.js"></script>
-    <script src="scripts/app/entities/ethnic/ethnic.js"></script>
-    <script src="scripts/app/entities/ethnic/ethnic.controller.js"></script>
-    <script src="scripts/app/entities/ethnic/ethnic-dialog.controller.js"></script>
-    <script src="scripts/app/entities/ethnic/ethnic-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/ethnic/ethnic-detail.controller.js"></script>
-    <script src="scripts/components/entities/ethnic/ethnic.service.js"></script>
-    <script src="scripts/app/entities/gender/gender.js"></script>
-    <script src="scripts/app/entities/gender/gender.controller.js"></script>
-    <script src="scripts/app/entities/gender/gender-dialog.controller.js"></script>
-    <script src="scripts/app/entities/gender/gender-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/gender/gender-detail.controller.js"></script>
-    <script src="scripts/components/entities/gender/gender.service.js"></script>
-    <script src="scripts/app/entities/job/job.js"></script>
-    <script src="scripts/app/entities/job/job.controller.js"></script>
-    <script src="scripts/app/entities/job/job-dialog.controller.js"></script>
-    <script src="scripts/app/entities/job/job-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/job/job-detail.controller.js"></script>
-    <script src="scripts/components/entities/job/job.service.js"></script>
-    <script src="scripts/app/entities/major/major.js"></script>
-    <script src="scripts/app/entities/major/major.controller.js"></script>
-    <script src="scripts/app/entities/major/major-dialog.controller.js"></script>
-    <script src="scripts/app/entities/major/major-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/major/major-detail.controller.js"></script>
-    <script src="scripts/components/entities/major/major.service.js"></script>
-    <script src="scripts/app/entities/marital_status/marital_status.js"></script>
-    <script src="scripts/app/entities/marital_status/marital_status.controller.js"></script>
-    <script src="scripts/app/entities/marital_status/marital_status-dialog.controller.js"></script>
-    <script src="scripts/app/entities/marital_status/marital_status-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/marital_status/marital_status-detail.controller.js"></script>
-    <script src="scripts/components/entities/marital_status/marital_status.service.js"></script>
-    <script src="scripts/app/entities/position/position.js"></script>
-    <script src="scripts/app/entities/position/position.controller.js"></script>
-    <script src="scripts/app/entities/position/position-dialog.controller.js"></script>
-    <script src="scripts/app/entities/position/position-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/position/position-detail.controller.js"></script>
-    <script src="scripts/components/entities/position/position.service.js"></script>
-    <script src="scripts/app/entities/religion/religion.js"></script>
-    <script src="scripts/app/entities/religion/religion.controller.js"></script>
-    <script src="scripts/app/entities/religion/religion-dialog.controller.js"></script>
-    <script src="scripts/app/entities/religion/religion-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/religion/religion-detail.controller.js"></script>
-    <script src="scripts/components/entities/religion/religion.service.js"></script>
-    <script src="scripts/app/entities/school/school.js"></script>
-    <script src="scripts/app/entities/school/school.controller.js"></script>
-    <script src="scripts/app/entities/school/school-dialog.controller.js"></script>
-    <script src="scripts/app/entities/school/school-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/school/school-detail.controller.js"></script>
-    <script src="scripts/components/entities/school/school.service.js"></script>
-    <script src="scripts/app/entities/status_profile/status_profile.js"></script>
-    <script src="scripts/app/entities/status_profile/status_profile.controller.js"></script>
-    <script src="scripts/app/entities/status_profile/status_profile-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_profile/status_profile-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_profile/status_profile-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_profile/status_profile.service.js"></script>
-    <script src="scripts/app/entities/employee/employee.js"></script>
-    <script src="scripts/app/entities/employee/employee.controller.js"></script>
-    <script src="scripts/app/entities/employee/employee-dialog.controller.js"></script>
-    <script src="scripts/app/entities/employee/employee-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/employee/employee-detail.controller.js"></script>
-    <script src="scripts/components/entities/employee/employee.service.js"></script>
-    <script src="scripts/app/entities/currency/currency.js"></script>
-    <script src="scripts/app/entities/currency/currency.controller.js"></script>
-    <script src="scripts/app/entities/currency/currency-dialog.controller.js"></script>
-    <script src="scripts/app/entities/currency/currency-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/currency/currency-detail.controller.js"></script>
-    <script src="scripts/components/entities/currency/currency.service.js"></script>
-    <script src="scripts/app/entities/profile/profile.js"></script>
-    <script src="scripts/app/entities/profile/profile.controller.js"></script>
-    <script src="scripts/app/entities/profile/profile-dialog.controller.js"></script>
-    <script src="scripts/app/entities/profile/profile-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/profile/profile-detail.controller.js"></script>
-    <script src="scripts/components/entities/profile/profile.service.js"></script>
-    <script src="scripts/app/entities/amenity/amenity.js"></script>
-    <script src="scripts/app/entities/amenity/amenity.controller.js"></script>
-    <script src="scripts/app/entities/amenity/amenity-dialog.controller.js"></script>
-    <script src="scripts/app/entities/amenity/amenity-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/amenity/amenity-detail.controller.js"></script>
-    <script src="scripts/components/entities/amenity/amenity.service.js"></script>
-    <script src="scripts/app/entities/images/images.js"></script>
-    <script src="scripts/app/entities/images/images.controller.js"></script>
-    <script src="scripts/app/entities/images/images-dialog.controller.js"></script>
-    <script src="scripts/app/entities/images/images-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/images/images-detail.controller.js"></script>
-    <script src="scripts/components/entities/images/images.service.js"></script>
-    <script src="scripts/app/entities/status_room/status_room.js"></script>
-    <script src="scripts/app/entities/status_room/status_room.controller.js"></script>
-    <script src="scripts/app/entities/status_room/status_room-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_room/status_room-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_room/status_room-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_room/status_room.service.js"></script>
-    <script src="scripts/app/entities/type_room/type_room.js"></script>
-    <script src="scripts/app/entities/type_room/type_room.controller.js"></script>
-    <script src="scripts/app/entities/type_room/type_room-dialog.controller.js"></script>
-    <script src="scripts/app/entities/type_room/type_room-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/type_room/type_room-detail.controller.js"></script>
-    <script src="scripts/components/entities/type_room/type_room.service.js"></script>
-    <script src="scripts/app/entities/room/room.js"></script>
-    <script src="scripts/app/entities/room/room.controller.js"></script>
-    <script src="scripts/app/entities/room/room-dialog.controller.js"></script>
-    <script src="scripts/app/entities/room/room-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/room/room-detail.controller.js"></script>
-    <script src="scripts/components/entities/room/room.service.js"></script>
-    <script src="scripts/app/entities/company/company.js"></script>
-    <script src="scripts/app/entities/company/company.controller.js"></script>
-    <script src="scripts/app/entities/company/company-dialog.controller.js"></script>
-    <script src="scripts/app/entities/company/company-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/company/company-detail.controller.js"></script>
-    <script src="scripts/components/entities/company/company.service.js"></script>
-    <script src="scripts/app/entities/customer/customer.js"></script>
-    <script src="scripts/app/entities/customer/customer.controller.js"></script>
-    <script src="scripts/app/entities/customer/customer-dialog.controller.js"></script>
-    <script src="scripts/app/entities/customer/customer-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/customer/customer-detail.controller.js"></script>
-    <script src="scripts/components/entities/customer/customer.service.js"></script>
-    <script src="scripts/app/entities/method_register/method_register.js"></script>
-    <script src="scripts/app/entities/method_register/method_register.controller.js"></script>
-    <script src="scripts/app/entities/method_register/method_register-dialog.controller.js"></script>
-    <script src="scripts/app/entities/method_register/method_register-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/method_register/method_register-detail.controller.js"></script>
-    <script src="scripts/components/entities/method_register/method_register.service.js"></script>
-    <script src="scripts/app/entities/status_register/status_register.js"></script>
-    <script src="scripts/app/entities/status_register/status_register.controller.js"></script>
-    <script src="scripts/app/entities/status_register/status_register-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_register/status_register-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_register/status_register-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_register/status_register.service.js"></script>
-    <script src="scripts/app/entities/status_reservation/status_reservation.js"></script>
-    <script src="scripts/app/entities/status_reservation/status_reservation.controller.js"></script>
-    <script src="scripts/app/entities/status_reservation/status_reservation-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_reservation/status_reservation-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_reservation/status_reservation-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_reservation/status_reservation.service.js"></script>
-    <script src="scripts/app/entities/method_payment/method_payment.js"></script>
-    <script src="scripts/app/entities/method_payment/method_payment.controller.js"></script>
-    <script src="scripts/app/entities/method_payment/method_payment-dialog.controller.js"></script>
-    <script src="scripts/app/entities/method_payment/method_payment-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/method_payment/method_payment-detail.controller.js"></script>
-    <script src="scripts/components/entities/method_payment/method_payment.service.js"></script>
-    <script src="scripts/app/entities/status_payment/status_payment.js"></script>
-    <script src="scripts/app/entities/status_payment/status_payment.controller.js"></script>
-    <script src="scripts/app/entities/status_payment/status_payment-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_payment/status_payment-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_payment/status_payment-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_payment/status_payment.service.js"></script>
-    <script src="scripts/app/entities/status_bill/status_bill.js"></script>
-    <script src="scripts/app/entities/status_bill/status_bill.controller.js"></script>
-    <script src="scripts/app/entities/status_bill/status_bill-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_bill/status_bill-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_bill/status_bill-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_bill/status_bill.service.js"></script>
-    <script src="scripts/app/entities/status_bill_service/status_bill_service.js"></script>
-    <script src="scripts/app/entities/status_bill_service/status_bill_service.controller.js"></script>
-    <script src="scripts/app/entities/status_bill_service/status_bill_service-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_bill_service/status_bill_service-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_bill_service/status_bill_service-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_bill_service/status_bill_service.service.js"></script>
-    <script src="scripts/app/entities/status_service/status_service.js"></script>
-    <script src="scripts/app/entities/status_service/status_service.controller.js"></script>
-    <script src="scripts/app/entities/status_service/status_service-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_service/status_service-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_service/status_service-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_service/status_service.service.js"></script>
-    <script src="scripts/app/entities/register_info/register_info.js"></script>
-    <script src="scripts/app/entities/register_info/register_info.controller.js"></script>
-    <script src="scripts/app/entities/register_info/register_info-dialog.controller.js"></script>
-    <script src="scripts/app/entities/register_info/register_info-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/register_info/register_info-detail.controller.js"></script>
-    <script src="scripts/components/entities/register_info/register_info.service.js"></script>
-    <script src="scripts/app/entities/reservation/reservation.js"></script>
-    <script src="scripts/app/entities/reservation/reservation.controller.js"></script>
-    <script src="scripts/app/entities/reservation/reservation-dialog.controller.js"></script>
-    <script src="scripts/app/entities/reservation/reservation-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/reservation/reservation-detail.controller.js"></script>
-    <script src="scripts/components/entities/reservation/reservation.service.js"></script>
-    <script src="scripts/app/entities/bill/bill.js"></script>
-    <script src="scripts/app/entities/bill/bill.controller.js"></script>
-    <script src="scripts/app/entities/bill/bill-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bill/bill-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bill/bill-detail.controller.js"></script>
-    <script src="scripts/components/entities/bill/bill.service.js"></script>
-    <script src="scripts/app/entities/services/services.js"></script>
-    <script src="scripts/app/entities/services/services.controller.js"></script>
-    <script src="scripts/app/entities/services/services-dialog.controller.js"></script>
-    <script src="scripts/app/entities/services/services-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/services/services-detail.controller.js"></script>
-    <script src="scripts/components/entities/services/services.service.js"></script>
-    <script src="scripts/app/entities/bill_service/bill_service.js"></script>
-    <script src="scripts/app/entities/bill_service/bill_service.controller.js"></script>
-    <script src="scripts/app/entities/bill_service/bill_service-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bill_service/bill_service-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/bill_service/bill_service-detail.controller.js"></script>
-    <script src="scripts/components/entities/bill_service/bill_service.service.js"></script>
-    <script src="scripts/app/entities/status_event/status_event.js"></script>
-    <script src="scripts/app/entities/status_event/status_event.controller.js"></script>
-    <script src="scripts/app/entities/status_event/status_event-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_event/status_event-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_event/status_event-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_event/status_event.service.js"></script>
-    <script src="scripts/app/entities/event/event.js"></script>
-    <script src="scripts/app/entities/event/event.controller.js"></script>
-    <script src="scripts/app/entities/event/event-dialog.controller.js"></script>
-    <script src="scripts/app/entities/event/event-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/event/event-detail.controller.js"></script>
-    <script src="scripts/components/entities/event/event.service.js"></script>
-    <script src="scripts/app/entities/status_policy/status_policy.js"></script>
-    <script src="scripts/app/entities/status_policy/status_policy.controller.js"></script>
-    <script src="scripts/app/entities/status_policy/status_policy-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_policy/status_policy-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/status_policy/status_policy-detail.controller.js"></script>
-    <script src="scripts/components/entities/status_policy/status_policy.service.js"></script>
-    <script src="scripts/app/entities/kind_of_policy/kind_of_policy.js"></script>
-    <script src="scripts/app/entities/kind_of_policy/kind_of_policy.controller.js"></script>
-    <script src="scripts/app/entities/kind_of_policy/kind_of_policy-dialog.controller.js"></script>
-    <script src="scripts/app/entities/kind_of_policy/kind_of_policy-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/kind_of_policy/kind_of_policy-detail.controller.js"></script>
-    <script src="scripts/components/entities/kind_of_policy/kind_of_policy.service.js"></script>
-    <script src="scripts/app/entities/type_policy/type_policy.js"></script>
-    <script src="scripts/app/entities/type_policy/type_policy.controller.js"></script>
-    <script src="scripts/app/entities/type_policy/type_policy-dialog.controller.js"></script>
-    <script src="scripts/app/entities/type_policy/type_policy-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/type_policy/type_policy-detail.controller.js"></script>
-    <script src="scripts/components/entities/type_policy/type_policy.service.js"></script>
-    <script src="scripts/app/entities/policy/policy.js"></script>
-    <script src="scripts/app/entities/policy/policy.controller.js"></script>
-    <script src="scripts/app/entities/policy/policy-dialog.controller.js"></script>
-    <script src="scripts/app/entities/policy/policy-delete-dialog.controller.js"></script>
-    <script src="scripts/app/entities/policy/policy-detail.controller.js"></script>
-    <script src="scripts/components/entities/policy/policy.service.js"></script>
-    <!-- endbuild -->
+	<!-- build:js({.tmp,src/main/webapp}) scripts/app.js -->
+	<script src="scripts/app/app.js"></script>
+	<script src="scripts/app/app.constants.js"></script>
+	<script src="scripts/components/auth/auth.service.js"></script>
+	<script src="scripts/components/auth/principal.service.js"></script>
+	<script src="scripts/components/auth/authority.directive.js"></script>
+	<script src="scripts/components/auth/services/account.service.js"></script>
+	<script src="scripts/components/auth/services/activate.service.js"></script>
+	<script src="scripts/components/auth/services/password.service.js"></script>
+	<script src="scripts/components/auth/services/register.service.js"></script>
+	<script src="scripts/components/form/form.directive.js"></script>
+	<script src="scripts/components/form/maxbytes.directive.js"></script>
+	<script src="scripts/components/form/minbytes.directive.js"></script>
+	<script src="scripts/components/form/uib-pager.config.js"></script>
+	<script src="scripts/components/form/uib-pagination.config.js"></script>
+	<script src="scripts/components/admin/audits.service.js"></script>
+	<script src="scripts/components/admin/logs.service.js"></script>
+	<script src="scripts/components/admin/configuration.service.js"></script>
+	<script src="scripts/components/admin/monitoring.service.js"></script>
+	<script src="scripts/components/interceptor/auth.interceptor.js"></script>
+	<script
+		src="scripts/components/interceptor/errorhandler.interceptor.js"></script>
+	<script
+		src="scripts/components/interceptor/notification.interceptor.js"></script>
+	<script src="scripts/components/navbar/navbar.directive.js"></script>
+	<script src="scripts/components/navbar/navbar.controller.js"></script>
+	<script src="scripts/components/user/user.service.js"></script>
+	<script src="scripts/components/util/truncate.filter.js"></script>
+	<script src="scripts/components/util/base64.service.js"></script>
+	<script src="scripts/components/util/capitalize.filter.js"></script>
+	<script src="scripts/components/alert/alert.service.js"></script>
+	<script src="scripts/components/alert/alert.directive.js"></script>
+	<script src="scripts/components/util/parse-links.service.js"></script>
+	<script src="scripts/components/util/date-util.service.js"></script>
+	<script src="scripts/components/util/data-util.service.js"></script>
+	<script src="scripts/components/util/sort.directive.js"></script>
+	<script src="scripts/app/account/account.js"></script>
+	<script src="scripts/app/account/activate/activate.js"></script>
+	<script src="scripts/app/account/activate/activate.controller.js"></script>
+	<script src="scripts/app/account/login/login.js"></script>
+	<script src="scripts/app/account/login/login.controller.js"></script>
+	<script src="scripts/app/account/password/password.js"></script>
+	<script src="scripts/app/account/password/password.controller.js"></script>
+	<script src="scripts/app/account/password/password.directive.js"></script>
+	<script src="scripts/app/account/register/register.js"></script>
+	<script src="scripts/app/account/register/register.controller.js"></script>
+	<script src="scripts/app/account/settings/settings.js"></script>
+	<script src="scripts/app/account/settings/settings.controller.js"></script>
+	<script
+		src="scripts/app/account/reset/finish/reset.finish.controller.js"></script>
+	<script src="scripts/app/account/reset/finish/reset.finish.js"></script>
+	<script
+		src="scripts/app/account/reset/request/reset.request.controller.js"></script>
+	<script src="scripts/app/account/reset/request/reset.request.js"></script>
+	<script src="scripts/app/admin/admin.js"></script>
+	<script src="scripts/app/admin/audits/audits.js"></script>
+	<script src="scripts/app/admin/audits/audits.controller.js"></script>
+	<script src="scripts/app/admin/configuration/configuration.js"></script>
+	<script
+		src="scripts/app/admin/configuration/configuration.controller.js"></script>
+	<script src="scripts/app/admin/docs/docs.js"></script>
+	<script src="scripts/app/admin/health/health.js"></script>
+	<script src="scripts/app/admin/health/health.controller.js"></script>
+	<script src="scripts/app/admin/health/health.modal.controller.js"></script>
+	<script src="scripts/app/admin/logs/logs.js"></script>
+	<script src="scripts/app/admin/logs/logs.controller.js"></script>
+	<script src="scripts/app/admin/metrics/metrics.js"></script>
+	<script src="scripts/app/admin/metrics/metrics.controller.js"></script>
+	<script src="scripts/app/admin/metrics/metrics.modal.controller.js"></script>
+	<script
+		src="scripts/app/admin/user-management/user-management-detail.controller.js"></script>
+	<script
+		src="scripts/app/admin/user-management/user-management-dialog.controller.js"></script>
+	<script
+		src="scripts/app/admin/user-management/user-management-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/admin/user-management/user-management.controller.js"></script>
+	<script src="scripts/app/admin/user-management/user-management.js"></script>
+	<script src="scripts/app/entities/entity.js"></script>
+	<script src="scripts/app/error/error.js"></script>
+	<script src="scripts/app/main/main.js"></script>
+	<script src="scripts/app/main/main.controller.js"></script>
+	<script src="scripts/components/auth/services/sessions.service.js"></script>
+	<script src="scripts/components/auth/provider/auth.session.service.js"></script>
+	<script src="scripts/app/account/sessions/sessions.js"></script>
+	<script src="scripts/app/account/sessions/sessions.controller.js"></script>
+	<script src="scripts/app/entities/bank/bank.js"></script>
+	<script src="scripts/app/entities/bank/bank.controller.js"></script>
+	<script src="scripts/app/entities/bank/bank-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/bank/bank-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/bank/bank-detail.controller.js"></script>
+	<script src="scripts/components/entities/bank/bank.service.js"></script>
+	<script src="scripts/app/entities/came_component/came_component.js"></script>
+	<script
+		src="scripts/app/entities/came_component/came_component.controller.js"></script>
+	<script
+		src="scripts/app/entities/came_component/came_component-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/came_component/came_component-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/came_component/came_component-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/came_component/came_component.service.js"></script>
+	<script src="scripts/app/entities/department/department.js"></script>
+	<script src="scripts/app/entities/department/department.controller.js"></script>
+	<script
+		src="scripts/app/entities/department/department-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/department/department-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/department/department-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/department/department.service.js"></script>
+	<script src="scripts/app/entities/education_level/education_level.js"></script>
+	<script
+		src="scripts/app/entities/education_level/education_level.controller.js"></script>
+	<script
+		src="scripts/app/entities/education_level/education_level-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/education_level/education_level-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/education_level/education_level-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/education_level/education_level.service.js"></script>
+	<script src="scripts/app/entities/ethnic/ethnic.js"></script>
+	<script src="scripts/app/entities/ethnic/ethnic.controller.js"></script>
+	<script src="scripts/app/entities/ethnic/ethnic-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/ethnic/ethnic-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/ethnic/ethnic-detail.controller.js"></script>
+	<script src="scripts/components/entities/ethnic/ethnic.service.js"></script>
+	<script src="scripts/app/entities/gender/gender.js"></script>
+	<script src="scripts/app/entities/gender/gender.controller.js"></script>
+	<script src="scripts/app/entities/gender/gender-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/gender/gender-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/gender/gender-detail.controller.js"></script>
+	<script src="scripts/components/entities/gender/gender.service.js"></script>
+	<script src="scripts/app/entities/job/job.js"></script>
+	<script src="scripts/app/entities/job/job.controller.js"></script>
+	<script src="scripts/app/entities/job/job-dialog.controller.js"></script>
+	<script src="scripts/app/entities/job/job-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/job/job-detail.controller.js"></script>
+	<script src="scripts/components/entities/job/job.service.js"></script>
+	<script src="scripts/app/entities/major/major.js"></script>
+	<script src="scripts/app/entities/major/major.controller.js"></script>
+	<script src="scripts/app/entities/major/major-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/major/major-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/major/major-detail.controller.js"></script>
+	<script src="scripts/components/entities/major/major.service.js"></script>
+	<script src="scripts/app/entities/marital_status/marital_status.js"></script>
+	<script
+		src="scripts/app/entities/marital_status/marital_status.controller.js"></script>
+	<script
+		src="scripts/app/entities/marital_status/marital_status-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/marital_status/marital_status-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/marital_status/marital_status-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/marital_status/marital_status.service.js"></script>
+	<script src="scripts/app/entities/position/position.js"></script>
+	<script src="scripts/app/entities/position/position.controller.js"></script>
+	<script
+		src="scripts/app/entities/position/position-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/position/position-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/position/position-detail.controller.js"></script>
+	<script src="scripts/components/entities/position/position.service.js"></script>
+	<script src="scripts/app/entities/religion/religion.js"></script>
+	<script src="scripts/app/entities/religion/religion.controller.js"></script>
+	<script
+		src="scripts/app/entities/religion/religion-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/religion/religion-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/religion/religion-detail.controller.js"></script>
+	<script src="scripts/components/entities/religion/religion.service.js"></script>
+	<script src="scripts/app/entities/school/school.js"></script>
+	<script src="scripts/app/entities/school/school.controller.js"></script>
+	<script src="scripts/app/entities/school/school-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/school/school-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/school/school-detail.controller.js"></script>
+	<script src="scripts/components/entities/school/school.service.js"></script>
+	<script src="scripts/app/entities/status_profile/status_profile.js"></script>
+	<script
+		src="scripts/app/entities/status_profile/status_profile.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_profile/status_profile-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_profile/status_profile-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_profile/status_profile-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_profile/status_profile.service.js"></script>
+	<script src="scripts/app/entities/employee/employee.js"></script>
+	<script src="scripts/app/entities/employee/employee.controller.js"></script>
+	<script
+		src="scripts/app/entities/employee/employee-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/employee/employee-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/employee/employee-detail.controller.js"></script>
+	<script src="scripts/components/entities/employee/employee.service.js"></script>
+	<script src="scripts/app/entities/currency/currency.js"></script>
+	<script src="scripts/app/entities/currency/currency.controller.js"></script>
+	<script
+		src="scripts/app/entities/currency/currency-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/currency/currency-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/currency/currency-detail.controller.js"></script>
+	<script src="scripts/components/entities/currency/currency.service.js"></script>
+	<script src="scripts/app/entities/profile/profile.js"></script>
+	<script src="scripts/app/entities/profile/profile.controller.js"></script>
+	<script
+		src="scripts/app/entities/profile/profile-statistic.controller.js"></script>
+	<script src="scripts/app/entities/profile/profile-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/profile/profile-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/profile/profile-detail.controller.js"></script>
+	<script src="scripts/components/entities/profile/profile.service.js"></script>
+	<script src="scripts/app/entities/amenity/amenity.js"></script>
+	<script src="scripts/app/entities/amenity/amenity.controller.js"></script>
+	<script src="scripts/app/entities/amenity/amenity-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/amenity/amenity-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/amenity/amenity-detail.controller.js"></script>
+	<script src="scripts/components/entities/amenity/amenity.service.js"></script>
+	<script src="scripts/app/entities/images/images.js"></script>
+	<script src="scripts/app/entities/images/images.controller.js"></script>
+	<script src="scripts/app/entities/images/images-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/images/images-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/images/images-detail.controller.js"></script>
+	<script src="scripts/components/entities/images/images.service.js"></script>
+	<script src="scripts/app/entities/status_room/status_room.js"></script>
+	<script
+		src="scripts/app/entities/status_room/status_room.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_room/status_room-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_room/status_room-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_room/status_room-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_room/status_room.service.js"></script>
+	<script src="scripts/app/entities/type_room/type_room.js"></script>
+	<script src="scripts/app/entities/type_room/type_room.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_room/type_room-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_room/type_room-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_room/type_room-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/type_room/type_room.service.js"></script>
+	<script src="scripts/app/entities/room/room.js"></script>
+	<script src="scripts/app/entities/room/room.controller.js"></script>
+	<script src="scripts/app/entities/room/room-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/room/room-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/room/room-detail.controller.js"></script>
+	<script src="scripts/components/entities/room/room.service.js"></script>
+	<script src="scripts/app/entities/company/company.js"></script>
+	<script src="scripts/app/entities/company/company.controller.js"></script>
+	<script src="scripts/app/entities/company/company-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/company/company-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/company/company-detail.controller.js"></script>
+	<script src="scripts/components/entities/company/company.service.js"></script>
+	<script src="scripts/app/entities/customer/customer.js"></script>
+	<script src="scripts/app/entities/customer/customer.controller.js"></script>
+	<script
+		src="scripts/app/entities/customer/customer-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/customer/customer-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/customer/customer-detail.controller.js"></script>
+	<script src="scripts/components/entities/customer/customer.service.js"></script>
+	<script src="scripts/app/entities/method_register/method_register.js"></script>
+	<script
+		src="scripts/app/entities/method_register/method_register.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_register/method_register-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_register/method_register-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_register/method_register-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/method_register/method_register.service.js"></script>
+	<script src="scripts/app/entities/status_register/status_register.js"></script>
+	<script
+		src="scripts/app/entities/status_register/status_register.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_register/status_register-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_register/status_register-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_register/status_register-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_register/status_register.service.js"></script>
+	<script
+		src="scripts/app/entities/status_reservation/status_reservation.js"></script>
+	<script
+		src="scripts/app/entities/status_reservation/status_reservation.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_reservation/status_reservation-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_reservation/status_reservation-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_reservation/status_reservation-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_reservation/status_reservation.service.js"></script>
+	<script src="scripts/app/entities/method_payment/method_payment.js"></script>
+	<script
+		src="scripts/app/entities/method_payment/method_payment.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_payment/method_payment-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_payment/method_payment-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/method_payment/method_payment-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/method_payment/method_payment.service.js"></script>
+	<script src="scripts/app/entities/status_payment/status_payment.js"></script>
+	<script
+		src="scripts/app/entities/status_payment/status_payment.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_payment/status_payment-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_payment/status_payment-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_payment/status_payment-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_payment/status_payment.service.js"></script>
+	<script src="scripts/app/entities/status_bill/status_bill.js"></script>
+	<script
+		src="scripts/app/entities/status_bill/status_bill.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill/status_bill-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill/status_bill-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill/status_bill-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_bill/status_bill.service.js"></script>
+	<script
+		src="scripts/app/entities/status_bill_service/status_bill_service.js"></script>
+	<script
+		src="scripts/app/entities/status_bill_service/status_bill_service.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill_service/status_bill_service-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill_service/status_bill_service-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_bill_service/status_bill_service-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_bill_service/status_bill_service.service.js"></script>
+	<script src="scripts/app/entities/status_service/status_service.js"></script>
+	<script
+		src="scripts/app/entities/status_service/status_service.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_service/status_service-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_service/status_service-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_service/status_service-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_service/status_service.service.js"></script>
+	<script src="scripts/app/entities/register_info/register_info.js"></script>
+	<script
+		src="scripts/app/entities/register_info/register_info.controller.js"></script>
+	<script
+		src="scripts/app/entities/register_info/register_info-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/register_info/register_info-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/register_info/register_info-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/register_info/register_info.service.js"></script>
+	<script src="scripts/app/entities/reservation/reservation.js"></script>
+	<script
+		src="scripts/app/entities/reservation/reservation.controller.js"></script>
+	<script
+		src="scripts/app/entities/reservation/reservation-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/reservation/reservation-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/reservation/reservation-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/reservation/reservation.service.js"></script>
+	<script src="scripts/app/entities/bill/bill.js"></script>
+	<script src="scripts/app/entities/bill/bill.controller.js"></script>
+	<script src="scripts/app/entities/bill/bill-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/bill/bill-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/bill/bill-detail.controller.js"></script>
+	<script src="scripts/components/entities/bill/bill.service.js"></script>
+	<script src="scripts/app/entities/services/services.js"></script>
+	<script src="scripts/app/entities/services/services.controller.js"></script>
+	<script
+		src="scripts/app/entities/services/services-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/services/services-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/services/services-detail.controller.js"></script>
+	<script src="scripts/components/entities/services/services.service.js"></script>
+	<script src="scripts/app/entities/bill_service/bill_service.js"></script>
+	<script
+		src="scripts/app/entities/bill_service/bill_service.controller.js"></script>
+	<script
+		src="scripts/app/entities/bill_service/bill_service-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/bill_service/bill_service-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/bill_service/bill_service-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/bill_service/bill_service.service.js"></script>
+	<script src="scripts/app/entities/status_event/status_event.js"></script>
+	<script
+		src="scripts/app/entities/status_event/status_event.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_event/status_event-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_event/status_event-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_event/status_event-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_event/status_event.service.js"></script>
+	<script src="scripts/app/entities/event/event.js"></script>
+	<script src="scripts/app/entities/event/event.controller.js"></script>
+	<script src="scripts/app/entities/event/event-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/event/event-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/event/event-detail.controller.js"></script>
+	<script src="scripts/components/entities/event/event.service.js"></script>
+	<script src="scripts/app/entities/status_policy/status_policy.js"></script>
+	<script
+		src="scripts/app/entities/status_policy/status_policy.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_policy/status_policy-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_policy/status_policy-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/status_policy/status_policy-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/status_policy/status_policy.service.js"></script>
+	<script src="scripts/app/entities/kind_of_policy/kind_of_policy.js"></script>
+	<script
+		src="scripts/app/entities/kind_of_policy/kind_of_policy.controller.js"></script>
+	<script
+		src="scripts/app/entities/kind_of_policy/kind_of_policy-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/kind_of_policy/kind_of_policy-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/kind_of_policy/kind_of_policy-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/kind_of_policy/kind_of_policy.service.js"></script>
+	<script src="scripts/app/entities/type_policy/type_policy.js"></script>
+	<script
+		src="scripts/app/entities/type_policy/type_policy.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_policy/type_policy-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_policy/type_policy-delete-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/type_policy/type_policy-detail.controller.js"></script>
+	<script
+		src="scripts/components/entities/type_policy/type_policy.service.js"></script>
+	<script src="scripts/app/entities/policy/policy.js"></script>
+	<script src="scripts/app/entities/policy/policy.controller.js"></script>
+	<script src="scripts/app/entities/policy/policy-dialog.controller.js"></script>
+	<script
+		src="scripts/app/entities/policy/policy-delete-dialog.controller.js"></script>
+	<script src="scripts/app/entities/policy/policy-detail.controller.js"></script>
+	<script src="scripts/components/entities/policy/policy.service.js"></script>
+	<!-- endbuild -->
 </body>
 </html>

@@ -3,9 +3,41 @@
 	<jh-alert></jh-alert>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-10">
+				<form class="form-inline" role="form" ng-submit="loadAll()">
+					<div class="form-group col-sm-2">
+						<input class="form-control" ng-model="full_name" type="text" placeholder="Tên nhân viên">
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_position" name="position"
+							ng-model="position"
+							ng-options="position as position.position for position in positions track by position.id">
+							<option value="">Vị trí</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_department"
+							name="department" ng-model="department"
+							ng-options="department as department.name for department in departments track by department.id">
+							<option value="">Phòng ban</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_status_profile"
+							name="status_profile" ng-model="status_profile"
+							ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
+							<option value="">Trạng thái</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn btn-default">Tìm kiếm</button>
+
+				</form>
+			</div>
+			<div class="col-md-2">
 				<button class="btn btn-primary" ui-sref="profile.new">
-					<span class="glyphicon glyphicon-flash"></span> <span>Tạo hồ sơ</span>
+					<span class="glyphicon glyphicon-flash"></span> <span>Tạo hồ
+						sơ</span>
 				</button>
 			</div>
 		</div>
@@ -15,12 +47,12 @@
 		<table class="table table-striped" style="width: 2300px !important">
 			<thead>
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-					<th jh-sort-by="id" width="3%" ><span>STT</span> <span
+					<th jh-sort-by="id" width="3%"><span>STT</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="join_date"><span>Ngày gia nhập</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="salary_subsidies"><span>Lương phụ cấp</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="salary_subsidies"><span>Lương phụ cấp</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="salary_basic"><span>Lương cơ bản</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="salary"><span>Lương chính</span> <span
@@ -29,18 +61,18 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="position.position"><span>Vị trí</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="department.name" width="15%"><span>Phòng ban</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="employee.full_name"><span>Tên nhân viên</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="status_profile.name"><span>Trạng thái</span>
+					<th jh-sort-by="department.name" width="15%"><span>Phòng
+							ban</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="employee.full_name"><span>Tên nhân viên</span>
 						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_profile.name"><span>Trạng thái</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_by.login"><span>Người sửa cuối</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="last_modified_by.login"><span>Người sửa
+							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
 						<span class="glyphicon glyphicon-sort"></span></th>
 					<th></th>
@@ -48,7 +80,8 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="profile in profiles track by profile.id">
-					<td><a ui-sref="profile.detail({id:profile.id})">{{$index + 1}}</a></td>
+					<td><a ui-sref="profile.detail({id:profile.id})">{{$index
+							+ 1}}</a></td>
 					<td>{{profile.join_date | date:'dd/MM/yyyy'}}</td>
 					<td>{{profile.salary_subsidies | currency:"":0}}</td>
 					<td>{{profile.salary_basic | currency:"":0}}</td>

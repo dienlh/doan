@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -26,70 +27,88 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class ProfileServiceImpl implements ProfileService{
+public class ProfileServiceImpl implements ProfileService {
 
-    private final Logger log = LoggerFactory.getLogger(ProfileServiceImpl.class);
-    
-    @Inject
-    private ProfileRepository profileRepository;
-    
-    @Inject
-    private UserRepository userRepository;
-    /**
-     * Save a profile.
-     * @return the persisted entity
-     */
-    public Profile save(Profile profile) {
-        log.debug("Request to save Profile : {}", profile);
-        if(profile.getId()==null){
-        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
-                    .map(ManagedUserDTO::new);
-            
-            User user=new User();
-            user.setId(optional.get().getId());
-            user.setLogin(optional.get().getLogin());
-            profile.setCreate_by(user);
-            log.info("Preshow user"+ user);
-        }else{
-        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
-                    .map(ManagedUserDTO::new);
-            User user=new User();
-            user.setId(optional.get().getId());
-//            user.setLogin(optional.get().getLogin());
-            profile.setLast_modified_by(user);
-            profile.setLast_modified_date(ZonedDateTime.now());
-        }
-        Profile result = profileRepository.save(profile);
-        return result;
-    }
+	private final Logger log = LoggerFactory.getLogger(ProfileServiceImpl.class);
 
-    /**
-     *  get all the profiles.
-     *  @return the list of entities
-     */
-    @Transactional(readOnly = true) 
-    public Page<Profile> findAll(Pageable pageable) {
-        log.debug("Request to get all Profiles");
-        Page<Profile> result = profileRepository.findAll(pageable); 
-        return result;
-    }
+	@Inject
+	private ProfileRepository profileRepository;
 
-    /**
-     *  get one profile by id.
-     *  @return the entity
-     */
-    @Transactional(readOnly = true) 
-    public Profile findOne(Long id) {
-        log.debug("Request to get Profile : {}", id);
-        Profile profile = profileRepository.findOne(id);
-        return profile;
-    }
+	@Inject
+	private UserRepository userRepository;
 
-    /**
-     *  delete the  profile by id.
-     */
-    public void delete(Long id) {
-        log.debug("Request to delete Profile : {}", id);
-        profileRepository.delete(id);
-    }
+	/**
+	 * Save a profile.
+	 * 
+	 * @return the persisted entity
+	 */
+	public Profile save(Profile profile) {
+		log.debug("Request to save Profile : {}", profile);
+		if (profile.getId() == null) {
+			Optional<ManagedUserDTO> optional = userRepository
+					.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).map(ManagedUserDTO::new);
+
+			User user = new User();
+			user.setId(optional.get().getId());
+			user.setLogin(optional.get().getLogin());
+			profile.setCreate_by(user);
+			log.info("Preshow user" + user);
+		} else {
+			Optional<ManagedUserDTO> optional = userRepository
+					.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).map(ManagedUserDTO::new);
+			User user = new User();
+			user.setId(optional.get().getId());
+			// user.setLogin(optional.get().getLogin());
+			profile.setLast_modified_by(user);
+			profile.setLast_modified_date(ZonedDateTime.now());
+		}
+		Profile result = profileRepository.save(profile);
+		return result;
+	}
+
+	/**
+	 * get all the profiles.
+	 * 
+	 * @return the list of entities
+	 */
+	@Transactional(readOnly = true)
+	public Page<Profile> findAll(Pageable pageable) {
+		log.debug("Request to get all Profiles");
+		Page<Profile> result = profileRepository.findAll(pageable);
+		return result;
+	}
+
+	/**
+	 * get one profile by id.
+	 * 
+	 * @return the entity
+	 */
+	@Transactional(readOnly = true)
+	public Profile findOne(Long id) {
+		log.debug("Request to get Profile : {}", id);
+		Profile profile = profileRepository.findOne(id);
+		return profile;
+	}
+
+	/**
+	 * delete the profile by id.
+	 */
+	public void delete(Long id) {
+		log.debug("Request to delete Profile : {}", id);
+		profileRepository.delete(id);
+	}
+
+	public Page<Profile> findByMultiAttr(Pageable pageable, Long positionId, Long departmentId, Long statusId,
+			String full_name) {
+		log.debug("Request to fidn by multi att Profile : {}", positionId + departmentId + statusId);
+		return profileRepository.findByMultiAttr(pageable, positionId, departmentId, statusId, full_name);
+	}
+
+	public Page<Profile> findByMultiAttrWithRanger(Pageable pageable, Long positionId, Long departmentId, Long statusId,
+			String full_name, LocalDate fromDate, LocalDate toDate) {
+		log.debug("Request to fidn by multi att Profile : {}", positionId + departmentId + statusId);
+		return profileRepository.findByMultiAttrWithRanger(pageable, positionId, departmentId, statusId, full_name,
+				fromDate,toDate);
+	}
+
 }

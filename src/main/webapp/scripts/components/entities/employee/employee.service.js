@@ -3,7 +3,8 @@
 angular.module('hotelApp')
     .factory('Employee', function ($resource, DateUtils) {
         return $resource('api/employees/:id', {}, {
-            'query': { method: 'GET', isArray: true},
+        	'query': { method: 'GET', isArray: true },
+            'queryByIcOrEmail': { method: 'GET', isArray: true , url: 'api/employees/findAllByIc_number'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

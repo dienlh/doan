@@ -19,6 +19,26 @@ angular.module('hotelApp')
                 resolve: {
                 }
             })
+            .state('profile.statistic', {
+                parent: 'app',
+                url: '/profile/statistics',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'Profiles'
+                },
+                views: {
+                    '': {
+                        templateUrl: 'scripts/app/entities/profile/profile-statistics.html',
+                        controller: 'ProfileStatisticController'
+                    }
+                },
+                resolve: {
+                	deps: ['uiLoad',
+                          function( uiLoad){
+                             return uiLoad.load('scripts/app/entities/profile/profile-statistic.controller.js');
+                     }]
+                }
+            })
             .state('profile.detail', {
                 parent: 'app',
                 url: '/profile/{id}',
