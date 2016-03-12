@@ -1,77 +1,151 @@
 <div>
-    <h2>Danh sách cung cấp dịch vụ</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="bill_service.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Tạo mới</span>
-                </button>
-            </div>
-        </div>
-    </div>
+	<h2>Danh sách cung cấp dịch vụ</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10">
+				<form class="form-horizontal" show-validation role="form"
+					ng-submit="loadAll()">
+					<div class="form-group">
+						<div class="col-sm-4">
+							<label class="control-label col-sm-4">Từ ngày</label>
+							<div class="col-sm-8">
+								<input class="form-control" ng-model="fromDate" type="date"
+									placeholder="Từ ngày" required>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label col-sm-4">Đến ngày</label>
+							<div class="col-sm-8">
+								<input class="form-control" ng-model="toDate" type="date"
+									placeholder="Đến ngày" required>
+							</div>
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-4">
+							<label class="control-label col-sm-4">Dịch vụ</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="field_services" name="services"
+									ng-model="service"
+									ng-options="services as services.name for services in servicess track by services.id">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label col-sm-4"> Mã Phòng</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="field_room" name="room"
+									ng-model="room"
+									ng-options="room as room.code for room in rooms track by room.id">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<label class="control-label col-sm-4">Trạng thái</label>
+							<div class="col-sm-8">
+								<select class="form-control" id="field_status_bill_service"
+									name="status_bill_service"
+									ng-model="status_bill_service"
+									ng-options="status_bill_service as status_bill_service.name for status_bill_service in status_bill_services track by status_bill_service.id">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group ">
+						<div class="col-sm-4">
+							<button type="submit" class="btn btn-default col-sm-offset-5">Tìm
+								kiếm</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-primary" ui-sref="bill_service.new">
+					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
+						mới</span>
+				</button>
+			</div>
+		</div>
+	</div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span>STT</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="quantity"><span>Số lượng</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="total"><span>Tổng thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="services.name"><span>Tên dịch vụ</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="reservation.id"><span>Mã nhận trả phòng</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="status_bill_service.name"><span>Trạng thái</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="bill_service in bill_services track by bill_service.id">
-                    <td><a ui-sref="bill_service.detail({id:bill_service.id})">{{bill_service.id}}</a></td>
-                    <td>{{bill_service.quantity}}</td>
-                    <td>{{bill_service.total | currency : "" : 0}}</td>
-                    <td>{{bill_service.decription}}</td>
-                    <td>
-                        <a ui-sref="currency.detail({id:bill_service.currency.id})">{{bill_service.currency.code}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="services.detail({id:bill_service.services.id})">{{bill_service.services.name}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="reservation.detail({id:bill_service.reservation.id})">{{bill_service.reservation.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="status_bill_service.detail({id:bill_service.status_bill_service.id})">{{bill_service.status_bill_service.name}}</a>
-                    </td>
-                    <td>
-                        {{bill_service.create_by.login}}
-                    </td>
-                    <td>{{bill_service.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="bill_service.detail({id:bill_service.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="bill_service.edit({id:bill_service.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="bill_service.delete({id:bill_service.id})"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="text-center">
-        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
-    </div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>STT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="quantity"><span>Số lượng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="total"><span>Tổng thanh toán</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="decription"><span>Mô tả</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="services.name"><span>Tên dịch vụ</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="reservation.register_info.room.code"><span>Mã
+							phòng</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_bill_service.name"><span>Trạng
+							thái</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					ng-repeat="bill_service in bill_services track by bill_service.id">
+					<td><a ui-sref="bill_service.detail({id:bill_service.id})">{{bill_service.id}}</a></td>
+					<td>{{bill_service.quantity}}</td>
+					<td>{{bill_service.total | currency : "" : 0}}</td>
+					<td>{{bill_service.decription}}</td>
+					<td><a
+						ui-sref="currency.detail({id:bill_service.currency.id})">{{bill_service.currency.code}}</a>
+					</td>
+					<td><a
+						ui-sref="services.detail({id:bill_service.services.id})">{{bill_service.services.name}}</a>
+					</td>
+					<td><a
+						ui-sref="reservation.detail({id:bill_service.reservation.id})">{{bill_service.reservation.id}}</a>
+					</td>
+					<td><a
+						ui-sref="status_bill_service.detail({id:bill_service.status_bill_service.id})">{{bill_service.status_bill_service.name}}</a>
+					</td>
+					<td>{{bill_service.create_by.login}}</td>
+					<td>{{bill_service.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<td>
+						<button type="submit"
+							ui-sref="bill_service.detail({id:bill_service.id})"
+							class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span>
+								View</span>
+						</button>
+						<button type="submit"
+							ui-sref="bill_service.edit({id:bill_service.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Edit</span>
+						</button>
+						<button type="submit"
+							ui-sref="bill_service.delete({id:bill_service.id})"
+							class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
+								Delete</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
 </div>

@@ -4,6 +4,7 @@ angular.module('hotelApp')
     .factory('Services', function ($resource, DateUtils) {
         return $resource('api/servicess/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'findAllByNameAndStatus': { method: 'GET', isArray: true, url: 'api/servicess/findAllByNameAndStatus' },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

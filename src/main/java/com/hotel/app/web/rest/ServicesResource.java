@@ -29,89 +29,87 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class ServicesResource {
 
-    private final Logger log = LoggerFactory.getLogger(ServicesResource.class);
-        
-    @Inject
-    private ServicesService servicesService;
-    
-    /**
-     * POST  /servicess -> Create a new services.
-     */
-    @RequestMapping(value = "/servicess",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Services> createServices(@Valid @RequestBody Services services) throws URISyntaxException {
-        log.debug("REST request to save Services : {}", services);
-        if (services.getId() != null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("services", "idexists", "A new services cannot already have an ID")).body(null);
-        }
-        Services result = servicesService.save(services);
-        return ResponseEntity.created(new URI("/api/servicess/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("services", result.getId().toString()))
-            .body(result);
-    }
+	private final Logger log = LoggerFactory.getLogger(ServicesResource.class);
 
-    /**
-     * PUT  /servicess -> Updates an existing services.
-     */
-    @RequestMapping(value = "/servicess",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Services> updateServices(@Valid @RequestBody Services services) throws URISyntaxException {
-        log.debug("REST request to update Services : {}", services);
-        if (services.getId() == null) {
-            return createServices(services);
-        }
-        Services result = servicesService.save(services);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("services", services.getId().toString()))
-            .body(result);
-    }
+	@Inject
+	private ServicesService servicesService;
 
-    /**
-     * GET  /servicess -> get all the servicess.
-     */
-    @RequestMapping(value = "/servicess",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<List<Services>> getAllServicess(Pageable pageable)
-        throws URISyntaxException {
-        log.debug("REST request to get a page of Servicess");
-        Page<Services> page = servicesService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/servicess");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-    }
+	/**
+	 * POST /servicess -> Create a new services.
+	 */
+	@RequestMapping(value = "/servicess", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Services> createServices(@Valid @RequestBody Services services) throws URISyntaxException {
+		log.debug("REST request to save Services : {}", services);
+		if (services.getId() != null) {
+			return ResponseEntity.badRequest().headers(
+					HeaderUtil.createFailureAlert("services", "idexists", "A new services cannot already have an ID"))
+					.body(null);
+		}
+		Services result = servicesService.save(services);
+		return ResponseEntity.created(new URI("/api/servicess/" + result.getId()))
+				.headers(HeaderUtil.createEntityCreationAlert("services", result.getId().toString())).body(result);
+	}
 
-    /**
-     * GET  /servicess/:id -> get the "id" services.
-     */
-    @RequestMapping(value = "/servicess/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Services> getServices(@PathVariable Long id) {
-        log.debug("REST request to get Services : {}", id);
-        Services services = servicesService.findOne(id);
-        return Optional.ofNullable(services)
-            .map(result -> new ResponseEntity<>(
-                result,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+	/**
+	 * PUT /servicess -> Updates an existing services.
+	 */
+	@RequestMapping(value = "/servicess", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Services> updateServices(@Valid @RequestBody Services services) throws URISyntaxException {
+		log.debug("REST request to update Services : {}", services);
+		if (services.getId() == null) {
+			return createServices(services);
+		}
+		Services result = servicesService.save(services);
+		return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert("services", services.getId().toString()))
+				.body(result);
+	}
 
-    /**
-     * DELETE  /servicess/:id -> delete the "id" services.
-     */
-    @RequestMapping(value = "/servicess/{id}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Void> deleteServices(@PathVariable Long id) {
-        log.debug("REST request to delete Services : {}", id);
-        servicesService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("services", id.toString())).build();
-    }
+	/**
+	 * GET /servicess -> get all the servicess.
+	 */
+	@RequestMapping(value = "/servicess", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Services>> getAllServicess(Pageable pageable) throws URISyntaxException {
+		log.debug("REST request to get a page of Servicess");
+		Page<Services> page = servicesService.findAll(pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/servicess");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	/**
+	 * GET /servicess/:id -> get the "id" services.
+	 */
+	@RequestMapping(value = "/servicess/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Services> getServices(@PathVariable Long id) {
+		log.debug("REST request to get Services : {}", id);
+		Services services = servicesService.findOne(id);
+		return Optional.ofNullable(services).map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	/**
+	 * DELETE /servicess/:id -> delete the "id" services.
+	 */
+	@RequestMapping(value = "/servicess/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Void> deleteServices(@PathVariable Long id) {
+		log.debug("REST request to delete Services : {}", id);
+		servicesService.delete(id);
+		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("services", id.toString())).build();
+	}
+
+	@RequestMapping(value = "/servicess/findAllByNameAndStatus", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Services>> findAllByNameAndStatus(Pageable pageable,
+			@RequestParam(value="name",required=false) String name,
+			@RequestParam(value="statusId", required=false) Long statusId) throws URISyntaxException {
+		log.debug("REST request to get a page of Servicess" + name + statusId);
+		Page<Services> page = servicesService.findAllByNameAndStatus(pageable, name, statusId);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
+				"/api/servicess/findAllByNameAndStatus");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
 }

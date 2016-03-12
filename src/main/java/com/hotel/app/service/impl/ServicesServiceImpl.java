@@ -95,4 +95,10 @@ public class ServicesServiceImpl implements ServicesService {
 		log.debug("Request to delete Services : {}", id);
 		servicesRepository.delete(id);
 	}
+	
+	@Override
+	public Page<Services> findAllByNameAndStatus(Pageable pageable, String name, Long statusId) {
+		log.debug("Request to Services : {}", name+statusId);
+		return servicesRepository.findAllByNameAndStatus(pageable, name, statusId);
+	}
 }

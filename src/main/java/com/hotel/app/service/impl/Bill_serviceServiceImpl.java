@@ -24,62 +24,72 @@ import java.util.Optional;
  */
 @Service
 @Transactional
-public class Bill_serviceServiceImpl implements Bill_serviceService{
+public class Bill_serviceServiceImpl implements Bill_serviceService {
 
-    private final Logger log = LoggerFactory.getLogger(Bill_serviceServiceImpl.class);
-    
-    @Inject
-    private Bill_serviceRepository bill_serviceRepository;
-    
-    @Inject
-    private UserRepository userRepository;
-    /**
-     * Save a bill_service.
-     * @return the persisted entity
-     */
-    public Bill_service save(Bill_service bill_service) {
-        log.debug("Request to save Bill_service : {}", bill_service);
-        if(bill_service.getId()==null){
-        	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
-                    .map(ManagedUserDTO::new);
-            
-            User user=new User();
-            user.setId(optional.get().getId());
-            user.setLogin(optional.get().getLogin());
-            bill_service.setCreate_by(user);
-            log.info("Preshow user"+ user);
-        }
-        Bill_service result = bill_serviceRepository.save(bill_service);
-        return result;
-    }
+	private final Logger log = LoggerFactory.getLogger(Bill_serviceServiceImpl.class);
 
-    /**
-     *  get all the bill_services.
-     *  @return the list of entities
-     */
-    @Transactional(readOnly = true) 
-    public Page<Bill_service> findAll(Pageable pageable) {
-        log.debug("Request to get all Bill_services");
-        Page<Bill_service> result = bill_serviceRepository.findAll(pageable); 
-        return result;
-    }
+	@Inject
+	private Bill_serviceRepository bill_serviceRepository;
 
-    /**
-     *  get one bill_service by id.
-     *  @return the entity
-     */
-    @Transactional(readOnly = true) 
-    public Bill_service findOne(Long id) {
-        log.debug("Request to get Bill_service : {}", id);
-        Bill_service bill_service = bill_serviceRepository.findOne(id);
-        return bill_service;
-    }
+	@Inject
+	private UserRepository userRepository;
 
-    /**
-     *  delete the  bill_service by id.
-     */
-    public void delete(Long id) {
-        log.debug("Request to delete Bill_service : {}", id);
-        bill_serviceRepository.delete(id);
-    }
+	/**
+	 * Save a bill_service.
+	 * 
+	 * @return the persisted entity
+	 */
+	public Bill_service save(Bill_service bill_service) {
+		log.debug("Request to save Bill_service : {}", bill_service);
+		if (bill_service.getId() == null) {
+			Optional<ManagedUserDTO> optional = userRepository
+					.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).map(ManagedUserDTO::new);
+
+			User user = new User();
+			user.setId(optional.get().getId());
+			user.setLogin(optional.get().getLogin());
+			bill_service.setCreate_by(user);
+			log.info("Preshow user" + user);
+		}
+		Bill_service result = bill_serviceRepository.save(bill_service);
+		return result;
+	}
+
+	/**
+	 * get all the bill_services.
+	 * 
+	 * @return the list of entities
+	 */
+	@Transactional(readOnly = true)
+	public Page<Bill_service> findAll(Pageable pageable) {
+		log.debug("Request to get all Bill_services");
+		Page<Bill_service> result = bill_serviceRepository.findAll(pageable);
+		return result;
+	}
+
+	/**
+	 * get one bill_service by id.
+	 * 
+	 * @return the entity
+	 */
+	@Transactional(readOnly = true)
+	public Bill_service findOne(Long id) {
+		log.debug("Request to get Bill_service : {}", id);
+		Bill_service bill_service = bill_serviceRepository.findOne(id);
+		return bill_service;
+	}
+
+	/**
+	 * delete the bill_service by id.
+	 */
+	public void delete(Long id) {
+		log.debug("Request to delete Bill_service : {}", id);
+		bill_serviceRepository.delete(id);
+	}
+
+	@Override
+	public Page<Bill_service> findAllByMultiAttr(Pageable pageable, Long serviceId, Long statusId, Long roomId) {
+		// TODO Auto-generated method stub
+		return bill_serviceRepository.findAllByMultiAttr(pageable, serviceId, statusId, roomId);
+	}
 }

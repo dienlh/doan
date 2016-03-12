@@ -33,4 +33,6 @@ public interface ServicesService {
      *  delete the "id" services.
      */
     public void delete(Long id);
+    
+    public Page<Services> findAllByNameAndStatus(Pageable pageable,String name , Long statusId);
 }

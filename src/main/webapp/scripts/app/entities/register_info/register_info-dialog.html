@@ -5,7 +5,8 @@
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-hidden="true" ng-click="clear()">&times;</button>
-		<h4 class="modal-title" id="myRegister_infoLabel">Tạo mới hoặc sửa thông tin đăng ký</h4>
+		<h4 class="modal-title" id="myRegister_infoLabel">Tạo mới hoặc
+			sửa thông tin đăng ký</h4>
 	</div>
 	<div class="modal-body">
 		<jh-alert-error></jh-alert-error>
@@ -14,9 +15,9 @@
 				id="id" name="id" ng-model="register_info.id" readonly />
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_date_checkin">Ngày check-in</label>
-			<input id="field_date_checkin" type="text" class="form-control"
-				uib-datepicker-popup="{{dateformat}}"
+			<label class="control-label" for="field_date_checkin">Ngày
+				check-in</label> <input id="field_date_checkin" type="text"
+				class="form-control" uib-datepicker-popup="{{dateformat}}"
 				ng-model="register_info.date_checkin"
 				is-open="datePickerForDate_checkin.status.opened" required /> <span
 				class="input-group-btn">
@@ -32,9 +33,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_date_checkout">Ngày check-out</label>
-			<input id="field_date_checkout" type="text" class="form-control"
-				uib-datepicker-popup="{{dateformat}}"
+			<label class="control-label" for="field_date_checkout">Ngày
+				check-out</label> <input id="field_date_checkout" type="text"
+				class="form-control" uib-datepicker-popup="{{dateformat}}"
 				ng-model="register_info.date_checkout"
 				is-open="datePickerForDate_checkout.status.opened" required /> <span
 				class="input-group-btn">
@@ -50,10 +51,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_number_of_adult">Số lượng người lớn</label>
-			<input type="number" class="form-control" name="number_of_adult"
-				id="field_number_of_adult" ng-model="register_info.number_of_adult"
-				required min="0" />
+			<label class="control-label" for="field_number_of_adult">Số
+				lượng người lớn</label> <input type="number" class="form-control"
+				name="number_of_adult" id="field_number_of_adult"
+				ng-model="register_info.number_of_adult" required min="0" />
 			<div ng-show="editForm.number_of_adult.$invalid">
 				<p class="help-block"
 					ng-show="editForm.number_of_adult.$error.required">This field
@@ -66,10 +67,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_number_of_kid">Số lượng trẻ em</label>
-			<input type="number" class="form-control" name="number_of_kid"
-				id="field_number_of_kid" ng-model="register_info.number_of_kid"
-				required min="0" />
+			<label class="control-label" for="field_number_of_kid">Số
+				lượng trẻ em</label> <input type="number" class="form-control"
+				name="number_of_kid" id="field_number_of_kid"
+				ng-model="register_info.number_of_kid" required min="0" />
 			<div ng-show="editForm.number_of_kid.$invalid">
 				<p class="help-block"
 					ng-show="editForm.number_of_kid.$error.required">This field is
@@ -81,10 +82,11 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_other_request">Yêu cầu khác</label>
+			<label class="control-label" for="field_other_request">Yêu
+				cầu khác</label>
 			<textarea type="text" class="form-control" name="other_request"
 				id="field_other_request" ng-model="register_info.other_request"
-				ng-maxlength="255" ></textarea>
+				ng-maxlength="255"></textarea>
 			<div ng-show="editForm.other_request.$invalid">
 				<p class="help-block"
 					ng-show="editForm.other_request.$error.maxlength"
@@ -93,10 +95,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_deposit_value">Giá trị đặt cọc</label>
-			<input type="number" class="form-control" name="deposit_value"
-				id="field_deposit_value" ng-model="register_info.deposit_value"
-				required min="0" />
+			<label class="control-label" for="field_deposit_value">Giá
+				trị đặt cọc</label> <input type="number" class="form-control"
+				name="deposit_value" id="field_deposit_value"
+				ng-model="register_info.deposit_value" required min="0" />
 			<div ng-show="editForm.deposit_value.$invalid">
 				<p class="help-block"
 					ng-show="editForm.deposit_value.$error.required">This field is
@@ -125,19 +127,19 @@
 		<!--                 </p> -->
 		<!--             </div> -->
 		<!--         </div> -->
-<!-- 		<div class="form-group"> -->
-<!-- 			<label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
-<!-- 			<input id="field_last_modified_date" type="text" class="form-control" -->
-<!-- 				uib-datepicker-popup="{{dateformat}}" -->
-<!-- 				ng-model="register_info.last_modified_date" -->
-<!-- 				is-open="datePickerForLast_modified_date.status.opened" /> -->
-<!-- 			<span class="input-group-btn"> -->
-<!-- 				<button type="button" class="btn btn-default" -->
-<!-- 					ng-click="datePickerForLast_modified_dateOpen($event)"> -->
-<!-- 					<i class="glyphicon glyphicon-calendar"></i> -->
-<!-- 				</button> -->
-<!-- 			</span> -->
-<!-- 		</div> -->
+		<!-- 		<div class="form-group"> -->
+		<!-- 			<label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
+		<!-- 			<input id="field_last_modified_date" type="text" class="form-control" -->
+		<!-- 				uib-datepicker-popup="{{dateformat}}" -->
+		<!-- 				ng-model="register_info.last_modified_date" -->
+		<!-- 				is-open="datePickerForLast_modified_date.status.opened" /> -->
+		<!-- 			<span class="input-group-btn"> -->
+		<!-- 				<button type="button" class="btn btn-default" -->
+		<!-- 					ng-click="datePickerForLast_modified_dateOpen($event)"> -->
+		<!-- 					<i class="glyphicon glyphicon-calendar"></i> -->
+		<!-- 				</button> -->
+		<!-- 			</span> -->
+		<!-- 		</div> -->
 
 		<div class="form-group">
 			<label for="field_currency">Đơn vị tính</label> <select
@@ -200,14 +202,14 @@
 		<!--                 <option value=""></option> -->
 		<!--             </select> -->
 		<!--         </div> -->
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="field_last_modified_by">last_modified_by</label> <select -->
-<!-- 				class="form-control" id="field_last_modified_by" -->
-<!-- 				name="last_modified_by" ng-model="register_info.last_modified_by" -->
-<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
-<!-- 				<option value=""></option> -->
-<!-- 			</select> -->
-<!-- 		</div> -->
+		<!-- 		<div class="form-group"> -->
+		<!-- 			<label for="field_last_modified_by">last_modified_by</label> <select -->
+		<!-- 				class="form-control" id="field_last_modified_by" -->
+		<!-- 				name="last_modified_by" ng-model="register_info.last_modified_by" -->
+		<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
+		<!-- 				<option value=""></option> -->
+		<!-- 			</select> -->
+		<!-- 		</div> -->
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal"

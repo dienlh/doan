@@ -33,4 +33,6 @@ public interface Bill_serviceService {
      *  delete the "id" bill_service.
      */
     public void delete(Long id);
+    
+    public Page<Bill_service> findAllByMultiAttr(Pageable pageable,Long serviceId,Long statusId,Long roomId);
 }

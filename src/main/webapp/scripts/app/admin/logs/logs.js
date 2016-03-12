@@ -4,14 +4,14 @@ angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('logs', {
-                parent: 'admin',
+                parent: 'app',
                 url: '/logs',
                 data: {
                     authorities: ['ROLE_ADMIN'],
                     pageTitle: 'Logs'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/admin/logs/logs.html',
                         controller: 'LogsController'
                     }
