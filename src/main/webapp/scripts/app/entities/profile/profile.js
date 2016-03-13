@@ -39,6 +39,26 @@ angular.module('hotelApp')
                      }]
                 }
             })
+            .state('profile.statistic-salary', {
+                parent: 'app',
+                url: '/profile/statisticsalary',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'Profiles'
+                },
+                views: {
+                    '': {
+                        templateUrl: 'scripts/app/entities/profile/salary-statistic.html',
+                        controller: 'SalaryStatisticController'
+                    }
+                },
+                resolve: {
+                	deps: ['uiLoad',
+                          function( uiLoad){
+                             return uiLoad.load('scripts/app/entities/profile/salary-statistic.controller.js');
+                     }]
+                }
+            })
             .state('profile.detail', {
                 parent: 'app',
                 url: '/profile/{id}',

@@ -1,11 +1,11 @@
 <div>
-    <h2>Type_policys</h2>
+    <h2>Danh sách kiểu quy định và chính sách</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="type_policy.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Type_policy</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create new</span>
                 </button>
             </div>
         </div>
@@ -15,20 +15,22 @@
         <table class="table table-striped">
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                	<th>STT</th>
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Tên kiểu chính sách</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="type_policy in type_policys track by type_policy.id">
+                	<td>{{$index+1+(page-1)*20}}</td>
                     <td><a ui-sref="type_policy.detail({id:type_policy.id})">{{type_policy.id}}</a></td>
                     <td>{{type_policy.name}}</td>
                     <td>{{type_policy.decription}}</td>
-                    <td>{{type_policy.create_date | date:'medium'}}</td>
+                    <td>{{type_policy.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
                     <td>
                         {{type_policy.create_by.login}}
                     </td>

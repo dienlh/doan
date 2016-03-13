@@ -25,7 +25,11 @@ public class Profile implements Serializable {
     @NotNull
     @Column(name = "join_date", nullable = false)
     private LocalDate join_date;
-
+    
+//    @NotNull
+    @Column(name = "leave_date")
+    private LocalDate leave_date;
+    
     @NotNull
     @Min(value = 0)
     @Column(name = "salary_subsidies", precision=10, scale=2, nullable = false)
@@ -91,7 +95,15 @@ public class Profile implements Serializable {
         this.join_date = join_date;
     }
 
-    public BigDecimal getSalary_subsidies() {
+    public LocalDate getLeave_date() {
+		return leave_date;
+	}
+
+	public void setLeave_date(LocalDate leave_date) {
+		this.leave_date = leave_date;
+	}
+
+	public BigDecimal getSalary_subsidies() {
         return salary_subsidies;
     }
 
@@ -209,6 +221,7 @@ public class Profile implements Serializable {
         return "Profile{" +
             "id=" + id +
             ", join_date='" + join_date + "'" +
+            ", leave_date='" + leave_date + "'" +
             ", salary_subsidies='" + salary_subsidies + "'" +
             ", salary_basic='" + salary_basic + "'" +
             ", salary='" + salary + "'" +

@@ -1,11 +1,11 @@
 <div>
-    <h2>Kind_of_policys</h2>
+    <h2>Danh sách loại chính sách và quy định</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <button class="btn btn-primary" ui-sref="kind_of_policy.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Kind_of_policy</span>
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create new</span>
                 </button>
             </div>
         </div>
@@ -16,10 +16,10 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Loại CS & QD</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>

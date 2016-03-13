@@ -3,6 +3,24 @@
 	<jh-alert></jh-alert>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-8">
+				<form class="form-inline" role="form" ng-submit="loadAll()">
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail2">Địa chỉ
+							Email</label> <input type="text" class="form-control"
+							id="exampleInputEmail2" placeholder="Enter email"
+							ng-model="email">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputPassword2">CMND</label> <input
+							type="text" class="form-control" id="exampleInputPassword2"
+							placeholder="CMND" ng-model="ic_number">
+					</div>
+
+					<button type="submit" class="btn btn-default">Tìm kiếm</button>
+
+				</form>
+			</div>
 			<div class="col-md-4">
 				<button class="btn btn-primary" ui-sref="customer.new">
 					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
@@ -12,7 +30,7 @@
 		</div>
 	</div>
 
-	<div class="table-responsive" >
+	<div class="table-responsive">
 		<table class="table table-striped" style="width: 3000px">
 			<thead>
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
@@ -42,20 +60,20 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="company.name"><span>Công ty</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+					<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_by.login"><span>Người sửa
-							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
+					<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
+					<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="customer in customers track by customer.id">
-					<td><a ui-sref="customer.detail({id:customer.id})">{{$index+1}}</a></td>
+					<td><a ui-sref="customer.detail({id:customer.id})">{{$index+1+(page-1)*10}}</a></td>
 					<td>{{customer.full_name}}</td>
 					<td>{{customer.ic_passport_number}}</td>
 					<td>{{customer.ic_passport_prov_date | date:'dd/MM/yyyy'}}</td>
@@ -72,11 +90,11 @@
 					</td>
 					<td><a ui-sref="company.detail({id:customer.company.id})">{{customer.company.name}}</a>
 					</td>
-					<td>{{customer.create_by.login}}</td>
+					<!-- 					<td>{{customer.create_by.login}}</td> -->
 					<td>{{customer.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{customer.last_modified_by.login}}</td>
-					<td>{{customer.last_modified_date | date:'dd/MM/yyyy
-						hh:mm:ss'}}</td>
+					<!-- 					<td>{{customer.last_modified_by.login}}</td> -->
+					<!-- 					<td>{{customer.last_modified_date | date:'dd/MM/yyyy -->
+					<!-- 						hh:mm:ss'}}</td> -->
 					<td>
 						<button type="submit" ui-sref="customer.detail({id:customer.id})"
 							class="btn btn-info btn-sm">

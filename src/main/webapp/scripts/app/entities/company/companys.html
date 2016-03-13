@@ -32,8 +32,8 @@
 						<span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="bank.code"><span>Tên ngân hàng</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
+<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th></th>
@@ -50,7 +50,7 @@
 					<td>{{company.bank_account}}</td>
 					<td><a ui-sref="bank.detail({id:company.bank.id})">{{company.bank.code}}</a>
 					</td>
-					<td>{{company.create_by.login}}</td>
+<!-- 					<td>{{company.create_by.login}}</td> -->
 					<td>{{company.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
 					<td>
 						<button type="submit" ui-sref="company.detail({id:company.id})"

@@ -4,6 +4,11 @@ angular.module('hotelApp')
     .factory('Event', function ($resource, DateUtils) {
         return $resource('api/events/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'findAllByRangerDateAndStatus': {
+            	method: 'GET', 
+            	isArray: true,
+            	url:'api/events/findAllByRangerDateAndStatus',
+            },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

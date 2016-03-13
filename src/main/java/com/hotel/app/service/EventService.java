@@ -4,6 +4,7 @@ import com.hotel.app.domain.Event;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -33,4 +34,8 @@ public interface EventService {
      *  delete the "id" event.
      */
     public void delete(Long id);
+    
+    public Page<Event> findAllByRangerDateAndStatus(Pageable pageable, LocalDate fromDate, LocalDate toDate, Long statusId);
+    
+    public Page<Event> findAllByStatusId(Pageable pageable,Long statusId);
 }

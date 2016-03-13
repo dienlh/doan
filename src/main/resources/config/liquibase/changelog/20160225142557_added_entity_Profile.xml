@@ -24,6 +24,7 @@
             <column name="join_date" type="date">
                 <constraints nullable="false" />
             </column>
+            <column name="leave_date" type="date"/>
             <column name="salary_subsidies" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>

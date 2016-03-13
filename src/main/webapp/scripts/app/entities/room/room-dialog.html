@@ -84,8 +84,8 @@
         <div class="form-group">
             <label class="control-label" for="field_number_of_livingroom">Số lượng phòng khách</label>
             <input type="number" class="form-control" name="number_of_livingroom" id="field_number_of_livingroom"
-                    ng-model="room.number_of_livingroom=0"
-                    required min="0" max="1" />
+                    ng-model="room.number_of_livingroom"
+                    required min="0" max="1" ng-init="room.number_of_livingroom=0"/>
             <div ng-show="editForm.number_of_livingroom.$invalid">
                 <p class="help-block"
                     ng-show="editForm.number_of_livingroom.$error.required">

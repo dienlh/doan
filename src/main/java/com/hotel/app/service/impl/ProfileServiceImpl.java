@@ -61,6 +61,9 @@ public class ProfileServiceImpl implements ProfileService {
 			// user.setLogin(optional.get().getLogin());
 			profile.setLast_modified_by(user);
 			profile.setLast_modified_date(ZonedDateTime.now());
+			if(profile.getStatus_profile().getId()==2L || profile.getStatus_profile().getId()==3L){
+				profile.setLeave_date(LocalDate.now());
+			}
 		}
 		Profile result = profileRepository.save(profile);
 		return result;

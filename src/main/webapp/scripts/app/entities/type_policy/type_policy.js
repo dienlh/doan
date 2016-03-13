@@ -50,7 +50,7 @@ angular.module('hotelApp')
                         controller: 'Type_policyDialogController',
                         size: 'lg',
                         resolve: {
-                            app: function () {
+                            entity: function () {
                                 return {
                                     name: null,
                                     decription: null,
@@ -78,7 +78,7 @@ angular.module('hotelApp')
                         controller: 'Type_policyDialogController',
                         size: 'lg',
                         resolve: {
-                            app: ['Type_policy', function(Type_policy) {
+                            entity: ['Type_policy', function(Type_policy) {
                                 return Type_policy.get({id : $stateParams.id});
                             }]
                         }
@@ -101,7 +101,7 @@ angular.module('hotelApp')
                         controller: 'Type_policyDeleteController',
                         size: 'md',
                         resolve: {
-                            app: ['Type_policy', function(Type_policy) {
+                            entity: ['Type_policy', function(Type_policy) {
                                 return Type_policy.get({id : $stateParams.id});
                             }]
                         }
