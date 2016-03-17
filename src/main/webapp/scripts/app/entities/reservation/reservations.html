@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<button class="btn btn-primary" ui-sref="reservation.new">
-					<span class="glyphicon glyphicon-flash"></span> <span>Tạo mới</span>
+					<span class="glyphicon glyphicon-flash"></span> <span>Check-in</span>
 				</button>
 			</div>
 		</div>
@@ -19,10 +19,10 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="time_checkin"><span>Thời gian check-in</span>
 						<span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="time_checkout"><span>Thời gian
-							check-out</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="note_checkin"><span>Ghi chú check-in</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="time_checkout"><span>Thời gian
+							check-out</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="note_checkout"><span>Ghi chú check-out</span>
 						<span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="person_checkin.full_name"><span>Người
@@ -33,27 +33,26 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_reservation.name"><span>Trạng
 							thái</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
+<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_by.login"><span>Người sửa
-							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
+<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
+<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="reservation in reservations track by reservation.id">
 					<td><a ui-sref="reservation.detail({id:reservation.id})">{{$index+1}}</a></td>
-					<td>{{reservation.time_checkin | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{reservation.time_checkout | date:'ddd/MM/yyyy
-						hh:mm:ssium'}}</td>
+					<td>{{reservation.time_checkin | date:'dd/MM/yyyy hh:mm'}}</td>
 					<td>{{reservation.note_checkin}}</td>
+					<td>{{reservation.time_checkout | date:'dd/MM/yyyy hh:mm'}}</td>
 					<td>{{reservation.note_checkout}}</td>
-					<td>{{reservation.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{reservation.last_modified_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<!-- 					<td>{{reservation.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td> -->
+					<!-- 					<td>{{reservation.last_modified_date | date:'dd/MM/yyyy hh:mm:ss'}}</td> -->
 					<td><a
 						ui-sref="customer.detail({id:reservation.person_checkin.id})">{{reservation.person_checkin.full_name}}</a>
 					</td>
@@ -66,11 +65,11 @@
 					<td><a
 						ui-sref="status_reservation.detail({id:reservation.status_reservation.id})">{{reservation.status_reservation.name}}</a>
 					</td>
-					<td>{{reservation.create_by.login}}</td>
-					<td>{{reservation.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{reservation.last_modified_by.login}}</td>
-					<td>{{reservation.last_modified_date | date:'dd/MM/yyyy
-						hh:mm:ss'}}</td>
+					<!-- 					<td>{{reservation.create_by.login}}</td> -->
+					<td>{{reservation.create_date | date:'dd/MM/yyyy hh:mm'}}</td>
+					<!-- 					<td>{{reservation.last_modified_by.login}}</td> -->
+					<!-- 					<td>{{reservation.last_modified_date | date:'dd/MM/yyyy -->
+					<!-- 						hh:mm:ss'}}</td> -->
 					<td>
 						<button type="submit"
 							ui-sref="reservation.detail({id:reservation.id})"

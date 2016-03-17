@@ -3,6 +3,7 @@ package com.hotel.app.service.impl;
 import com.hotel.app.service.ReservationService;
 import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Reservation;
+import com.hotel.app.domain.Status_reservation;
 import com.hotel.app.domain.User;
 import com.hotel.app.repository.ReservationRepository;
 import com.hotel.app.repository.UserRepository;
@@ -46,6 +47,10 @@ public class ReservationServiceImpl implements ReservationService{
         if(reservation.getId()==null){
         	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
                     .map(ManagedUserDTO::new);
+        	Status_reservation status_reservation = new Status_reservation();
+        	status_reservation.setId(1L);
+        	reservation.setStatus_reservation(status_reservation);
+        	
             User user=new User();
             user.setId(optional.get().getId());
 //            user.setLogin(optional.get().getLogin());
@@ -60,6 +65,16 @@ public class ReservationServiceImpl implements ReservationService{
 //            user.setLogin(optional.get().getLogin());
             reservation.setLast_modified_by(user);
             reservation.setLast_modified_date(ZonedDateTime.now());
+            
+            if (reservation.getTime_checkout() != null) {
+    			Reservation reservation2 = reservationRepository.findOne(reservation.getId());
+    			if (reservation2.getTime_checkout() == null) {
+    				reservation.setTime_checkout(ZonedDateTime.now());
+    				Status_reservation status_reservation = new Status_reservation();
+    				status_reservation.setId(2L);
+    				reservation.setStatus_reservation(status_reservation);
+    			}
+    		}
         }
         Reservation result = reservationRepository.save(reservation);
         return result;
@@ -107,5 +122,10 @@ public class ReservationServiceImpl implements ReservationService{
     public void delete(Long id) {
         log.debug("Request to delete Reservation : {}", id);
         reservationRepository.delete(id);
+    }
+    
+    @Override
+    public List<Reservation> findReservationNotCheckout() {
+    	return reservationRepository.findReservationNotCheckout();
     }
 }

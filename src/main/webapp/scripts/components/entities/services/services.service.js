@@ -5,6 +5,7 @@ angular.module('hotelApp')
         return $resource('api/servicess/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'findAllByNameAndStatus': { method: 'GET', isArray: true, url: 'api/servicess/findAllByNameAndStatus' },
+            'findAllAvailable':{ method: 'GET', isArray: true, url: 'api/servicess/findAllAvailable' },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -19,6 +19,22 @@ angular.module('hotelApp')
                 resolve: {
                 }
             })
+            .state('room.find', {
+                parent: 'app',
+                url: '/rooms/find',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'Rooms'
+                },
+                views: {
+                    '': {
+                        templateUrl: 'scripts/app/entities/room/findrooms.html',
+                        controller: 'FindRoomController'
+                    }
+                },
+                resolve: {
+                }
+            })
             .state('room.detail', {
                 parent: 'app',
                 url: '/room/{id}',

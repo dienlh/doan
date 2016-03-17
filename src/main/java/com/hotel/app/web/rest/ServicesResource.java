@@ -104,12 +104,19 @@ public class ServicesResource {
 	@RequestMapping(value = "/servicess/findAllByNameAndStatus", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<List<Services>> findAllByNameAndStatus(Pageable pageable,
-			@RequestParam(value="name",required=false) String name,
-			@RequestParam(value="statusId", required=false) Long statusId) throws URISyntaxException {
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "statusId", required = false) Long statusId) throws URISyntaxException {
 		log.debug("REST request to get a page of Servicess" + name + statusId);
 		Page<Services> page = servicesService.findAllByNameAndStatus(pageable, name, statusId);
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
 				"/api/servicess/findAllByNameAndStatus");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/servicess/findAllAvailable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Services>> findAllAvailable() throws URISyntaxException {
+		log.debug("REST request to get a page of Servicess");
+		return new ResponseEntity<>(servicesService.findAllAvailable(), HttpStatus.OK);
 	}
 }

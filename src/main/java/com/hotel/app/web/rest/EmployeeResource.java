@@ -48,6 +48,11 @@ public class EmployeeResource {
 					HeaderUtil.createFailureAlert("employee", "idexists", "A new employee cannot already have an ID"))
 					.body(null);
 		}
+		if(employeeService.findByIc(employee.getIc_number())!=null){
+			return ResponseEntity.badRequest().headers(
+					HeaderUtil.createFailureAlert("employee", "idexists", "A new employee cannot already have an Ic_number"))
+					.body(null);
+		}
 		Employee result = employeeService.save(employee);
 		return ResponseEntity.created(new URI("/api/employees/" + result.getId()))
 				.headers(HeaderUtil.createEntityCreationAlert("employee", result.getId().toString())).body(result);

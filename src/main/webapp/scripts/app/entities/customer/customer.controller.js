@@ -8,8 +8,12 @@ angular.module('hotelApp').controller(
 			$scope.predicate = 'id';
 			$scope.reverse = true;
 			$scope.page = 1;
+			$scope.email="";
+			$scope.ic_number="";
 			$scope.loadAll = function() {
-				Customer.query({
+				Customer.findAllByIcPassportNumberAndEmail({
+//					email:$scope.email,
+					ipnumber:$scope.ic_number,
 					page : $scope.page - 1,
 					size : 10,
 					sort : [

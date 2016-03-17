@@ -52,7 +52,7 @@ angular.module('hotelApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    time_checkin: null,
+                                    time_checkin: new Date(),
                                     time_checkout: null,
                                     note_checkin: null,
                                     note_checkout: null,
@@ -60,7 +60,15 @@ angular.module('hotelApp')
                                     last_modified_date: null,
                                     id: null
                                 };
-                            }
+                            },
+                            deps: ['$ocLazyLoad',
+                                   function( $ocLazyLoad ){
+                                     return $ocLazyLoad.load('ui.select').then(
+                                         function(){
+                                             return $ocLazyLoad.load(['']);
+                                         }
+                                     );
+                            }]
                         }
                     }).result.then(function(result) {
                         $state.go('reservation', null, { reload: true });
@@ -77,12 +85,20 @@ angular.module('hotelApp')
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/reservation/reservation-dialog.html',
+                        templateUrl: 'scripts/app/entities/reservation/reservation-dialog-check-out.html',
                         controller: 'ReservationDialogController',
                         size: 'lg',
                         resolve: {
                             entity: ['Reservation', function(Reservation) {
-                                return Reservation.get({id : $stateParams.id});
+                            	return Reservation.get({id : $stateParams.id});
+                            }],
+                            deps: ['$ocLazyLoad',
+                                   function( $ocLazyLoad ){
+                                     return $ocLazyLoad.load('ui.select').then(
+                                         function(){
+                                             return $ocLazyLoad.load(['']);
+                                         }
+                                     );
                             }]
                         }
                     }).result.then(function(result) {

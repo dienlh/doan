@@ -47,16 +47,16 @@ angular.module('hotelApp').controller(
 			
 			$scope.$watch('fromDate',function(){
 				if(!$scope.fromDate){
-					$scope.required=false;
+					$scope.requiredToDate=false;
 				}else{
-					$scope.required=true;
+					$scope.requiredToDate=true;
 				}
 			});
 			$scope.$watch('toDate',function(){
 				if(!$scope.toDate){
-					$scope.required=false;
+					$scope.requiredFromDate=false;
 				}else{
-					$scope.required=true;
+					$scope.requiredFromDate=true;
 				}
 			});
 			$scope.clear = function() {

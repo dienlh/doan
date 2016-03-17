@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -94,5 +95,26 @@ public class RoomServiceImpl implements RoomService {
 	public void delete(Long id) {
 		log.debug("Request to delete Room : {}", id);
 		roomRepository.delete(id);
+	}
+	@Override
+	public Page<Room> findAllByTypeAndStatus(Pageable pageable, Long type_room, Long status_room,String code) {
+		Page<Room> page = roomRepository.findAllByTypeAndStatus(pageable, type_room, status_room,code);
+		return page;
+	}
+	
+	@Override
+	public Room findOneWithCode(String code) {
+		return roomRepository.findOneWithCode(code);
+	}
+	
+	@Override
+	public Page<Room> findAllByRangerTimeAndMultiAttr(Pageable pageable, String code ,Long type_room,LocalDate fromDate,LocalDate toDate) {
+		return roomRepository.findAllByRangerTimeAndMultiAttr(pageable, code, type_room, fromDate, toDate);
+	}
+	
+	@Override
+	public List<Room> findAllByRangerTime(LocalDate fromDate, LocalDate toDate) {
+		// TODO Auto-generated method stub
+		return roomRepository.findAllByRangerTime(fromDate, toDate);
 	}
 }

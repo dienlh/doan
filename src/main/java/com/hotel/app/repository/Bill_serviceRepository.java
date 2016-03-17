@@ -21,4 +21,7 @@ public interface Bill_serviceRepository extends JpaRepository<Bill_service,Long>
     		+ "and (?2=0L or bill_service.status_bill_service.id=?2)"
     		+ "and (?3=0L or bill_service.reservation.register_info.room.id=?3)")
     Page<Bill_service> findAllByMultiAttr(Pageable pageable,Long serviceId,Long statusId,Long roomId);
+    
+    @Query("select bill_service from Bill_service bill_service where bill_service.reservation.id=?1")
+    Page<Bill_service> findAllByReservationId(Pageable pageable,Long reservationId);
 }

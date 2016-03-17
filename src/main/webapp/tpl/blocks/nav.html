@@ -1,50 +1,5 @@
 <!-- list -->
 <ul class="nav">
-	<!-- 	<li class="hidden-folded padder m-t m-b-sm text-muted text-xs"><span -->
-	<!-- 		translate="aside.nav.HEADER">Navigation</span></li> -->
-	<!-- 	<li><a href class="auto"> <span class="pull-right text-muted"> -->
-	<!-- 				<i class="fa fa-fw fa-angle-right text"></i> <i -->
-	<!-- 				class="fa fa-fw fa-angle-down text-active"></i> -->
-	<!-- 		</span> <i class="glyphicon glyphicon-stats icon text-primary-dker"></i> <span -->
-	<!-- 			class="font-bold" translate="aside.nav.DASHBOARD">Dashboard</span> -->
-	<!-- 	</a> -->
-	<!-- 		<ul class="nav nav-sub dk"> -->
-	<!-- 			<li class="nav-sub-header"><a href> <span -->
-	<!-- 					translate="aside.nav.DASHBOARD">Dashboard</span> -->
-	<!-- 			</a></li> -->
-	<!-- 			<li ui-sref-active="active"><a ui-sref="app.dashboard-v1"> <span>Dashboard -->
-	<!-- 						v1</span> -->
-	<!-- 			</a></li> -->
-	<!-- 			<li ui-sref-active="active"><a ui-sref="app.dashboard-v2"> <b -->
-	<!-- 					class="label bg-info pull-right">N</b> <span>Dashboard v2</span> -->
-	<!-- 			</a></li> -->
-	<!-- 		</ul></li> -->
-	<!-- 	<li ui-sref-active="active"><a ui-sref="app.calendar"> <i -->
-	<!-- 			class="glyphicon glyphicon-calendar icon text-info-dker"></i> <span -->
-	<!-- 			class="font-bold" translate="aside.nav.CALENDAR">Calendar</span> -->
-	<!-- 	</a></li> -->
-	<!-- 	<li ui-sref-active="active"><a ui-sref="app.mail.list"> <b -->
-	<!-- 			class="badge bg-info pull-right">9</b> <i -->
-	<!-- 			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span -->
-	<!-- 			class="font-bold" translate="aside.nav.EMAIL">Email</span> -->
-	<!-- 	</a></li> -->
-	<!-- 	<li><a href class="auto"> <span class="pull-right text-muted"> -->
-	<!-- 				<i class="fa fa-fw fa-angle-right text"></i> <i -->
-	<!-- 				class="fa fa-fw fa-angle-down text-active"></i> -->
-	<!-- 		</span> <i class="glyphicon glyphicon-th-large icon text-success"></i> <span -->
-	<!-- 			class="font-bold">Apps</span> -->
-	<!-- 	</a> -->
-	<!-- 		<ul class="nav nav-sub dk"> -->
-	<!-- 			<li class="nav-sub-header"><a href> <span>Apps</span> -->
-	<!-- 			</a></li> -->
-	<!-- 			<li ui-sref-active="active"><a ui-sref="apps.note"> <span>Note</span> -->
-	<!-- 			</a></li> -->
-	<!-- 			<li ui-sref-active="active"><a ui-sref="apps.contact"> <span>Contacts</span> -->
-	<!-- 			</a></li> -->
-	<!-- 			<li ui-sref-active="active"><a ui-sref="app.weather"> <span>Weather</span> -->
-	<!-- 			</a></li> -->
-	<!-- 		</ul></li> -->
-
 	<li class="line dk"></li>
 	<li class="hidden-folded padder m-t m-b-sm text-muted text-xs"><span>Hành
 			chính nhân sự</span></li>
@@ -201,9 +156,6 @@
 			<li ui-sref-active="active"><a ui-sref="customer"> <span>Danh
 						sách khách hàng</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="register_info"> <span>Danh
-						sách đơn đặt phòng</span>
-			</a></li>
 			<li ui-sref-active="active"><a ui-sref="company"> <span>Công
 						ty</span>
 			</a></li>
@@ -217,11 +169,25 @@
 						giáo</span>
 			</a></li>
 		</ul></li>
-	
+	<li ui-sref-active="active"><a ui-sref="room.find"> <b
+			class="badge bg-info pull-right">9</b> <i
+			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
+			class="font-bold">Tìm kiếm phòng trống</span>
+	</a></li>
+	<li ui-sref-active="active"><a ui-sref="register_info"> <b
+			class="badge bg-info pull-right">9</b> <i
+			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
+			class="font-bold">QL đăng ký phòng</span>
+	</a></li>
+	<li ui-sref-active="active"><a ui-sref="event"> <b
+			class="badge bg-info pull-right">9</b> <i
+			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
+			class="font-bold">QL sự kiện</span>
+	</a></li>
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý khách sạn</span>
+		</span> <i class="glyphicon glyphicon-th"></i> <span>QL QD & CS</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý
@@ -229,9 +195,6 @@
 			</a></li>
 			<li ui-sref-active="active"><a ui-sref="policy"> <span>Quy
 						định và chính sách</span>
-			</a></li>
-			<li ui-sref-active="active"><a ui-sref="event"> <span>Sự
-						kiện</span>
 			</a></li>
 			<li ui-sref-active="active"><a ui-sref="kind_of_policy"> <span>Loại
 						QĐ & CS</span>
@@ -280,23 +243,16 @@
 			<li class="nav-sub-header"><a href> <span>Danh mục
 						tìm kiếm</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Danh
-						sách phòng</span>
+			<li ui-sref-active="active"><a ui-sref="room.find"> <span>Phòng</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Danh
+			<li ui-sref-active="active"><a ui-sref="register_info"> <span>Danh
 						sách đăng ký</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Danh
+			<li ui-sref-active="active"><a ui-sref="customer"> <span>Danh
 						sách khách hàng</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Danh
+			<li ui-sref-active="active"><a ui-sref="services"> <span>Danh
 						sách dịch vụ</span>
-			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Nhận
-						- trả phòng</span>
-			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Cung
-						ứng dịch vụ</span>
 			</a></li>
 		</ul></li>
 	<li><a href class="auto"> <span class="pull-right text-muted">
@@ -308,10 +264,10 @@
 			<li class="nav-sub-header"><a href> <span>Danh mục
 						quản lý</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Nhận
+			<li ui-sref-active="active"><a ui-sref="reservation"> <span>Nhận
 						- trả phòng</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Cung
+			<li ui-sref-active="active"><a ui-sref="bill_service"> <span>Cung
 						ứng dịch vụ</span>
 			</a></li>
 		</ul></li>

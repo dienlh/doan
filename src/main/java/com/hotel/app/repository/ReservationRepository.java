@@ -24,4 +24,6 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long> {
     @Query("select reservation from Reservation reservation left join fetch reservation.customers where reservation.id =:id")
     Reservation findOneWithEagerRelationships(@Param("id") Long id);
 
+    @Query("select reservation from Reservation reservation where reservation.status_reservation.id=1L")
+    List<Reservation> findReservationNotCheckout();
 }

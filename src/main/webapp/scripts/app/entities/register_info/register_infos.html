@@ -3,12 +3,93 @@
 	<jh-alert></jh-alert>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<button class="btn btn-primary" ui-sref="register_info.new">
-					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
-						mới</span>
-				</button>
-			</div>
+			<form class="form-horizontal col-sm-8" ng-submit="loadAll()"
+				show-validation>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Từ ngày</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="fromDate" type="date">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Đến ngày</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="toDate" type="date">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Mã phòng</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="code">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">CMND</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="ipnumber">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Phương thức thanh
+							toán</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_method_payment"
+								name="method_payment" ng-model="method_payment"
+								ng-options="method_payment as method_payment.name for method_payment in method_payments track by method_payment.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Trạng thái thanh
+							toán</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_status_payment"
+								name="status_payment" ng-model="status_payment"
+								ng-options="status_payment as status_payment.name for status_payment in status_payments track by status_payment.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Phương thức đăng ký</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_method_register"
+								name="method_register" ng-model="method_register"
+								ng-options="method_register as method_register.name for method_register in method_registers track by method_register.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Trạng thái đăng ký</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_status_register"
+								name="status_register" ng-model="status_register"
+								ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<div class="col-lg-offset-4 col-lg-7">
+							<button type="submit" class="btn btn-sm btn-info">Tìm
+								kiếm</button>
+							<button type="button" class="btn btn-sm btn-success"
+								ui-sref="register_info.new">Tạo mới</button>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -18,24 +99,24 @@
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
 					<th jh-sort-by="id"><span>STT</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="date_checkin"><span>ngày check-in</span> <span
+					<th jh-sort-by="date_checkin"><span>Check-in</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="date_checkout"><span>Ngày check-out</span> <span
+					<th jh-sort-by="date_checkout"><span>Check-out</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="number_of_adult"><span>Số lượng người
-							lớn</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="number_of_kid"><span>Số lượng trẻ em</span> <span
+					<th jh-sort-by="number_of_adult"><span>SLNL</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="number_of_kid"><span> SLTE</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="other_request"><span>Yêu cầu khác</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="deposit_value"><span>Giá trị đặt cọc</span> <span
+					<th jh-sort-by="deposit_value"><span>Đặt cọc</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
+					<th jh-sort-by="currency.code"><span>DVT</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="room.code"><span>Mã phòng</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="customer.full_name"><span>Tên khách
-							hàng</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="customer.full_name"><span>Khách hàng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="method_payment.name"><span>Phương thức
 							thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_payment.name"><span>Trạng thái
@@ -44,14 +125,14 @@
 							đăng ký</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_register.name"><span>Trạng thái
 							đăng ký</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+					<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_by.login"><span>Người sửa
-							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
+					<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
+					<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
 					<th></th>
 				</tr>
 			</thead>
@@ -85,11 +166,11 @@
 					<td><a
 						ui-sref="status_register.detail({id:register_info.status_register.id})">{{register_info.status_register.name}}</a>
 					</td>
-					<td>{{register_info.create_by.login}}</td>
+					<!-- 					<td>{{register_info.create_by.login}}</td> -->
 					<td>{{register_info.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{register_info.last_modified_by.login}}</td>
-					<td>{{register_info.last_modified_date | date:'dd/MM/yyyy
-						hh:mm:ss'}}</td>
+					<!-- 					<td>{{register_info.last_modified_by.login}}</td> -->
+					<!-- 					<td>{{register_info.last_modified_date | date:'dd/MM/yyyy -->
+					<!-- 						hh:mm:ss'}}</td> -->
 					<td>
 						<button type="submit"
 							ui-sref="register_info.detail({id:register_info.id})"

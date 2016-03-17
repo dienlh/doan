@@ -3,12 +3,46 @@
 	<jh-alert></jh-alert>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<button class="btn btn-primary" ui-sref="room.new">
-					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
-						phòng mới</span>
-				</button>
-			</div>
+			<form class="form-horizontal" ng-submit="loadAll()" show-validation>
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class="control-label col-sm-5">Mã phòng</label>
+						<div class="col-sm-7">
+							<input type="text" class="form-control" ng-model="code">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class="control-label col-sm-5">Kiểu phòng</label>
+						<div class="col-sm-7">
+							<select class="form-control" id="field_type_room"
+								name="type_room" ng-model="type_room"
+								ng-options="type_room as type_room.name for type_room in type_rooms track by type_room.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<label class="control-label col-sm-5">Trạng thái</label>
+						<div class="col-sm-7">
+							<select class="form-control" id="field_status_room"
+								name="status_room" ng-model="status_room"
+								ng-options="status_room as status_room.name for status_room in status_rooms track by status_room.id">
+								<option value="">Tất cá</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-4">
+						<div class="col-lg-offset-5 col-lg-7">
+							<button type="submit" class="btn btn-sm btn-info">Tìm kiếm</button>
+							<button ui-sref="room.new" type="submit" class="btn btn-sm btn-success">Tạo mới</button>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -60,20 +94,20 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_room.name"><span>Trạng thái</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
-						class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+					<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_by.login"><span>Người sửa
-							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
+					<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
+					<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="room in rooms track by room.id">
-					<td><a ui-sref="room.detail({id:room.id})">{{$index+1}}</a></td>
+					<td><a ui-sref="room.detail({id:room.id})">{{$index+1+(page-1)*10}}</a></td>
 					<td>{{room.code}}</td>
 					<td>{{room.key_code}}</td>
 					<td>{{room.title}}</td>
@@ -98,10 +132,10 @@
 					</td>
 					<td><a ui-sref="status_room.detail({id:room.status_room.id})">{{room.status_room.name}}</a>
 					</td>
-					<td>{{room.create_by.login}}</td>
+					<!-- 					<td>{{room.create_by.login}}</td> -->
 					<td>{{room.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>{{room.last_modified_by.login}}</td>
-					<td>{{room.last_modified_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<!-- 					<td>{{room.last_modified_by.login}}</td> -->
+					<!-- 					<td>{{room.last_modified_date | date:'dd/MM/yyyy hh:mm:ss'}}</td> -->
 					<td>
 						<button type="submit" ui-sref="room.detail({id:room.id})"
 							class="btn btn-info btn-sm">

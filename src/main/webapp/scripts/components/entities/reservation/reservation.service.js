@@ -4,6 +4,7 @@ angular.module('hotelApp')
     .factory('Reservation', function ($resource, DateUtils) {
         return $resource('api/reservations/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'findReservationNotCheckout': { method: 'GET', isArray: true,url:'api/reservations/findReservationNotCheckout'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

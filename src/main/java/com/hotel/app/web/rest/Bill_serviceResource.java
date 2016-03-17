@@ -117,24 +117,14 @@ public class Bill_serviceResource {
 				"/api/bill_services/findAllByMultiAttr");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
-	// @RequestMapping(value = "/bill_services/findAllByMultiAttr", method =
-	// RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	// @Timed
-	// public ResponseEntity<List<Bill_service>> findAllByMultiAttr(Pageable
-	// pageable,
-	// @RequestParam(value = "serviceId", required = false,defaultValue="0")
-	// Long serviceId,
-	// @RequestParam(value="statusId",required=false,defaultValue="0") Long
-	// statusId,
-	// @RequestParam(value="roomId",required=false,defaultValue="0") Long
-	// roomId)
-	// throws URISyntaxException {
-	// log.debug("REST request to get a page of Bill_services");
-	// Page<Bill_service> page =
-	// bill_serviceService.findAllByMultiAttr(pageable, serviceId, statusId,
-	// roomId);
-	// HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
-	// "/api/bill_services/");
-	// return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-	// }
+	
+	@RequestMapping(value = "/bill_services/findAllByReservationId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Bill_service>> findAllByReservationId(Pageable pageable,@RequestParam(value="reservationId",required=true) Long reservationId) throws URISyntaxException {
+		log.debug("REST request to get a page of Bill_services");
+		Page<Bill_service> page = bill_serviceService.findAllByReservationId(pageable, reservationId);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bill_services/findAllByReservationId");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
 }

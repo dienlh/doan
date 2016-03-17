@@ -33,4 +33,8 @@ public interface CustomerService {
      *  delete the "id" customer.
      */
     public void delete(Long id);
+    
+    public Customer findByIcPassPortNumber(String ic);
+    
+    public Page<Customer> findAllByIcPassportNumber(Pageable pageable,String ic_passport_number);
 }

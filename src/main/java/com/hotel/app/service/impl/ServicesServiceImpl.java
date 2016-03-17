@@ -101,4 +101,9 @@ public class ServicesServiceImpl implements ServicesService {
 		log.debug("Request to Services : {}", name+statusId);
 		return servicesRepository.findAllByNameAndStatus(pageable, name, statusId);
 	}
+	
+	@Override
+	public List<Services> findAllAvailable() {
+		return servicesRepository.findAllAvailable();
+	}
 }

@@ -35,4 +35,6 @@ public interface Bill_serviceService {
     public void delete(Long id);
     
     public Page<Bill_service> findAllByMultiAttr(Pageable pageable,Long serviceId,Long statusId,Long roomId);
+    
+    Page<Bill_service> findAllByReservationId(Pageable pageable,Long reservationId);
 }

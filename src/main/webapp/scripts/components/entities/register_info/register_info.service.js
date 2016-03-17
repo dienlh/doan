@@ -4,6 +4,8 @@ angular.module('hotelApp')
     .factory('Register_info', function ($resource, DateUtils) {
         return $resource('api/register_infos/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'findAllByMultiAttr': { method: 'GET', isArray: true,url: 'api/register_infos/findAllByMultiAttr'},
+            'findAllRegisterChecked': { method: 'GET', isArray: true,url: 'api/register_infos/findAllRegisterChecked'},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -38,4 +38,6 @@ public interface ReservationService {
      *  delete the "id" reservation.
      */
     public void delete(Long id);
+    
+    List<Reservation> findReservationNotCheckout();
 }

@@ -92,4 +92,9 @@ public class Bill_serviceServiceImpl implements Bill_serviceService {
 		// TODO Auto-generated method stub
 		return bill_serviceRepository.findAllByMultiAttr(pageable, serviceId, statusId, roomId);
 	}
+	
+	@Override
+	public Page<Bill_service> findAllByReservationId(Pageable pageable, Long reservationId) {
+		return bill_serviceRepository.findAllByReservationId(pageable, reservationId);
+	}
 }

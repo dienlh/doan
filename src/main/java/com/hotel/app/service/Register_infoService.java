@@ -4,6 +4,7 @@ import com.hotel.app.domain.Register_info;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -38,4 +39,12 @@ public interface Register_infoService {
      *  delete the "id" register_info.
      */
     public void delete(Long id);
+    
+    public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register,LocalDate fromDate,LocalDate toDate);
+    
+    public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register);
+    
+    public List<Register_info> findAllRegisterChecked();
 }

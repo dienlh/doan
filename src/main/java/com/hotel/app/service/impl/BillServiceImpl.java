@@ -82,4 +82,9 @@ public class BillServiceImpl implements BillService{
         log.debug("Request to delete Bill : {}", id);
         billRepository.delete(id);
     }
+    
+    @Override
+    public Bill findOneByReservationId(Long reservationID) {
+    	return billRepository.findOneByReservationId(reservationID);
+    }
 }

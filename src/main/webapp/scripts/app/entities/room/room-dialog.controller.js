@@ -5,6 +5,10 @@ angular.module('hotelApp').controller('RoomDialogController',
         function($scope, $stateParams, $uibModalInstance, entity, Room, Type_room, Currency, Images, Status_room, User, Amenity) {
 
         $scope.room = entity;
+        $scope.enableEdit=false;
+        if($scope.room.$promise){
+        	$scope.enableEdit=true;
+        }
         $scope.type_rooms = Type_room.query();
         $scope.currencys = Currency.query();
         $scope.imagess = Images.query();

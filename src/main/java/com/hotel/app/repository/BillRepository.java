@@ -14,4 +14,6 @@ public interface BillRepository extends JpaRepository<Bill,Long> {
     @Query("select bill from Bill bill where bill.create_by.login = ?#{principal.username}")
     List<Bill> findByCreate_byIsCurrentUser();
 
+    @Query("select bill from Bill bill where bill.reservation.id=?1")
+    Bill findOneByReservationId(Long reservationID);
 }

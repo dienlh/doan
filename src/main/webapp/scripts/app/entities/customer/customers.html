@@ -5,12 +5,12 @@
 		<div class="row">
 			<div class="col-md-8">
 				<form class="form-inline" role="form" ng-submit="loadAll()">
-					<div class="form-group">
-						<label class="sr-only" for="exampleInputEmail2">Địa chỉ
-							Email</label> <input type="text" class="form-control"
-							id="exampleInputEmail2" placeholder="Enter email"
-							ng-model="email">
-					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<label class="sr-only" for="exampleInputEmail2">Địa chỉ -->
+<!-- 							Email</label> <input type="text" class="form-control" -->
+<!-- 							id="exampleInputEmail2" placeholder="Enter email" -->
+<!-- 							ng-model="email"> -->
+<!-- 					</div> -->
 					<div class="form-group">
 						<label class="sr-only" for="exampleInputPassword2">CMND</label> <input
 							type="text" class="form-control" id="exampleInputPassword2"
@@ -31,18 +31,18 @@
 	</div>
 
 	<div class="table-responsive">
-		<table class="table table-striped" style="width: 3000px">
+		<table class="table table-striped" style="width: 2500px">
 			<thead>
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-					<th jh-sort-by="id"><span>STT</span> <span
+					<th jh-sort-by="id" width="4%"><span>STT</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="full_name"><span>Họ tên</span> <span
+					<th jh-sort-by="full_name" width="6%"><span>Họ tên</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="ic_passport_number"><span>CMND/Passport</span>
+					<th jh-sort-by="ic_passport_number" width="7%"><span>CMND/Passport</span>
 						<span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="ic_passport_prov_date"><span>Ngày cấp</span> <span
+					<th jh-sort-by="ic_passport_prov_date" width="6%"><span>Ngày cấp</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="ic_passport_prov_add"><span>Nơi cấp</span> <span
+					<th jh-sort-by="ic_passport_prov_add" width="6%"><span>Nơi cấp</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="email"><span>Email</span> <span
 						class="glyphicon glyphicon-sort"></span></th>

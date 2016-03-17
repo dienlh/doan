@@ -1,12 +1,44 @@
 'use strict';
+app.filter('propsFilter', function() {
+	return function(items, props) {
+		var out = [];
 
+		if (angular.isArray(items)) {
+			items
+					.forEach(function(item) {
+						var itemMatches = false;
+
+						var keys = Object.keys(props);
+						for (var i = 0; i < keys.length; i++) {
+							var prop = keys[i];
+							var text = props[prop].toLowerCase();
+							if (item[prop].toString().toLowerCase().indexOf(
+									text) !== -1) {
+								itemMatches = true;
+								break;
+							}
+						}
+
+						if (itemMatches) {
+							out.push(item);
+						}
+					});
+		} else {
+			// Let the output be the input untouched
+			out = items;
+		}
+
+		return out;
+	};
+})
 angular.module('hotelApp').controller('ReservationDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Reservation', 'Customer', 'Register_info', 'Status_reservation', 'User', 'Bill',
         function($scope, $stateParams, $uibModalInstance, $q, entity, Reservation, Customer, Register_info, Status_reservation, User, Bill) {
 
         $scope.reservation = entity;
+        $scope.checkout=true;
         $scope.customers = Customer.query();
-        $scope.register_infos = Register_info.query({filter: 'reservation-is-null'});
+        $scope.register_infos = Register_info.findAllRegisterChecked();
         $q.all([$scope.reservation.$promise, $scope.register_infos.$promise]).then(function() {
             if (!$scope.reservation.register_info || !$scope.reservation.register_info.id) {
                 return $q.reject();
@@ -34,11 +66,34 @@ angular.module('hotelApp').controller('ReservationDialogController',
             $scope.isSaving = false;
         };
 
+        $scope.$watch('checkout',function(){
+        	if($scope.checkout){
+        		$scope.showcheckout=true;
+        	}else{
+        		$scope.showcheckout=false;
+        	}
+        });
+       
         $scope.save = function () {
             $scope.isSaving = true;
             if ($scope.reservation.id != null) {
+            	if ($scope.checkout == true) {
+					var r = confirm("Confirm check-out");
+					if (r == true) {
+						if ($scope.reservation.time_checkout == null) {
+							$scope.reservation.time_checkout = new Date();
+						}
+					} else {
+						return false;
+					}
+					
+				}
                 Reservation.update($scope.reservation, onSaveSuccess, onSaveError);
             } else {
+            	if(!$scope.reservation.customers){
+            		alert("Bạn cần thêm danh sách khách ở phòng");
+            		return false;
+            	}
                 Reservation.save($scope.reservation, onSaveSuccess, onSaveError);
             }
         };
@@ -82,4 +137,6 @@ angular.module('hotelApp').controller('ReservationDialogController',
         $scope.datePickerForLast_modified_dateOpen = function($event) {
             $scope.datePickerForLast_modified_date.status.opened = true;
         };
+//        $scope.reservation.customers=Customer.query();
+
 }]);

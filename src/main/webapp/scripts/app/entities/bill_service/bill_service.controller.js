@@ -29,12 +29,12 @@ angular.module('hotelApp').controller(
 			}
 			$scope.loadAll = function() {
 				checkNull();
-				Bill_service.findAllByMultiAttr({
-					fromDate:$filter('date')($scope.fromDate,'dd/MM/yyyy'),
-					toDate:$filter('date')($scope.toDate,'dd/MM/yyyy'),
-					serviceId : $scope.service.id, 
-					statusId :$scope.status_bill_service.id, 
-					roomId : $scope.room.id,
+				Bill_service.query({
+//					fromDate:$filter('date')($scope.fromDate,'dd/MM/yyyy'),
+//					toDate:$filter('date')($scope.toDate,'dd/MM/yyyy'),
+//					serviceId : $scope.service.id, 
+//					statusId :$scope.status_bill_service.id, 
+//					roomId : $scope.room.id,
 					page : $scope.page - 1,
 					size : 20,
 					sort : [

@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,89 +30,116 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class RoomResource {
 
-    private final Logger log = LoggerFactory.getLogger(RoomResource.class);
-        
-    @Inject
-    private RoomService roomService;
-    
-    /**
-     * POST  /rooms -> Create a new room.
-     */
-    @RequestMapping(value = "/rooms",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Room> createRoom(@Valid @RequestBody Room room) throws URISyntaxException {
-        log.debug("REST request to save Room : {}", room);
-        if (room.getId() != null) {
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("room", "idexists", "A new room cannot already have an ID")).body(null);
-        }
-        Room result = roomService.save(room);
-        return ResponseEntity.created(new URI("/api/rooms/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert("room", result.getId().toString()))
-            .body(result);
-    }
+	private final Logger log = LoggerFactory.getLogger(RoomResource.class);
 
-    /**
-     * PUT  /rooms -> Updates an existing room.
-     */
-    @RequestMapping(value = "/rooms",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Room> updateRoom(@Valid @RequestBody Room room) throws URISyntaxException {
-        log.debug("REST request to update Room : {}", room);
-        if (room.getId() == null) {
-            return createRoom(room);
-        }
-        Room result = roomService.save(room);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("room", room.getId().toString()))
-            .body(result);
-    }
+	@Inject
+	private RoomService roomService;
 
-    /**
-     * GET  /rooms -> get all the rooms.
-     */
-    @RequestMapping(value = "/rooms",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<List<Room>> getAllRooms(Pageable pageable)
-        throws URISyntaxException {
-        log.debug("REST request to get a page of Rooms");
-        Page<Room> page = roomService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rooms");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-    }
+	/**
+	 * POST /rooms -> Create a new room.
+	 */
+	@RequestMapping(value = "/rooms", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Room> createRoom(@Valid @RequestBody Room room) throws URISyntaxException {
+		log.debug("REST request to save Room : {}", room);
+		if (room.getId() != null) {
+			return ResponseEntity.badRequest()
+					.headers(HeaderUtil.createFailureAlert("room", "idexists", "A new room cannot already have an ID"))
+					.body(null);
+		}
+		if (roomService.findOneWithCode(room.getCode()) != null) {
+			return ResponseEntity.badRequest()
+					.headers(HeaderUtil.createFailureAlert("room", "idexists", "A new room exists ")).body(null);
+		}
+		Room result = roomService.save(room);
+		return ResponseEntity.created(new URI("/api/rooms/" + result.getId()))
+				.headers(HeaderUtil.createEntityCreationAlert("room", result.getId().toString())).body(result);
+	}
 
-    /**
-     * GET  /rooms/:id -> get the "id" room.
-     */
-    @RequestMapping(value = "/rooms/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Room> getRoom(@PathVariable Long id) {
-        log.debug("REST request to get Room : {}", id);
-        Room room = roomService.findOne(id);
-        return Optional.ofNullable(room)
-            .map(result -> new ResponseEntity<>(
-                result,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+	/**
+	 * PUT /rooms -> Updates an existing room.
+	 */
+	@RequestMapping(value = "/rooms", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Room> updateRoom(@Valid @RequestBody Room room) throws URISyntaxException {
+		log.debug("REST request to update Room : {}", room);
+		if (room.getId() == null) {
+			return createRoom(room);
+		}
+		Room result = roomService.save(room);
+		return ResponseEntity.ok().headers(HeaderUtil.createEntityUpdateAlert("room", room.getId().toString()))
+				.body(result);
+	}
 
-    /**
-     * DELETE  /rooms/:id -> delete the "id" room.
-     */
-    @RequestMapping(value = "/rooms/{id}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    @Timed
-    public ResponseEntity<Void> deleteRoom(@PathVariable Long id) {
-        log.debug("REST request to delete Room : {}", id);
-        roomService.delete(id);
-        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("room", id.toString())).build();
-    }
+	/**
+	 * GET /rooms -> get all the rooms.
+	 */
+	@RequestMapping(value = "/rooms", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Room>> getAllRooms(Pageable pageable) throws URISyntaxException {
+		log.debug("REST request to get a page of Rooms");
+		Page<Room> page = roomService.findAll(pageable);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rooms");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	/**
+	 * GET /rooms/:id -> get the "id" room.
+	 */
+	@RequestMapping(value = "/rooms/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Room> getRoom(@PathVariable Long id) {
+		log.debug("REST request to get Room : {}", id);
+		Room room = roomService.findOne(id);
+		return Optional.ofNullable(room).map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	/**
+	 * DELETE /rooms/:id -> delete the "id" room.
+	 */
+	@RequestMapping(value = "/rooms/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<Void> deleteRoom(@PathVariable Long id) {
+		log.debug("REST request to delete Room : {}", id);
+		roomService.delete(id);
+		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("room", id.toString())).build();
+	}
+
+	@RequestMapping(value = "/rooms/findAllByTypeAndStatus", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Room>> findAllByTypeAndStatus(Pageable pageable,
+			@RequestParam(value = "type_room", required = true) Long type_room,
+			@RequestParam(value = "status_room", required = true) Long status_room,
+			@RequestParam(value = "code", required = true) String code) throws URISyntaxException {
+		log.debug("REST request to get a page of Rooms");
+		Page<Room> page = roomService.findAllByTypeAndStatus(pageable, type_room, status_room, code);
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rooms/findAllByMultiAttr");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/rooms/findAllByRangerTimeAndMultiAttr", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Room>> findAllByRangerTimeAndMultiAttr(Pageable pageable,
+			@RequestParam(value = "fromDate", required = false) String fromDate,
+			@RequestParam(value = "toDate", required = false) String toDate,
+			@RequestParam(value = "type_room", required = true) Long type_room,
+			@RequestParam(value = "code", required = true) String code) throws URISyntaxException {
+		log.debug("REST request to get a page of Rooms");
+		Page<Room> page = roomService.findAllByRangerTimeAndMultiAttr(pageable, code, type_room,
+				LocalDate.parse(fromDate), LocalDate.parse(toDate));
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
+				"/api/rooms/findAllByRangerTimeAndMultiAttr");
+		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/rooms/findAllByRangerTime", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Room>> findAllByRangerTime(
+			@RequestParam(value = "fromDate", required = false) String fromDate,
+			@RequestParam(value = "toDate", required = false) String toDate) throws URISyntaxException {
+		log.debug("REST request to get a page of Rooms");
+		List<Room> list = roomService.findAllByRangerTime(LocalDate.parse(fromDate),LocalDate.parse(toDate));
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
 }

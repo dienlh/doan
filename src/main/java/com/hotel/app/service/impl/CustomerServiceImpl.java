@@ -92,4 +92,17 @@ public class CustomerServiceImpl implements CustomerService{
         log.debug("Request to delete Customer : {}", id);
         customerRepository.delete(id);
     }
+    
+    @Override
+    @Transactional(readOnly = true) 
+    public Customer findByIcPassPortNumber(String ic) {
+    	Customer customer=customerRepository.findByIcPassPortNumber(ic);
+    	return customer;
+    }
+    
+    @Override
+    public Page<Customer> findAllByIcPassportNumber(Pageable pageable, String ic_passport_number) {
+    	Page<Customer> page=customerRepository.findByLastnameOrFirstname(pageable, ic_passport_number);
+    	return page;
+    }
 }

@@ -9,7 +9,7 @@ angular.module('hotelApp').controller('BillDialogController',
         $scope.customers = Customer.query();
         $scope.method_payments = Method_payment.query();
         $scope.status_payments = Status_payment.query();
-        $scope.reservations = Reservation.query({filter: 'bill-is-null'});
+        $scope.reservations = Reservation.findReservationNotCheckout();
         $q.all([$scope.bill.$promise, $scope.reservations.$promise]).then(function() {
             if (!$scope.bill.reservation || !$scope.bill.reservation.id) {
                 return $q.reject();

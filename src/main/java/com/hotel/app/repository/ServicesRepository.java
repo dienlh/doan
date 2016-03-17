@@ -20,7 +20,10 @@ public interface ServicesRepository extends JpaRepository<Services,Long> {
     List<Services> findByLast_modified_byIsCurrentUser();
 
     @Query("select services from Services services "
-    		+ "where (?1 = '' or ?1 is null or services.name like %?1%) "
+    		+ "where services.name like %?1% "
     		+ "and (?2=0L or services.status_service.id=?2)")
-    Page<Services> findAllByNameAndStatus(Pageable pageable,String name , Long statusId); 
+    Page<Services> findAllByNameAndStatus(Pageable pageable,String name , Long statusId);
+    
+    @Query("select services from Services services where services.status_service.id=1L")
+    List<Services> findAllAvailable();
 }

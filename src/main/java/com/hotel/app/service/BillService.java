@@ -33,4 +33,6 @@ public interface BillService {
      *  delete the "id" bill.
      */
     public void delete(Long id);
+    
+    Bill findOneByReservationId(Long reservationID);
 }
