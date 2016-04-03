@@ -114,20 +114,38 @@ public class Register_infoServiceImpl implements Register_infoService {
 
 	@Transactional(readOnly = true)
 	public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
-			Long status_payment, Long method_register, Long status_register, LocalDate fromDate,LocalDate toDate) {
+			Long status_payment, Long method_register, Long status_register, LocalDate fromDate, LocalDate toDate) {
 		log.debug("Request to get all Register_infos");
-		Page<Register_info> result = register_infoRepository.findAllByMultiAttr(pageable, code, ipnumber, method_payment, status_payment, method_register, status_register, fromDate, toDate);
+		Page<Register_info> result = register_infoRepository.findAllByMultiAttr(pageable, code, ipnumber,
+				method_payment, status_payment, method_register, status_register, fromDate, toDate);
 		return result;
 	}
-	
+
+	@Transactional(readOnly = true)
+	public List<Register_info> findAllByMultiAttr(String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register, LocalDate fromDate, LocalDate toDate) {
+		log.debug("Request to get all Register_infos");
+		return register_infoRepository.findAllByMultiAttr(code, ipnumber, method_payment, status_payment,
+				method_register, status_register, fromDate, toDate);
+	}
+
 	@Override
 	public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
 			Long status_payment, Long method_register, Long status_register) {
 		log.debug("Request to get all Register_infos");
-		Page<Register_info> result = register_infoRepository.findAllByMultiAttr(pageable, code, ipnumber, method_payment, status_payment, method_register, status_register);
+		Page<Register_info> result = register_infoRepository.findAllByMultiAttr(pageable, code, ipnumber,
+				method_payment, status_payment, method_register, status_register);
 		return result;
 	}
-	
+
+	@Override
+	public List<Register_info> findAllByMultiAttr(String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register) {
+		log.debug("Request to get all Register_infos");
+		return register_infoRepository.findAllByMultiAttr(code, ipnumber, method_payment,
+				status_payment, method_register, status_register);
+	}
+
 	@Override
 	public List<Register_info> findAllRegisterChecked() {
 		// TODO Auto-generated method stub

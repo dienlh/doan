@@ -33,4 +33,6 @@ public interface Status_roomService {
      *  delete the "id" status_room.
      */
     public void delete(Long id);
+    
+    public Status_room findByName(String status_room);
 }

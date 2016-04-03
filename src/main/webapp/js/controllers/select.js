@@ -34,11 +34,7 @@ app.filter('propsFilter', function() {
 	};
 })
 app.controller('SelectCtrl',
-		function($scope, $http, $timeout, Customer) {
-
-			$scope.customers = Customer.query();
-			
-			console.log("sdfsdfsd"+$scope.reservation);
+		function($scope, $http, $timeout) {
 			$scope.disabled = undefined;
 			$scope.searchEnabled = undefined;
 

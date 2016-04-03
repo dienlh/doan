@@ -14,4 +14,5 @@ public interface Method_paymentRepository extends JpaRepository<Method_payment,L
     @Query("select method_payment from Method_payment method_payment where method_payment.create_by.login = ?#{principal.username}")
     List<Method_payment> findByCreate_byIsCurrentUser();
 
+    Method_payment findByName(String name);
 }

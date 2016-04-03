@@ -85,18 +85,18 @@
 				</tr>
 				<tr>
 					<td><span>Giá theo giờ</span></td>
-					<td><span class="form-control-static">{{room.hourly_price | currency : '' : 0}}</span>
-					</td>
+					<td><span class="form-control-static">{{room.hourly_price
+							| currency : '' : 0}}</span></td>
 				</tr>
 				<tr>
 					<td><span>Giá theo ngày</span></td>
-					<td><span class="form-control-static">{{room.daily_price | currency : '' : 0}}</span>
-					</td>
+					<td><span class="form-control-static">{{room.daily_price
+							| currency : '' : 0}}</span></td>
 				</tr>
 				<tr>
 					<td><span>Giá theo tháng</span></td>
-					<td><span class="form-control-static">{{room.monthly_price | currency : '' : 0}}</span>
-					</td>
+					<td><span class="form-control-static">{{room.monthly_price
+							| currency : '' : 0}}</span></td>
 				</tr>
 
 				<tr>
@@ -110,22 +110,6 @@
 					<td><a class="form-control-static"
 						ui-sref="currency.detail({id:room.currency.id})">{{room.currency.code}}</a>
 					</td>
-				</tr>
-				<tr>
-					<td><span>images</span></td>
-					<td><span ng-repeat="images in room.imagess"> <a
-							class="form-control-static"
-							ui-sref="images.detail({id: {{images.id}}})">{{images.url}}</a>{{$last
-							? '' : ', '}}
-					</span></td>
-				</tr>
-				<tr>
-					<td><span>amenity</span></td>
-					<td><span ng-repeat="amenity in room.amenitys"> <a
-							class="form-control-static"
-							ui-sref="amenity.detail({id: {{amenity.id}}})">{{amenity.name}}</a>{{$last
-							? '' : ', '}}
-					</span></td>
 				</tr>
 				<tr>
 					<td><span>status_room</span></td>
@@ -152,7 +136,22 @@
 					<td><span class="form-control-static">{{room.last_modified_date
 							| date:'dd/MM/yyyy hh:mm:ss'}}</span></td>
 				</tr>
-
+				<tr>
+					<td><span>images</span></td>
+					<td><div class="">
+							<button class="btn-sm btn-success btn"
+								ui-sref="room.upload({id:room.id})">upload anh</button>
+						</div> <span ng-repeat="images in room.imagess"> <img alt=""
+							ng-src="{{images.url}}" class="w" /></span></td>
+				</tr>
+				<tr>
+					<td><span>amenity</span></td>
+					<td><span ng-repeat="amenity in room.amenitys"> <a
+							class="form-control-static"
+							ui-sref="amenity.detail({id: {{amenity.id}}})">{{amenity.name}}</a>{{$last
+							? '' : ', '}}
+					</span></td>
+				</tr>
 			</tbody>
 		</table>
 	</div>

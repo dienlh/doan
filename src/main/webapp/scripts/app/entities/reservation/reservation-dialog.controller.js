@@ -69,8 +69,12 @@ angular.module('hotelApp').controller('ReservationDialogController',
         $scope.$watch('checkout',function(){
         	if($scope.checkout){
         		$scope.showcheckout=true;
+        		$scope.reservation.person_checkout=$scope.reservation.person_checkin;
+        		console.log("123123");
         	}else{
         		$scope.showcheckout=false;
+        		$scope.reservation.person_checkout=null;
+        		console.log($scope.reservation.person_checkout);
         	}
         });
        

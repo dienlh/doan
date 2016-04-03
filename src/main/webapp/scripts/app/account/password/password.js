@@ -4,14 +4,14 @@ angular.module('hotelApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('password', {
-                parent: 'account',
+                parent: 'app',
                 url: '/password',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Password'
                 },
                 views: {
-                    'content@': {
+                    '': {
                         templateUrl: 'scripts/app/account/password/password.html',
                         controller: 'PasswordController'
                     }

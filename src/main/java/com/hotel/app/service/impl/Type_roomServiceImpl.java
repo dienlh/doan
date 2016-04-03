@@ -81,4 +81,9 @@ public class Type_roomServiceImpl implements Type_roomService{
         log.debug("Request to delete Type_room : {}", id);
         type_roomRepository.delete(id);
     }
+    
+    @Override
+    public Type_room findByName(String name) {
+    	return type_roomRepository.findByName(name);
+    }
 }

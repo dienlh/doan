@@ -144,5 +144,57 @@ angular.module('hotelApp')
                         $state.go('^');
                     })
                 }]
-            });
+            })
+            .state('room.upload', {
+                parent: 'room.detail',
+                url: '/upload?message',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/room/uploadImage.html',
+                        controller: 'RoomDialogController',
+                        size: 'lg',
+                        resolve: {
+                            entity: ['Room', function(Room) {
+                                return Room.get({id : $stateParams.id});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('room', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            .state('room.import', {
+                parent: 'room',
+                url: '/import',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/room/room-import.html',
+//                        controller: 'RoomDialogController',
+                        size: 'lg',
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                   function( $ocLazyLoad){
+                                     return $ocLazyLoad.load('angularFileUpload').then(
+                                         function(){
+                                            return $ocLazyLoad.load('js/controllers/file-upload.js');
+                                         }
+                                     );
+                                 }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('room', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            ;
     });

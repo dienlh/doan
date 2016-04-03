@@ -1,238 +1,194 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+<form name="editForm" role="form" class="form-horizontal" novalidate
+	ng-submit="save()" show-validation>
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myBillLabel">Create or edit a Bill</h4>
-    </div>
-    <div class="modal-body">
-        <jh-alert-error></jh-alert-error>
-        <div class="form-group">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="bill.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_fees_room">Fees_room</label>
-            <input type="number" class="form-control" name="fees_room" id="field_fees_room"
-                    ng-model="bill.fees_room"
-                    required min="0" />
-            <div ng-show="editForm.fees_room.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.fees_room.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_room.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_room.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_fees_service">Fees_service</label>
-            <input type="number" class="form-control" name="fees_service" id="field_fees_service"
-                    ng-model="bill.fees_service"
-                    required min="0" />
-            <div ng-show="editForm.fees_service.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.fees_service.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_service.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_service.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_fees_other">Fees_other</label>
-            <input type="number" class="form-control" name="fees_other" id="field_fees_other"
-                    ng-model="bill.fees_other"
-                    required min="0" />
-            <div ng-show="editForm.fees_other.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.fees_other.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_other.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_other.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_fees_bonus">Fees_bonus</label>
-            <input type="number" class="form-control" name="fees_bonus" id="field_fees_bonus"
-                    ng-model="bill.fees_bonus"
-                    required min="0" />
-            <div ng-show="editForm.fees_bonus.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.fees_bonus.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_bonus.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_bonus.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_total">Total</label>
-            <input type="number" class="form-control" name="total" id="field_total"
-                    ng-model="bill.total"
-                    required min="0" />
-            <div ng-show="editForm.total.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.total.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.total.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.total.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_fees_vat">Fees_vat</label>
-            <input type="number" class="form-control" name="fees_vat" id="field_fees_vat"
-                    ng-model="bill.fees_vat"
-                    required min="0" />
-            <div ng-show="editForm.fees_vat.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.fees_vat.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_vat.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.fees_vat.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_total_vat">Total_vat</label>
-            <input type="number" class="form-control" name="total_vat" id="field_total_vat"
-                    ng-model="bill.total_vat"
-                    required min="0" />
-            <div ng-show="editForm.total_vat.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.total_vat.$error.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.total_vat.$error.min" translate-value-min="0">
-                    This field should be more than 0.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.total_vat.$error.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_decription">Decription</label>
-            <input type="text" class="form-control" name="decription" id="field_decription"
-                    ng-model="bill.decription"
-                    ng-maxlength="255" />
-            <div ng-show="editForm.decription.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.decription.$error.maxlength" translate-value-max="255">
-                    This field cannot be longer than 255 characters.
-                </p>
-            </div>
-        </div>
-<!--         <div class="form-group"> -->
-<!--             <label class="control-label" for="field_create_date">Create_date</label> -->
-<!--             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="bill.create_date" is-open="datePickerForCreate_date.status.opened" -->
-<!--             required/> -->
-<!--             <span class="input-group-btn"> -->
-<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
-<!--             </span> -->
-<!--             <div ng-show="editForm.create_date.$invalid"> -->
-<!--                 <p class="help-block" -->
-<!--                     ng-show="editForm.create_date.$error.required"> -->
-<!--                     This field is required. -->
-<!--                 </p> -->
-<!--                 <p class="help-block" -->
-<!--                     ng-show="editForm.create_date.$error.ZonedDateTimelocal"> -->
-<!--                     This field should be a date and time. -->
-<!--                 </p> -->
-<!--             </div> -->
-<!--         </div> -->
-
-        <div class="form-group">
-            <label for="field_currency">currency</label>
-            <select class="form-control" id="field_currency" name="currency" ng-model="bill.currency" ng-options="currency as currency.code for currency in currencys track by currency.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_customer">customer</label>
-            <select class="form-control" id="field_customer" name="customer" ng-model="bill.customer" ng-options="customer as customer.full_name for customer in customers track by customer.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_method_payment">method_payment</label>
-            <select class="form-control" id="field_method_payment" name="method_payment" ng-model="bill.method_payment" ng-options="method_payment as method_payment.name for method_payment in method_payments track by method_payment.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_status_payment">status_payment</label>
-            <select class="form-control" id="field_status_payment" name="status_payment" ng-model="bill.status_payment" ng-options="status_payment as status_payment.name for status_payment in status_payments track by status_payment.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_reservation">reservation</label>
-            <select class="form-control" id="field_reservation" name="reservation" ng-model="bill.reservation" ng-options="reservation as reservation.id for reservation in reservations | orderBy:'id' track by reservation.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="field_status_bill">status_bill</label>
-            <select class="form-control" id="field_status_bill" name="status_bill" ng-model="bill.status_bill" ng-options="status_bill as status_bill.name for status_bill in status_bills track by status_bill.id">
-                <option value=""></option>
-            </select>
-        </div>
-<!--         <div class="form-group"> -->
-<!--             <label for="field_create_by">create_by</label> -->
-<!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="bill.create_by" ng-options="user as user.login for user in users track by user.id"> -->
-<!--                 <option value=""></option> -->
-<!--             </select> -->
-<!--         </div> -->
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
-        </button>
-    </div>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title" id="myBillLabel">Xuất phiếu thanh toán</h4>
+	</div>
+	<div class="modal-body">
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group hide">
+			<label for="id">ID</label> <input type="text" class="form-control"
+				id="id" name="id" ng-model="bill.id" readonly />
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_room">Phí
+				phòng</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_room"
+					id="field_fees_room" ng-model="bill.fees_room" required min="0"
+					readonly="readonly" />
+				<div ng-show="editForm.fees_room.$invalid">
+					<p class="help-block" ng-show="editForm.fees_room.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.fees_room.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_room.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_service">Phí
+				dịch vụ</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_service"
+					id="field_fees_service" ng-model="bill.fees_service" required
+					min="0" readonly="readonly" />
+				<div ng-show="editForm.fees_service.$invalid">
+					<p class="help-block"
+						ng-show="editForm.fees_service.$error.required">This field is
+						required.</p>
+					<p class="help-block" ng-show="editForm.fees_service.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_service.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_other">Chi
+				phí khác</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_other"
+					ng-change="bill.total=bill.fees_room + bill.fees_service + bill.fees_other + bill.fees_bonus - bill.reservation.register_info.deposit_value;
+					bill.fees_vat=bill.total*10/100  | currency : '' : 0;
+					bill.total_vat=bill.total+bill.fees_vat;"
+					id="field_fees_other" ng-model="bill.fees_other" required min="0" />
+				<div ng-show="editForm.fees_other.$invalid">
+					<p class="help-block" ng-show="editForm.fees_other.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.fees_other.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_other.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_bonus">Phí
+				thưởng</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_bonus"
+					ng-change="bill.total=bill.fees_room + bill.fees_service + bill.fees_other + bill.fees_bonus - bill.reservation.register_info.deposit_value;
+					bill.fees_vat=bill.total*10/100  | currency : '' : 0;
+					bill.total_vat=bill.total+bill.fees_vat;" 
+					id="field_fees_bonus" ng-model="bill.fees_bonus" required min="0" />
+				<div ng-show="editForm.fees_bonus.$invalid">
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_bonus">Đã
+				đặt cọc</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_bonus"
+					id="field_fees_bonus"
+					ng-model="bill.reservation.register_info.deposit_value" required
+					min="0" readonly="readonly" />
+				<div ng-show="editForm.fees_bonus.$invalid">
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_bonus.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_total">Tổng
+				tiền</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="total"
+					id="field_total" ng-model="bill.total" required min="0"
+					readonly="readonly" />
+				<div ng-show="editForm.total.$invalid">
+					<p class="help-block" ng-show="editForm.total.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.total.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.total.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_fees_vat">Phí
+				VAT</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="fees_vat"
+					id="field_fees_vat" ng-model="bill.fees_vat" required min="0"
+					readonly="readonly" />
+				<div ng-show="editForm.fees_vat.$invalid">
+					<p class="help-block" ng-show="editForm.fees_vat.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.fees_vat.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.fees_vat.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_total_vat">Tổng
+				tiền ( VAT )</label>
+			<div class="col-sm-8">
+				<input type="number" class="form-control" name="total_vat"
+					id="field_total_vat" ng-model="bill.total_vat" required min="0"
+					readonly="readonly" />
+				<div ng-show="editForm.total_vat.$invalid">
+					<p class="help-block" ng-show="editForm.total_vat.$error.required">
+						This field is required.</p>
+					<p class="help-block" ng-show="editForm.total_vat.$error.min"
+						translate-value-min="0">This field should be more than 0.</p>
+					<p class="help-block" ng-show="editForm.total_vat.$error.number">
+						This field should be a number.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="field_currency" class="control-label col-sm-4">Đơn
+				vị tính</label>
+			<div class="col-sm-8">
+				<select class="form-control" id="field_currency" name="currency"
+					ng-model="bill.currency" disabled="disabled"
+					ng-options="currency as currency.code for currency in currencys track by currency.id">
+					<option value=""></option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="field_decription">Ghi
+				chú thêm</label>
+			<div class="col-sm-8">
+				<textarea type="text" class="form-control" name="decription"
+					id="field_decription" ng-model="bill.decription" ng-maxlength="255"></textarea>
+				<div ng-show="editForm.decription.$invalid">
+					<p class="help-block"
+						ng-show="editForm.decription.$error.maxlength"
+						translate-value-max="255">This field cannot be longer than 255
+						characters.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="clear()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+		</button>
+	</div>
 </form>

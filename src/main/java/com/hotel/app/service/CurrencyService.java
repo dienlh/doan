@@ -33,4 +33,6 @@ public interface CurrencyService {
      *  delete the "id" currency.
      */
     public void delete(Long id);
+    
+    public Currency findByCode(String code);
 }

@@ -17,6 +17,14 @@ angular.module('hotelApp')
                     }
                 },
                 resolve: {
+                	deps: ['$ocLazyLoad',
+                           function( $ocLazyLoad ){
+                             return $ocLazyLoad.load('ui.select').then(
+                                 function(){
+                                     return $ocLazyLoad.load(['js/controllers/select.js']);
+                                 }
+                             );
+                    }]
                 }
             })
             .state('bill.detail', {
@@ -39,7 +47,7 @@ angular.module('hotelApp')
                 }
             })
             .state('bill.new', {
-                parent: 'bill',
+                parent: 'reservation.detail',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],
@@ -50,46 +58,35 @@ angular.module('hotelApp')
                         controller: 'BillDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: function () {
-                                return {
-                                    fees_room: null,
-                                    fees_service: null,
-                                    fees_other: null,
-                                    fees_bonus: null,
-                                    total: null,
-                                    fees_vat: null,
-                                    total_vat: null,
-                                    decription: null,
-                                    create_date: null,
-                                    id: null
-                                };
-                            }
+                        	entity: ['Bill', function(Bill) {
+                                return Bill.createByReservationId({reservationId : $stateParams.id});
+                            }]
                         }
                     }).result.then(function(result) {
-                        $state.go('bill', null, { reload: true });
+                        $state.go('reservation.detail', {id:$stateParams.id}, { reload: true });
                     }, function() {
-                        $state.go('bill');
+                        $state.go('reservation.detail',{id:$stateParams.id});
                     })
                 }]
             })
             .state('bill.edit', {
-                parent: 'bill',
-                url: '/{id}/edit',
+                parent: 'reservation.detail',
+                url: '/{idBill}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/bill/bill-dialog.html',
+                        templateUrl: 'scripts/app/entities/bill/bill-dialog-update.html',
                         controller: 'BillDialogController',
                         size: 'lg',
                         resolve: {
                             entity: ['Bill', function(Bill) {
-                                return Bill.get({id : $stateParams.id});
+                                return Bill.get({id : $stateParams.idBill});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('bill', null, { reload: true });
+                    	$state.go('reservation.detail', {id:$stateParams.id}, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
@@ -117,5 +114,29 @@ angular.module('hotelApp')
                         $state.go('^');
                     })
                 }]
-            });
+            })
+            .state('bill.printer', {
+                parent: 'bill',
+                url: '/printer/{id}',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/bill/bill-printer.html',
+                        controller: 'BillPrinterController',
+                        size: 'lg',
+                        resolve: {
+//                            entity: ['Bill_service', function(Bill_service) {
+//                                return Bill_service.get({id : $stateParams.id});
+//                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('bill', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            ;
     });

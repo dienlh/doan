@@ -16,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,13 +90,29 @@ public class Bill_serviceServiceImpl implements Bill_serviceService {
 	}
 
 	@Override
-	public Page<Bill_service> findAllByMultiAttr(Pageable pageable, Long serviceId, Long statusId, Long roomId) {
-		// TODO Auto-generated method stub
-		return bill_serviceRepository.findAllByMultiAttr(pageable, serviceId, statusId, roomId);
+	public Page<Bill_service> findAllByMultiAttr(Pageable pageable, Long serviceId, Long statusId, Long reservationId,
+			ZonedDateTime fromDate, ZonedDateTime toDate) {
+		return bill_serviceRepository.findAllByMultiAttr(pageable, serviceId, statusId, reservationId, fromDate, toDate);
+	}
+
+	@Override
+	public List<Bill_service> findAllByMultiAttr(Long serviceId, Long statusId, Long reservationId,
+			ZonedDateTime fromDate, ZonedDateTime toDate) {
+		return bill_serviceRepository.findAllByMultiAttr(serviceId, statusId, reservationId, fromDate, toDate);
 	}
 	
 	@Override
 	public Page<Bill_service> findAllByReservationId(Pageable pageable, Long reservationId) {
 		return bill_serviceRepository.findAllByReservationId(pageable, reservationId);
+	}
+	
+	@Override
+	public List<Bill_service> findAllByReservationId(Long reservationId) {
+		return bill_serviceRepository.findAllByReservationId(reservationId);
+	}
+	
+	@Override
+	public List<Bill_service> findAllByListId(List<Long> listId) {
+		return bill_serviceRepository.findAllByListId(listId);
 	}
 }

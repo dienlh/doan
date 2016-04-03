@@ -6,7 +6,7 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý hồ sơ</span>
+		</span> <i class="icon-user-following"></i> <span>Quản lý hồ sơ</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý hồ
@@ -71,7 +71,7 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý dịch vụ</span>
+		</span> <i class="icon-book-open"></i> <span>Quản lý dịch vụ</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý
@@ -107,7 +107,7 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý tài khoản</span>
+		</span> <i class="icon-users"></i> <span>Quản lý tài khoản</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý tài
@@ -124,7 +124,7 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý phòng</span>
+		</span> <i class="glyphicon glyphicon-home"></i> <span>Quản lý phòng</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý
@@ -143,11 +143,13 @@
 						thái phòng</span>
 			</a></li>
 		</ul></li>
+	<li ui-sref-active="active"><a ui-sref="room.import"><i class="glyphicon glyphicon-import"></i></i>
+			<span class="font-bold">Import phòng</span>
+	</a></li>
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Quản lý khách
-				hàng</span>
+		</span> <i class="icon-emoticon-smile"></i> <span>Quản lý khách hàng</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Quản lý
@@ -170,28 +172,27 @@
 			</a></li>
 		</ul></li>
 	<li ui-sref-active="active"><a ui-sref="room.find"> <b
-			class="badge bg-info pull-right">9</b> <i
-			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
+			class="badge bg-info pull-right">9</b> <i class="fa fa-search"></i> <span
 			class="font-bold">Tìm kiếm phòng trống</span>
 	</a></li>
 	<li ui-sref-active="active"><a ui-sref="register_info"> <b
 			class="badge bg-info pull-right">9</b> <i
-			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
+			class="glyphicon glyphicon-registration-mark"></i> <span
 			class="font-bold">QL đăng ký phòng</span>
 	</a></li>
 	<li ui-sref-active="active"><a ui-sref="event"> <b
 			class="badge bg-info pull-right">9</b> <i
-			class="glyphicon glyphicon-envelope icon text-info-lter"></i> <span
-			class="font-bold">QL sự kiện</span>
+			class="glyphicon glyphicon-send"></i> <span class="font-bold">QL
+				sự kiện</span>
 	</a></li>
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>QL QD & CS</span>
+		</span> <i class="icon-doc"></i> <span>QL QD & CS</span>
 	</a>
 		<ul class="nav nav-sub dk">
-			<li class="nav-sub-header"><a href> <span>Quản lý
-						khách sạn</span>
+			<li class="nav-sub-header"><a href> <span>Quản lý QD
+						& CS</span>
 			</a></li>
 			<li ui-sref-active="active"><a ui-sref="policy"> <span>Quy
 						định và chính sách</span>
@@ -210,22 +211,19 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Thống kê</span>
+		</span> <i class="fa fa-bar-chart-o"></i> <span>Thống kê</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Thống kê</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Hóa
+			<li ui-sref-active="active"><a ui-sref="bill"> <span>Hóa
 						đơn thanh toán</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Hóa
+			<li ui-sref-active="active"><a ui-sref="bill_service"> <span>Hóa
 						đơn dịch vụ</span>
 			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Tiền
+			<li ui-sref-active="active"><a ui-sref="register_info"> <span>Tiền
 						đặt cọc</span>
-			</a></li>
-			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Thông
-						tin đăng ký</span>
 			</a></li>
 			<li ui-sref-active="active"><a ui-sref="user-management"> <span>Doanh
 						thu</span>
@@ -237,7 +235,7 @@
 	<li><a href class="auto"> <span class="pull-right text-muted">
 				<i class="fa fa-fw fa-angle-right text"></i> <i
 				class="fa fa-fw fa-angle-down text-active"></i>
-		</span> <i class="glyphicon glyphicon-th"></i> <span>Danh mục tìm kiếm</span>
+		</span> <i class="fa fa-search"></i> <span>Danh mục tìm kiếm</span>
 	</a>
 		<ul class="nav nav-sub dk">
 			<li class="nav-sub-header"><a href> <span>Danh mục

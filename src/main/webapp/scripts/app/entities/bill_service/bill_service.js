@@ -112,5 +112,29 @@ angular.module('hotelApp')
                         $state.go('^');
                     })
                 }]
-            });
+            })
+            .state('bill_service.printer', {
+                parent: 'bill_service',
+                url: '/printer?fromDate&toDate&serviceId&reservationId&statusId',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/bill_service/bill_service-printer.html',
+                        controller: 'Bill_servicePrinterController',
+                        size: 'lg',
+                        resolve: {
+//                            entity: ['Bill_service', function(Bill_service) {
+//                                return Bill_service.get({id : $stateParams.id});
+//                            }]
+                        }
+                    }).result.then(function(result) {
+                        $state.go('bill_service', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
+            ;
     });

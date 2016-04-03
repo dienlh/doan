@@ -26,10 +26,10 @@ public class Room implements Serializable {
     @Column(name = "code", length = 10, nullable = false)
     private String code;
 
-    @NotNull
+//    @NotNull
     @Size(max = 10)
     @Column(name = "key_code", length = 10, nullable = false)
-    private String key_code;
+    private String key_code = "";
 
     @Size(max = 255)
     @Column(name = "title", length = 255)

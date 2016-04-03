@@ -33,4 +33,6 @@ public interface Type_roomService {
      *  delete the "id" type_room.
      */
     public void delete(Long id);
+    
+    public Type_room findByName(String name);
 }

@@ -3,9 +3,15 @@ package com.hotel.app.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.hotel.app.domain.Event;
 import com.hotel.app.domain.Register_info;
+import com.hotel.app.domain.Room;
+import com.hotel.app.service.Register_infoExcelBuilder;
 import com.hotel.app.service.Register_infoService;
+import com.hotel.app.service.RoomExcelBuilder;
 import com.hotel.app.web.rest.util.HeaderUtil;
 import com.hotel.app.web.rest.util.PaginationUtil;
+
+import groovy.transform.Undefined;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -14,13 +20,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -92,6 +101,7 @@ public class Register_infoResource {
 	/**
 	 * GET /register_infos/:id -> get the "id" register_info.
 	 */
+	
 	@RequestMapping(value = "/register_infos/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<Register_info> getRegister_info(@PathVariable Long id) {
@@ -148,6 +158,32 @@ public class Register_infoResource {
 	public ResponseEntity<List<Register_info>> findAllRegisterChecked() throws URISyntaxException {
 		log.debug("REST request to get a page of Register_infos");
 		return new ResponseEntity<>(register_infoService.findAllRegisterChecked(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/register_infos/exportExcel", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ModelAndView exportExcel(
+			@RequestParam(value = "code", required = true) String code,
+			@RequestParam(value = "ipnumber", required = true) String ipnumber,
+			@RequestParam(value = "method_payment", required = true) Long method_payment,
+			@RequestParam(value = "status_payment", required = true) Long status_payment,
+			@RequestParam(value = "method_register", required = true) Long method_register,
+			@RequestParam(value = "status_register", required = true) Long status_register,
+			@RequestParam(value = "fromDate", required = false) String fromDate,
+			@RequestParam(value = "toDate", required = false) String toDate)
+			throws URISyntaxException {
+		log.debug("Start exportExcel ");
+		List<Register_info> register_infos = new ArrayList<>();
+		if((fromDate==null && toDate==null) || (fromDate.equals("undefined") && toDate.equals("undefined"))){
+			register_infos = register_infoService.findAllByMultiAttr(code, ipnumber, method_payment,
+					status_payment, method_register, status_register);
+		}else if(fromDate!=null && toDate!=null){
+			register_infos = register_infoService.findAllByMultiAttr(code, ipnumber, method_payment,
+					status_payment, method_register, status_register, LocalDate.parse(fromDate), LocalDate.parse(toDate));
+		}else{
+			return null;
+		}
+		return new ModelAndView(new Register_infoExcelBuilder(), "lists", register_infos);
 	}
 
 }

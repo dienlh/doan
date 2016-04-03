@@ -84,4 +84,9 @@ public class Status_roomServiceImpl implements Status_roomService {
 		log.debug("Request to delete Status_room : {}", id);
 		status_roomRepository.delete(id);
 	}
+	
+	@Override
+	public Status_room findByName(String name) {
+		return status_roomRepository.findByName(name);
+	}
 }

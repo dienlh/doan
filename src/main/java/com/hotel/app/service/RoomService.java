@@ -1,8 +1,11 @@
 package com.hotel.app.service;
 
 import com.hotel.app.domain.Room;
+
+import org.apache.poi.ss.usermodel.Cell;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -37,9 +40,19 @@ public interface RoomService {
     
     public Page<Room> findAllByTypeAndStatus(Pageable pageable, Long type_room,Long status_room,String code);
     
+    public List<Room> findAllByTypeAndStatus(Long type_room,Long status_room,String code);
+    
     public Room findOneWithCode(String code);
     
     public Page<Room> findAllByRangerTimeAndMultiAttr(Pageable pageable, String code ,Long type_room,LocalDate fromDate,LocalDate toDate);
 
-    List<Room> findAllByRangerTime(LocalDate fromDate,LocalDate toDate);
+    public List<Room> findAllByRangerTime(LocalDate fromDate,LocalDate toDate);
+    
+    public List<Room> findAllAvailable(LocalDate fromDate,LocalDate toDate,Long type_room);
+    
+    public Room findOneByRangerTime(LocalDate fromDate,LocalDate toDate,Long room);
+    
+    public List<Room> importExcel(MultipartFile multipartFile);
+    
+    public String convertTypeDateImportExcel(Cell cell);
 }

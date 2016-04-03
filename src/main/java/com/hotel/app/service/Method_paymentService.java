@@ -33,4 +33,6 @@ public interface Method_paymentService {
      *  delete the "id" method_payment.
      */
     public void delete(Long id);
+    
+    public Method_payment createPaymentOnline();
 }

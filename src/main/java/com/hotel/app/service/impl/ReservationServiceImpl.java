@@ -1,11 +1,14 @@
 package com.hotel.app.service.impl;
 
 import com.hotel.app.service.ReservationService;
+import com.hotel.app.service.RoomService;
 import com.hotel.app.web.rest.dto.ManagedUserDTO;
 import com.hotel.app.domain.Reservation;
 import com.hotel.app.domain.Status_reservation;
+import com.hotel.app.domain.Status_room;
 import com.hotel.app.domain.User;
 import com.hotel.app.repository.ReservationRepository;
+import com.hotel.app.repository.RoomRepository;
 import com.hotel.app.repository.UserRepository;
 import com.hotel.app.security.SecurityUtils;
 
@@ -37,6 +40,9 @@ public class ReservationServiceImpl implements ReservationService{
     private ReservationRepository reservationRepository;
     
     @Inject
+    private RoomService roomService;
+    
+    @Inject
     private UserRepository userRepository;
     /**
      * Save a reservation.
@@ -56,6 +62,10 @@ public class ReservationServiceImpl implements ReservationService{
 //            user.setLogin(optional.get().getLogin());
             reservation.setCreate_by(user);
             reservation.setTime_checkin(ZonedDateTime.now());
+            
+            Status_room status_room = new Status_room();
+            status_room.setId(1L);
+            reservation.getRegister_info().getRoom().setStatus_room(status_room);
             log.info("Preshow user"+ user);
         }else{
         	Optional<ManagedUserDTO> optional=userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername())
@@ -73,10 +83,15 @@ public class ReservationServiceImpl implements ReservationService{
     				Status_reservation status_reservation = new Status_reservation();
     				status_reservation.setId(2L);
     				reservation.setStatus_reservation(status_reservation);
+    			
+    				Status_room status_room = new Status_room();
+    				status_room.setId(4L);
+    				reservation.getRegister_info().getRoom().setStatus_room(status_room);
     			}
     		}
         }
         Reservation result = reservationRepository.save(reservation);
+        roomService.save(reservation.getRegister_info().getRoom());
         return result;
     }
 

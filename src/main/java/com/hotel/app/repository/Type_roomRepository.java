@@ -14,4 +14,5 @@ public interface Type_roomRepository extends JpaRepository<Type_room,Long> {
     @Query("select type_room from Type_room type_room where type_room.create_by.login = ?#{principal.username}")
     List<Type_room> findByCreate_byIsCurrentUser();
 
+    Type_room findByName(String name);
 }

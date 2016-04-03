@@ -82,4 +82,9 @@ public class CurrencyServiceImpl implements CurrencyService{
         log.debug("Request to delete Currency : {}", id);
         currencyRepository.delete(id);
     }
+    
+    @Override
+    public Currency findByCode(String code) {
+    	return currencyRepository.findByCode(code);
+    }
 }

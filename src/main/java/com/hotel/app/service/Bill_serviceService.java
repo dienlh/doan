@@ -4,6 +4,7 @@ import com.hotel.app.domain.Bill_service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -34,7 +35,13 @@ public interface Bill_serviceService {
      */
     public void delete(Long id);
     
-    public Page<Bill_service> findAllByMultiAttr(Pageable pageable,Long serviceId,Long statusId,Long roomId);
+    public Page<Bill_service> findAllByMultiAttr(Pageable pageable,Long serviceId,Long statusId,Long reservationId,ZonedDateTime fromDate,ZonedDateTime toDate);
     
-    Page<Bill_service> findAllByReservationId(Pageable pageable,Long reservationId);
+    public List<Bill_service> findAllByMultiAttr(Long serviceId,Long statusId,Long reservationId,ZonedDateTime fromDate,ZonedDateTime toDate);
+    
+    public Page<Bill_service> findAllByReservationId(Pageable pageable,Long reservationId);
+    
+    public List<Bill_service> findAllByReservationId(Long reservationId);
+    
+    public List<Bill_service> findAllByListId(List<Long> listId);
 }

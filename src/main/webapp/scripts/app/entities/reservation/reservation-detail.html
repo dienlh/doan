@@ -85,10 +85,147 @@
 			</tbody>
 		</table>
 	</div>
-
+	<div class="panel-heading bg-primary">Danh sách đăng ký dịch vụ</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>STT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="quantity"><span>Số lượng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="total"><span>Tổng thanh toán</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="decription"><span>Mô tả</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="services.name"><span>Tên dịch vụ</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="reservation.register_info.room.code"><span>Mã
+							phòng</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_bill_service.name"><span>Trạng
+							thái</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr
+					ng-repeat="bill_service in bill_services track by bill_service.id">
+					<td><a ui-sref="bill_service.detail({id:bill_service.id})">{{bill_service.id}}</a></td>
+					<td>{{bill_service.quantity}}</td>
+					<td>{{bill_service.total | currency : "" : 0}}</td>
+					<td>{{bill_service.decription}}</td>
+					<td><a
+						ui-sref="currency.detail({id:bill_service.currency.id})">{{bill_service.currency.code}}</a>
+					</td>
+					<td><a
+						ui-sref="services.detail({id:bill_service.services.id})">{{bill_service.services.name}}</a>
+					</td>
+					<td><a
+						ui-sref="reservation.detail({id:bill_service.reservation.id})">{{bill_service.reservation.id}}</a>
+					</td>
+					<td><a
+						ui-sref="status_bill_service.detail({id:bill_service.status_bill_service.id})">{{bill_service.status_bill_service.name}}</a>
+					</td>
+					<td>{{bill_service.create_by.login}}</td>
+					<td>{{bill_service.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
+	<div class="panel-heading bg-primary">Thông tin phiếu thanh toán</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>STT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fees_room"><span>Phí thuê phòng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fees_service"><span>Phí dịch vụ</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fees_other"><span>Phí khác</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fees_bonus"><span>Thưởng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="total"><span>Tổng chi phí</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="fees_vat"><span>Phí VAT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="total_vat"><span>Tổng chi phí (VAT)</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="decription"><span>Mô tả</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="customer.full_name"><span>Người thanh
+							toán</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="method_payment.name"><span>Phương thức
+							thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_payment.name"><span>Trạng thái
+							thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="reservation.id"><span>Mã nhận trả phòng</span>
+						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_bill.name"><span>Trạng thái hóa
+							đơn</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="bill in bills">
+					<td><a ui-sref="bill.detail({id:bill.id})">{{$index+1}}</a></td>
+					<td>{{bill.fees_room | currency : "" : 0}}</td>
+					<td>{{bill.fees_service | currency : "" : 0}}</td>
+					<td>{{bill.fees_other | currency : "" : 0}}</td>
+					<td>{{bill.fees_bonus | currency : "" : 0}}</td>
+					<td>{{bill.total | currency : "" : 0}}</td>
+					<td>{{bill.fees_vat | currency : "" : 0}}</td>
+					<td>{{bill.total_vat | currency : "" : 0}}</td>
+					<td><a ui-sref="currency.detail({id:bill.currency.id})">{{bill.currency.code}}</a>
+					</td>
+					<td><a ui-sref="customer.detail({id:bill.customer.id})">{{bill.customer.full_name}}</a>
+					</td>
+					<td><a
+						ui-sref="method_payment.detail({id:bill.method_payment.id})">{{bill.method_payment.name}}</a>
+					</td>
+					<td><a
+						ui-sref="status_payment.detail({id:bill.status_payment.id})">{{bill.status_payment.name}}</a>
+					</td>
+					<td><a ui-sref="reservation.detail({id:bill.reservation.id})">{{bill.reservation.id}}</a>
+					</td>
+					<td><a ui-sref="status_bill.detail({id:bill.status_bill.id})">{{bill.status_bill.name}}</a>
+					</td>
+					<td>{{bill.decription}}</td>
+					<td>{{bill.create_by.login}}</td>
+					<td>{{bill.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<td>
+						<button type="submit" ui-sref="bill.edit({idBill:bill.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Edit</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<button type="submit" onclick="window.history.back()"
 		class="btn btn-info">
 		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span>
 			Back</span>
 	</button>
+	<button class="btn btn-success btn-sm" ng-click="exportBillForm()" ng-show="showExport">Xuất
+		phiếu thanh toán</button>
 </div>

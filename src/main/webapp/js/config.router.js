@@ -529,6 +529,247 @@ angular.module('app')
                     url: '/playlist/{fold}',
                     templateUrl: 'tpl/music.playlist.html'
                 })
+                .state('template', {
+	                  url: '/template',
+	                  templateUrl: 'template/block/layoutWeb.html'
+                 })
+                .state('template.home', {
+	                  url: '/home',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Trang chủ'
+	                  },
+	                  templateUrl: 'template/index.html',
+	                  controller:'homeCtrl',
+	                  resolve: {
+	                        deps: ['uiLoad',
+	                            function( uiLoad){
+	                               return uiLoad.load('js/app/template/home.js');
+	                        }]
+	                  }
+                 })
+                .state('template.services', {
+	                  url: '/services',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/services.html'
+                   })
+                   .state('template.tarrif', {
+	                  url: '/tarrif',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Loại phòng cung cấp'
+	                     },
+	                  templateUrl: 'template/tarrif.html'
+                   })
+                   .state('template.feedback', {
+	                  url: '/feedback',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Ý kiến phản hồi'
+	                     },
+	                  templateUrl: 'template/feedback.html'
+                   })
+                   .state('template.reservation', {
+	                  url: '/reservation',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Tìm kiếm phòng trống'
+	                  },
+	                  templateUrl: 'template/reservation/search.html',
+	                  controller: 'searchCtrl',
+	                  resolve: {
+	                        deps: ['uiLoad',
+	                            function( uiLoad){
+	                               return uiLoad.load('js/app/template/search.js');
+	                        }]
+	                  }
+                   })
+                   .state('template.detail', {
+	                  url: '/detail/{id}',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Thông tin chi tiết phòng'
+	                  },
+	                  templateUrl: 'template/reservation/single.html',
+	                  controller: 'detailCtrl',
+	                  resolve: {
+	                        deps: ['uiLoad',
+	                            function( uiLoad){
+	                               return uiLoad.load('js/app/template/detail.js');
+	                        }]
+	                  }
+                   })
+                   .state('template.book', {
+	                  url: '/book?idRoom&checkin&checkout?message',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Đăng ký đặt phòng tòa nhà'
+	                  },
+	                  templateUrl: 'template/reservation/book.html',
+	                  resolve: {
+	                         deps: ['uiLoad',
+	                              function( uiLoad){
+	                                   return uiLoad.load('js/app/template/bookingroom.js');
+	                              }]
+	                  }
+                   })
+                   .state('template.resultRegister', {
+	                  url: '/resultRegister?id',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Đăng ký đặt phòng tòa nhà'
+	                  },
+	                  templateUrl: 'template/reservation/result.html',
+	                  controller:'resultCtrl',
+	                  resolve: {
+	                         deps: ['uiLoad',
+	                              function( uiLoad){
+	                                   return uiLoad.load('js/app/template/resultCtrl.js');
+	                              }]
+	                  }
+                   })
+                   .state('template.apartment', {
+	                  url: '/apartment',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/apartment/layout.html'
+                   })
+                   .state('template.apartment.home', {
+	                  url: '/home',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/apartment/index.html'
+                   })
+                   .state('template.apartment.background', {
+	                  url: '/background',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/apartment/background.html'
+                   })
+                   .state('template.apartment.amenity', {
+	                  url: '/amenity',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/apartment/amenity.html'
+                   })
+                   
+                   .state('template.office', {
+	                  url: '/office',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/office/layout.html'
+                   })
+                   .state('template.office.home', {
+	                  url: '/home',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/office/index.html'
+                   })
+                   .state('template.office.background', {
+	                  url: '/background',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/office/background.html'
+                   })
+                   .state('template.office.amenity', {
+	                  url: '/amenity',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/office/amenity.html'
+                   })
+                   
+                   .state('template.event', {
+	                  url: '/event',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/events/layout.html'
+	                  
+                   })
+                   
+                   .state('template.event.detail', {
+	                  url: '/detail?id',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Sự kiện tòa nhà'
+	                  },
+	                  templateUrl: 'template/events/index.html',
+	                  controller:"eventCtrl",
+	                  resolve: {
+	                         deps: ['uiLoad',
+	                              function( uiLoad){
+	                                   return uiLoad.load('js/app/template/event.js');
+	                              }]
+	                  }
+                   })
+                   .state('template.intro', {
+	                  url: '/intro',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'Dịch vụ tòa nhà'
+	                  },
+	                  templateUrl: 'template/intro/layout.html'
+                   })
+                   .state('template.intro.home', {
+	                  url: '/home',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'giới thiệu DMCTOWER'
+	                  },
+	                  templateUrl: 'template/intro/index.html'
+                   })
+                   .state('template.intro.apartment', {
+	                  url: '/apartment',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'giới thiệu DMCTOWER'
+	                  },
+	                  templateUrl: 'template/intro/apartment.html'
+                   })
+                   .state('template.intro.background1', {
+	                  url: '/background1',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'giới thiệu DMCTOWER'
+	                  },
+	                  templateUrl: 'template/intro/background1.html'
+                   })
+                   .state('template.intro.background26', {
+	                  url: '/background26',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'giới thiệu DMCTOWER'
+	                  },
+	                  templateUrl: 'template/intro/background26.html'
+                   })
+                   .state('template.intro.background17', {
+	                  url: '/background17',
+	                  data: {
+	                         authorities: [],
+	                         pageTitle: 'giới thiệu DMCTOWER'
+	                  },
+	                  templateUrl: 'template/intro/background17.html'
+                   })
       }
     ]
   );

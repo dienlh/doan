@@ -2,10 +2,16 @@ package com.hotel.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.annotation.JsonFormat.Value;
+import com.hotel.app.domain.Bill;
 import com.hotel.app.domain.Bill_service;
+import com.hotel.app.domain.Book;
+import com.hotel.app.service.BillExcelBuilder;
+import com.hotel.app.service.Bill_serviceExcelBuilder;
+import com.hotel.app.service.Bill_servicePDFBuilder;
 import com.hotel.app.service.Bill_serviceService;
 import com.hotel.app.web.rest.util.HeaderUtil;
 import com.hotel.app.web.rest.util.PaginationUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -15,11 +21,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -109,22 +118,55 @@ public class Bill_serviceResource {
 	public ResponseEntity<List<Bill_service>> findAllByMultiAttr(Pageable pageable,
 			@RequestParam(value = "serviceId", required = false, defaultValue = "0") Long serviceId,
 			@RequestParam(value = "statusId", required = false, defaultValue = "0") Long statusId,
-			@RequestParam(value = "roomId", required = false, defaultValue = "0") Long roomId)
-			throws URISyntaxException {
+			@RequestParam(value = "reservationId", required = false, defaultValue = "0") Long roomId,
+			@RequestParam(value = "fromDate", required = true) String fromDate,
+			@RequestParam(value = "toDate", required = true) String toDate) throws URISyntaxException {
 		log.debug("REST request to get a page of Bill_services");
-		Page<Bill_service> page = bill_serviceService.findAllByMultiAttr(pageable, serviceId, statusId, roomId);
+		Page<Bill_service> page = bill_serviceService.findAllByMultiAttr(pageable, serviceId, statusId, roomId,
+				ZonedDateTime.parse(fromDate + "T00:00:00+07:00"), ZonedDateTime.parse(toDate + "T23:59:59+07:00"));
 		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
 				"/api/bill_services/findAllByMultiAttr");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/bill_services/findAllByReservationId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
-	public ResponseEntity<List<Bill_service>> findAllByReservationId(Pageable pageable,@RequestParam(value="reservationId",required=true) Long reservationId) throws URISyntaxException {
+	public ResponseEntity<List<Bill_service>> findAllByReservationId(Pageable pageable,
+			@RequestParam(value = "reservationId", required = true) Long reservationId) throws URISyntaxException {
 		log.debug("REST request to get a page of Bill_services");
 		Page<Bill_service> page = bill_serviceService.findAllByReservationId(pageable, reservationId);
-		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/bill_services/findAllByReservationId");
+		HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page,
+				"/api/bill_services/findAllByReservationId");
 		return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/bill_services/exportPDF", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ModelAndView exportPDF(
+			@RequestParam(value = "serviceId", required = false, defaultValue = "0") Long serviceId,
+			@RequestParam(value = "statusId", required = false, defaultValue = "0") Long statusId,
+			@RequestParam(value = "reservationId", required = false, defaultValue = "0") Long reservationId,
+			@RequestParam(value = "fromDate", required = true) String fromDate,
+			@RequestParam(value = "toDate", required = true) String toDate) {
+		log.debug("REST request to exportPDF of Bill_services {}");
+		List<Bill_service> bill_services = bill_serviceService.findAllByMultiAttr(serviceId, statusId, reservationId,
+				ZonedDateTime.parse(fromDate + "T00:00:00+07:00"), ZonedDateTime.parse(toDate + "T23:59:59+07:00"));
+		// return a view which will be resolved by an excel view resolver
+		return new ModelAndView(new Bill_servicePDFBuilder(), "listBill_service", bill_services);
+	}
+
+	@RequestMapping(value = "/bill_services/exportExcel", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ModelAndView exportExcel(Pageable pageable,
+			@RequestParam(value = "serviceId", required = false, defaultValue = "0") Long serviceId,
+			@RequestParam(value = "statusId", required = false, defaultValue = "0") Long statusId,
+			@RequestParam(value = "reservationId", required = false, defaultValue = "0") Long roomId,
+			@RequestParam(value = "fromDate", required = true) String fromDate,
+			@RequestParam(value = "toDate", required = true) String toDate) throws URISyntaxException {
+		log.debug("Start exportExcel ");
+		List<Bill_service> bill_services = new ArrayList<>();
+		bill_services = bill_serviceService.findAllByMultiAttr(serviceId, statusId, roomId,
+				ZonedDateTime.parse(fromDate + "T00:00:00+07:00"), ZonedDateTime.parse(toDate + "T23:59:59+07:00"));
+		return new ModelAndView(new Bill_serviceExcelBuilder(), "lists", bill_services);
 	}
 
 }

@@ -48,7 +48,7 @@
 		</div>
 		<div class="form-group" ng-show="showcheckout">
 			<label for="field_person_checkout">Người trả phòng</label>
-			<ui-select ng-model="reservation.person_checkout" theme="bootstrap">
+			<ui-select ng-model="reservation.person_checkout" theme="bootstrap" requeried>
 			<ui-select-match
 				placeholder="Select or search a person in the list...">{{$select.selected.full_name}}</ui-select-match>
 			<ui-select-choices repeat="item in customers | filter: $select.search">

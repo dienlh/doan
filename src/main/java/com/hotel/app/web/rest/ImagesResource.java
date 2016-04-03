@@ -2,7 +2,9 @@ package com.hotel.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.hotel.app.domain.Images;
+import com.hotel.app.domain.Room;
 import com.hotel.app.service.ImagesService;
+import com.hotel.app.service.RoomService;
 import com.hotel.app.web.rest.util.HeaderUtil;
 import com.hotel.app.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -14,11 +16,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +44,9 @@ public class ImagesResource {
         
     @Inject
     private ImagesService imagesService;
+    
+    @Inject
+    private RoomService roomService;
     
     /**
      * POST  /imagess -> Create a new images.
@@ -114,4 +128,48 @@ public class ImagesResource {
         imagesService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("images", id.toString())).build();
     }
+    
+    
+    @RequestMapping(value = "/imagess/multipleSave", method = RequestMethod.POST)
+	public @ResponseBody RedirectView multipleSave(@RequestParam("file") MultipartFile[] files,
+			@RequestParam("id_room") Long id_room,
+			@RequestParam(value = "typeUpload", required = true) Boolean typeUpload) {
+		String fileName = null;
+		String msg = "";
+		Room room = roomService.findOne(id_room);
+		log.info("asdasd"+room.getImagess());
+		HashSet<Images> hashSet= new HashSet<>();
+		if (typeUpload == false) {
+			hashSet.addAll(room.getImagess());
+		}
+		if (files != null && files.length > 0) {
+			for (int i = 0; i < files.length; i++) {
+				try {
+
+					fileName = hashCode() + files[i].getOriginalFilename();
+					byte[] bytes = files[i].getBytes();
+					BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(
+							new File("D:/Leature/doantotnghiep/source/hotel/src/main/webapp/upload/" + fileName)));
+					buffStream.write(bytes);
+					buffStream.close();
+
+					Images images = new Images();
+					images.setUrl("upload/" + fileName);
+					images.setCreate_date(ZonedDateTime.now());
+
+					Images images2 = imagesService.save(images);
+					hashSet.add(images2);
+					msg += "You have successfully uploaded " + fileName + "<br/>";
+				} catch (Exception e) {
+					return new RedirectView(
+							"/hotel/#/app/room/" + id_room + "/upload?message=exception");
+				}
+			}
+			room.setImagess(hashSet);
+			roomService.save(room);
+			return new RedirectView("/hotel/#/app/room/" + id_room + "/upload?message=success");
+		} else {
+			return new RedirectView("/hotel/#/app/room/" + id_room + "/" + id_room + "/upload?message=failed");
+		}
+	}
 }

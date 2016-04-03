@@ -7,7 +7,7 @@ angular.module('hotelApp').controller('Bill_serviceDialogController',
         $scope.bill_service = entity;
         $scope.currencys = Currency.query();
         $scope.servicess = Services.findAllAvailable();
-        $scope.reservations = Reservation.query();
+        $scope.reservations = Reservation.findReservationNotCheckout();
         $scope.status_bill_services = Status_bill_service.query();
         $scope.users = User.query();
         $scope.load = function(id) {

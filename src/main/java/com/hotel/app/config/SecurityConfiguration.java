@@ -5,6 +5,7 @@ import com.hotel.app.web.filter.CsrfCookieGeneratorFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -74,6 +75,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf()
+            .ignoringAntMatchers("/api/imagess/multipleSave")
+            .ignoringAntMatchers("/api/redirectionRegister")
+            .ignoringAntMatchers("/api/rooms/importExcel")
         .and()
             .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
             .exceptionHandling()
@@ -104,6 +108,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .disable()
         .and()
             .authorizeRequests()
+            .antMatchers("/api/redirectionRegister").permitAll()
+            .antMatchers("/api/returnSuccess").permitAll()
+            .antMatchers("/api/returnFail").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/events/**").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/policys/**").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/type_rooms/**").permitAll()
+            .antMatchers(HttpMethod.GET,"/api/register_infos/{id}").permitAll()
+            .antMatchers("/api/rooms/findAllAvailable").permitAll()
+            .antMatchers("/api/rooms/findOneAvailable").permitAll()
             .antMatchers("/api/register").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/authenticate").permitAll()

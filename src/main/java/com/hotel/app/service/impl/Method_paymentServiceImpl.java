@@ -16,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,5 +83,22 @@ public class Method_paymentServiceImpl implements Method_paymentService{
     public void delete(Long id) {
         log.debug("Request to delete Method_payment : {}", id);
         method_paymentRepository.delete(id);
+    }
+    
+    @Override
+    public Method_payment createPaymentOnline() {
+    	Method_payment method_payment = method_paymentRepository.findByName("Online qua Mypay");
+    	if(method_payment==null){
+    		method_payment.setName("Online qua Mypay");
+    		method_payment.setDecription("Phương thức này được tạo bởi hệ thống nhằm phục vụ thanh toán trên website");
+    		
+    		User user = new User();
+    		user.setId(1L);
+    		method_payment.setCreate_by(user);
+    		
+    		method_payment.setCreate_date(ZonedDateTime.now());
+    		method_payment=method_paymentRepository.save(method_payment);
+    	}
+    	return method_payment;
     }
 }

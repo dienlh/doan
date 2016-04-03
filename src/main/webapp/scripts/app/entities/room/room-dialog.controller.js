@@ -4,6 +4,7 @@ angular.module('hotelApp').controller('RoomDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Room', 'Type_room', 'Currency', 'Images', 'Status_room', 'User', 'Amenity',
         function($scope, $stateParams, $uibModalInstance, entity, Room, Type_room, Currency, Images, Status_room, User, Amenity) {
 
+    	$scope.message=$stateParams.message;
         $scope.room = entity;
         $scope.enableEdit=false;
         if($scope.room.$promise){

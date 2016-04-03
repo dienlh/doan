@@ -43,7 +43,13 @@ public interface Register_infoService {
     public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
 			Long status_payment, Long method_register, Long status_register,LocalDate fromDate,LocalDate toDate);
     
+    public List<Register_info> findAllByMultiAttr(String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register,LocalDate fromDate,LocalDate toDate);
+    
     public Page<Register_info> findAllByMultiAttr(Pageable pageable, String code, String ipnumber, Long method_payment,
+			Long status_payment, Long method_register, Long status_register);
+    
+    public List<Register_info> findAllByMultiAttr(String code, String ipnumber, Long method_payment,
 			Long status_payment, Long method_register, Long status_register);
     
     public List<Register_info> findAllRegisterChecked();
