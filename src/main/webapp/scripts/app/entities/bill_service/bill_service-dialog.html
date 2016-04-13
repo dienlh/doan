@@ -1,0 +1,102 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title" id="myBill_serviceLabel">Create or edit a
+			Bill_service</h4>
+	</div>
+	<div class="modal-body">
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group">
+			<label for="id">ID</label> <input type="text" class="form-control"
+				id="id" name="id" ng-model="bill_service.id" readonly />
+		</div>
+		<div class="form-group">
+			<label for="field_services">Dịch vụ</label> <select
+				class="form-control" id="field_services" name="services"
+				ng-model="bill_service.services" required="required"
+				ng-change="bill_service.total=bill_service.services.price*bill_service.quantity;
+				bill_service.currency=bill_service.services.currency"
+				ng-options="services as services.name for services in servicess track by services.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_quantity">Số lượng</label> <input
+				type="number" class="form-control" name="quantity"
+				id="field_quantity" ng-model="bill_service.quantity" required
+				min="0" ng-init="bill_service.quantity=1"/>
+			<div ng-show="editForm.quantity.$invalid">
+				<p class="help-block" ng-show="editForm.quantity.$error.required">
+					This field is required.</p>
+				<p class="help-block" ng-show="editForm.quantity.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block" ng-show="editForm.quantity.$error.number">
+					This field should be a number.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_total">Tổng tiền</label> <input
+				type="number" class="form-control" name="total" id="field_total"
+				ng-model="bill_service.total" required min="0" readonly="readonly"/>
+			<div ng-show="editForm.total.$invalid">
+				<p class="help-block" ng-show="editForm.total.$error.required">
+					This field is required.</p>
+				<p class="help-block" ng-show="editForm.total.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block" ng-show="editForm.total.$error.number">
+					This field should be a number.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_decription">Mô tả</label>
+			<textarea type="text" class="form-control" name="decription"
+				id="field_decription" ng-model="bill_service.decription"
+				ng-maxlength="255" ></textarea>
+			<div ng-show="editForm.decription.$invalid">
+				<p class="help-block" ng-show="editForm.decription.$error.maxlength"
+					translate-value-max="255">This field cannot be longer than 255
+					characters.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="field_currency">Đơn vị tính</label> <select
+				class="form-control" id="field_currency" name="currency"
+				ng-model="bill_service.currency" required="required" disabled="disabled"
+				ng-options="currency as currency.code for currency in currencys track by currency.id">
+				<option value=""></option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label for="field_reservation">Mã nhận trả phòng</label> <select
+				class="form-control" id="field_reservation" name="reservation"
+				ng-model="bill_service.reservation" required="required"
+				ng-options="reservation as reservation.id for reservation in reservations track by reservation.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_status_bill_service">Trạng thái</label> <select
+				class="form-control" id="field_status_bill_service"
+				name="status_bill_service"
+				ng-model="bill_service.status_bill_service"
+				ng-options="status_bill_service as status_bill_service.name for status_bill_service in status_bill_services track by status_bill_service.id">
+				<option value=""></option>
+			</select>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="clear()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+		</button>
+	</div>
+</form>

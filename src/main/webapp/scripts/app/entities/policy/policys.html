@@ -1,0 +1,88 @@
+<div>
+	<h2>Danh sách chính sách và quy định</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<button type="button" class="btn btn-sm btn-success"
+					ui-sref="policy.new">Tạo mới</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>ID</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="title"><span>Tiêu đề</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="decription"><span>Mô tả</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="start_date"><span>Ngày áp dụng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="end_date"><span>Ngày kết thúc</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+
+					<!--                     <th jh-sort-by="last_modified_date"><span>Last_modified_date</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<th jh-sort-by="kind_of_policy.name"><span>Loại CS&QD</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="type_policy.name"><span>Kiểu CS&QD</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_policy.name"><span>Trạng thái</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<!--                     <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<!--                     <th jh-sort-by="last_modified_by.login"><span>last_modified_by</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="policy in policys track by policy.id">
+					<td><a ui-sref="policy.detail({id:policy.id})">{{policy.id}}</a></td>
+					<td>{{policy.title}}</td>
+					<td>{{policy.decription}}</td>
+					<td>{{policy.start_date | date:'dd/MM/yyyy'}}</td>
+					<td>{{policy.end_date | date:'dd/MM/yyyy'}}</td>
+
+					<!-- 					<td>{{policy.last_modified_date | date:'medium'}}</td> -->
+					<td><a
+						ui-sref="kind_of_policy.detail({id:policy.kind_of_policy.id})">{{policy.kind_of_policy.name}}</a>
+					</td>
+					<td><a
+						ui-sref="type_policy.detail({id:policy.type_policy.id})">{{policy.type_policy.name}}</a>
+					</td>
+					<td><a
+						ui-sref="status_policy.detail({id:policy.status_policy.id})">{{policy.status_policy.name}}</a>
+					</td>
+					<td>{{policy.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+					<!-- 					<td>{{policy.create_by.login}}</td> -->
+					<!-- 					<td>{{policy.last_modified_by.login}}</td> -->
+					<td>
+						<button type="submit" ui-sref="policy.detail({id:policy.id})"
+							class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span>
+								View</span>
+						</button>
+						<button type="submit" ui-sref="policy.edit({id:policy.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Edit</span>
+						</button>
+						<button type="submit" ui-sref="policy.delete({id:policy.id})"
+							class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
+								Delete</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
+</div>

@@ -1,0 +1,116 @@
+
+<div>
+	<h2>
+		<span>Thông tin đăng ký </span> {{register_info.id}}
+	</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width="30%">Thông tin</th>
+					<th>Giá trị</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><span>Ngày check-in</span></td>
+					<td><span class="form-control-static">{{register_info.date_checkin
+							| date:'dd/MM/yyyy'}}</span></td>
+				</tr>
+				<tr>
+					<td><span>Ngày check-out</span></td>
+					<td><span class="form-control-static">{{register_info.date_checkout
+							| date:'dd/MM/yyyy'}}</span></td>
+				</tr>
+				<tr>
+					<td><span>Số lượng người lớn</span></td>
+					<td><span class="form-control-static">{{register_info.number_of_adult}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Số lượng trẻ em</span></td>
+					<td><span class="form-control-static">{{register_info.number_of_kid}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Yêu cầu khác</span></td>
+					<td><span class="form-control-static">{{register_info.other_request}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Giá trị đặt cọc</span></td>
+					<td><span class="form-control-static">{{register_info.deposit_value}}</span>
+					</td>
+				</tr>
+
+				<tr>
+					<td><span>Đơn vị tính</span></td>
+					<td><a class="form-control-static"
+						ui-sref="currency.detail({id:register_info.currency.id})">{{register_info.currency.code}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Mã phòng</span></td>
+					<td><a class="form-control-static"
+						ui-sref="room.detail({id:register_info.room.id})">{{register_info.room.code}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Tên khách hàng</span></td>
+					<td><a class="form-control-static"
+						ui-sref="customer.detail({id:register_info.customer.id})">{{register_info.customer.full_name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Phương thức thanh toán</span></td>
+					<td><a class="form-control-static"
+						ui-sref="method_payment.detail({id:register_info.method_payment.id})">{{register_info.method_payment.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Trạng thái thanh toán</span></td>
+					<td><a class="form-control-static"
+						ui-sref="status_payment.detail({id:register_info.status_payment.id})">{{register_info.status_payment.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Phương thức đăng ký</span></td>
+					<td><a class="form-control-static"
+						ui-sref="method_register.detail({id:register_info.method_register.id})">{{register_info.method_register.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Trạng thái đăng ký</span></td>
+					<td><a class="form-control-static"
+						ui-sref="status_register.detail({id:register_info.status_register.id})">{{register_info.status_register.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Người tạo</span></td>
+					<td>{{register_info.create_by.login}}</td>
+				</tr>
+				<tr>
+					<td><span>Ngày tạo</span></td>
+					<td><span class="form-control-static">{{register_info.create_date
+							| date:'dd/MM/yyyy hh:mm:ss'}}</span></td>
+				</tr>
+
+				<tr>
+					<td><span>Ngày sửa cuối</span></td>
+					<td>{{register_info.last_modified_by.login}}</td>
+				</tr>
+				<tr>
+					<td><span>Ngày sửa cuối</span></td>
+					<td><span class="form-control-static">{{register_info.last_modified_date
+							| date:'dd/MM/yyyy hh:mm:ss'}}</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<button type="submit" onclick="window.history.back()"
+		class="btn btn-info">
+		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span>
+			Back</span>
+	</button>
+</div>

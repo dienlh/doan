@@ -1,0 +1,119 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()"
+	show-validation>
+
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"
+			aria-hidden="true" ng-click="clear()">&times;</button>
+		<h4 class="modal-title" id="myServicesLabel">Tạo mới hoặc sửa
+			dịch vụ</h4>
+	</div>
+	<div class="modal-body">
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group hide">
+			<label for="id">ID</label> <input type="text" class="form-control"
+				id="id" name="id" ng-model="services.id" readonly />
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_name">Tên dịch vụ</label> <input
+				type="text" class="form-control" name="name" id="field_name"
+				ng-model="services.name" required ng-maxlength="255" />
+			<div ng-show="editForm.name.$invalid">
+				<p class="help-block" ng-show="editForm.name.$error.required">
+					This field is required.</p>
+				<p class="help-block" ng-show="editForm.name.$error.maxlength"
+					translate-value-max="255">This field cannot be longer than 255
+					characters.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_price">Giá dịch vụ</label> <input
+				type="number" class="form-control" name="price" id="field_price"
+				ng-model="services.price" required min="0" ng-init="services.price=0"/>
+			<div ng-show="editForm.price.$invalid">
+				<p class="help-block" ng-show="editForm.price.$error.required">
+					This field is required.</p>
+				<p class="help-block" ng-show="editForm.price.$error.min"
+					translate-value-min="0">This field should be more than 0.</p>
+				<p class="help-block" ng-show="editForm.price.$error.number">
+					This field should be a number.</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="field_decription">Mô tả</label> <input
+				type="text" class="form-control" name="decription"
+				id="field_decription" ng-model="services.decription"
+				ng-maxlength="255" />
+			<div ng-show="editForm.decription.$invalid">
+				<p class="help-block" ng-show="editForm.decription.$error.maxlength"
+					translate-value-max="255">This field cannot be longer than 255
+					characters.</p>
+			</div>
+		</div>
+		<!--         <div class="form-group"> -->
+		<!--             <label class="control-label" for="field_create_date">Create_date</label> -->
+		<!--             <input id="field_create_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="services.create_date" is-open="datePickerForCreate_date.status.opened" -->
+		<!--             required/> -->
+		<!--             <span class="input-group-btn"> -->
+		<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForCreate_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
+		<!--             </span> -->
+		<!--             <div ng-show="editForm.create_date.$invalid"> -->
+		<!--                 <p class="help-block" -->
+		<!--                     ng-show="editForm.create_date.$error.required"> -->
+		<!--                     This field is required. -->
+		<!--                 </p> -->
+		<!--                 <p class="help-block" -->
+		<!--                     ng-show="editForm.create_date.$error.ZonedDateTimelocal"> -->
+		<!--                     This field should be a date and time. -->
+		<!--                 </p> -->
+		<!--             </div> -->
+		<!--         </div> -->
+		<!--         <div class="form-group"> -->
+		<!--             <label class="control-label" for="field_last_modified_date">Last_modified_date</label> -->
+		<!--             <input id="field_last_modified_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="services.last_modified_date" is-open="datePickerForLast_modified_date.status.opened" -->
+		<!--             /> -->
+		<!--             <span class="input-group-btn"> -->
+		<!--                 <button type="button" class="btn btn-default" ng-click="datePickerForLast_modified_dateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button> -->
+		<!--             </span> -->
+		<!--         </div> -->
+
+		<div class="form-group">
+			<label for="field_currency">Đơn vị tính</label> <select
+				class="form-control" id="field_currency" name="currency"
+				ng-model="services.currency"
+				ng-options="currency as currency.code for currency in currencys track by currency.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="field_status_service">Trạng thái</label> <select
+				class="form-control" id="field_status_service" name="status_service"
+				ng-model="services.status_service"
+				ng-options="status_service as status_service.name for status_service in status_services track by status_service.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<!--         <div class="form-group"> -->
+		<!--             <label for="field_create_by">create_by</label> -->
+		<!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="services.create_by" ng-options="user as user.login for user in users track by user.id"> -->
+		<!--                 <option value=""></option> -->
+		<!--             </select> -->
+		<!--         </div> -->
+		<!--         <div class="form-group"> -->
+		<!--             <label for="field_last_modified_by">last_modified_by</label> -->
+		<!--             <select class="form-control" id="field_last_modified_by" name="last_modified_by" ng-model="services.last_modified_by" ng-options="user as user.login for user in users track by user.id"> -->
+		<!--                 <option value=""></option> -->
+		<!--             </select> -->
+		<!--         </div> -->
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal"
+			ng-click="clear()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+		</button>
+	</div>
+</form>

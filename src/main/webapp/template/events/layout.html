@@ -1,0 +1,16 @@
+<div class="services">
+	<div class="left-padding" ng-controller="eventCtrl" style="width: 208px">
+		<div class=" h4"><strong>
+			<i class="glyphicon icon-home icon text-primary-dker"></i> Tin tức & Sự kiện</strong>
+		</div>
+		<div class="panel h4">
+			<div style="margin: 5px 5px;" ui-sref-active="active"
+				ng-repeat="item in events">
+				<i class="fa fa-caret-right"></i><a
+					ui-sref="template.event.detail({id:'{{item.id}}'})">{{item.title}}</a>
+			</div>
+		</div>
+	</div>
+	<div class="service-list" ui-view></div>
+	<div class="clear"></div>
+</div>

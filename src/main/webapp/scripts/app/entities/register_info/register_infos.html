@@ -1,0 +1,99 @@
+<div  ng-init="
+  app.settings.asideFolded = true; ">
+	<h2>Danh sách thông tin đăng ký</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<form class="form-horizontal col-sm-8" ng-submit="loadAll()"
+				show-validation>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Từ ngày</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="fromDate" type="date">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Đến ngày</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="toDate" type="date">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Mã phòng</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="code">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">CMND</label>
+						<div class="col-sm-8">
+							<input class="form-control" ng-model="ipnumber">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Phương thức thanh
+							toán</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_method_payment"
+								name="method_payment" ng-model="method_payment"
+								ng-options="method_payment as method_payment.name for method_payment in method_payments track by method_payment.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Trạng thái thanh
+							toán</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_status_payment"
+								name="status_payment" ng-model="status_payment"
+								ng-options="status_payment as status_payment.name for status_payment in status_payments track by status_payment.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Phương thức đăng ký</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_method_register"
+								name="method_register" ng-model="method_register"
+								ng-options="method_register as method_register.name for method_register in method_registers track by method_register.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<label class="control-label col-sm-4">Trạng thái đăng ký</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="field_status_register"
+								name="status_register" ng-model="status_register"
+								ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id">
+								<option value="">Tất cả</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6">
+						<div class="col-lg-offset-4 col-lg-7">
+							<button type="submit" class="btn btn-sm btn-info">Tìm
+								kiếm</button>
+							<button type="button" class="btn btn-sm btn-success"
+								ng-click="exportExcel()">Xuất excel</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<table id="dg" class="table-striped"></table>
+	<div id="pp"></div>
+</div>

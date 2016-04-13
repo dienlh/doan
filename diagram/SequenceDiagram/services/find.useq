@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.ServicesResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/ServicesResourceIntTest.java" binary="false" 
+    label="servicesResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="256" y="0"/>    
+    <execution id="2">      
+      <position height="330" width="166" x="5" y="110"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.ServicesResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/ServicesResource.java" binary="false" label="servicesResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="464" y="0"/>    
+    <execution id="4">      
+      <position height="288" width="128" x="175" y="131"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="294"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="org.springframework.data.domain.Slice" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="page" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="336"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="org.springframework.http.ResponseEntity" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="377"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="com.hotel.app.service.ServicesService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ServicesService.java" binary="false" label="servicesService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="109" width="0" x="0" y="161"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.hotel.app.service.impl.ServicesServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/ServicesServiceImpl.java" binary="false" 
+    label="servicesServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="540" y="0"/>    
+    <execution id="19">      
+      <position height="63" width="140" x="427" y="186"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="com.hotel.app.repository.ServicesRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/ServicesRepository.java" binary="false" 
+    label="servicesRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="207"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAllByNameAndStatus(org.springframework.data.domain.Pageable,java.lang.String,java.lang.Long):org.springframework.http.ResponseEntity&lt;List&lt;Services&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="findAllByNameAndStatus(org.springframework.data.domain.Pageable,java.lang.String,java.lang.Long):org.springframework.data.domain.Page&lt;Services&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false" x="248" y="271">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getContent():java.util.List&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" 
+    operation="ResponseEntity(T,org.springframework.util.MultiValueMap&lt;java.lang.String,java.lang.String&gt;,org.springframework.http.HttpStatus)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="18" 
+    operation="findAllByNameAndStatus(org.springframework.data.domain.Pageable,java.lang.String,java.lang.Long):org.springframework.data.domain.Page&lt;Services&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="21" 
+    operation="findAllByNameAndStatus(org.springframework.data.domain.Pageable,java.lang.String,java.lang.Long):org.springframework.data.domain.Page&lt;Services&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>
+</sequence-diagram>

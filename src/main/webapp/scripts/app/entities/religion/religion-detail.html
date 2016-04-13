@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span>Tôn giáo : </span> {{religion.name}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Thông tin</th>
+                <th>Giá trị</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Tên tôn giáo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{religion.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Ngày tạo</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{religion.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Người tạo</span>
+                </td>
+                <td>
+                    {{religion.create_by.login}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

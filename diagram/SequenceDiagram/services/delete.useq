@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.ServicesResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/ServicesResourceIntTest.java" binary="false" 
+    label="servicesResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="320" y="0"/>    
+    <execution id="2">      
+      <position height="231" width="166" x="5" y="105"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.ServicesResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/ServicesResource.java" binary="false" label="servicesResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="540" y="0"/>    
+    <execution id="4">      
+      <position height="189" width="128" x="175" y="126"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="com.hotel.app.service.ServicesService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ServicesService.java" binary="false" label="servicesService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="0" x="0" y="147"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="273"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.service.impl.ServicesServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/ServicesServiceImpl.java" binary="false" 
+    label="servicesServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="618" y="0"/>    
+    <execution id="12">      
+      <position height="63" width="140" x="550" y="168"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="servicesRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="189"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="deleteServices(java.lang.Long):org.springframework.http.ResponseEntity&lt;Void&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="createEntityDeletionAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="11" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="15" operation="delete(ID):void" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>
+</sequence-diagram>

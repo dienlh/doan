@@ -1,0 +1,103 @@
+<div ng-controller="resultCtrl">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="">
+				<div class="panel b-a m-t">
+					<div class="panel-heading"
+						style="background-color: #511523; color: white;">Điều khoản
+						dịch vụ</div>
+					<table class="table" summary="Sample Table">
+						<tbody>
+							<tr ng-repeat="policy in policys">
+								<th scope="row" width="30%">{{policy.title}}</th>
+								<td>{{policy.decription}} <span ng-switch="policy.id"
+									class="clear"> <img src="img/visa.jpg" alt=""
+										style="width: 80px" ng-switch-when="6" /> <img
+										src="img/master.jpg" alt="" style="width: 80px"
+										ng-switch-when="6" />
+								</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="">
+				<div class="panel b-a">
+					<div class="panel-heading bg-primary">Thông tin khách hàng</div>
+					<pre class="alert alert-danger ng-binding">Lưu ý: Chúng tôi sẽ liên hệ lại cho quý khách! Xin chân thành cám ơn!</pre>
+					<div class="form-horizontal wrapper b-a">
+						<div class="form-group ">
+							<label class="col-sm-4 font-bold">Khách hàng</label>
+							<div class="col-sm-8">{{billInfo.customer.full_name}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Email</label>
+							<div class="col-sm-8">{{billInfo.customer.email}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Điện thoại</label>
+							<div class="col-sm-8">{{billInfo.customer.phone_number}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">CMTND</label>
+							<div class="col-sm-8">{{billInfo.customer.ic_passport_number}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Loại phòng</label>
+							<div class="col-sm-8">{{billInfo.room.type_room.name}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Vị trí</label>
+							<div class="col-sm-8">{{billInfo.room.orientation}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Ngày đăng ký phòng</label>
+							<div class="col-sm-8">
+								<div class="form-group">
+									<label class="col-sm-6 font-bold">Ngày nhận phòng</label>
+									<div class="col-sm-6">{{billInfo.date_checkin}}</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-6 font-bold">Ngày trả phòng</label>
+									<div class="col-sm-6">{{billInfo.date_checkin}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Thanh toán</label>
+							<div class="col-sm-8">
+								<div class="form-group">
+									<div class="col-sm-6">Phương thức thanh toán</div>
+									<div class="col-sm-6">{{billInfo.method_payment.name}}</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">Số tiền</div>
+									<div class="col-sm-6">{{billInfo.deposit_value |
+										currency:"":0}} {{billInfo.currency.code}}</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">Trạng thái thanh toán</div>
+									<div class="col-sm-6">
+										<span>{{billInfo.status_payment.name}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Trạng thái đăng ký</label>
+							<div class="col-sm-8">{{billInfo.status_register.name}}</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 font-bold">Ngày đăng ký</label>
+							<div class="col-sm-8">
+								{{billInfo.create_date | date : 'dd/MM/yyyy hh:MM:ss'}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

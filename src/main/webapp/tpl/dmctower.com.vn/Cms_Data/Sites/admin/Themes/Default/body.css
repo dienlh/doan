@@ -1,0 +1,622 @@
+.grid_8 {
+    width: 374px;
+  padding-bottom:30px;
+  padding-top:20px;
+}
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16, .grid_17, .grid_18, .grid_19, .grid_20, .grid_21, .grid_22, .grid_23, .grid_24 {
+    display: inline;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+}
+.box {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow:0 0 5px #ddd;
+  border:1px solid #ECECED;
+    min-height: 362px;
+    position: relative;
+}
+
+.box-inner {
+    color: #838383;
+    padding: 20px 19px 21px;
+}.p3 {
+    margin-bottom: 30px;
+}.box-title {
+    color: #808080;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 18px;
+    line-height: 1.222em;
+    text-transform: uppercase;
+}
+.p2 {
+    margin-bottom: 15px;
+}.box-link {
+    background: url("images/link-bg1.png")/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/link-bg1.png*/ no-repeat scroll 1px bottom rgba(0, 0, 0, 0);
+    bottom: 20px;
+    display: block;
+    left: -5px;
+    padding-bottom: 4px;
+    position: absolute;
+}.box-link a {
+    background: none repeat scroll 0 0 #0078B1;
+    color: #FFFFFF;
+    display: block;
+    padding: 4px 19px 6px;
+    text-align: center;
+    text-decoration: none;
+}
+.rc_sitepath_inner div {
+    clear: both;
+    padding-left: 20px;
+}
+
+.rc_sitepath_inner a {
+    color: #777777;
+    float: left;
+    padding: 10px 0;
+}
+
+.rc_sitepath_inner span {
+    float: left;
+    padding: 10px 0;
+}
+
+    .rc_sitepath_inner span.sep {
+        width: 20px;
+        height: 12px;
+        background: url(images/sitepath-arrow.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/sitepath-arrow.png*/ no-repeat center center;
+    }
+
+    .rc_sitepath_inner span.active {
+        font-weight: bold;
+        color: #FF0048;
+    }
+
+/*MENUBAR*/
+.rc_menubar {
+    clear: both;
+    font: normal 12px arial;
+}
+
+    .rc_menubar h4 {
+        display: block;
+        background-color: #022d42;
+        padding: 10px 20px 10px 0;
+        position: relative;
+        z-index: 0;
+    }
+
+        .rc_menubar h4 span {
+            font-weight: normal;
+            font-family: "Times New Roman";
+            font-size: 18px;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+        .rc_menubar h4 em {
+            position: absolute;
+            top: 0;
+            left: -20px;
+            bottom: -20px;
+            z-index: 0;
+            display: block;
+            width: 20px;
+            background: url(images/menu-ribbon1.jpg)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/menu-ribbon1.jpg*/ no-repeat left bottom;
+        }
+
+        .rc_menubar h4 strong {
+            display: block;
+            color: #FF0048;
+        }
+
+    .rc_menubar ul {
+        clear: both;
+        float: left;
+        width: 100%;
+        list-style: none;
+        background-color: #F9BE01;
+    }
+
+        .rc_menubar ul li {
+            clear: both;
+            float: left;
+            width: 100%;
+        }
+
+            .rc_menubar ul li.active, .rc_menubar ul li:hover {
+            }
+
+            .rc_menubar ul li a {
+                float: left;
+                padding: 8px 30px 8px 20px;
+                color: #022D42;
+            }
+
+        .rc_menubar ul > li.active > a, .rc_menubar ul > li.expand > a, .rc_menubar ul > li:hover > a {
+            font-weight: bold;
+        }
+
+    .rc_menubar li ul {
+        clear: both;
+        margin-left: 0px;
+    }
+
+    .rc_menubar ul li.sep {
+        clear: both;
+        height: 1px;
+        background: url(images/rc-menu-sep.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/rc-menu-sep.png*/ no-repeat left center;
+    }
+
+    .rc_menubar li.expand ul {
+        padding-bottom: 5px;
+    }
+
+        .rc_menubar li.expand ul, .rc_menubar li.expand ul li {
+            background: none;
+            background-position: -100px top;
+        }
+
+            .rc_menubar li.expand ul li a {
+                padding: 3px 20px 3px 20px;
+                color: #000000;
+            }
+
+            .rc_menubar li.expand ul li.active a, .rc_menubar li.expand ul li:hover a {
+                font-weight: bold;
+            }
+/*MENUBAR*/
+
+
+.rc_connectbox {
+    clear: both;
+}
+
+    .rc_connectbox ul {
+        clear: both;
+        display: block;
+        list-style: none;
+    }
+
+        .rc_connectbox ul li {
+            clear: both;
+            display: block;
+            padding: 10px 20px;
+        }
+
+    .rc_connectbox li a {
+        display: block;
+    }
+
+.rc_zoneteaser {
+    clear: both;
+    padding: 10px 0;
+    font: normal 13px arial;
+}
+
+    .rc_zoneteaser h3 {
+        clear: both;
+        display: block;
+        font: bold 13px arial;
+        padding-bottom: 30px;
+        background: url(images/zoneline.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/zoneline.png*/ no-repeat left bottom;
+    }
+
+        .rc_zoneteaser h3 span {
+            font-family: 'Times New Roman';
+            font-size: 25px;
+            font-weight: normal;
+            color: #000;
+        }
+
+    .rc_zoneteaser ul {
+        clear: both;
+        width: 100%;
+        float: left;
+        list-style: none;
+        padding: 30px 0 10px 0;
+        margin: 0;
+    }
+
+        .rc_zoneteaser ul li {
+            display: block;
+            clear: both;
+            width: 100%;
+            float: left;
+        }
+
+            .rc_zoneteaser ul li.sep {
+                clear: both;
+                height: 42px;
+                background: url(images/rc-dotline.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/rc-dotline.png*/ repeat-x center center;
+            }
+
+    .rc_zoneteaser li a.rc_avatar {
+        float: left;
+        margin-right: 15px;
+    }
+
+        .rc_zoneteaser li a.rc_avatar img {
+            float: left;
+            width: 220px;
+        }
+
+    .rc_zoneteaser li h4 {
+        padding-bottom: 10px;
+    }
+
+        .rc_zoneteaser li h4 a {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+
+    .rc_zoneteaser li p {
+        padding: 0;
+        margin: 0;
+        color: #000;
+        line-height: 1.4;
+    }
+
+        .rc_zoneteaser li p a.more {
+            margin-left: 4px;
+            text-decoration: none;
+            color: #000;
+        }
+
+.rc_zoneteaser2 {
+    clear: both;
+    padding: 10px 0;
+    font: normal 13px arial;
+}
+
+    .rc_zoneteaser2 h3 {
+        clear: both;
+        display: block;
+        font: bold 13px arial;
+        padding-bottom: 30px;
+        background: url(images/zoneline.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/zoneline.png*/ no-repeat left bottom;
+    }
+
+        .rc_zoneteaser2 h3 span {
+            font-family: 'Times New Roman';
+            font-size: 25px;
+            font-weight: normal;
+            color: #000;
+        }
+
+    .rc_zoneteaser2 ul {
+        clear: both;
+        width: 100%;
+        float: left;
+        list-style: none;
+        padding: 30px 0 10px 0;
+        margin: 0;
+    }
+
+        .rc_zoneteaser2 ul li {
+            display: block;
+            clear: both;
+            width: 350px;
+            float: left;
+        }
+
+            .rc_zoneteaser2 ul li.last {
+                float: right;
+            }
+
+            .rc_zoneteaser2 ul li.sep {
+                clear: both;
+                float: none;
+                height: 42px;
+                background: url(images/rc-zonesep2.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/rc-zonesep2.png*/ repeat-x center center;
+            }
+
+    .rc_zoneteaser2 li a.rc_avatar {
+        float: left;
+        margin-right: 15px;
+    }
+
+        .rc_zoneteaser2 li a.rc_avatar img {
+            float: left;
+            width: 220px;
+        }
+
+    .rc_zoneteaser2 li h4 {
+        padding-bottom: 10px;
+    }
+
+        .rc_zoneteaser2 li h4 a {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+
+    .rc_zoneteaser2 li p {
+        padding: 0;
+        margin: 0;
+        color: #000;
+        line-height: 1.4;
+    }
+
+        .rc_zoneteaser2 li p a.more {
+            margin-left: 4px;
+            text-decoration: none;
+            color: #000;
+        }
+
+.rc_pager {
+    clear: both;
+    padding: 10px 0;
+}
+
+/*Story*/
+.rc_story {
+    clear: both;
+    color: #000;
+    font: normal 12px arial;
+    text-align: left;
+    padding: 10px 0;
+}
+
+    .rc_story h3 {
+        clear: both;
+        display: block;
+        font: bold 13px arial;
+        padding-bottom: 0px;
+        background: url(images/storyline.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/storyline.png*/ no-repeat left bottom;
+    }
+
+        .rc_story h3 span {
+            font-family: 'Times New Roman';
+            font-size: 25px;
+            font-weight: normal;
+            color: #000;
+        }
+
+    .rc_story .time {
+        margin-left: 5px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #686868;
+        padding-top: 3px;
+    }
+
+.rc_story_content p {margin-bottom:10px;}
+.rc_story_content {
+    clear: both;
+    padding: 20px 0;
+  font-family:times new roman;
+  font-size:11.8pt;
+    line-height:23px;
+}
+
+.rc_story_avatar {
+    float: left;
+    margin-right: 10px;
+}
+
+    .rc_story_avatar img {
+        float: left;
+        width: 200px;
+    }
+
+    .rc_story_avatar span {
+        display: block;
+        padding: 5px 0;
+        color: #777777;
+    }
+
+
+.rc_story_teaser {
+    font-weight: bold;
+    line-height: 1.5;
+    padding-bottom: 20px;
+}
+
+.rc_story_body {
+    /*clear:both;*/
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+    .rc_story_body ul {
+        margin-left: 20px;
+        margin-bottom: 5px;
+    }
+
+        .rc_story_body ul li {
+        }
+
+.rc_relatedstory {
+    clear: both;
+    padding: 10px 0;
+    font: normal 12px arial;
+    color: #333333;
+}
+
+    .rc_relatedstory h4 {
+        font: bold 12px arial;
+        padding-bottom: 10px;
+    }
+
+    .rc_relatedstory ul li {
+        display: block;
+        clear: both;
+        list-style: none;
+    }
+
+    .rc_relatedstory ul li {
+        clear: both;
+        display: block;
+        padding-left: 10px;
+        background: url(images/dot.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/dot.png*/ no-repeat left center;
+        margin: 0 4px 4px 4px;
+    }
+
+        .rc_relatedstory ul li a {
+            color: #333333;
+        }
+
+        .rc_relatedstory ul li span {
+            color: #333333;
+            margin-left: 3px;
+            font-style: normal;
+        }
+
+.rc_storytools {
+    clear: both;
+    padding: 10px;
+    text-align: right;
+}
+
+    .rc_storytools a {
+        font: normal 12px arial;
+        color: #333333;
+        text-decoration: none;
+        margin-left: 10px;
+    }
+
+    .rc_storytools .email {
+        padding-left: 20px;
+        background: url(images/email.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/email.png*/ no-repeat left top;
+    }
+
+    .rc_storytools .save {
+        padding-left: 20px;
+        background: url(images/save.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/save.png*/ no-repeat left top;
+    }
+
+    .rc_storytools .print {
+        padding-left: 20px;
+        background: url(images/print.png)/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/print.png*/ no-repeat left top;
+    }
+/*End*/
+
+.zonepagefull {
+    clear: both;
+    border-top: #F1F1F1 3px solid;
+}
+
+.zonepage.clearfix {
+    clear: both;
+    width: 1150px;
+    margin: 0 auto;
+    min-height: 200px;
+    /*background: url(images/zone-left-sep.png) no-repeat 260px top;*/
+}
+
+.zonepage-l {
+    float: left;
+    width: 200px;
+    margin-left: 0px;
+    padding-top: 15px;
+  	margin-left:0;
+    padding-bottom: 15px;
+}
+
+.zonepage-r {
+    float: right;
+    width: 930px;
+    margin-right: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.sitepath h4 a {
+    color: #333333;
+    float: left;
+    padding: 3px 0;
+}
+.sitepath h3 span {
+    color: #000000;
+    float: left;
+    font-size: 24px;
+    font-weight: normal;
+    padding: 6px 0;
+}
+
+.sitepath h3 {
+    float: left;
+    margin: 0;
+    white-space: normal;
+}
+.sitepath h4 span.sep:before {
+    content: "\f101";	
+  font-family: 'FontAwesome';
+  padding:0 6px;
+    height: 15px;
+    width: 20px;
+}
+.sitepath h4 span {
+    float: left;
+    padding: 3px 0;
+}
+.sitepath h4 {
+    float: right;
+    font-weight: normal;
+    margin: 0;
+    padding: 13px 0 0;
+    white-space: normal;
+}
+
+.menubar ul li.sep {
+    background: url("../../../../../../timescity.com.vn/vi-VN/Skins/default/images/menu-sep.png")/*tpa=http://timescity.com.vn/vi-VN/Skins/default/images/menu-sep.png*/ no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 1px;
+}
+
+.sitepath {
+    border-bottom: 1px solid #FA7432;
+    clear: both;
+    color: #333333;
+    font: 12px arial;
+    padding-top: 1px;
+}
+.zonepage-l .menubar ul {/*width:auto;*/width:205px;}
+.zonepage-l .menubar ul li {
+  border-bottom:1px dotted #ccc;
+}
+.zoneteaser li {
+    clear: both;
+    float: left;
+    width: 100%;
+}.zoneteaser a.avatar_tz {
+    float: left;
+    height: 140px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 220px;
+}.zoneteaser a.avatar_tz img {
+    float: left;
+    /*height: 140px;*/ 
+  height:auto;
+    width: 220px;
+}.zoneteaser li h4 a {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}.zoneteaser li h5 {
+    color: #999999;
+    font-weight: normal;
+    padding-top: 10px;
+}.zoneteaser li h5 {
+    color: #999999;
+    font-weight: normal;
+}.zoneteaser li h5 em {
+    color: #990000;
+    font-style: normal;
+}.zoneteaser li p {
+    color: #747474;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+    padding: 10px 0 0;
+}
+
+.zoneteaser li.sep {
+    background: url("images/zoneteaser-sep.png")/*tpa=http://dmctower.com.vn/Cms_Data/Sites/admin/Themes/Default/images/zoneteaser-sep.png*/ repeat-x scroll left center rgba(0, 0, 0, 0);
+    clear: both;
+    font-size: 1px;
+    height: 41px;
+}

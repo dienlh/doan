@@ -1,0 +1,137 @@
+<div>
+	<h2>HỒ SƠ NHÂN VIÊN</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10">
+				<form class="form-inline" role="form" ng-submit="loadAll()">
+					<div class="form-group col-sm-2">
+						<input class="form-control" ng-model="full_name" type="text"
+							placeholder="Tên nhân viên">
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_position" name="position"
+							ng-model="position"
+							ng-options="position as position.position for position in positions track by position.id">
+							<option value="">Vị trí</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_department"
+							name="department" ng-model="department"
+							ng-options="department as department.name for department in departments track by department.id">
+							<option value="">Phòng ban</option>
+						</select>
+					</div>
+					<div class="form-group col-sm-2">
+						<select class="form-control" id="field_status_profile"
+							name="status_profile" ng-model="status_profile"
+							ng-options="status_profile as status_profile.name for status_profile in status_profiles track by status_profile.id">
+							<option value="">Trạng thái</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-6">
+							<div class="col-lg-offset-4 col-lg-7">
+								<button type="submit" class="btn btn-sm btn-info">Tìm
+									kiếm</button>
+							</div>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-primary" ui-sref="profile.new">
+					<span class="glyphicon glyphicon-flash"></span> <span>Tạo hồ
+						sơ</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-striped" style="width: 2300px !important">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id" width="3%"><span>STT</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="join_date"><span>Ngày gia nhập</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="salary_subsidies"><span>Lương phụ cấp</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="salary_basic"><span>Lương cơ bản</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="salary"><span>Lương chính</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="position.position"><span>Vị trí</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="department.name" width="15%"><span>Phòng
+							ban</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="employee.full_name"><span>Tên nhân viên</span>
+						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="status_profile.name"><span>Trạng thái</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="last_modified_by.login"><span>Người sửa
+							cuối</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span>
+						<span class="glyphicon glyphicon-sort"></span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="profile in profiles track by profile.id">
+					<td><a ui-sref="profile.detail({id:profile.id})">{{$index
+							+ 1}}</a></td>
+					<td>{{profile.join_date | date:'dd/MM/yyyy'}}</td>
+					<td>{{profile.salary_subsidies | currency:"":0}}</td>
+					<td>{{profile.salary_basic | currency:"":0}}</td>
+					<td>{{profile.salary | currency:"":0}}</td>
+
+					<td><a ui-sref="currency.detail({id:profile.currency.id})">{{profile.currency.code}}</a>
+					</td>
+					<td><a ui-sref="position.detail({id:profile.position.id})">{{profile.position.position}}</a>
+					</td>
+					<td><a ui-sref="department.detail({id:profile.department.id})">{{profile.department.name}}</a>
+					</td>
+					<td><a ui-sref="employee.detail({id:profile.employee.id})">{{profile.employee.full_name}}</a>
+					</td>
+					<td><a
+						ui-sref="status_profile.detail({id:profile.status_profile.id})">{{profile.status_profile.name}}</a>
+					</td>
+					<td>{{profile.create_by.login}}</td>
+					<td>{{profile.create_date | date:'dd/MM/yyyy h:mm:ss'}}</td>
+					<td>{{profile.last_modified_by.login}}</td>
+					<td>{{profile.last_modified_date | date:'dd/MM/yyyy h:mm:ss'}}</td>
+					<td>
+						<button type="submit" ui-sref="profile.detail({id:profile.id})"
+							class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span>
+								View</span>
+						</button>
+						<button type="submit" ui-sref="profile.edit({id:profile.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Edit</span>
+						</button>
+						<button type="submit" ui-sref="profile.delete({id:profile.id})"
+							class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
+								Delete</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
+</div>
