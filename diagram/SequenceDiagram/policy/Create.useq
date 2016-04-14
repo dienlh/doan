@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.PolicyResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/PolicyResourceIntTest.java" binary="false" 
+    label="policyResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="467" y="0"/>    
+    <execution id="2">      
+      <position height="525" width="150" x="5" y="111"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.PolicyResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/PolicyResource.java" binary="false" label="policyResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="403" y="0"/>    
+    <execution id="4">      
+      <position height="483" width="112" x="159" y="132"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="com.hotel.app.domain.Policy" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Policy.java" binary="false" label="policy" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="21" width="0" x="0" y="153"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="279"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="405"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="195"/>    
+    </execution>    
+    <execution id="15">      
+      <position height="21" width="0" x="0" y="573"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.hotel.app.service.PolicyService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/PolicyService.java" binary="false" label="policyService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="273" width="0" x="0" y="237"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="com.hotel.app.domain.Policy" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Policy.java" binary="false" label="result" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="531"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="com.hotel.app.service.impl.PolicyServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/PolicyServiceImpl.java" binary="false" 
+    label="policyServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="616" y="0"/>    
+    <execution id="22">      
+      <position height="231" width="124" x="708" y="258"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="321"/>    
+    </execution>  
+  </object>  
+  <object id="34" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="29">      
+      <position height="21" width="0" x="0" y="363"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="policyRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="447"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="createPolicy(com.hotel.app.domain.Policy):org.springframework.http.ResponseEntity&lt;Policy&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="createFailureAlert(java.lang.String,java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="save(com.hotel.app.domain.Policy):com.hotel.app.domain.Policy" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" 
+    operation="createEntityCreationAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="21" operation="save(com.hotel.app.domain.Policy):com.hotel.app.domain.Policy" asynchronous="false">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="25" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="26" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="setCreate_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="31" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>
+</sequence-diagram>

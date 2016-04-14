@@ -174,7 +174,7 @@ public class BillServiceImpl implements BillService {
 			bill.setTotal_vat(BigDecimal.valueOf(bill.getTotal().doubleValue() + bill.getFees_vat().doubleValue())
 					.setScale(0, BigDecimal.ROUND_HALF_DOWN));
 
-			bill.setCurrency(reservation.getRegister_info().getRoom().getCurrency());
+//			bill.setCurrency(reservation.getRegister_info().getRoom().getCurrency());
 
 			Method_payment method_payment = new Method_payment();
 			method_payment.setId(1L);

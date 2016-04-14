@@ -162,9 +162,18 @@ angular.module('hotelApp').controller(
 	   	             	},'-',{
 	   	             		iconCls: 'icon-edit',
 	   	             		handler: function(){
+	   	             			console.log($scope.Selected);
 	   	             			if(!$scope.Selected){
-	   	             				alert("Bạn chưa chọn phòng!");
+	   	             				alert("Bạn chưa chọn phiếu dịch vụ!");
 	   	             				return false;
+	   	             			}else{
+	   	             				if($scope.Selected.status_bill_service.id==1 
+	   	             						|| $scope.Selected.status_bill_service.id==4
+	   	             						|| $scope.Selected.reservation.status_reservation == 2
+	   	             						|| $scope.Selected.reservation.status_reservation == 3){
+		   	             				alert("Phiếu không được phép sửa");
+		   	             				return false;
+	   	             				}
 	   	             			}
 	   	             			$state.go('bill_service.edit',$scope.Selected);
 	   	             		}
@@ -172,10 +181,18 @@ angular.module('hotelApp').controller(
 	   	             		iconCls: 'icon-remove',
 	   	             		handler: function(){
 	   	             			if(!$scope.Selected){
-	   	             				alert("Bạn chưa chọn phòng!");
+	   	             				alert("Bạn chưa chọn phiếu dịch vụ!");
 	   	             				return false;
+	   	             			}else{
+	   	             				if($scope.Selected.status_bill_service.id==1 
+	   	             						|| $scope.Selected.status_bill_service.id==4
+	   	             						|| $scope.Selected.reservation.status_reservation == 2
+	   	             						|| $scope.Selected.reservation.status_reservation == 3){
+		   	             				alert("Phiếu không được phép xóa");
+		   	             				return false;
+	   	             				}
 	   	             			}
-	   	             		$state.go('bill_service.delete',$scope.Selected);
+	   	             			$state.go('bill_service.delete',$scope.Selected);
 	   	             		}
 	   	             	}
 	   	             	,'-',{

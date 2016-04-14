@@ -5,79 +5,94 @@
     label="roomResourceIntTest" type="class" autoSize="true">    
     <position height="-1" width="-1" x="279" y="0"/>    
     <execution id="2">      
-      <position height="590" width="149" x="5" y="85"/>    
+      <position height="590" width="149" x="5" y="330"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="189" width="149" x="5" y="121"/>    
     </execution>  
   </object>  
-  <object id="5" language="java" name="com.hotel.app.web.rest.RoomResource" project="hotel" 
+  <object id="8" language="java" name="com.hotel.app.web.rest.RoomResource" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/web/rest/RoomResource.java" binary="false" label="roomResource" 
     type="class" autoSize="true">    
     <position height="-1" width="-1" x="464" y="0"/>    
     <execution id="4">      
-      <position height="548" width="111" x="158" y="106"/>    
+      <position height="548" width="111" x="158" y="351"/>    
     </execution>    
-    <execution id="9">      
-      <position height="21" width="0" x="0" y="190"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="435"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="147" width="111" x="158" y="142"/>    
     </execution>  
   </object>  
-  <object id="14" language="java" name="com.hotel.app.domain.Room" project="hotel" 
+  <object id="19" language="java" name="com.hotel.app.domain.Room" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/domain/Room.java" binary="false" label="room" type="class" autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
-    <execution id="7">      
-      <position height="21" width="0" x="0" y="127"/>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="372"/>    
     </execution>    
-    <execution id="15">      
-      <position height="21" width="0" x="0" y="398"/>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="643"/>    
     </execution>    
-    <execution id="16">      
-      <position height="21" width="0" x="0" y="447"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="692"/>    
     </execution>  
   </object>  
-  <object id="17" language="java" name="com.hotel.app.service.RoomService" project="hotel" 
+  <object id="22" language="java" name="com.hotel.app.service.RoomService" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/service/RoomService.java" binary="false" label="roomService" 
     type="interface" autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
-    <execution id="11">      
-      <position height="337" width="0" x="0" y="221"/>    
+    <execution id="14">      
+      <position height="337" width="0" x="0" y="466"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="105" width="0" x="0" y="163"/>    
     </execution>  
   </object>  
-  <object id="20" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
-    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
-    type="class" autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="13">      
-      <position height="21" width="0" x="0" y="612"/>    
-    </execution>  
-  </object>  
-  <object id="21" language="java" name="com.hotel.app.service.impl.RoomServiceImpl" project="hotel" 
+  <object id="27" language="java" name="com.hotel.app.service.impl.RoomServiceImpl" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/service/impl/RoomServiceImpl.java" binary="false" label="roomServiceImpl" 
     type="class" autoSize="true">    
     <position height="-1" width="-1" x="567" y="0"/>    
-    <execution id="19">      
-      <position height="295" width="123" x="603" y="242"/>    
+    <execution id="24">      
+      <position height="295" width="123" x="603" y="487"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="63" width="123" x="603" y="184"/>    
     </execution>  
   </object>  
-  <object id="30" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
-    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
-    type="interface" autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="23">      
-      <position height="21" width="0" x="0" y="280"/>    
-    </execution>  
-  </object>  
-  <object id="31" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
-    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
-    type="class" autoSize="true">    
-    <position height="0" width="0" x="0" y="0"/>    
-    <execution id="25">      
-      <position height="21" width="0" x="0" y="322"/>    
-    </execution>  
-  </object>  
-  <object id="32" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+  <object id="38" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
     file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
     binary="true" label="roomRepository" type="interface" autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
+    <execution id="35">      
+      <position height="21" width="0" x="0" y="740"/>    
+    </execution>    
+    <execution id="37">      
+      <position height="21" width="0" x="0" y="205"/>    
+    </execution>  
+  </object>  
+  <object id="39" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
     <execution id="29">      
-      <position height="21" width="0" x="0" y="495"/>    
+      <position height="21" width="0" x="0" y="525"/>    
+    </execution>  
+  </object>  
+  <object id="40" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="857"/>    
+    </execution>  
+  </object>  
+  <object id="41" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="31">      
+      <position height="21" width="0" x="0" y="567"/>    
     </execution>  
   </object>  
   <message id="3" operation="updateRoom(com.hotel.app.domain.Room):org.springframework.http.ResponseEntity&lt;Room&gt;" 
@@ -85,47 +100,65 @@
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="4"/>  
   </message>  
-  <message id="6" operation="getId():java.lang.Long" asynchronous="false">    
-    <end type="SOURCE" refId="4"/>    
+  <message id="6" operation="getRoom(java.lang.Long):org.springframework.http.ResponseEntity&lt;Room&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="7"/>  
   </message>  
-  <message id="8" operation="createRoom(com.hotel.app.domain.Room):org.springframework.http.ResponseEntity&lt;Room&gt;" 
+  <message id="9" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="createRoom(com.hotel.app.domain.Room):org.springframework.http.ResponseEntity&lt;Room&gt;" 
     asynchronous="false">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="9"/>  
+    <end type="TARGET" refId="12"/>  
   </message>  
-  <message id="10" operation="save(com.hotel.app.domain.Room):com.hotel.app.domain.Room" asynchronous="false">    
+  <message id="13" operation="save(com.hotel.app.domain.Room):com.hotel.app.domain.Room" asynchronous="false">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="TARGET" refId="14"/>  
   </message>  
-  <message id="12" 
+  <message id="15" 
     operation="createEntityUpdateAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
     asynchronous="false">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="13"/>  
-  </message>  
-  <message id="18" operation="save(com.hotel.app.domain.Room):com.hotel.app.domain.Room" asynchronous="false">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="19"/>  
-  </message>  
-  <message id="22" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="23"/>  
-  </message>  
-  <message id="24" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="25"/>  
-  </message>  
-  <message id="26" operation="setLast_modified_by(com.hotel.app.domain.User):void" asynchronous="false">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="15"/>  
-  </message>  
-  <message id="27" operation="setLast_modified_date(java.time.ZonedDateTime):void" asynchronous="false">    
-    <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="16"/>  
   </message>  
-  <message id="28" operation="save(S):S" asynchronous="false">    
-    <end type="SOURCE" refId="19"/>    
+  <message id="17" operation="findOne(java.lang.Long):com.hotel.app.domain.Room" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="23" operation="save(com.hotel.app.domain.Room):com.hotel.app.domain.Room" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="findOne(java.lang.Long):com.hotel.app.domain.Room" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="28" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
     <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="setLast_modified_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="33" operation="setLast_modified_date(java.time.ZonedDateTime):void" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="34" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="findOneWithEagerRelationships(java.lang.Long):com.hotel.app.domain.Room" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="37"/>  
   </message>
 </sequence-diagram>

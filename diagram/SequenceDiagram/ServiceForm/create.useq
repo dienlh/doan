@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Bill_serviceResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Bill_serviceResourceIntTest.java" binary="false" 
+    label="bill_serviceResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="395" y="0"/>    
+    <execution id="2">      
+      <position height="525" width="182" x="5" y="312"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="147" width="182" x="5" y="138"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.ReservationResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/ReservationResource.java" binary="false" 
+    label="reservationResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="565" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="146" x="191" y="159"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="com.hotel.app.service.ReservationService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ReservationService.java" binary="false" label="reservationService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="63" width="0" x="0" y="180"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.service.impl.ReservationServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/ReservationServiceImpl.java" binary="false" 
+    label="reservationServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="901" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="158" x="479" y="201"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.web.rest.Bill_serviceResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/Bill_serviceResource.java" binary="false" 
+    label="bill_serviceResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="551" y="0"/>    
+    <execution id="4">      
+      <position height="483" width="144" x="191" y="333"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="com.hotel.app.domain.Bill_service" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill_service.java" binary="false" label="bill_service" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="354"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="480"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="21" width="0" x="0" y="606"/>    
+    </execution>  
+  </object>  
+  <object id="29" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="19">      
+      <position height="21" width="0" x="0" y="396"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="774"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="com.hotel.app.service.Bill_serviceService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_serviceService.java" binary="false" 
+    label="bill_serviceService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="273" width="0" x="0" y="438"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.hotel.app.service.impl.Bill_serviceServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/Bill_serviceServiceImpl.java" binary="false" 
+    label="bill_serviceServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="1210" y="0"/>    
+    <execution id="32">      
+      <position height="231" width="156" x="837" y="459"/>    
+    </execution>  
+  </object>  
+  <object id="42" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="36">      
+      <position height="21" width="0" x="0" y="522"/>    
+    </execution>  
+  </object>  
+  <object id="43" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="38">      
+      <position height="21" width="0" x="0" y="564"/>    
+    </execution>  
+  </object>  
+  <object id="44" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="bill_serviceRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="41">      
+      <position height="21" width="0" x="0" y="648"/>    
+    </execution>  
+  </object>  
+  <object id="45" language="java" name="com.hotel.app.domain.Bill_service" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill_service.java" binary="false" label="result" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="732"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="createBill_service(com.hotel.app.domain.Bill_service):org.springframework.http.ResponseEntity&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="getAllReservations(org.springframework.data.domain.Pageable,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Reservation&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findAllWhereBillIsNull():java.util.List&lt;Reservation&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="12" operation="findAllWhereBillIsNull():java.util.List&lt;Reservation&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="16" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" 
+    operation="createFailureAlert(java.lang.String,java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="save(com.hotel.app.domain.Bill_service):com.hotel.app.domain.Bill_service" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" 
+    operation="createEntityCreationAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="31" operation="save(com.hotel.app.domain.Bill_service):com.hotel.app.domain.Bill_service" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="34" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="35" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="setCreate_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="40" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>
+</sequence-diagram>

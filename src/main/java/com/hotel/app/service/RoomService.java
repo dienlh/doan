@@ -3,11 +3,13 @@ package com.hotel.app.service;
 import com.hotel.app.domain.Room;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -51,6 +53,10 @@ public interface RoomService {
     public List<Room> findAllAvailable(LocalDate fromDate,LocalDate toDate,Long type_room);
     
     public Room findOneByRangerTime(LocalDate fromDate,LocalDate toDate,Long room);
+    
+    public String writeFileExcel(MultipartFile file);
+    
+    public Iterator<Row> readFileExcel(String filename);
     
     public List<Room> importExcel(MultipartFile multipartFile);
     

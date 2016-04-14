@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Bill_serviceResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Bill_serviceResourceIntTest.java" binary="false" 
+    label="bill_serviceResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="315" y="0"/>    
+    <execution id="2">      
+      <position height="336" width="182" x="5" y="107"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.BillResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/BillResource.java" binary="false" label="billResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="542" y="0"/>    
+    <execution id="4">      
+      <position height="294" width="104" x="191" y="128"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="com.hotel.app.service.BillService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillService.java" binary="false" label="billService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="0" x="0" y="149"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.service.BillPDFBuilder" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillPDFBuilder.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="84" width="0" x="0" y="275"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="102" x="403" y="317"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="org.springframework.web.servlet.ModelAndView" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="380"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.service.impl.BillServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/BillServiceImpl.java" binary="false" label="billServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="613" y="0"/>    
+    <execution id="14">      
+      <position height="63" width="120" x="656" y="170"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="billRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="191"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="exportPDF(java.lang.Long):org.springframework.web.servlet.ModelAndView" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="BillPDFBuilder()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="ModelAndView(org.springframework.web.servlet.View,java.lang.String,java.lang.Object)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" 
+    operation="buildPdfDocument(java.util.Map&lt;java.lang.String,java.lang.Object&gt;,com.itextpdf.text.Document,com.itextpdf.text.pdf.PdfWriter,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="20" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>
+</sequence-diagram>

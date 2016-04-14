@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.BillResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/BillResourceIntTest.java" binary="false" 
+    label="billResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="351" y="0"/>    
+    <execution id="2">      
+      <position height="483" width="133" x="5" y="115"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="483" width="133" x="5" y="609"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.BillResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/BillResource.java" binary="false" label="billResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="644" y="0"/>    
+    <execution id="4">      
+      <position height="441" width="104" x="142" y="136"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="441" width="104" x="142" y="630"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.hotel.app.service.BillExcelBuilder" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillExcelBuilder.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="987"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="21" width="111" x="250" y="777"/>    
+    </execution>  
+  </object>  
+  <object id="34" language="java" name="org.springframework.web.servlet.ModelAndView" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="1029"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="21" width="143" x="365" y="819"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="com.hotel.app.service.BillService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillService.java" binary="false" label="billService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="157"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="105" width="0" x="0" y="367"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="105" width="0" x="0" y="651"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="105" width="0" x="0" y="861"/>    
+    </execution>  
+  </object>  
+  <object id="44" language="java" name="com.hotel.app.service.impl.BillServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/BillServiceImpl.java" binary="false" label="billServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="744" y="0"/>    
+    <execution id="37">      
+      <position height="63" width="120" x="749" y="178"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="63" width="120" x="354" y="388"/>    
+    </execution>    
+    <execution id="41">      
+      <position height="63" width="120" x="616" y="672"/>    
+    </execution>    
+    <execution id="43">      
+      <position height="63" width="120" x="616" y="882"/>    
+    </execution>  
+  </object>  
+  <object id="53" language="java" name="com.hotel.app.repository.BillRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/BillRepository.java" binary="false" label="billRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="46">      
+      <position height="21" width="0" x="0" y="199"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="21" width="0" x="0" y="409"/>    
+    </execution>    
+    <execution id="50">      
+      <position height="21" width="0" x="0" y="693"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="21" width="111" x="740" y="903"/>    
+    </execution>  
+  </object>  
+  <object id="54" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="283"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="493"/>    
+    </execution>  
+  </object>  
+  <object id="55" language="java" name="org.springframework.http.ResponseEntity" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="325"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="132" x="477" y="535"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Bill&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="exportExcel(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.web.servlet.ModelAndView" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="ResponseEntity(T,org.springframework.util.MultiValueMap&lt;java.lang.String,java.lang.String&gt;,org.springframework.http.HttpStatus)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" 
+    operation="ResponseEntity(T,org.springframework.util.MultiValueMap&lt;java.lang.String,java.lang.String&gt;,org.springframework.http.HttpStatus)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="BillExcelBuilder()" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="ModelAndView(org.springframework.web.servlet.View,java.lang.String,java.lang.Object)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="29" operation="BillExcelBuilder()" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="ModelAndView(org.springframework.web.servlet.View,java.lang.String,java.lang.Object)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="36" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="42" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="43"/>  
+  </message>  
+  <message id="45" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="52"/>  
+  </message>
+</sequence-diagram>

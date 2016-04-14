@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.UserResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/UserResourceIntTest.java" binary="false" 
+    label="userResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="362" y="0"/>    
+    <execution id="2">      
+      <position height="147" width="143" x="5" y="105"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="525" width="143" x="5" y="273"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.UserResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/UserResource.java" binary="false" label="userResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="362" y="0"/>    
+    <execution id="4">      
+      <position height="105" width="105" x="152" y="126"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="483" width="105" x="152" y="294"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.hotel.app.web.rest.dto.UserDTO" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/dto/UserDTO.java" binary="false" label="managedUserDTO" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="357"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="441"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="567"/>    
+    </execution>    
+    <execution id="28">      
+      <position height="21" width="0" x="0" y="651"/>    
+    </execution>  
+  </object>  
+  <object id="34" language="java" name="com.hotel.app.domain.User" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/User.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="399"/>    
+    </execution>  
+  </object>  
+  <object id="35" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="483"/>    
+    </execution>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="693"/>    
+    </execution>  
+  </object>  
+  <object id="36" language="java" name="com.hotel.app.domain.User" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/User.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="26">      
+      <position height="21" width="0" x="0" y="609"/>    
+    </execution>  
+  </object>  
+  <object id="37" language="java" name="com.hotel.app.service.UserService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/UserService.java" binary="false" label="userService" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="63" width="0" x="0" y="147"/>    
+    </execution>  
+  </object>  
+  <object id="40" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="39">      
+      <position height="21" width="0" x="0" y="168"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="315"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="525"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="735"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="getUser(java.lang.String):org.springframework.http.ResponseEntity&lt;ManagedUserDTO&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="updateUser(com.hotel.app.web.rest.dto.ManagedUserDTO):org.springframework.http.ResponseEntity&lt;ManagedUserDTO&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="getUserWithAuthoritiesByLogin(java.lang.String):java.util.Optional&lt;User&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="findOneByEmail(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="getEmail():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" 
+    operation="createFailureAlert(java.lang.String,java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="getLogin():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="29" 
+    operation="createFailureAlert(java.lang.String,java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="findOneById(java.lang.Long):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="38" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>
+</sequence-diagram>

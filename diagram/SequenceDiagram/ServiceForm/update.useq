@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Bill_serviceResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Bill_serviceResourceIntTest.java" binary="false" 
+    label="bill_serviceResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="430" y="0"/>    
+    <execution id="2">      
+      <position height="189" width="182" x="5" y="127"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="367" width="182" x="5" y="350"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.Bill_serviceResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/Bill_serviceResource.java" binary="false" 
+    label="bill_serviceResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="674" y="0"/>    
+    <execution id="4">      
+      <position height="147" width="144" x="191" y="148"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="325" width="144" x="191" y="371"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="455"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.domain.Bill_service" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill_service.java" binary="false" label="bill_service" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="392"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="528"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="654"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="com.hotel.app.service.Bill_serviceService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_serviceService.java" binary="false" 
+    label="bill_serviceService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="169"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="147" width="0" x="0" y="486"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="com.hotel.app.service.impl.Bill_serviceServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/Bill_serviceServiceImpl.java" binary="false" 
+    label="bill_serviceServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="878" y="0"/>    
+    <execution id="24">      
+      <position height="63" width="156" x="475" y="190"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="105" width="156" x="701" y="507"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="bill_serviceRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="29">      
+      <position height="21" width="0" x="0" y="211"/>    
+    </execution>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="570"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="getBill_service(java.lang.Long):org.springframework.http.ResponseEntity&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="updateBill_service(com.hotel.app.domain.Bill_service):org.springframework.http.ResponseEntity&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill_service" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createBill_service(com.hotel.app.domain.Bill_service):org.springframework.http.ResponseEntity&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="save(com.hotel.app.domain.Bill_service):com.hotel.app.domain.Bill_service" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" 
+    operation="createEntityUpdateAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="23" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill_service" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="save(com.hotel.app.domain.Bill_service):com.hotel.app.domain.Bill_service" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="28" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="31" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>
+</sequence-diagram>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.AccountResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/AccountResourceIntTest.java" binary="false" 
+    label="accountResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="328" y="0"/>    
+    <execution id="2">      
+      <position height="976" width="163" x="5" y="111"/>    
+    </execution>  
+  </object>  
+  <object id="13" language="java" name="com.hotel.app.web.rest.AccountResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/AccountResource.java" binary="false" label="accountResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="838" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="125" x="172" y="1045"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.security.UserDetailsService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/UserDetailsService.java" binary="false" label="userDetailsService" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="661" y="0"/>    
+    <execution id="4">      
+      <position height="231" width="132" x="172" y="132"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="com.hotel.app.service.UserService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/UserService.java" binary="false" label="userService" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="284" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="100" x="308" y="1011"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="153"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="111" x="308" y="507"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="java.util.Optional" project="hotel" 
+    file="C:/Program Files/Java/jre1.8.0_73/lib/rt.jar" binary="true" label="userFromDatabase" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="321"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="21" width="99" x="423" y="843"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="org.springframework.boot.actuate.audit.AuditEventRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/boot/spring-boot-actuator/1.3.1.RELEASE/spring-boot-actuator-1.3.1.RELEASE.jar" 
+    binary="true" label="auditEventRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="514" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="170" x="526" y="384"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="java.util.Optional" project="hotel" 
+    file="C:/Program Files/Java/jre1.8.0_73/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="32" language="java" name="com.hotel.app.domain.User" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/User.java" binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="526" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="99" x="621" y="195"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="99" x="621" y="279"/>    
+    </execution>  
+  </object>  
+  <object id="33" language="java" name="com.hotel.app.security.CustomPersistentRememberMeServices" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/CustomPersistentRememberMeServices.java" binary="false" 
+    label="customPersistentRememberMeServices" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="562" y="0"/>    
+    <execution id="8">      
+      <position height="546" width="256" x="898" y="444"/>    
+    </execution>    
+    <execution id="55">      
+      <position height="21" width="7" x="1023" y="948"/>    
+    </execution>  
+  </object>  
+  <object id="56" language="java" name="com.hotel.app.domain.PersistentToken" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/PersistentToken.java" binary="false" label="persistentToken" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="685" y="0"/>    
+    <execution id="38">      
+      <position height="21" width="116" x="1158" y="549"/>    
+    </execution>    
+    <execution id="40">      
+      <position height="21" width="116" x="1158" y="591"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="21" width="116" x="1158" y="633"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="21" width="116" x="1158" y="675"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="21" width="116" x="1158" y="717"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="21" width="116" x="1158" y="759"/>    
+    </execution>    
+    <execution id="50">      
+      <position height="21" width="116" x="1158" y="801"/>    
+    </execution>  
+  </object>  
+  <object id="57" language="java" name="org.springframework.security.core.Authentication" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/security/spring-security-core/4.0.2.RELEASE/spring-security-core-4.0.2.RELEASE.jar" 
+    binary="true" label="authentication" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="950" y="0"/>    
+    <execution id="35">      
+      <position height="21" width="149" x="1158" y="465"/>    
+    </execution>  
+  </object>  
+  <object id="58" language="java" name="com.hotel.app.repository.PersistentTokenRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/PersistentTokenRepository.java" binary="false" 
+    label="persistentTokenRepository" type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="1189" y="0"/>    
+    <execution id="53">      
+      <position height="21" width="177" x="1431" y="885"/>    
+    </execution>  
+  </object>  
+  <object id="59" language="java" name="com.hotel.app.security.UserNotActivatedException" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/UserNotActivatedException.java" binary="false" 
+    label="userNotActivatedException" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="533" y="0"/>    
+    <execution id="20">      
+      <position height="21" width="178" x="724" y="237"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="loadUserByUsername(java.lang.String):org.springframework.security.core.userdetails.UserDetails" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="add(org.springframework.boot.actuate.audit.AuditEvent):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" 
+    operation="loginSuccess(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.security.core.Authentication):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getUserWithAuthorities():com.hotel.app.domain.User" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="getAccount():org.springframework.http.ResponseEntity&lt;UserDTO&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="15" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getActivated():boolean" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="UserNotActivatedException(java.lang.String)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="getAuthorities():java.util.Set&lt;Authority&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="map(java.util.function.Function&lt;? super T,? extends U&gt;):java.util.Optional&lt;U&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="34" operation="getName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="37" operation="PersistentToken()" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="getSeries():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="setUser(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="setTokenValue(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="getTokenDate():java.time.LocalDate" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" operation="setIpAddress(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" operation="setUserAgent(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" operation="orElseThrow(java.util.function.Supplier&lt;? extends X&gt;):T" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="52" operation="saveAndFlush(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" 
+    operation="addCookie(com.hotel.app.domain.PersistentToken,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>
+</sequence-diagram>

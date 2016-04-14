@@ -26,7 +26,8 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="field_quantity">Số lượng</label> <input
-				type="number" class="form-control" name="quantity"
+				type="number" class="form-control" name="quantity" ng-change="bill_service.total=bill_service.services.price*bill_service.quantity;
+				bill_service.currency=bill_service.services.currency"
 				id="field_quantity" ng-model="bill_service.quantity" required
 				min="0" ng-init="bill_service.quantity=1"/>
 			<div ng-show="editForm.quantity.$invalid">
@@ -74,7 +75,7 @@
 		<div class="form-group">
 			<label for="field_reservation">Mã nhận trả phòng</label> <select
 				class="form-control" id="field_reservation" name="reservation"
-				ng-model="bill_service.reservation" required="required"
+				ng-model="bill_service.reservation" required="required" ng-disabled="disabled"
 				ng-options="reservation as reservation.id for reservation in reservations track by reservation.id">
 				<option value=""></option>
 			</select>

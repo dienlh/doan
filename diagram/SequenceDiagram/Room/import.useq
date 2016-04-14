@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.RoomResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/RoomResourceIntTest.java" binary="false" 
+    label="roomResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="487" y="0"/>    
+    <execution id="2">      
+      <position height="1447" width="149" x="5" y="120"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.RoomResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/RoomResource.java" binary="false" label="roomResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="836" y="0"/>    
+    <execution id="4">      
+      <position height="1405" width="111" x="158" y="141"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.service.RoomService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/RoomService.java" binary="false" label="roomService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="1363" width="0" x="0" y="162"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="com.hotel.app.service.impl.RoomServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/RoomServiceImpl.java" binary="false" label="roomServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="519" y="0"/>    
+    <execution id="10">      
+      <position height="1321" width="123" x="377" y="183"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="309"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="21" width="0" x="0" y="361"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="455"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="507"/>    
+    </execution>  
+  </object>  
+  <object id="72" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="204"/>    
+    </execution>  
+  </object>  
+  <object id="73" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="15">      
+      <position height="21" width="0" x="0" y="246"/>    
+    </execution>  
+  </object>  
+  <object id="74" language="java" name="com.hotel.app.domain.Room" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Room.java" binary="false" label="room" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="392"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="538"/>    
+    </execution>    
+    <execution id="29">      
+      <position height="21" width="0" x="0" y="580"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="21" width="0" x="0" y="622"/>    
+    </execution>    
+    <execution id="33">      
+      <position height="21" width="0" x="0" y="664"/>    
+    </execution>    
+    <execution id="35">      
+      <position height="21" width="0" x="0" y="706"/>    
+    </execution>    
+    <execution id="37">      
+      <position height="21" width="0" x="0" y="748"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="21" width="0" x="0" y="790"/>    
+    </execution>    
+    <execution id="41">      
+      <position height="21" width="0" x="0" y="832"/>    
+    </execution>    
+    <execution id="43">      
+      <position height="21" width="0" x="0" y="874"/>    
+    </execution>    
+    <execution id="45">      
+      <position height="21" width="0" x="0" y="916"/>    
+    </execution>    
+    <execution id="47">      
+      <position height="21" width="0" x="0" y="958"/>    
+    </execution>    
+    <execution id="49">      
+      <position height="21" width="0" x="0" y="1000"/>    
+    </execution>    
+    <execution id="51">      
+      <position height="21" width="0" x="0" y="1042"/>    
+    </execution>    
+    <execution id="53">      
+      <position height="21" width="0" x="0" y="1084"/>    
+    </execution>    
+    <execution id="55">      
+      <position height="21" width="0" x="0" y="1126"/>    
+    </execution>    
+    <execution id="57">      
+      <position height="21" width="0" x="0" y="1168"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="21" width="0" x="0" y="1210"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="21" width="0" x="0" y="1252"/>    
+    </execution>    
+    <execution id="63">      
+      <position height="21" width="0" x="0" y="1294"/>    
+    </execution>    
+    <execution id="65">      
+      <position height="21" width="0" x="0" y="1336"/>    
+    </execution>    
+    <execution id="67">      
+      <position height="21" width="0" x="0" y="1378"/>    
+    </execution>    
+    <execution id="69">      
+      <position height="21" width="0" x="0" y="1420"/>    
+    </execution>  
+  </object>  
+  <object id="75" language="java" name="org.springframework.data.jpa.repository.JpaRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-jpa/1.9.2.RELEASE/spring-data-jpa-1.9.2.RELEASE.jar" 
+    binary="true" label="roomRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="71">      
+      <position height="21" width="0" x="0" y="1462"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="importExcel(org.springframework.web.multipart.MultipartFile):org.springframework.http.ResponseEntity&lt;List&lt;Room&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="importExcel(org.springframework.web.multipart.MultipartFile):java.util.List&lt;Room&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="importExcel(org.springframework.web.multipart.MultipartFile):java.util.List&lt;Room&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="12" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="14" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="15"/>  
+  </message>  
+  <message id="16" operation="writeFileExcel(org.springframework.web.multipart.MultipartFile):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="readFileExcel(java.lang.String):java.util.Iterator&lt;Row&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" operation="Room()" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="convertTypeDateImportExcel(org.apache.poi.ss.usermodel.Cell):java.lang.String" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="findOneWithCode(java.lang.String):com.hotel.app.domain.Room" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="setCode(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="setKey_code(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="setTitle(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="setIs_pet(java.lang.Boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" operation="setIs_bed_kid(java.lang.Boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="setNumber_of_livingroom(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="setNumber_of_bedroom(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="setNumber_of_toilet(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="42" operation="setNumber_of_kitchen(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="43"/>  
+  </message>  
+  <message id="44" operation="setNumber_of_bathroom(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="45"/>  
+  </message>  
+  <message id="46" operation="setFloor(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="47"/>  
+  </message>  
+  <message id="48" operation="setOrientation(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="setSurface_size(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="52" operation="setMax_adults(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" operation="setMax_kids(java.lang.Integer):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>  
+  <message id="56" operation="setHourly_price(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="57"/>  
+  </message>  
+  <message id="58" operation="setDaily_price(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="59"/>  
+  </message>  
+  <message id="60" operation="setMonthly_price(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="62" operation="setType_room(com.hotel.app.domain.Type_room):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="63"/>  
+  </message>  
+  <message id="64" operation="setCurrency(com.hotel.app.domain.Currency):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="65"/>  
+  </message>  
+  <message id="66" operation="setStatus_room(com.hotel.app.domain.Status_room):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="67"/>  
+  </message>  
+  <message id="68" operation="setCreate_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="69"/>  
+  </message>  
+  <message id="70" operation="save(java.lang.Iterable&lt;S&gt;):java.util.List&lt;S&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="71"/>  
+  </message>
+</sequence-diagram>

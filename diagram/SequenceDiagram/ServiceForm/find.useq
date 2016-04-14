@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Bill_serviceResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Bill_serviceResourceIntTest.java" binary="false" 
+    label="bill_serviceResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="390" y="0"/>    
+    <execution id="2">      
+      <position height="231" width="182" x="5" y="128"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.Bill_serviceResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/Bill_serviceResource.java" binary="false" 
+    label="bill_serviceResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="397" y="0"/>    
+    <execution id="4">      
+      <position height="189" width="144" x="191" y="149"/>    
+    </execution>  
+  </object>  
+  <object id="10" language="java" name="java.time.ZonedDateTime" project="hotel" 
+    file="C:/Program Files/Java/jre1.8.0_73/lib/rt.jar" binary="true" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="11" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="296"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="com.hotel.app.service.Bill_serviceService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_serviceService.java" binary="false" 
+    label="bill_serviceService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="0" x="0" y="170"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.service.impl.Bill_serviceServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/Bill_serviceServiceImpl.java" binary="false" 
+    label="bill_serviceServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="596" y="0"/>    
+    <execution id="14">      
+      <position height="63" width="156" x="475" y="191"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="com.hotel.app.repository.Bill_serviceRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/Bill_serviceRepository.java" binary="false" 
+    label="bill_serviceRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="212"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Bill_service&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="13" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):org.springframework.data.domain.Page&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>
+</sequence-diagram>

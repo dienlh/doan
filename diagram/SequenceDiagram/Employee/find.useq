@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.EmployeeResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/EmployeeResourceIntTest.java" binary="false" 
+    label="employeeResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="316" y="0"/>    
+    <execution id="2">      
+      <position height="503" width="171" x="5" y="109"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.EmployeeResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/EmployeeResource.java" binary="false" label="employeeResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="535" y="0"/>    
+    <execution id="4">      
+      <position height="461" width="133" x="180" y="130"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.service.EmployeeService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/EmployeeService.java" binary="false" label="employeeService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="293" width="0" x="0" y="151"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="com.hotel.app.service.impl.EmployeeServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/EmployeeServiceImpl.java" binary="false" 
+    label="employeeServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="552" y="0"/>    
+    <execution id="16">      
+      <position height="251" width="145" x="442" y="172"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="73" width="0" x="0" y="214"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="org.springframework.data.repository.PagingAndSortingRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="employeeRepository1" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="245"/>    
+    </execution>  
+  </object>  
+  <object id="29" language="java" name="com.hotel.app.repository.EmployeeRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/EmployeeRepository.java" binary="false" 
+    label="employeeRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="297"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="339"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="381"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="465"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="org.springframework.data.domain.Slice" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="page" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="507"/>    
+    </execution>  
+  </object>  
+  <object id="32" language="java" name="org.springframework.http.ResponseEntity" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="549"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAllByIc_numberAndEmail(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Employee&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="findAllByIc_numberAndEmail(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getContent():java.util.List&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" 
+    operation="ResponseEntity(T,org.springframework.util.MultiValueMap&lt;java.lang.String,java.lang.String&gt;,org.springframework.http.HttpStatus)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="15" 
+    operation="findAllByIc_numberAndEmail(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="18" 
+    operation="findAll(org.springframework.data.domain.Pageable):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="20" 
+    operation="findAllByEmailContaining(org.springframework.data.domain.Pageable,java.lang.String):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" 
+    operation="findAllByIc_number(org.springframework.data.domain.Pageable,java.lang.String):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" 
+    operation="findAllByIc_numberAndEmail(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String):org.springframework.data.domain.Page&lt;Employee&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" 
+    operation="findAll(org.springframework.data.domain.Pageable):org.springframework.data.domain.Page&lt;T&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>
+</sequence-diagram>

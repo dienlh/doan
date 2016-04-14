@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.BillResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/BillResourceIntTest.java" binary="false" 
+    label="billResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="234" y="0"/>    
+    <execution id="2">      
+      <position height="2129" width="133" x="5" y="115"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="525" width="133" x="5" y="2265"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.BillResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/BillResource.java" binary="false" label="billResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="550" y="0"/>    
+    <execution id="4">      
+      <position height="2087" width="104" x="142" y="136"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="483" width="104" x="142" y="2286"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="2349"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="2727"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="com.hotel.app.domain.Bill" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill.java" binary="false" label="result" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="2685"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="com.hotel.app.service.BillService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillService.java" binary="false" label="billService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="2045" width="0" x="0" y="157"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="273" width="0" x="0" y="2391"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="com.hotel.app.service.impl.BillServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/BillServiceImpl.java" binary="false" label="billServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="424" y="0"/>    
+    <execution id="25">      
+      <position height="2003" width="120" x="354" y="178"/>    
+    </execution>    
+    <execution id="40">      
+      <position height="577" width="0" x="0" y="430"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="115" width="0" x="0" y="1080"/>    
+    </execution>    
+    <execution id="48">      
+      <position height="21" width="0" x="0" y="1268"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="231" width="120" x="580" y="2412"/>    
+    </execution>  
+  </object>  
+  <object id="131" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="124">      
+      <position height="21" width="0" x="0" y="2475"/>    
+    </execution>  
+  </object>  
+  <object id="132" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="126">      
+      <position height="21" width="0" x="0" y="2517"/>    
+    </execution>  
+  </object>  
+  <object id="133" language="java" name="com.hotel.app.service.Bill_serviceService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_serviceService.java" binary="false" 
+    label="bill_serviceService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="118">      
+      <position height="21" width="0" x="0" y="1111"/>    
+    </execution>  
+  </object>  
+  <object id="134" language="java" name="com.hotel.app.domain.Bill_service" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill_service.java" binary="false" label="bill_service" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="120">      
+      <position height="21" width="0" x="0" y="1153"/>    
+    </execution>  
+  </object>  
+  <object id="135" language="java" name="com.hotel.app.service.ReservationService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ReservationService.java" binary="false" label="reservationService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="199"/>    
+    </execution>    
+    <execution id="92">      
+      <position height="21" width="0" x="0" y="461"/>    
+    </execution>  
+  </object>  
+  <object id="136" language="java" name="com.hotel.app.domain.Register_info" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Register_info.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="100">      
+      <position height="21" width="0" x="0" y="629"/>    
+    </execution>    
+    <execution id="106">      
+      <position height="21" width="0" x="0" y="755"/>    
+    </execution>    
+    <execution id="104">      
+      <position height="21" width="99" x="717" y="713"/>    
+    </execution>    
+    <execution id="110">      
+      <position height="21" width="99" x="717" y="839"/>    
+    </execution>    
+    <execution id="60">      
+      <position height="21" width="99" x="717" y="1509"/>    
+    </execution>    
+    <execution id="82">      
+      <position height="21" width="99" x="717" y="1971"/>    
+    </execution>    
+    <execution id="88">      
+      <position height="21" width="99" x="717" y="2097"/>    
+    </execution>  
+  </object>  
+  <object id="137" language="java" name="com.hotel.app.domain.Room" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Room.java" binary="false" label="room" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="1277" y="0"/>    
+    <execution id="112">      
+      <position height="21" width="99" x="820" y="881"/>    
+    </execution>    
+    <execution id="114">      
+      <position height="21" width="99" x="820" y="923"/>    
+    </execution>    
+    <execution id="116">      
+      <position height="21" width="99" x="820" y="965"/>    
+    </execution>  
+  </object>  
+  <object id="138" language="java" name="com.hotel.app.domain.Bill" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill.java" binary="false" label="bill" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="241"/>    
+    </execution>    
+    <execution id="34">      
+      <position height="21" width="0" x="0" y="283"/>    
+    </execution>    
+    <execution id="36">      
+      <position height="21" width="0" x="0" y="325"/>    
+    </execution>    
+    <execution id="38">      
+      <position height="21" width="0" x="0" y="367"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="21" width="0" x="0" y="1017"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="21" width="0" x="0" y="1205"/>    
+    </execution>    
+    <execution id="50">      
+      <position height="21" width="0" x="0" y="1299"/>    
+    </execution>    
+    <execution id="52">      
+      <position height="21" width="0" x="0" y="1341"/>    
+    </execution>    
+    <execution id="54">      
+      <position height="21" width="0" x="0" y="1383"/>    
+    </execution>    
+    <execution id="56">      
+      <position height="21" width="0" x="0" y="1425"/>    
+    </execution>    
+    <execution id="62">      
+      <position height="21" width="0" x="0" y="1551"/>    
+    </execution>    
+    <execution id="64">      
+      <position height="21" width="0" x="0" y="1593"/>    
+    </execution>    
+    <execution id="66">      
+      <position height="21" width="0" x="0" y="1635"/>    
+    </execution>    
+    <execution id="68">      
+      <position height="21" width="0" x="0" y="1677"/>    
+    </execution>    
+    <execution id="70">      
+      <position height="21" width="0" x="0" y="1719"/>    
+    </execution>    
+    <execution id="72">      
+      <position height="21" width="0" x="0" y="1761"/>    
+    </execution>    
+    <execution id="74">      
+      <position height="21" width="0" x="0" y="1803"/>    
+    </execution>    
+    <execution id="76">      
+      <position height="21" width="0" x="0" y="1845"/>    
+    </execution>    
+    <execution id="78">      
+      <position height="21" width="0" x="0" y="1887"/>    
+    </execution>    
+    <execution id="84">      
+      <position height="21" width="0" x="0" y="2013"/>    
+    </execution>    
+    <execution id="90">      
+      <position height="21" width="0" x="0" y="2139"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="2307"/>    
+    </execution>    
+    <execution id="122">      
+      <position height="21" width="0" x="0" y="2433"/>    
+    </execution>    
+    <execution id="128">      
+      <position height="21" width="0" x="0" y="2559"/>    
+    </execution>  
+  </object>  
+  <object id="139" language="java" name="com.hotel.app.domain.Reservation" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Reservation.java" binary="false" label="reservation" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="58">      
+      <position height="21" width="0" x="0" y="1467"/>    
+    </execution>    
+    <execution id="80">      
+      <position height="21" width="0" x="0" y="1929"/>    
+    </execution>    
+    <execution id="86">      
+      <position height="21" width="0" x="0" y="2055"/>    
+    </execution>    
+    <execution id="94">      
+      <position height="21" width="0" x="0" y="503"/>    
+    </execution>    
+    <execution id="96">      
+      <position height="21" width="0" x="0" y="545"/>    
+    </execution>    
+    <execution id="98">      
+      <position height="21" width="0" x="0" y="587"/>    
+    </execution>    
+    <execution id="102">      
+      <position height="21" width="0" x="0" y="671"/>    
+    </execution>    
+    <execution id="108">      
+      <position height="21" width="0" x="0" y="797"/>    
+    </execution>  
+  </object>  
+  <object id="140" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="billRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="130">      
+      <position height="21" width="0" x="0" y="2601"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="createByReservationId(java.lang.Long):org.springframework.http.ResponseEntity&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="createBill(com.hotel.app.domain.Bill):org.springframework.http.ResponseEntity&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="createByReservationId(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createFailureAlert(java.lang.String,java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="save(com.hotel.app.domain.Bill):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" 
+    operation="createEntityCreationAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="24" operation="createByReservationId(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="save(com.hotel.app.domain.Bill):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="29" operation="findOne(java.lang.Long):com.hotel.app.domain.Reservation" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="Bill()" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="33" operation="setFees_bonus(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="setFees_other(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="36"/>  
+  </message>  
+  <message id="37" operation="setFees_room(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" operation="computingFeesRoomByReservationId(java.lang.Long):java.math.BigDecimal" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" operation="setFees_service(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" operation="computingFeesServiceByIdReservation(java.lang.Long):java.math.BigDecimal" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>  
+  <message id="45" operation="setTotal(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>  
+  <message id="47" 
+    operation="computingFeesTotal(java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal,java.math.BigDecimal):java.math.BigDecimal" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="48"/>  
+  </message>  
+  <message id="49" operation="getFees_room():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="50"/>  
+  </message>  
+  <message id="51" operation="getFees_service():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="52"/>  
+  </message>  
+  <message id="53" operation="getFees_bonus():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="54"/>  
+  </message>  
+  <message id="55" operation="getFees_other():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="56"/>  
+  </message>  
+  <message id="57" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="58"/>  
+  </message>  
+  <message id="59" operation="getDeposit_value():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="60"/>  
+  </message>  
+  <message id="61" operation="setFees_vat(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="62"/>  
+  </message>  
+  <message id="63" operation="getTotal():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="64"/>  
+  </message>  
+  <message id="65" operation="setTotal_vat(java.math.BigDecimal):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="66"/>  
+  </message>  
+  <message id="67" operation="getTotal():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="68"/>  
+  </message>  
+  <message id="69" operation="getFees_vat():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="70"/>  
+  </message>  
+  <message id="71" operation="setMethod_payment(com.hotel.app.domain.Method_payment):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="72"/>  
+  </message>  
+  <message id="73" operation="setStatus_payment(com.hotel.app.domain.Status_payment):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="74"/>  
+  </message>  
+  <message id="75" operation="setStatus_bill(com.hotel.app.domain.Status_bill):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="76"/>  
+  </message>  
+  <message id="77" operation="setCurrency(com.hotel.app.domain.Currency):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="78"/>  
+  </message>  
+  <message id="79" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="80"/>  
+  </message>  
+  <message id="81" operation="getCurrency():com.hotel.app.domain.Currency" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="82"/>  
+  </message>  
+  <message id="83" operation="setCustomer(com.hotel.app.domain.Customer):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="84"/>  
+  </message>  
+  <message id="85" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="86"/>  
+  </message>  
+  <message id="87" operation="getCustomer():com.hotel.app.domain.Customer" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="88"/>  
+  </message>  
+  <message id="89" operation="setReservation(com.hotel.app.domain.Reservation):void" asynchronous="false">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="90"/>  
+  </message>  
+  <message id="91" operation="findOne(java.lang.Long):com.hotel.app.domain.Reservation" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="92"/>  
+  </message>  
+  <message id="93" operation="getTime_checkout():java.time.ZonedDateTime" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="94"/>  
+  </message>  
+  <message id="95" operation="getTime_checkin():java.time.ZonedDateTime" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="96"/>  
+  </message>  
+  <message id="97" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="98"/>  
+  </message>  
+  <message id="99" operation="getDate_checkout():java.time.LocalDate" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="100"/>  
+  </message>  
+  <message id="101" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="102"/>  
+  </message>  
+  <message id="103" operation="getDate_checkin():java.time.LocalDate" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="104"/>  
+  </message>  
+  <message id="105" operation="equals(java.lang.Object):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="106"/>  
+  </message>  
+  <message id="107" operation="getRegister_info():com.hotel.app.domain.Register_info" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="108"/>  
+  </message>  
+  <message id="109" operation="getRoom():com.hotel.app.domain.Room" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="110"/>  
+  </message>  
+  <message id="111" operation="getHourly_price():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="112"/>  
+  </message>  
+  <message id="113" operation="getDaily_price():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="114"/>  
+  </message>  
+  <message id="115" operation="getMonthly_price():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="116"/>  
+  </message>  
+  <message id="117" operation="findAllByReservationId(java.lang.Long):java.util.List&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="118"/>  
+  </message>  
+  <message id="119" operation="getTotal():java.math.BigDecimal" asynchronous="false">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="120"/>  
+  </message>  
+  <message id="121" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="122"/>  
+  </message>  
+  <message id="123" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="124"/>  
+  </message>  
+  <message id="125" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="126"/>  
+  </message>  
+  <message id="127" operation="setCreate_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="128"/>  
+  </message>  
+  <message id="129" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="130"/>  
+  </message>
+</sequence-diagram>

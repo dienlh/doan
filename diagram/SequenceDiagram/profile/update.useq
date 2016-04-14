@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.ProfileResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/ProfileResourceIntTest.java" binary="false" 
+    label="profileResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="371" y="0"/>    
+    <execution id="2">      
+      <position height="189" width="153" x="5" y="99"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="745" width="153" x="5" y="330"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.ProfileResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/ProfileResource.java" binary="false" label="profileResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="580" y="0"/>    
+    <execution id="4">      
+      <position height="147" width="115" x="162" y="120"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="703" width="115" x="162" y="351"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="435"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.domain.Profile" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Profile.java" binary="false" label="profile" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="372"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="508"/>    
+    </execution>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="634"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="676"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="718"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="802"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="886"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="1012"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="com.hotel.app.service.ProfileService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ProfileService.java" binary="false" label="profileService" 
+    type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="779" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="141"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="525" width="0" x="0" y="466"/>    
+    </execution>  
+  </object>  
+  <object id="32" language="java" name="com.hotel.app.service.impl.ProfileServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/ProfileServiceImpl.java" binary="false" 
+    label="profileServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="732" y="0"/>    
+    <execution id="29">      
+      <position height="63" width="127" x="388" y="162"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="483" width="127" x="614" y="487"/>    
+    </execution>  
+  </object>  
+  <object id="47" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="37">      
+      <position height="21" width="0" x="0" y="550"/>    
+    </execution>  
+  </object>  
+  <object id="48" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="39">      
+      <position height="21" width="0" x="0" y="592"/>    
+    </execution>  
+  </object>  
+  <object id="49" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="profileRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="34">      
+      <position height="21" width="0" x="0" y="183"/>    
+    </execution>    
+    <execution id="46">      
+      <position height="21" width="0" x="0" y="928"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="getProfile(java.lang.Long):org.springframework.http.ResponseEntity&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="updateProfile(com.hotel.app.domain.Profile):org.springframework.http.ResponseEntity&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findOne(java.lang.Long):com.hotel.app.domain.Profile" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createProfile(com.hotel.app.domain.Profile):org.springframework.http.ResponseEntity&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="save(com.hotel.app.domain.Profile):com.hotel.app.domain.Profile" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" 
+    operation="createEntityUpdateAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="28" operation="findOne(java.lang.Long):com.hotel.app.domain.Profile" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="save(com.hotel.app.domain.Profile):com.hotel.app.domain.Profile" asynchronous="false">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="33" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="34"/>  
+  </message>  
+  <message id="35" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="36" operation="findOneByLogin(java.lang.String):java.util.Optional&lt;User&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="getCurrentUser():org.springframework.security.core.userdetails.User" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="setLast_modified_by(com.hotel.app.domain.User):void" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="41" operation="setLast_modified_date(java.time.ZonedDateTime):void" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="42" operation="getStatus_profile():com.hotel.app.domain.Status_profile" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="43" operation="getStatus_profile():com.hotel.app.domain.Status_profile" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="44" operation="setLeave_date(java.time.LocalDate):void" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="45" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="46"/>  
+  </message>
+</sequence-diagram>

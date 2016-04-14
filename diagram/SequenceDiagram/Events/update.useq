@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.EventResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/EventResourceIntTest.java" binary="false" 
+    label="eventResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="310" y="0"/>    
+    <execution id="2">      
+      <position height="240" width="147" x="5" y="99"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="231" width="147" x="5" y="351"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.EventResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/EventResource.java" binary="false" label="eventResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="550" y="0"/>    
+    <execution id="4">      
+      <position height="198" width="109" x="156" y="120"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="189" width="109" x="156" y="372"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="519"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="com.hotel.app.service.EventService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/EventService.java" binary="false" label="eventService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="192"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="105" width="0" x="0" y="393"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="com.hotel.app.service.impl.EventServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/EventServiceImpl.java" binary="false" label="eventServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="752" y="0"/>    
+    <execution id="18">      
+      <position height="63" width="121" x="699" y="213"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="63" width="121" x="496" y="414"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="eventRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="23">      
+      <position height="21" width="0" x="0" y="234"/>    
+    </execution>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="435"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="getEvent(java.lang.Long):org.springframework.http.ResponseEntity&lt;Event&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="deleteEvent(java.lang.Long):org.springframework.http.ResponseEntity&lt;Void&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findOne(java.lang.Long):com.hotel.app.domain.Event" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createEntityDeletionAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="17" operation="findOne(java.lang.Long):com.hotel.app.domain.Event" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="22" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="24" operation="delete(ID):void" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>
+</sequence-diagram>

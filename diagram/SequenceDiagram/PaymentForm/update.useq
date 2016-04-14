@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.BillResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/BillResourceIntTest.java" binary="false" 
+    label="billResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="378" y="0"/>    
+    <execution id="2">      
+      <position height="189" width="133" x="5" y="110"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="315" width="133" x="5" y="336"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.BillResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/BillResource.java" binary="false" label="billResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="593" y="0"/>    
+    <execution id="4">      
+      <position height="147" width="104" x="142" y="131"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="273" width="104" x="142" y="357"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.domain.Bill" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Bill.java" binary="false" label="bill" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="420"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="0" x="0" y="462"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="588"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.service.BillService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/BillService.java" binary="false" label="billService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="152"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="189" width="0" x="0" y="378"/>    
+    </execution>  
+  </object>  
+  <object id="24" language="java" name="com.hotel.app.service.impl.BillServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/BillServiceImpl.java" binary="false" label="billServiceImpl" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="511" y="0"/>    
+    <execution id="21">      
+      <position height="63" width="120" x="354" y="173"/>    
+    </execution>    
+    <execution id="23">      
+      <position height="147" width="120" x="580" y="399"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="billRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="26">      
+      <position height="21" width="0" x="0" y="194"/>    
+    </execution>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="504"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="getBill(java.lang.Long):org.springframework.http.ResponseEntity&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="updateBill(com.hotel.app.domain.Bill):org.springframework.http.ResponseEntity&lt;Bill&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="save(com.hotel.app.domain.Bill):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createEntityUpdateAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="20" operation="findOne(java.lang.Long):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>  
+  <message id="22" operation="save(com.hotel.app.domain.Bill):com.hotel.app.domain.Bill" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="23"/>  
+  </message>  
+  <message id="25" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" operation="getId():java.lang.Long" asynchronous="false">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="28" operation="setStatus_bill(com.hotel.app.domain.Status_bill):void" asynchronous="false">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="29" operation="save(S):S" asynchronous="false">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>
+</sequence-diagram>

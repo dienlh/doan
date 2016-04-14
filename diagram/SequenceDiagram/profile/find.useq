@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.ProfileResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/ProfileResourceIntTest.java" binary="false" 
+    label="profileResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="321" y="0"/>    
+    <execution id="2">      
+      <position height="315" width="153" x="5" y="104"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.ProfileResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/ProfileResource.java" binary="false" label="profileResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="529" y="0"/>    
+    <execution id="4">      
+      <position height="273" width="115" x="162" y="125"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="21" width="0" x="0" y="272"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="org.springframework.data.domain.Slice" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="page" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="314"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="org.springframework.http.ResponseEntity" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="13">      
+      <position height="21" width="0" x="0" y="356"/>    
+    </execution>  
+  </object>  
+  <object id="17" language="java" name="com.hotel.app.service.ProfileService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/ProfileService.java" binary="false" label="profileService" 
+    type="interface" autoSize="true">    
+    <position height="-1" width="-1" x="789" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="0" x="0" y="146"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.hotel.app.service.impl.ProfileServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/ProfileServiceImpl.java" binary="false" 
+    label="profileServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="628" y="0"/>    
+    <execution id="19">      
+      <position height="63" width="127" x="797" y="167"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="com.hotel.app.repository.ProfileRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/ProfileRepository.java" binary="false" label="profileRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="188"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Profile&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="findByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String):org.springframework.data.domain.Page&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="getContent():java.util.List&lt;T&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" 
+    operation="ResponseEntity(T,org.springframework.util.MultiValueMap&lt;java.lang.String,java.lang.String&gt;,org.springframework.http.HttpStatus)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>  
+  <message id="18" 
+    operation="findByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String):org.springframework.data.domain.Page&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="21" 
+    operation="findByMultiAttr(org.springframework.data.domain.Pageable,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String):org.springframework.data.domain.Page&lt;Profile&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>
+</sequence-diagram>

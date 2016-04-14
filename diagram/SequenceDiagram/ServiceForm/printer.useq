@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Bill_serviceResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Bill_serviceResourceIntTest.java" binary="false" 
+    label="bill_serviceResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="263" y="0"/>    
+    <execution id="2">      
+      <position height="354" width="182" x="5" y="112"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="com.hotel.app.web.rest.Bill_serviceResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/Bill_serviceResource.java" binary="false" 
+    label="bill_serviceResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="474" y="0"/>    
+    <execution id="4">      
+      <position height="312" width="144" x="191" y="133"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="com.hotel.app.service.Bill_serviceService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_serviceService.java" binary="false" 
+    label="bill_serviceService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="7">      
+      <position height="105" width="0" x="0" y="154"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.service.Bill_servicePDFBuilder" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Bill_servicePDFBuilder.java" binary="false" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="9">      
+      <position height="84" width="0" x="0" y="280"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="21" width="151" x="475" y="322"/>    
+    </execution>  
+  </object>  
+  <object id="18" language="java" name="org.springframework.web.servlet.ModelAndView" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="403"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="com.hotel.app.service.impl.Bill_serviceServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/Bill_serviceServiceImpl.java" binary="false" 
+    label="bill_serviceServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="679" y="0"/>    
+    <execution id="14">      
+      <position height="63" width="156" x="777" y="175"/>    
+    </execution>  
+  </object>  
+  <object id="22" language="java" name="com.hotel.app.repository.Bill_serviceRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/Bill_serviceRepository.java" binary="false" 
+    label="bill_serviceRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="21">      
+      <position height="21" width="0" x="0" y="196"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="exportPDF(java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.web.servlet.ModelAndView" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="Bill_servicePDFBuilder()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="ModelAndView(org.springframework.web.servlet.View,java.lang.String,java.lang.Object)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" 
+    operation="buildPdfDocument(java.util.Map&lt;java.lang.String,java.lang.Object&gt;,com.itextpdf.text.Document,com.itextpdf.text.pdf.PdfWriter,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="20" 
+    operation="findAllByMultiAttr(java.lang.Long,java.lang.Long,java.lang.Long,java.time.ZonedDateTime,java.time.ZonedDateTime):java.util.List&lt;Bill_service&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </message>
+</sequence-diagram>

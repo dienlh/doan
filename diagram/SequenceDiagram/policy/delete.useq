@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.PolicyResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/PolicyResourceIntTest.java" binary="false" 
+    label="policyResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="429" y="0"/>    
+    <execution id="2">      
+      <position height="189" width="150" x="5" y="111"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="231" width="150" x="5" y="334"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.PolicyResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/PolicyResource.java" binary="false" label="policyResource" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="643" y="0"/>    
+    <execution id="4">      
+      <position height="147" width="112" x="159" y="132"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="189" width="112" x="159" y="355"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="com.hotel.app.service.PolicyService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/PolicyService.java" binary="false" label="policyService" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="153"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="105" width="0" x="0" y="376"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="com.hotel.app.service.impl.PolicyServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/PolicyServiceImpl.java" binary="false" 
+    label="policyServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="573" y="0"/>    
+    <execution id="17">      
+      <position height="63" width="124" x="379" y="174"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="63" width="124" x="379" y="397"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" label="userRepository" 
+    type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="26" language="java" name="com.hotel.app.security.SecurityUtils" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/security/SecurityUtils.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="27" language="java" name="org.springframework.data.repository.CrudRepository" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/data/spring-data-commons/1.11.2.RELEASE/spring-data-commons-1.11.2.RELEASE.jar" 
+    binary="true" label="policyRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="195"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="418"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="com.hotel.app.domain.Policy" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/domain/Policy.java" binary="false" label="policy" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>  
+  </object>  
+  <object id="29" language="java" name="com.hotel.app.web.rest.util.HeaderUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/HeaderUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="502"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="getPolicy(java.lang.Long):org.springframework.http.ResponseEntity&lt;Policy&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="deletePolicy(java.lang.Long):org.springframework.http.ResponseEntity&lt;Void&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" operation="findOne(java.lang.Long):com.hotel.app.domain.Policy" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="createEntityDeletionAlert(java.lang.String,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="16" operation="findOne(java.lang.Long):com.hotel.app.domain.Policy" asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </message>  
+  <message id="18" operation="delete(java.lang.Long):void" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="21" operation="findOne(ID):T" asynchronous="false">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="delete(ID):void" asynchronous="false">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>
+</sequence-diagram>

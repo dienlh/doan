@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="PNG">  
+  <object id="1" language="java" name="com.hotel.app.web.rest.Register_infoResourceIntTest" project="hotel" 
+    file="/hotel/src/test/java/com/hotel/app/web/rest/Register_infoResourceIntTest.java" binary="false" 
+    label="register_infoResourceIntTest" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="273" y="0"/>    
+    <execution id="2">      
+      <position height="399" width="192" x="5" y="78"/>    
+    </execution>    
+    <execution id="5">      
+      <position height="399" width="192" x="5" y="497"/>    
+    </execution>  
+  </object>  
+  <object id="8" language="java" name="com.hotel.app.web.rest.Register_infoResource" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/Register_infoResource.java" binary="false" 
+    label="register_infoResource" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="514" y="0"/>    
+    <execution id="4">      
+      <position height="357" width="154" x="201" y="99"/>    
+    </execution>    
+    <execution id="7">      
+      <position height="357" width="154" x="201" y="518"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="com.hotel.app.service.Register_infoExcelBuilder" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Register_infoExcelBuilder.java" binary="false" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="791"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="org.springframework.web.servlet.ModelAndView" project="hotel" 
+    file="C:/Users/lehuu/.m2/repository/org/springframework/spring-webmvc/4.2.4.RELEASE/spring-webmvc-4.2.4.RELEASE.jar" 
+    binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="833"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="com.hotel.app.service.Register_infoService" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/Register_infoService.java" binary="false" 
+    label="register_infoService" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="105" width="0" x="0" y="120"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="105" width="0" x="0" y="288"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="105" width="0" x="0" y="539"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="105" width="0" x="0" y="665"/>    
+    </execution>  
+  </object>  
+  <object id="36" language="java" name="com.hotel.app.service.impl.Register_infoServiceImpl" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/service/impl/Register_infoServiceImpl.java" binary="false" 
+    label="register_infoServiceImpl" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="558" y="0"/>    
+    <execution id="29">      
+      <position height="63" width="166" x="505" y="141"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="63" width="166" x="505" y="309"/>    
+    </execution>    
+    <execution id="35">      
+      <position height="63" width="166" x="1010" y="686"/>    
+    </execution>    
+    <execution id="33">      
+      <position height="63" width="166" x="1010" y="560"/>    
+    </execution>  
+  </object>  
+  <object id="45" language="java" name="com.hotel.app.repository.Register_infoRepository" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/repository/Register_infoRepository.java" binary="false" 
+    label="register_infoRepository" type="interface" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="38">      
+      <position height="21" width="0" x="0" y="162"/>    
+    </execution>    
+    <execution id="40">      
+      <position height="21" width="0" x="0" y="330"/>    
+    </execution>    
+    <execution id="42">      
+      <position height="21" width="0" x="0" y="707"/>    
+    </execution>    
+    <execution id="44">      
+      <position height="21" width="0" x="0" y="581"/>    
+    </execution>  
+  </object>  
+  <object id="46" language="java" name="com.hotel.app.web.rest.util.PaginationUtil" project="hotel" 
+    file="/hotel/src/main/java/com/hotel/app/web/rest/util/PaginationUtil.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="246"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="414"/>    
+    </execution>  
+  </object>  
+  <message id="3" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.http.ResponseEntity&lt;List&lt;Register_info&gt;&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" 
+    operation="exportExcel(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.String,java.lang.String):org.springframework.web.servlet.ModelAndView" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="9" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" 
+    operation="generatePaginationHttpHeaders(org.springframework.data.domain.Page&lt;?&gt;,java.lang.String):org.springframework.http.HttpHeaders" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="Register_infoExcelBuilder()" asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="ModelAndView(org.springframework.web.servlet.View,java.lang.String,java.lang.Object)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="28" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="37" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="38"/>  
+  </message>  
+  <message id="39" 
+    operation="findAllByMultiAttr(org.springframework.data.domain.Pageable,java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):org.springframework.data.domain.Page&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="40"/>  
+  </message>  
+  <message id="41" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long,java.time.LocalDate,java.time.LocalDate):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="42"/>  
+  </message>  
+  <message id="43" 
+    operation="findAllByMultiAttr(java.lang.String,java.lang.String,java.lang.Long,java.lang.Long,java.lang.Long,java.lang.Long):java.util.List&lt;Register_info&gt;" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="44"/>  
+  </message>
+</sequence-diagram>

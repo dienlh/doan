@@ -199,7 +199,7 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Override
-	public List<Room> importExcel(MultipartFile file) {
+	public String writeFileExcel(MultipartFile file) {
 		String fileName = null;
 		if (!file.isEmpty()) {
 			try {
@@ -211,20 +211,64 @@ public class RoomServiceImpl implements RoomService {
 
 				User user = new User();
 				user.setId(optional.get().getId());
-				String fileSave = "E:/" + DateTime.now().getMillis() + fileName;
+				fileName = "E:/" + DateTime.now().getMillis() + fileName;
 
 				byte[] bytes = file.getBytes();
-				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(fileSave)));
+				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(fileName)));
 				buffStream.write(bytes);
 				buffStream.close();
-				List<Room> list = new ArrayList<Room>();
-				log.debug("Upload file in " + fileSave);
-				try {
-					POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fileSave));
-					HSSFWorkbook wb = new HSSFWorkbook(fs);
-					HSSFSheet sheet = wb.getSheetAt(0);
-					Iterator<Row> iterator = sheet.iterator();
+			} catch (Exception e) {
+				return null;
+			}
+		}
+		return fileName;
+	}
+	
+	@Override
+	public Iterator<Row> readFileExcel(String fileName) {
+		Iterator<Row> iterator = null;
+		try{
+			POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fileName));
+			HSSFWorkbook wb = new HSSFWorkbook(fs);
+			HSSFSheet sheet = wb.getSheetAt(0);
+			iterator = sheet.iterator();
+			wb.close();
+		}catch (Exception ioe) {
+			ioe.printStackTrace();
+		}
+		
 
+		return iterator;
+	}
+	
+	@Override
+	public List<Room> importExcel(MultipartFile file) {
+		String fileName = null;
+		if (!file.isEmpty()) {
+			try {
+//				fileName = file.getOriginalFilename();
+//				ZonedDateTime date = ZonedDateTime.now();
+//
+				Optional<ManagedUserDTO> optional = userRepository
+						.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).map(ManagedUserDTO::new);
+
+				User user = new User();
+				user.setId(optional.get().getId());
+//				String fileSave = "E:/" + DateTime.now().getMillis() + fileName;
+//
+//				byte[] bytes = file.getBytes();
+//				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(new File(fileSave)));
+//				buffStream.write(bytes);
+//				buffStream.close();
+				List<Room> list = new ArrayList<Room>();
+//				log.debug("Upload file in " + fileSave);
+				fileName = writeFileExcel(file);
+				try {
+//					POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fileName));
+//					HSSFWorkbook wb = new HSSFWorkbook(fs);
+//					HSSFSheet sheet = wb.getSheetAt(0);
+//					Iterator<Row> iterator = sheet.iterator();
+					Iterator<Row> iterator = readFileExcel(fileName);
 					while (iterator.hasNext()) {
 						Row nextRow = iterator.next();
 						if (nextRow.getRowNum() == 0) {
@@ -233,111 +277,114 @@ public class RoomServiceImpl implements RoomService {
 						Iterator<Cell> cellIterator = nextRow.cellIterator();
 						Room room = new Room();
 						Boolean checkAvailable = false;
-						while (cellIterator.hasNext()) {
+						try{
+							while (cellIterator.hasNext()) {
+								if (checkAvailable == true) {
+									break;
+								}
+								Cell cell = cellIterator.next();
+								int index = cell.getColumnIndex();
+								String data = convertTypeDateImportExcel(cell);
+								switch (index) {
+								case 1:
+									if (findOneWithCode(data) == null) {
+										room.setCode(data);
+									} else {
+										checkAvailable = true;
+									}
+									break;
+								case 2:
+									room.setKey_code(data);
+									break;
+								case 3:
+									room.setTitle((data));
+									break;
+								case 4:
+									room.setIs_pet(Boolean.valueOf(data));
+									break;
+								case 5:
+									room.setIs_bed_kid(Boolean.valueOf(data));
+									break;
+								case 6:
+									room.setNumber_of_livingroom(Double.valueOf(data).intValue());
+									break;
+								case 7:
+									room.setNumber_of_bedroom(Double.valueOf(data).intValue());
+									break;
+								case 8:
+									room.setNumber_of_toilet(Double.valueOf(data).intValue());
+									break;
+								case 9:
+									room.setNumber_of_kitchen(Double.valueOf(data).intValue());
+									break;
+								case 10:
+									room.setNumber_of_bathroom(Double.valueOf(data).intValue());
+									break;
+								case 11:
+									room.setFloor(data);
+									break;
+								case 12:
+									room.setOrientation(data);
+									break;
+								case 13:
+									room.setSurface_size(data);
+									break;
+								case 14:
+									room.setMax_adults(Double.valueOf(data).intValue());
+									break;
+								case 15:
+									room.setMax_kids(Double.valueOf(data).intValue());
+									break;
+								case 16:
+									room.setHourly_price(BigDecimal.valueOf(Double.valueOf(data)));
+									break;
+								case 17:
+									room.setDaily_price(BigDecimal.valueOf(Double.valueOf(data)));
+									break;
+								case 18:
+									room.setMonthly_price(BigDecimal.valueOf(Double.valueOf(data)));
+									break;
+								case 19:
+									Type_room type_room = type_roomService.findByName(data);
+									if (type_room == null) {
+										type_room = new Type_room();
+										type_room.setName(data);
+										type_room = type_roomRepository.save(type_room);
+									}
+									room.setType_room(type_room);
+									break;
+								case 20:
+									Currency currency = currencyService.findByCode(data);
+									if (currency == null) {
+										currency = new Currency();
+										currency.setCode(data);
+										currency = currencyRepository.save(currency);
+									}
+									room.setCurrency(currency);
+									break;
+								case 21:
+									Status_room status_room = status_roomService.findByName(data);
+									if (status_room == null) {
+										status_room = new Status_room();
+										status_room.setName(data);
+										status_room = status_roomRepository.save(status_room);
+									}
+									room.setStatus_room(status_room);
+									break;
+								default:
+									break;
+								}
+							}
 							if (checkAvailable == true) {
-								break;
+								continue;
+							} else {
+								room.setCreate_by(user);
+								list.add(room);
 							}
-							Cell cell = cellIterator.next();
-							int index = cell.getColumnIndex();
-							String data = convertTypeDateImportExcel(cell);
-							switch (index) {
-							case 1:
-								if (findOneWithCode(data) == null) {
-									room.setCode(data);
-								} else {
-									checkAvailable = true;
-								}
-								break;
-							case 2:
-								room.setKey_code(data);
-								break;
-							case 3:
-								room.setTitle((data));
-								break;
-							case 4:
-								room.setIs_pet(Boolean.valueOf(data));
-								break;
-							case 5:
-								room.setIs_bed_kid(Boolean.valueOf(data));
-								break;
-							case 6:
-								room.setNumber_of_livingroom(Double.valueOf(data).intValue());
-								break;
-							case 7:
-								room.setNumber_of_bedroom(Double.valueOf(data).intValue());
-								break;
-							case 8:
-								room.setNumber_of_toilet(Double.valueOf(data).intValue());
-								break;
-							case 9:
-								room.setNumber_of_kitchen(Double.valueOf(data).intValue());
-								break;
-							case 10:
-								room.setNumber_of_bathroom(Double.valueOf(data).intValue());
-								break;
-							case 11:
-								room.setFloor(data);
-								break;
-							case 12:
-								room.setOrientation(data);
-								break;
-							case 13:
-								room.setSurface_size(data);
-								break;
-							case 14:
-								room.setMax_adults(Double.valueOf(data).intValue());
-								break;
-							case 15:
-								room.setMax_kids(Double.valueOf(data).intValue());
-								break;
-							case 16:
-								room.setHourly_price(BigDecimal.valueOf(Double.valueOf(data)));
-								break;
-							case 17:
-								room.setDaily_price(BigDecimal.valueOf(Double.valueOf(data)));
-								break;
-							case 18:
-								room.setMonthly_price(BigDecimal.valueOf(Double.valueOf(data)));
-								break;
-							case 19:
-								Type_room type_room = type_roomService.findByName(data);
-								if (type_room == null) {
-									type_room = new Type_room();
-									type_room.setName(data);
-									type_room = type_roomRepository.save(type_room);
-								}
-								room.setType_room(type_room);
-								break;
-							case 20:
-								Currency currency = currencyService.findByCode(data);
-								if (currency == null) {
-									currency = new Currency();
-									currency.setCode(data);
-									currency = currencyRepository.save(currency);
-								}
-								room.setCurrency(currency);
-								break;
-							case 21:
-								Status_room status_room = status_roomService.findByName(data);
-								if (status_room == null) {
-									status_room = new Status_room();
-									status_room.setName(data);
-									status_room = status_roomRepository.save(status_room);
-								}
-								room.setStatus_room(status_room);
-								break;
-							default:
-								break;
-							}
-						}
-						if (checkAvailable == true) {
+						}catch(Exception e){
 							continue;
-						} else {
-							room.setCreate_by(user);
-							list.add(room);
 						}
 					}
-					wb.close();
 					log.debug(list + "");
 					roomRepository.save(list);
 				} catch (Exception ioe) {
