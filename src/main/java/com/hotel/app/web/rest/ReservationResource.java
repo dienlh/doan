@@ -1,7 +1,10 @@
 package com.hotel.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.hotel.app.domain.Bill_service;
 import com.hotel.app.domain.Reservation;
+import com.hotel.app.service.Bill_servicePDFBuilder;
+import com.hotel.app.service.ReservationPDFBuilder;
 import com.hotel.app.service.ReservationService;
 import com.hotel.app.web.rest.util.HeaderUtil;
 import com.hotel.app.web.rest.util.PaginationUtil;
@@ -14,11 +17,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -115,5 +120,13 @@ public class ReservationResource {
 	public ResponseEntity<List<Reservation>> findReservationNotCheckout() throws URISyntaxException {
 		log.debug("REST request to get a page of Reservations");
 		return new ResponseEntity<>(reservationService.findReservationNotCheckout(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/reservations/exportPDF/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ModelAndView exportPDF(@PathVariable Long id) {
+		log.debug("REST request to exportPDF of Reservation {}");
+		Reservation reservation = reservationService.findOne(id);
+		// return a view which will be resolved by an excel view resolver
+		return new ModelAndView(new ReservationPDFBuilder(), "reservation", reservation);
 	}
 }

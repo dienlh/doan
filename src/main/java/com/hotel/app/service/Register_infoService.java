@@ -4,6 +4,7 @@ import com.hotel.app.domain.Register_info;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -53,4 +54,8 @@ public interface Register_infoService {
 			Long status_payment, Long method_register, Long status_register);
     
     public List<Register_info> findAllRegisterChecked();
+    
+//    public BigDecimal calculatorDepositValue(int totalDay);
+//    
+//    public Boolean checkMethodRegister(String method);
 }

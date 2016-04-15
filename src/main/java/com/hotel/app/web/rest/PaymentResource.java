@@ -5,6 +5,7 @@ import com.hotel.app.repository.CustomerRepository;
 import com.hotel.app.repository.Register_infoRepository;
 import com.hotel.app.service.Register_infoService;
 import com.hotel.app.service.CustomerService;
+import com.hotel.app.service.MailService;
 import com.hotel.app.service.Method_paymentService;
 import com.hotel.app.service.MypayPayment;
 import com.hotel.app.service.RoomService;
@@ -94,6 +95,10 @@ public class PaymentResource {
 
 	@Inject
 	private Register_infoService register_infoService;
+	
+	@Inject
+    private MailService mailService;
+	
 
 	@RequestMapping(value = "/returnSuccess", method = RequestMethod.GET)
 	public RedirectView returnSuccess(@RequestParam(value = "tranid", defaultValue = "tranid") String tranid,
@@ -114,9 +119,9 @@ public class PaymentResource {
 		user.setId(1L);
 		register_info.setLast_modified_by(user);
 		register_info.setLast_modified_date(ZonedDateTime.now());
-		register_infoRepository.save(register_info);
-
-		String url = URL_PATH + "/#/hotel/resultRegister?id=	" + orderId.split("-")[0];
+		Register_info info = register_infoRepository.save(register_info);
+		mailService.sendRegisterRoomEmail(info);
+		String url = URL_PATH + "/#/template/resultRegister?id=	" + orderId.split("-")[0];
 		return new RedirectView(url);
 	}
 
@@ -131,12 +136,13 @@ public class PaymentResource {
 		user.setId(1L);
 		register_info.setLast_modified_by(user);
 		register_info.setLast_modified_date(ZonedDateTime.now());
-		register_infoRepository.save(register_info);
-
-		String url = URL_PATH + "/#/hotel/resultRegister/" + orderId;
+		Register_info info = register_infoRepository.save(register_info);
+		mailService.sendRegisterRoomEmail(info);
+		String url = URL_PATH + "/#/template/resultRegister/" + orderId;
 		return new RedirectView(url);
 	}
 
+	@SuppressWarnings("null")
 	@RequestMapping(value = "/redirectionRegister", method = RequestMethod.POST)
 	public RedirectView redirectionRegister(
 			@RequestParam(value = "firstname", defaultValue = "firstname") String firstname,
@@ -167,28 +173,29 @@ public class PaymentResource {
 					URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" + simpleDateFormat.format(checkin)
 							+ "&checkout=" + simpleDateFormat.format(checkout) + "&message=faildeddate");
 		}
-		if (roomService.findOneByRangerTime(LocalDate.parse(simpleDateFormat.format(checkin)),
-				LocalDate.parse(simpleDateFormat.format(checkout)), Long.parseLong(id_room)) == null) {
-			return new RedirectView(
-					URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" + simpleDateFormat.format(checkin)
-							+ "&checkout=" + simpleDateFormat.format(checkout) + "&message=unavailable");
-		}
+//		if (roomService.findOneByRangerTime(LocalDate.parse(simpleDateFormat.format(checkin)),
+//				LocalDate.parse(simpleDateFormat.format(checkout)), Long.parseLong(id_room)) == null) {
+//			return new RedirectView(
+//					URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" + simpleDateFormat.format(checkin)
+//							+ "&checkout=" + simpleDateFormat.format(checkout) + "&message=unavailable");
+//		}
 
 		Room room = roomService.findOne(Long.parseLong(id_room));
 		Customer customerInfo = customerService.findByIcPassPortNumber(social_security);
 		if (customerInfo == null) {
-			Customer customer = new Customer();
-			customer.setFull_name(firstname + " " + lastname);
-			customer.setIc_passport_number(social_security);
-			customer.setEmail(email);
-			customer.setPhone_number(phone);
+			customerInfo.setFull_name(firstname + " " + lastname);
+			customerInfo.setIc_passport_number(social_security);
+			customerInfo.setEmail(email);
+			customerInfo.setPhone_number(phone);
 			User user = new User();
 			user.setId(1L);
-			customer.setCreate_by(user);
-			customer.setCreate_date(java.time.ZonedDateTime.now());
-			customerInfo = customerRepository.save(customer);
+			customerInfo.setCreate_by(user);
+			customerInfo.setCreate_date(java.time.ZonedDateTime.now());
+			
+		}else{
+			customerInfo.setEmail(email);
 		}
-
+		customerInfo = customerRepository.save(customerInfo);
 		Register_info register_info = new Register_info();
 		register_info.setDate_checkin(LocalDate.parse(simpleDateFormat.format(checkin)));
 		register_info.setDate_checkout(LocalDate.parse(simpleDateFormat.format(checkin)));
@@ -233,6 +240,7 @@ public class PaymentResource {
 			status_register.setId(1L);
 			register_info.setStatus_register(status_register);
 			Register_info info = register_infoRepository.save(register_info);
+			mailService.sendRegisterRoomEmail(register_info);
 			return new RedirectView(URL_PATH+"/#/template/resultRegister/" + info.getId());
 		}
 		Method_payment method_payment = method_paymentService.createPaymentOnline();

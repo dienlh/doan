@@ -1,6 +1,7 @@
 package com.hotel.app.service;
 
 import com.hotel.app.config.JHipsterProperties;
+import com.hotel.app.domain.Register_info;
 import com.hotel.app.domain.User;
 
 import org.apache.commons.lang.CharEncoding;
@@ -106,15 +107,15 @@ public class MailService {
     }
     
     @Async
-    public void sendRegisterRoomEmail(User user, String baseUrl) {
-        log.debug("Sending activation e-mail to '{}'", user.getEmail());
-        Locale locale = Locale.forLanguageTag(user.getLangKey());
+    public void sendRegisterRoomEmail(Register_info register_info) {
+        log.debug("Sending register info e-mail to '{}'", register_info.getCustomer().getEmail());
+        Locale locale = Locale.forLanguageTag("en");
         Context context = new Context(locale);
-        context.setVariable("user", user);
-        context.setVariable("baseUrl", baseUrl);
-        String content = templateEngine.process("activationEmail", context);
-        String subject = messageSource.getMessage("email.activation.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        context.setVariable("register_info", register_info);
+//        context.setVariable("baseUrl", baseUrl);
+        String content = templateEngine.process("registerEmail", context);
+        String subject = messageSource.getMessage("email.register.title", null, locale);
+        sendEmail(register_info.getCustomer().getEmail(), subject, content, false, true);
     }
     
 }
