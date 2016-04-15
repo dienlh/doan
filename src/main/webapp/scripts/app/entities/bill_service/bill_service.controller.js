@@ -210,7 +210,7 @@ angular.module('hotelApp').controller(
 	               	]
 	               });
 	          }
-				function createPagination(totalItem){
+			function createPagination(totalItem){
 					$('#pp').pagination({
 			            total:totalItem,
 			            pageSize:$scope.size,
@@ -220,7 +220,5 @@ angular.module('hotelApp').controller(
 			        		$(this).pagination('loaded');
 			        	}
 			        });
-				}
-	          
-	          
+			}
 		});

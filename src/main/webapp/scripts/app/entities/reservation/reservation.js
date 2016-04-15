@@ -130,5 +130,28 @@ angular.module('hotelApp')
                         $state.go('^');
                     })
                 }]
+            })
+            .state('reservation.printer', {
+                parent: 'reservation',
+                url: '/{id}/printer',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/reservation/reservation-dialog-printer.html',
+                        controller: 'ReservationDialogPrinterController',
+                        size: 'lg',
+                        resolve: {
+                            entity: ['Reservation', function(Reservation) {
+                            	return Reservation.get({id : $stateParams.id});
+                            }],
+                        }
+                    }).result.then(function(result) {
+                        $state.go('reservation', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
             });
     });

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="#{email.register.title}">JHipster activation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<p>Dear <b th:text="${register_info.customer.full_name}"></b></p>
+	<p th:text="#{email.activation.text1}">Bạn đã đăng ký đặt phòng tại
+		khách sạn DMCHOTEL ! Chúng tôi chân thành cảm ơn và nhiệt liệt đón
+		tiếp quý khách. Chúng tôi gửi thông tin đăng ký cho bạn từ hệ thống
+		email tự động!</p>
+
+	<table>
+		<tr>
+			<td>Loại phòng</td>
+			<td th:text="${register_info.room.type_room.name}"></td>
+		</tr>
+		<tr>
+			<td>Thời gian nhận phòng</td>
+			<td th:text="${register_info.date_checkin}"></td>
+		</tr>
+		<tr>
+			<td>Thời gian trả phòng</td>
+			<td th:text="${register_info.date_checkout}"></td>
+		</tr>
+		<tr>
+			<td>Số lượng người</td>
+			<td><p>
+					- Người lớn : <span th:text="${register_info.number_of_adult}"></span>
+				</p>
+				<p>
+					- Trẻ em : <span th:text="${register_info.number_of_kid}"></span>
+				</p></td>
+		</tr>
+		<tr>
+			<td>CMND</td>
+			<td th:text="${register_info.customer.ic_passport_number}"></td>
+		</tr>
+		<tr>
+			<td>Đặt cọc trước</td>
+			<td th:text="${register_info.deposit_value}"></td>
+		</tr>
+		<tr>
+			<td>Đơn vị tính</td>
+			<td th:text="${register_info.currency.code}"></td>
+		</tr>
+		<tr>
+			<td>Trạng thái đặt cọc</td>
+			<td th:text="${register_info.status_payment.name}"></td>
+		</tr>
+		<tr>
+			<td>Trạng thái đăng ký</td>
+			<td th:text="${register_info.status_register.name}"></td>
+		</tr>
+	</table>
+	<p>
+		<span th:text="#{email.activation.text2}">Regards, </span> <br /> <em
+			th:text="#{email.signature}">JHipster.</em>
+	</p>
+</body>
+</html>
