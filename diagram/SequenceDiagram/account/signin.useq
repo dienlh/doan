@@ -5,7 +5,7 @@
     label="accountResourceIntTest" type="class" autoSize="true">    
     <position height="-1" width="-1" x="328" y="0"/>    
     <execution id="2">      
-      <position height="976" width="163" x="5" y="111"/>    
+      <position height="1650" width="163" x="5" y="180"/>    
     </execution>  
   </object>  
   <object id="13" language="java" name="com.hotel.app.web.rest.AccountResource" project="hotel" 
@@ -13,7 +13,7 @@
     type="class" autoSize="true">    
     <position height="-1" width="-1" x="838" y="0"/>    
     <execution id="12">      
-      <position height="21" width="125" x="172" y="1045"/>    
+      <position height="21" width="125" x="172" y="1773"/>    
     </execution>  
   </object>  
   <object id="14" language="java" name="com.hotel.app.security.UserDetailsService" project="hotel" 
@@ -21,7 +21,7 @@
     type="class" autoSize="true">    
     <position height="-1" width="-1" x="661" y="0"/>    
     <execution id="4">      
-      <position height="231" width="132" x="172" y="132"/>    
+      <position height="396" width="132" x="172" y="216"/>    
     </execution>  
   </object>  
   <object id="25" language="java" name="com.hotel.app.service.UserService" project="hotel" 
@@ -29,7 +29,7 @@
     autoSize="true">    
     <position height="-1" width="-1" x="284" y="0"/>    
     <execution id="10">      
-      <position height="21" width="100" x="308" y="1011"/>    
+      <position height="21" width="100" x="308" y="1692"/>    
     </execution>  
   </object>  
   <object id="26" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
@@ -37,10 +37,10 @@
     type="interface" autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
     <execution id="16">      
-      <position height="21" width="0" x="0" y="153"/>    
+      <position height="36" width="0" x="0" y="252"/>    
     </execution>    
     <execution id="27">      
-      <position height="21" width="111" x="308" y="507"/>    
+      <position height="36" width="111" x="308" y="828"/>    
     </execution>  
   </object>  
   <object id="28" language="java" name="java.util.Optional" project="hotel" 
@@ -48,10 +48,10 @@
     autoSize="true">    
     <position height="0" width="0" x="0" y="0"/>    
     <execution id="24">      
-      <position height="21" width="0" x="0" y="321"/>    
+      <position height="36" width="0" x="0" y="540"/>    
     </execution>    
     <execution id="29">      
-      <position height="21" width="99" x="423" y="843"/>    
+      <position height="36" width="99" x="423" y="1404"/>    
     </execution>  
   </object>  
   <object id="30" language="java" name="org.springframework.boot.actuate.audit.AuditEventRepository" project="hotel" 
@@ -59,7 +59,7 @@
     binary="true" label="auditEventRepository" type="interface" autoSize="true">    
     <position height="-1" width="-1" x="514" y="0"/>    
     <execution id="6">      
-      <position height="21" width="170" x="526" y="384"/>    
+      <position height="36" width="170" x="526" y="648"/>    
     </execution>  
   </object>  
   <object id="31" language="java" name="java.util.Optional" project="hotel" 
@@ -70,10 +70,10 @@
     file="/hotel/src/main/java/com/hotel/app/domain/User.java" binary="false" label="user" type="class" autoSize="true">    
     <position height="-1" width="-1" x="526" y="0"/>    
     <execution id="18">      
-      <position height="21" width="99" x="621" y="195"/>    
+      <position height="36" width="99" x="621" y="324"/>    
     </execution>    
     <execution id="22">      
-      <position height="21" width="99" x="621" y="279"/>    
+      <position height="36" width="99" x="621" y="468"/>    
     </execution>  
   </object>  
   <object id="33" language="java" name="com.hotel.app.security.CustomPersistentRememberMeServices" project="hotel" 
@@ -81,10 +81,10 @@
     label="customPersistentRememberMeServices" type="class" autoSize="true">    
     <position height="-1" width="-1" x="562" y="0"/>    
     <execution id="8">      
-      <position height="546" width="256" x="898" y="444"/>    
+      <position height="936" width="256" x="898" y="720"/>    
     </execution>    
     <execution id="55">      
-      <position height="21" width="7" x="1023" y="948"/>    
+      <position height="36" width="7" x="1023" y="1584"/>    
     </execution>  
   </object>  
   <object id="56" language="java" name="com.hotel.app.domain.PersistentToken" project="hotel" 
@@ -92,25 +92,25 @@
     type="class" autoSize="true">    
     <position height="-1" width="-1" x="685" y="0"/>    
     <execution id="38">      
-      <position height="21" width="116" x="1158" y="549"/>    
+      <position height="36" width="116" x="1158" y="900"/>    
     </execution>    
     <execution id="40">      
-      <position height="21" width="116" x="1158" y="591"/>    
+      <position height="36" width="116" x="1158" y="972"/>    
     </execution>    
     <execution id="42">      
-      <position height="21" width="116" x="1158" y="633"/>    
+      <position height="36" width="116" x="1158" y="1044"/>    
     </execution>    
     <execution id="44">      
-      <position height="21" width="116" x="1158" y="675"/>    
+      <position height="36" width="116" x="1158" y="1116"/>    
     </execution>    
     <execution id="46">      
-      <position height="21" width="116" x="1158" y="717"/>    
+      <position height="36" width="116" x="1158" y="1188"/>    
     </execution>    
     <execution id="48">      
-      <position height="21" width="116" x="1158" y="759"/>    
+      <position height="36" width="116" x="1158" y="1260"/>    
     </execution>    
     <execution id="50">      
-      <position height="21" width="116" x="1158" y="801"/>    
+      <position height="36" width="116" x="1158" y="1332"/>    
     </execution>  
   </object>  
   <object id="57" language="java" name="org.springframework.security.core.Authentication" project="hotel" 
@@ -118,7 +118,7 @@
     binary="true" label="authentication" type="interface" autoSize="true">    
     <position height="-1" width="-1" x="950" y="0"/>    
     <execution id="35">      
-      <position height="21" width="149" x="1158" y="465"/>    
+      <position height="36" width="149" x="1158" y="756"/>    
     </execution>  
   </object>  
   <object id="58" language="java" name="com.hotel.app.repository.PersistentTokenRepository" project="hotel" 
@@ -126,7 +126,7 @@
     label="persistentTokenRepository" type="interface" autoSize="true">    
     <position height="-1" width="-1" x="1189" y="0"/>    
     <execution id="53">      
-      <position height="21" width="177" x="1431" y="885"/>    
+      <position height="36" width="177" x="1431" y="1476"/>    
     </execution>  
   </object>  
   <object id="59" language="java" name="com.hotel.app.security.UserNotActivatedException" project="hotel" 
@@ -134,7 +134,7 @@
     label="userNotActivatedException" type="class" autoSize="true">    
     <position height="-1" width="-1" x="533" y="0"/>    
     <execution id="20">      
-      <position height="21" width="178" x="724" y="237"/>    
+      <position height="36" width="178" x="724" y="396"/>    
     </execution>  
   </object>  
   <message id="3" 

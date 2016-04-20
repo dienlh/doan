@@ -39,5 +39,5 @@ public interface ReservationService {
      */
     public void delete(Long id);
     
-    List<Reservation> findReservationNotCheckout();
+    public List<Reservation> findReservationNotCheckout();
 }
