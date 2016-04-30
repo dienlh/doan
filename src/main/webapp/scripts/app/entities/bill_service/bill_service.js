@@ -75,7 +75,7 @@ angular.module('hotelApp')
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/bill_service/bill_service-dialog.html',
+                        templateUrl: 'scripts/app/entities/bill_service/bill_service-dialog-update.html',
                         controller: 'Bill_serviceDialogController',
                         size: 'lg',
                         resolve: {

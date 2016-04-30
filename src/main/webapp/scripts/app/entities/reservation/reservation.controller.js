@@ -62,7 +62,11 @@ angular.module('hotelApp')
                       },
                       {field:'person_checkin',title:'Người nhận',width:120,fixed:true,
                     	  	formatter: function(value,row,index){
-  	                   			return value.full_name;
+                    	  		if (value){
+                 					return value.full_name;
+                 				} else {
+                 					return "";
+                 				}
   	               			}
                       },
                       {field:'time_checkout',title:'Thời gian trả phòng',width:150,fixed:true,
@@ -72,16 +76,20 @@ angular.module('hotelApp')
                       },
                       {field:'person_checkout',title:'Người trả',width:120,fixed:true,
                     	  	formatter: function(value,row,index){
-	                   			return value.full_name;
+                    	  		if (value){
+                 					return value.full_name;
+                 				} else {
+                 					return "";
+                 				}
 	               			}  
                       },
                       {field:'register_info',title:'Mã đăng ký',width:100,fixed:true,
 	                   	   formatter: function(value,row,index){
-	                       		 if (value){
-	                 					return value.id;
-	                 				} else {
-	                 					return "";
-	                 				}
+	                       		if (value){
+	                 				return value.id;
+	                 			} else {
+	                 				return "";
+	                 			}
 	                   		}
                       },
                       {field:'Mã phòng',title:'Mã phòng',width:100,fixed:true,

@@ -74,7 +74,7 @@ public interface RoomRepository extends JpaRepository<Room,Long> {
     		)
     List<Room> findAllAvailable(LocalDate fromDate,LocalDate toDate,Long type_room);
     
-    @Query("select room from Room room where "
+    @Query("select room from Room room left join fetch room.imagess where "
     		+ "room.status_room.id not in (2L,7L,8L) "
     		+ "and room.id=?3 "
     		+ "and room.id not in( "

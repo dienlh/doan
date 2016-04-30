@@ -617,7 +617,7 @@ angular.module('app')
 	                  }
                    })
                    .state('template.resultRegister', {
-	                  url: '/resultRegister?id',
+	                  url: '/resultRegister/{id} ',
 	                  data: {
 	                         authorities: [],
 	                         pageTitle: 'Đăng ký đặt phòng tòa nhà'

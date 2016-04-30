@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.hotel.app.domain.User" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/domain/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="62" y="318"/>    
+    <position height="-1" width="-1" x="1206" y="3334"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.hotel.app.web.rest.UserResource" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/web/rest/UserResource.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="936" y="-449"/>    
+    <position height="-1" width="-1" x="3312" y="1031"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.hotel.app.service.UserService" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/service/UserService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="812" y="-68"/>    
+    <position height="-1" width="-1" x="3360" y="1880"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <interface id="4" language="java" name="com.hotel.app.repository.UserRepository" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/repository/UserRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-51" y="-359"/>    
+    <position height="-1" width="-1" x="797" y="1453"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </interface>  
   <class id="5" language="java" name="com.hotel.app.domain.Authority" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/domain/Authority.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="351" y="375"/>    
+    <position height="-1" width="-1" x="1019" y="2175"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   <interface id="6" language="java" name="org.springframework.security.crypto.password.PasswordEncoder" project="hotel" 
     file="C:/Users/lehuu/.m2/repository/org/springframework/security/spring-security-core/4.0.2.RELEASE/spring-security-core-4.0.2.RELEASE.jar" 
     binary="true" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1053" y="283"/>    
+    <position height="-1" width="-1" x="3701" y="2639"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
   </interface>  
   <interface id="7" language="java" name="com.hotel.app.repository.AuthorityRepository" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/repository/AuthorityRepository.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1113" y="-1"/>    
+    <position height="-1" width="-1" x="1929" y="1407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,7 +67,7 @@
   </interface>  
   <class id="8" language="java" name="com.hotel.app.domain.PersistentToken" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/domain/PersistentToken.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-284" y="416"/>    
+    <position height="-1" width="-1" x="240" y="2964"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -77,7 +77,7 @@
   <interface id="9" language="java" name="com.hotel.app.repository.PersistentTokenRepository" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/repository/PersistentTokenRepository.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="488" y="-539"/>    
+    <position height="-1" width="-1" x="2056" y="933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -86,7 +86,7 @@
   </interface>  
   <class id="10" language="java" name="com.hotel.app.security.UserDetailsService" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/security/UserDetailsService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-273" y="-72"/>    
+    <position height="-1" width="-1" x="331" y="1948"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -95,7 +95,7 @@
   </class>  
   <class id="11" language="java" name="com.hotel.app.web.rest.AccountResource" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/web/rest/AccountResource.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="660" y="359"/>    
+    <position height="-1" width="-1" x="2452" y="2927"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -105,7 +105,7 @@
   <class id="12" language="java" name="com.hotel.app.security.CustomPersistentRememberMeServices" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/security/CustomPersistentRememberMeServices.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-78" y="-699"/>    
+    <position height="-1" width="-1" x="734" y="801"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -115,7 +115,7 @@
   <class id="13" language="java" name="com.hotel.app.security.AjaxAuthenticationSuccessHandler" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/security/AjaxAuthenticationSuccessHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="455" y="-878"/>    
+    <position height="-1" width="-1" x="2523" y="414"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -125,7 +125,7 @@
   <class id="14" language="java" name="com.hotel.app.security.AjaxAuthenticationFailureHandler" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/security/AjaxAuthenticationFailureHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="475" y="-724"/>    
+    <position height="-1" width="-1" x="2587" y="636"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
   <class id="15" language="java" name="com.hotel.app.security.AjaxLogoutSuccessHandler" project="hotel" 
     file="/hotel/src/main/java/com/hotel/app/security/AjaxLogoutSuccessHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="957" y="-877"/>    
+    <position height="-1" width="-1" x="2461" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -144,150 +144,182 @@
   </class>  
   <association id="16">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="17" name="userRepository"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+      <attribute id="17" name="userRepository">        
+        <position height="0" width="0" x="848" y="1812"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="1">        
+        <position height="0" width="0" x="848" y="1812"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="19">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="20" name="persistentTokenRepository"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="20" name="userRepository">        
+        <position height="0" width="0" x="21" y="2022"/>      
+      </attribute>      
+      <multiplicity id="21" minimum="0" maximum="1">        
+        <position height="0" width="0" x="21" y="2022"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="22">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="23" name="userRepository">        
-        <position height="0" width="0" x="-827" y="210"/>      
+      <attribute id="23" name="passwordEncoder">        
+        <position height="0" width="0" x="3851" y="3239"/>      
       </attribute>      
       <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-827" y="210"/>      
+        <position height="0" width="0" x="3851" y="3239"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="25">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="26" name="userRepository">        
-        <position height="0" width="0" x="-827" y="210"/>      
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="26" name="user">        
+        <position height="0" width="0" x="932" y="3120"/>      
       </attribute>      
       <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-827" y="210"/>      
+        <position height="0" width="0" x="932" y="3120"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="28">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="29" name="userRepository"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="false" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="32" name="authorities"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+      <attribute id="29" name="authorities">        
+        <position height="0" width="0" x="668" y="1800"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="668" y="1800"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="34">    
+  <association id="31">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="35" name="persistentTokenRepository"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
+      <attribute id="32" name="authorityRepository">        
+        <position height="0" width="0" x="1250" y="1239"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1250" y="1239"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="35" name="persistentTokenRepository">        
+        <position height="0" width="0" x="1568" y="1472"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1568" y="1472"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="37">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="38" name="userRepository"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
+      <attribute id="38" name="userRepository">        
+        <position height="0" width="0" x="848" y="1812"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="848" y="1812"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="40">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="41" name="persistentTokens">        
-        <position height="0" width="0" x="-131" y="156"/>      
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="41" name="userRepository">        
+        <position height="0" width="0" x="21" y="2022"/>      
       </attribute>      
-      <multiplicity id="42" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-131" y="156"/>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="21" y="2022"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="44" name="persistentTokenRepository">        
+        <position height="0" width="0" x="1568" y="1472"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1568" y="1472"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="47" name="userService">        
+        <position height="0" width="0" x="3106" y="2354"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="3106" y="2354"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="50" name="persistentTokens">        
+        <position height="0" width="0" x="393" y="2704"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="393" y="2704"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="44" name="userService">        
-        <position height="0" width="0" x="558" y="406"/>      
-      </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
-        <position height="0" width="0" x="558" y="406"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="false" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="47" name="persistentTokenRepository"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="false" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="50" name="passwordEncoder">        
-        <position height="0" width="0" x="1203" y="883"/>      
-      </attribute>      
-      <multiplicity id="51" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1203" y="883"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="false" multiplicity="true"/>  
-  </association>  
   <association id="52">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="53" name="userService"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
+      <attribute id="53" name="userService">        
+        <position height="0" width="0" x="2548" y="1948"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="1">        
+        <position height="0" width="0" x="2548" y="1948"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="55">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="56" name="authorityRepository">        
-        <position height="0" width="0" x="434" y="-169"/>      
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="56" name="persistentTokenRepository">        
+        <position height="0" width="0" x="1568" y="1472"/>      
       </attribute>      
       <multiplicity id="57" minimum="0" maximum="1">        
-        <position height="0" width="0" x="434" y="-169"/>      
+        <position height="0" width="0" x="1568" y="1472"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="58">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="59" name="user">        
-        <position height="0" width="0" x="-212" y="104"/>      
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="59" name="userRepository">        
+        <position height="0" width="0" x="848" y="1812"/>      
       </attribute>      
       <multiplicity id="60" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-212" y="104"/>      
+        <position height="0" width="0" x="848" y="1812"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
