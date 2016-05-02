@@ -31,38 +31,38 @@
 					<div class="form-horizontal wrapper b-a">
 						<div class="form-group ">
 							<label class="col-sm-4 font-bold">Khách hàng</label>
-							<div class="col-sm-8">{{billInfo.customer.full_name}}</div>
+							<div class="col-sm-8">{{register_info.customer.full_name}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Email</label>
-							<div class="col-sm-8">{{billInfo.customer.email}}</div>
+							<div class="col-sm-8">{{register_info.customer.email}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Điện thoại</label>
-							<div class="col-sm-8">{{billInfo.customer.phone_number}}</div>
+							<div class="col-sm-8">{{register_info.customer.phone_number}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">CMTND</label>
-							<div class="col-sm-8">{{billInfo.customer.ic_passport_number}}</div>
+							<div class="col-sm-8">{{register_info.customer.ic_passport_number}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Loại phòng</label>
-							<div class="col-sm-8">{{billInfo.room.type_room.name}}</div>
+							<div class="col-sm-8">{{register_info.room.type_room.name}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Vị trí</label>
-							<div class="col-sm-8">{{billInfo.room.orientation}}</div>
+							<div class="col-sm-8">{{register_info.room.orientation}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Ngày đăng ký phòng</label>
 							<div class="col-sm-8">
 								<div class="form-group">
 									<label class="col-sm-6 font-bold">Ngày nhận phòng</label>
-									<div class="col-sm-6">{{billInfo.date_checkin}}</div>
+									<div class="col-sm-6">{{register_info.date_checkin}}</div>
 								</div>
 								<div class="form-group">
 									<label class="col-sm-6 font-bold">Ngày trả phòng</label>
-									<div class="col-sm-6">{{billInfo.date_checkin}}</div>
+									<div class="col-sm-6">{{register_info.date_checkin}}</div>
 								</div>
 							</div>
 						</div>
@@ -71,29 +71,29 @@
 							<div class="col-sm-8">
 								<div class="form-group">
 									<div class="col-sm-6">Phương thức thanh toán</div>
-									<div class="col-sm-6">{{billInfo.method_payment.name}}</div>
+									<div class="col-sm-6">{{register_info.method_payment.name}}</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-6">Số tiền</div>
-									<div class="col-sm-6">{{billInfo.deposit_value |
-										currency:"":0}} {{billInfo.currency.code}}</div>
+									<div class="col-sm-6">{{register_info.deposit_value |
+										currency:"":0}} {{register_info.currency.code}}</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-6">Trạng thái thanh toán</div>
 									<div class="col-sm-6">
-										<span>{{billInfo.status_payment.name}}</span>
+										<span>{{register_info.status_payment.name}}</span>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Trạng thái đăng ký</label>
-							<div class="col-sm-8">{{billInfo.status_register.name}}</div>
+							<div class="col-sm-8">{{register_info.status_register.name}}</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 font-bold">Ngày đăng ký</label>
 							<div class="col-sm-8">
-								{{billInfo.create_date | date : 'dd/MM/yyyy hh:MM:ss'}}</div>
+								{{register_info.create_date | date : 'dd/MM/yyyy hh:MM:ss'}}</div>
 						</div>
 					</div>
 				</div>
