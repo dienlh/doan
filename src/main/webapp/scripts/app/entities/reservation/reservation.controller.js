@@ -148,7 +148,7 @@ angular.module('hotelApp')
   	             		iconCls: 'icon-remove',
   	             		handler: function(){
   	             			if(!$scope.Selected){
-  	             				alert("Bạn chưa chọn phiếu dịch vụ!");
+  	             				alert("Bạn chưa chọn phiếu nhận phòng!");
   	             				return false;
   	             			}else{
   	             				if($scope.Selected.status_reservation.id==2 || $scope.Selected.status_reservation.id==1){
@@ -162,7 +162,18 @@ angular.module('hotelApp')
   	             	,'-',{
   	             		iconCls: 'icon-print',
   	             		handler: function(){
-  	             			$state.go('reservation.printer',$scope.Selected);
+  	             			if(!$scope.Selected){
+  	             				alert("Bạn chưa chọn phiếu nhận phòng!");
+  	             				return false;
+  	             			}else{
+  	             				if($scope.Selected.status_reservation.id==1){
+  	             					$state.go('reservation.printer',$scope.Selected);
+  	             				}else{
+  	             					alert("Phiếu không được phép in!");
+	   	             				return false;
+  	             				}
+  	             			}
+  	             			
   	             		}
   	             	}
               	]

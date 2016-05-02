@@ -3,7 +3,7 @@
 angular.module('hotelApp')
     .controller('UserManagementController', function ($scope, User, ParseLinks) {
         $scope.users = [];
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_HRM","ROLE_SERVICES","ROLE_BUSSINESS","ROLE_RECEPTIONIST","ROLE_ACCOUNTING"];
 
         $scope.page = 1;
         $scope.loadAll = function () {

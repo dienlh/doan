@@ -198,13 +198,18 @@ angular.module('hotelApp').controller(
 	   	             	,'-',{
 	   	             		iconCls: 'icon-print',
 	   	             		handler: function(){
-	   	             			$state.go('bill_service.printer',{
-	   	             			fromDate:$filter('date')($scope.fromDate,'yyyy-MM-dd'),
-		   	 					toDate:$filter('date')($scope.toDate,'yyyy-MM-dd'),
-		   	 					serviceId : $scope.service.id, 
-		   	 					statusId :$scope.status_bill_service.id, 
-		   	 					reservationId : $scope.reservation.id,
-	   	             			});
+	   	             			if($scope.reservation.id != null && $scope.reservation.id !=0 && $scope.status_bill_service.id == 3){
+		   	             			$state.go('bill_service.printer',{
+			   	             			fromDate:$filter('date')($scope.fromDate,'yyyy-MM-dd'),
+				   	 					toDate:$filter('date')($scope.toDate,'yyyy-MM-dd'),
+				   	 					serviceId : $scope.service.id, 
+				   	 					statusId :$scope.status_bill_service.id, 
+				   	 					reservationId : $scope.reservation.id,
+		   	             			});
+	   	             			}else{
+	   	             				alert("Lỗi không lập được phiếu dịch vụ ! vui lòng kiểm tra lại thông số mã nhận phòng và trạng thái mới đăng ký dịch vụ")
+	   	             				return false;
+	   	             			}
 	   	             		}
 	   	             	}
 	               	]

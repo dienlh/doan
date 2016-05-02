@@ -52,13 +52,21 @@ public class ReservationPDFBuilder extends AbstractITextPdfView {
 		Reservation reservation = (Reservation) model.get("reservation");
 		BaseFont courier = BaseFont.createFont(BaseFont.COURIER, BaseFont.CP1252, BaseFont.EMBEDDED);
 		Font font1 = new Font(courier, 12, Font.NORMAL);
-		doc.add(new Paragraph(2f,"PHIẾU NHẬN PHÒNG KHACH SAN DMCHOTEL", font1));
+		doc.add(new Paragraph(2f,"PHIEU NHAN PHONG KHACH SAN DMCHOTEL", font1));
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:MM:ss");
 		doc.add(new Paragraph("Ngay xuat phieu    : " + simpleDateFormat.format(new Date())));
-		doc.add(new Paragraph("No:" + reservation.getId(), font1));
+		doc.add(new Paragraph("Ma phieu:" + reservation.getId(), font1));
 		
-
-		doc.add(new Paragraph("		Nhan vien lễ tân                          " + "Khach hang", font1));
+		doc.add(new Paragraph("Khach hang:"+reservation.getRegister_info().getCustomer().getFull_name() +"So CMND :" + reservation.getRegister_info().getCustomer().getIc_passport_number(), font1));
+		doc.add(new Paragraph("Dia chi   :" + reservation.getRegister_info().getCustomer().getAddress(), font1));
+		doc.add(new Paragraph("Ma nhan phong:" + reservation.getId() +"Ma phong:" + reservation.getRegister_info().getRoom().getCode(), font1));
+		doc.add(new Paragraph("Loai phong:" +reservation.getRegister_info().getRoom().getType_room().getName(), font1));
+		doc.add(new Paragraph("So luong: 1" , font1));
+		doc.add(new Paragraph("Ngay dang ky nhan phong:" + reservation.getRegister_info().getDate_checkin(), font1));
+		doc.add(new Paragraph("Ngay dang ky tra phong :"  + reservation.getRegister_info().getDate_checkout(), font1));
+		doc.add(new Paragraph("Tien dat coc:" + reservation.getRegister_info().getDeposit_value().setScale(0,BigDecimal.ROUND_HALF_DOWN) + " " + reservation.getRegister_info().getCurrency().getCode(), font1));
+		doc.add(new Paragraph("Thoi gian nhan phong:" + reservation.getTime_checkin() +"Nguoi nhan phong :" + reservation.getPerson_checkin().getFull_name(), font1));
+		doc.add(new Paragraph("		Nhan vien le tân                          " + "Khach hang", font1));
 
 	}
 }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title th:text="#{email.register.title}">JHipster activation</title>
+<title th:text="#{email.register.title}">DMCHOTEL SEND REGISTER BOOKING ROOM</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<p>Dear <b th:text="${register_info.customer.full_name}"></b></p>
-	<p th:text="#{email.activation.text1}">Bạn đã đăng ký đặt phòng tại
+	<p>Bạn đã đăng ký đặt phòng tại
 		khách sạn DMCHOTEL ! Chúng tôi chân thành cảm ơn và nhiệt liệt đón
 		tiếp quý khách. Chúng tôi gửi thông tin đăng ký cho bạn từ hệ thống
 		email tự động!</p>
@@ -52,6 +52,10 @@
 		<tr>
 			<td>Trạng thái đăng ký</td>
 			<td th:text="${register_info.status_register.name}"></td>
+		</tr>
+		<tr>
+			<td>Thời gian đăng ký</td>
+			<td th:text="${register_info.create_date}"></td>
 		</tr>
 	</table>
 	<p>

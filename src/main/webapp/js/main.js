@@ -12,7 +12,7 @@ angular.module('appHotel',['hotelApp','app'])
 
       // config
       $scope.app = {
-        name: 'Angulr',
+        name: 'DMCHOTEL',
         version: '1.3.3',
         // for chart colors
         color: {

@@ -127,7 +127,7 @@ public class PaymentResource {
 
 	@RequestMapping(value = "/returnFail", method = RequestMethod.GET)
 	public RedirectView returnFail(@RequestParam(value = "orderId", defaultValue = "orderId") String orderId) {
-		Register_info register_info = register_infoService.findOne(Long.parseLong(orderId));
+		Register_info register_info = register_infoService.findOne(Long.parseLong(orderId.split("-")[0]));
 		Status_register status_register = new Status_register();
 		status_register.setId(2L);
 		register_info.setStatus_register(status_register);
@@ -138,7 +138,7 @@ public class PaymentResource {
 		register_info.setLast_modified_date(ZonedDateTime.now());
 		Register_info info = register_infoRepository.save(register_info);
 		mailService.sendRegisterRoomEmail(info);
-		String url = URL_PATH + "/#/template/resultRegister/" + orderId;
+		String url = URL_PATH + "/#/template/resultRegister?id=" + orderId.split("-")[0];
 		return new RedirectView(url);
 	}
 
@@ -240,8 +240,8 @@ public class PaymentResource {
 			status_register.setId(1L);
 			register_info.setStatus_register(status_register);
 			Register_info info = register_infoRepository.save(register_info);
-			mailService.sendRegisterRoomEmail(register_info);
-			return new RedirectView(URL_PATH+"/#/template/resultRegister/" + info.getId());
+			mailService.sendRegisterRoomEmail(info);
+			return new RedirectView(URL_PATH+"/#/template/resultRegister?id=" + info.getId());
 		}
 		Method_payment method_payment = method_paymentService.createPaymentOnline();
 		register_info.setMethod_payment(method_payment);

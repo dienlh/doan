@@ -5,7 +5,7 @@ angular.module('hotelApp').controller('UserManagementDialogController',
         function($scope, $stateParams, $uibModalInstance, entity, User) {
     	$scope.warning="Mật khẩu mặc định : 123456"
         $scope.user = entity;
-        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];
+        $scope.authorities = ["ROLE_USER", "ROLE_ADMIN", "ROLE_HRM","ROLE_SERVICES","ROLE_BUSSINESS","ROLE_RECEPTIONIST","ROLE_ACCOUNTING"];
         var onSaveSuccess = function (result) {
             $scope.isSaving = false;
             $uibModalInstance.close(result);
