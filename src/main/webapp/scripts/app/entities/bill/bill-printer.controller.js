@@ -5,7 +5,7 @@ angular.module('hotelApp').controller('BillPrinterController',
         function($scope, $stateParams, $uibModalInstance, Bill_service, Currency, Services, Reservation, Status_bill_service, User) {
 
     	console.log($stateParams);
-    	$scope.url="api/bills/exportPDF/"+$stateParams.id;
+    	$scope.url="api/bills/exportPDF/"+$stateParams.idbill;
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };

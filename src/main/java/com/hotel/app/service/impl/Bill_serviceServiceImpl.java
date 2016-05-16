@@ -2,7 +2,9 @@ package com.hotel.app.service.impl;
 
 import com.hotel.app.service.Bill_serviceService;
 import com.hotel.app.web.rest.dto.ManagedUserDTO;
+import com.hotel.app.domain.Bill;
 import com.hotel.app.domain.Bill_service;
+import com.hotel.app.domain.Status_bill_service;
 import com.hotel.app.domain.User;
 import com.hotel.app.repository.Bill_serviceRepository;
 import com.hotel.app.repository.UserRepository;
@@ -52,6 +54,9 @@ public class Bill_serviceServiceImpl implements Bill_serviceService {
 			user.setLogin(optional.get().getLogin());
 			bill_service.setCreate_by(user);
 			log.info("Preshow user" + user);
+			Status_bill_service status_bill_service = new Status_bill_service();
+			status_bill_service.setId(3L);
+			bill_service.setStatus_bill_service(status_bill_service);
 		}
 		Bill_service result = bill_serviceRepository.save(bill_service);
 		return result;
@@ -114,5 +119,9 @@ public class Bill_serviceServiceImpl implements Bill_serviceService {
 	@Override
 	public List<Bill_service> findAllByListId(List<Long> listId) {
 		return bill_serviceRepository.findAllByListId(listId);
+	}
+	@Override
+	public List<Bill_service> findAllByReservationIdAndStatus(Long reservationId, Long statusId) {
+		return bill_serviceRepository.findAllByReservationIdAndStatus(reservationId,statusId);
 	}
 }

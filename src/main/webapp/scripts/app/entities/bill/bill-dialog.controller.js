@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('hotelApp').controller('BillDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Bill', 'Currency', 'Customer', 'Method_payment', 'Status_payment', 'Reservation', 'Status_bill', 'User',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Bill, Currency, Customer, Method_payment, Status_payment, Reservation, Status_bill, User) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', '$state', 'entity', 'Bill', 'Currency', 'Customer', 'Method_payment', 'Status_payment', 'Reservation', 'Status_bill', 'User',
+        function($scope, $stateParams, $uibModalInstance, $q, $state, entity, Bill, Currency, Customer, Method_payment, Status_payment, Reservation, Status_bill, User) {
 
         $scope.bill = entity;
         $scope.currencys = Currency.query();
@@ -39,12 +39,34 @@ angular.module('hotelApp').controller('BillDialogController',
         $scope.save = function () {
             $scope.isSaving = true;
             if ($scope.bill.id != null) {
-                Bill.update($scope.bill, onSaveSuccess, onSaveError);
+            	var r = confirm("Bạn có chắc chắn muốn lập phiếu thanh toán!");
+				if (r == true) {
+					Bill.update($scope.bill, onSaveSuccess, onSaveError);
+					$state.go('bill.printer',{idbill:$scope.bill.id});
+				} else {
+				    return false;
+				}
+                
+                
             } else {
                 Bill.save($scope.bill, onSaveSuccess, onSaveError);
             }
         };
 
+        $scope.saveUpdate = function () {
+            $scope.isSaving = true;
+            if ($scope.bill.id != null) {
+            	var r = confirm("Bạn có chắc chắn muốn cập nhật trạng thái phiếu thanh toán!");
+				if (r == true) {
+					Bill.update($scope.bill, onSaveSuccess, onSaveError);
+				} else {
+				    return false;
+				}
+            } else {
+                Bill.save($scope.bill, onSaveSuccess, onSaveError);
+            }
+        };
+        
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };

@@ -39,4 +39,7 @@ public interface Bill_serviceRepository extends JpaRepository<Bill_service,Long>
     
     @Query("select bill_service from Bill_service bill_service where bill_service.id in ?1")
     List<Bill_service> findAllByListId(List<Long> listId);
+    
+    @Query("select bill_service from Bill_service bill_service where bill_service.reservation.id=?1 and bill_service.status_bill_service.id=?2")
+    List<Bill_service> findAllByReservationIdAndStatus(Long reservationId,Long statusId);
 }

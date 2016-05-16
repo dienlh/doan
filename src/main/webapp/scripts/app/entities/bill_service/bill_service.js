@@ -132,7 +132,7 @@ angular.module('hotelApp')
                     }).result.then(function(result) {
                         $state.go('bill_service', null, { reload: true });
                     }, function() {
-                        $state.go('^');
+                    	$state.go('bill_service', null, { reload: true });
                     })
                 }]
             })

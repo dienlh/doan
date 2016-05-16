@@ -95,10 +95,9 @@ public class PaymentResource {
 
 	@Inject
 	private Register_infoService register_infoService;
-	
+
 	@Inject
-    private MailService mailService;
-	
+	private MailService mailService;
 
 	@RequestMapping(value = "/returnSuccess", method = RequestMethod.GET)
 	public RedirectView returnSuccess(@RequestParam(value = "tranid", defaultValue = "tranid") String tranid,
@@ -107,21 +106,23 @@ public class PaymentResource {
 			@RequestParam(value = "orderId", defaultValue = "orderId") String orderId) {
 
 		Register_info register_info = register_infoService.findOne(Long.parseLong(orderId.split("-")[0]));
-		Status_payment status_payment = new Status_payment();
-		status_payment.setId(1L);
-		register_info.setStatus_payment(status_payment);
+		if (register_info.getStatus_register().getId() == 3L) {
+			Status_payment status_payment = new Status_payment();
+			status_payment.setId(1L);
+			register_info.setStatus_payment(status_payment);
 
-		Status_register status_register = new Status_register();
-		status_register.setId(1L);
-		register_info.setStatus_register(status_register);
+			Status_register status_register = new Status_register();
+			status_register.setId(1L);
+			register_info.setStatus_register(status_register);
 
-		User user = new User();
-		user.setId(1L);
-		register_info.setLast_modified_by(user);
-		register_info.setLast_modified_date(ZonedDateTime.now());
-		Register_info info = register_infoRepository.save(register_info);
-		mailService.sendRegisterRoomEmail(info);
-		String url = URL_PATH + "/#/template/resultRegister?id=	" + orderId.split("-")[0];
+			User user = new User();
+			user.setId(1L);
+			register_info.setLast_modified_by(user);
+			register_info.setLast_modified_date(ZonedDateTime.now());
+			Register_info info = register_infoRepository.save(register_info);
+			mailService.sendRegisterRoomEmail(info);
+		}
+		String url = URL_PATH + "/#/template/resultRegister?id=" + orderId.split("-")[0];
 		return new RedirectView(url);
 	}
 
@@ -173,12 +174,16 @@ public class PaymentResource {
 					URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" + simpleDateFormat.format(checkin)
 							+ "&checkout=" + simpleDateFormat.format(checkout) + "&message=faildeddate");
 		}
-//		if (roomService.findOneByRangerTime(LocalDate.parse(simpleDateFormat.format(checkin)),
-//				LocalDate.parse(simpleDateFormat.format(checkout)), Long.parseLong(id_room)) == null) {
-//			return new RedirectView(
-//					URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" + simpleDateFormat.format(checkin)
-//							+ "&checkout=" + simpleDateFormat.format(checkout) + "&message=unavailable");
-//		}
+		// if
+		// (roomService.findOneByRangerTime(LocalDate.parse(simpleDateFormat.format(checkin)),
+		// LocalDate.parse(simpleDateFormat.format(checkout)),
+		// Long.parseLong(id_room)) == null) {
+		// return new RedirectView(
+		// URL_PATH + "/#/template/book?idRoom=" + id_room + "&checkin=" +
+		// simpleDateFormat.format(checkin)
+		// + "&checkout=" + simpleDateFormat.format(checkout) +
+		// "&message=unavailable");
+		// }
 
 		Room room = roomService.findOne(Long.parseLong(id_room));
 		Customer customerInfo = customerService.findByIcPassPortNumber(social_security);
@@ -191,14 +196,14 @@ public class PaymentResource {
 			user.setId(1L);
 			customerInfo.setCreate_by(user);
 			customerInfo.setCreate_date(java.time.ZonedDateTime.now());
-			
-		}else{
+
+		} else {
 			customerInfo.setEmail(email);
 		}
 		customerInfo = customerRepository.save(customerInfo);
 		Register_info register_info = new Register_info();
 		register_info.setDate_checkin(LocalDate.parse(simpleDateFormat.format(checkin)));
-		register_info.setDate_checkout(LocalDate.parse(simpleDateFormat.format(checkin)));
+		register_info.setDate_checkout(LocalDate.parse(simpleDateFormat.format(checkout)));
 		register_info.setRoom(room);
 		int totalDay = Math.round((simpleDateFormat.parse(enddate + " 00:00:00").getTime()
 				- simpleDateFormat.parse(todate + " 00:00:00").getTime()) / (24 * 60 * 60 * 1000));
@@ -241,7 +246,7 @@ public class PaymentResource {
 			register_info.setStatus_register(status_register);
 			Register_info info = register_infoRepository.save(register_info);
 			mailService.sendRegisterRoomEmail(info);
-			return new RedirectView(URL_PATH+"/#/template/resultRegister?id=" + info.getId());
+			return new RedirectView(URL_PATH + "/#/template/resultRegister?id=" + info.getId());
 		}
 		Method_payment method_payment = method_paymentService.createPaymentOnline();
 		register_info.setMethod_payment(method_payment);

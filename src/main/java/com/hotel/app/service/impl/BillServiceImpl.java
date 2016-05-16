@@ -68,10 +68,6 @@ public class BillServiceImpl implements BillService {
 			user.setLogin(optional.get().getLogin());
 			bill.setCreate_by(user);
 			log.info("Preshow user" + user);
-		} else {
-			Status_bill status_bill = new Status_bill();
-			status_bill.setId(2L);
-			bill.setStatus_bill(status_bill);
 		}
 		Bill result = billRepository.save(bill);
 		return result;

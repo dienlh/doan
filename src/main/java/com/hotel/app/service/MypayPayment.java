@@ -23,7 +23,7 @@ public class MypayPayment {
 	static final String MYPAY_NOTIFICATION_URL = "https://mypay.vn/notification/merchantNotify.htm?";
 	static final String MYPAY_NOTIFICATION_URL_SANDBOX = "http://sandbox.mypay.vn/notification/merchantNotify.htm?";
 	
-	static final String accountId = "15-000-2210-998"; //Ma tai khoan lay tu mypay
+	static final String accountId = "16-000-0405-995"; //Ma tai khoan lay tu mypay
 	static final String secureCode = "123456"; //Mat khau giao tiep lay tu mypay
 	
 	public String description = "";	

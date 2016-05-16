@@ -92,6 +92,29 @@ angular.module('hotelApp')
                     })
                 }]
             })
+             .state('bill.updatestatus', {
+                parent: 'reservation.detail',
+                url: '/{idBill}/updatestatus',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/bill/bill-dialog-update-status.html',
+                        controller: 'BillDialogController',
+                        size: 'lg',
+                        resolve: {
+                            entity: ['Bill', function(Bill) {
+                                return Bill.get({id : $stateParams.idBill});
+                            }]
+                        }
+                    }).result.then(function(result) {
+                    	$state.go('reservation.detail', {id:$stateParams.id}, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
+            })
             .state('bill.delete', {
                 parent: 'bill',
                 url: '/{id}/delete',
@@ -116,8 +139,8 @@ angular.module('hotelApp')
                 }]
             })
             .state('bill.printer', {
-                parent: 'bill',
-                url: '/printer/{id}',
+                parent: 'reservation.detail',
+                url: '/printer/{idbill}',
                 data: {
                     authorities: ['ROLE_USER'],
                 },

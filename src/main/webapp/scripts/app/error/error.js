@@ -11,7 +11,7 @@ angular.module('hotelApp')
                     pageTitle: 'Error page!'
                 },
                 views: {
-                    'content@': {
+                    '@': {
                         templateUrl: 'scripts/app/error/error.html'
                     }
                 },
@@ -26,7 +26,7 @@ angular.module('hotelApp')
                     authorities: []
                 },
                 views: {
-                    'content@': {
+                    '@': {
                         templateUrl: 'scripts/app/error/accessdenied.html'
                     }
                 },

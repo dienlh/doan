@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat.Value;
 import com.hotel.app.domain.Bill;
 import com.hotel.app.domain.Bill_service;
 import com.hotel.app.domain.Book;
+import com.hotel.app.domain.Status_bill_service;
 import com.hotel.app.service.BillExcelBuilder;
 import com.hotel.app.service.Bill_serviceExcelBuilder;
 import com.hotel.app.service.Bill_servicePDFBuilder;
@@ -29,6 +30,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,6 +58,9 @@ public class Bill_serviceResource {
 			return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("bill_service", "idexists",
 					"A new bill_service cannot already have an ID")).body(null);
 		}
+		Status_bill_service status_bill_service = new Status_bill_service();
+		status_bill_service.setId(3L);
+		bill_service.setStatus_bill_service(status_bill_service);
 		Bill_service result = bill_serviceService.save(bill_service);
 		return ResponseEntity.created(new URI("/api/bill_services/" + result.getId()))
 				.headers(HeaderUtil.createEntityCreationAlert("bill_service", result.getId().toString())).body(result);
@@ -150,8 +155,22 @@ public class Bill_serviceResource {
 		log.debug("REST request to exportPDF of Bill_services {}");
 		List<Bill_service> bill_services = bill_serviceService.findAllByMultiAttr(serviceId, statusId, reservationId,
 				ZonedDateTime.parse(fromDate + "T00:00:00+07:00"), ZonedDateTime.parse(toDate + "T23:59:59+07:00"));
+		Status_bill_service status_bill_service = new Status_bill_service();
+		status_bill_service.setId(5L);
+		for (Bill_service bill_service : bill_services) {
+			bill_service.setStatus_bill_service(status_bill_service);
+			bill_serviceService.save(bill_service);
+		}
 		// return a view which will be resolved by an excel view resolver
 		return new ModelAndView(new Bill_servicePDFBuilder(), "listBill_service", bill_services);
+	}
+	
+	@RequestMapping(value = "/bill_services/findAllByReservationIdAndStatus", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@Timed
+	public ResponseEntity<List<Bill_service>> findAllByReservationIdAndStatus(@RequestParam(value = "reservationId", required = true) Long reservationId) throws URISyntaxException {
+		log.debug("REST request to get a page of Bill_services");
+		List<Bill_service> bill_services = bill_serviceService.findAllByReservationIdAndStatus(reservationId, 5L);
+		return new ResponseEntity<>(bill_services, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/bill_services/exportExcel", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -167,6 +186,5 @@ public class Bill_serviceResource {
 		bill_services = bill_serviceService.findAllByMultiAttr(serviceId, statusId, roomId,
 				ZonedDateTime.parse(fromDate + "T00:00:00+07:00"), ZonedDateTime.parse(toDate + "T23:59:59+07:00"));
 		return new ModelAndView(new Bill_serviceExcelBuilder(), "lists", bill_services);
-	}
-
+	}	
 }

@@ -184,28 +184,31 @@ angular.module('hotelApp').controller(
 	   	             				alert("Bạn chưa chọn phiếu dịch vụ!");
 	   	             				return false;
 	   	             			}else{
-	   	             				if($scope.Selected.status_bill_service.id==1 
-	   	             						|| $scope.Selected.status_bill_service.id==4
-	   	             						|| $scope.Selected.reservation.status_reservation == 2
-	   	             						|| $scope.Selected.reservation.status_reservation == 3){
+	   	             				if($scope.Selected.status_bill_service.id==5 && $scope.Selected.reservation.status_reservation == 1){
+	   	             					$state.go('bill_service.delete',$scope.Selected);
+	   	             				}else{
 		   	             				alert("Phiếu không được phép xóa");
 		   	             				return false;
 	   	             				}
 	   	             			}
-	   	             			$state.go('bill_service.delete',$scope.Selected);
 	   	             		}
 	   	             	}
 	   	             	,'-',{
 	   	             		iconCls: 'icon-print',
 	   	             		handler: function(){
 	   	             			if($scope.reservation.id != null && $scope.reservation.id !=0 && $scope.status_bill_service.id == 3){
-		   	             			$state.go('bill_service.printer',{
-			   	             			fromDate:$filter('date')($scope.fromDate,'yyyy-MM-dd'),
-				   	 					toDate:$filter('date')($scope.toDate,'yyyy-MM-dd'),
-				   	 					serviceId : $scope.service.id, 
-				   	 					statusId :$scope.status_bill_service.id, 
-				   	 					reservationId : $scope.reservation.id,
-		   	             			});
+		   	             			var r = confirm("Bạn có chắc chắn muốn lập phiếu dịch vụ!");
+			   	             		if (r == true) {
+				   	             		$state.go('bill_service.printer',{
+				   	             			fromDate:$filter('date')($scope.fromDate,'yyyy-MM-dd'),
+					   	 					toDate:$filter('date')($scope.toDate,'yyyy-MM-dd'),
+					   	 					serviceId : $scope.service.id, 
+					   	 					statusId :$scope.status_bill_service.id, 
+					   	 					reservationId : $scope.reservation.id,
+			   	             			});
+			   	             		} else {
+			   	             			return false;
+			   	             		}
 	   	             			}else{
 	   	             				alert("Lỗi không lập được phiếu dịch vụ ! vui lòng kiểm tra lại thông số mã nhận phòng và trạng thái mới đăng ký dịch vụ")
 	   	             				return false;

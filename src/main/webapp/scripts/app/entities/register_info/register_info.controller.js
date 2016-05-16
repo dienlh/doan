@@ -112,7 +112,7 @@ angular.module('hotelApp').controller(
 		                columns:[[
 		                    {field:'id',title:'Mã ĐK',width:50,fixed:true},
 		                    {field:'date_checkin',title:'Ngày đến',width:80,fixed:true},
-		                    {field:'date_checkin',title:'Ngày đi',width:80,fixed:true},
+		                    {field:'date_checkout',title:'Ngày đi',width:80,fixed:true},
 		                    {field:'number_of_adult',title:'SLNL',width:40,fixed:true},
 		                    {field:'number_of_kid',title:'SLTE',width:40,fixed:true},
 		                    {field:'deposit_value',title:'Đặt cọc',width:80,alight:"right",fixed:true,
@@ -185,7 +185,7 @@ angular.module('hotelApp').controller(
 		                    },
 		                    {field:'create_date',title:'Ngày tạo',width:120,fixed:true,
 			                   	formatter: function(value,row,index){
-			                   		return $filter('date')(value,'dd/MM/yyyy hh:MM');
+			                   		return $filter('date')(value,'dd/MM/yyyy hh:mm:ss');
 			               		}
 		                    }
 		                ]],

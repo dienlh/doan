@@ -146,7 +146,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-					<th jh-sort-by="id"><span>STT</span> <span
+					<th jh-sort-by="id"><span>Mã phiếu</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="fees_room"><span>Phí thuê phòng</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
@@ -166,14 +166,14 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="customer.full_name"><span>Người thanh
-							toán</span> <span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="customer.full_name"><span>Khách hàng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="method_payment.name"><span>Phương thức
 							thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_payment.name"><span>Trạng thái
 							thanh toán</span> <span class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="reservation.id"><span>Mã nhận trả phòng</span>
-						<span class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="reservation.id"><span>Mã nhận phòng</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_bill.name"><span>Trạng thái hóa
 							đơn</span> <span class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
@@ -185,7 +185,7 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="bill in bills">
-					<td><a ui-sref="bill.detail({id:bill.id})">{{$index+1}}</a></td>
+					<td><a ui-sref="bill.detail({id:bill.id})">{{bill.id}}</a></td>
 					<td>{{bill.fees_room | currency : "" : 0}}</td>
 					<td>{{bill.fees_service | currency : "" : 0}}</td>
 					<td>{{bill.fees_other | currency : "" : 0}}</td>
@@ -193,6 +193,7 @@
 					<td>{{bill.total | currency : "" : 0}}</td>
 					<td>{{bill.fees_vat | currency : "" : 0}}</td>
 					<td>{{bill.total_vat | currency : "" : 0}}</td>
+					<td>{{bill.decription}}</td>
 					<td><a ui-sref="currency.detail({id:bill.currency.id})">{{bill.currency.code}}</a>
 					</td>
 					<td><a ui-sref="customer.detail({id:bill.customer.id})">{{bill.customer.full_name}}</a>
@@ -207,14 +208,18 @@
 					</td>
 					<td><a ui-sref="status_bill.detail({id:bill.status_bill.id})">{{bill.status_bill.name}}</a>
 					</td>
-					<td>{{bill.decription}}</td>
 					<td>{{bill.create_by.login}}</td>
 					<td>{{bill.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-					<td>
-						<button type="submit" ui-sref="bill.edit({idBill:bill.id})"
+					<td ng-switch="bill.status_bill.id">
+						<button ng-switch-when="1" type="submit" ui-sref="bill.edit({idBill:bill.id})"
 							class="btn btn-primary btn-sm">
 							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
-								Edit</span>
+								Lập phiếu</span>
+						</button>
+						<button ng-switch-when="4" type="submit" ui-sref="bill.updatestatus({idBill:bill.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Cập nhật</span>
 						</button>
 					</td>
 				</tr>
@@ -226,6 +231,6 @@
 		<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span>
 			Back</span>
 	</button>
-	<button class="btn btn-success btn-sm" ng-click="exportBillForm()" ng-show="showExport">Xuất
-		phiếu thanh toán</button>
+	<button class="btn btn-success btn-sm" ng-click="exportBillForm()"
+		ng-show="showExport">Xuất phiếu thanh toán</button>
 </div>

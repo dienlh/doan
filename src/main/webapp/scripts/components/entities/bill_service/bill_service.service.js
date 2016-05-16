@@ -5,6 +5,7 @@ angular.module('hotelApp')
         return $resource('api/bill_services/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'findAllByMultiAttr': { method: 'GET', isArray: true , url:"api/bill_services/findAllByMultiAttr"},
+            'findAllByReservationIdAndStatus': { method: 'GET', isArray: true , url:"api/bill_services/findAllByReservationIdAndStatus"},
             'findAllByReservationId': { method: 'GET', isArray: true , url:"api/bill_services/findAllByReservationId"},
             'get': {
                 method: 'GET',

@@ -2,12 +2,16 @@ package com.hotel.app.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.hotel.app.domain.Bill;
+import com.hotel.app.domain.Bill_service;
 import com.hotel.app.domain.Book;
 import com.hotel.app.domain.Register_info;
+import com.hotel.app.domain.Status_bill;
+import com.hotel.app.domain.Status_bill_service;
 import com.hotel.app.service.BillExcelBuilder;
 import com.hotel.app.service.BillPDFBuilder;
 import com.hotel.app.service.BillService;
 import com.hotel.app.service.Bill_servicePDFBuilder;
+import com.hotel.app.service.Bill_serviceService;
 import com.hotel.app.service.PDFBuilder;
 import com.hotel.app.service.Register_infoExcelBuilder;
 import com.hotel.app.web.rest.util.HeaderUtil;
@@ -45,6 +49,9 @@ public class BillResource {
 	@Inject
 	private BillService billService;
 
+	@Inject
+	private Bill_serviceService bill_serviceService;
+	
 	/**
 	 * POST /bills -> Create a new bill.
 	 */
@@ -128,7 +135,11 @@ public class BillResource {
 	public ResponseEntity<Bill> createByReservationId(
 			@RequestParam(value = "reservationId", required = true) Long reservationId) {
 		log.debug("REST request to create Bill by reservation id: {}", reservationId);
-		Bill bill = billService.createByReservationId(reservationId);
+		List<Bill_service> bill_services = bill_serviceService.findAllByReservationIdAndStatus(reservationId, 5L);
+		Bill bill = new Bill();
+		if(bill_services.isEmpty()){
+			bill = billService.createByReservationId(reservationId);
+		}
 		return Optional.ofNullable(bill).map(result -> new ResponseEntity<>(result, HttpStatus.OK))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
@@ -137,6 +148,19 @@ public class BillResource {
 	public ModelAndView exportPDF(@PathVariable Long id) {
 		// create some sample data
 		Bill bill = billService.findOne(id);
+		Status_bill status_bill = new Status_bill();
+		status_bill.setId(4L);
+		bill.setStatus_bill(status_bill);
+		List<Bill_service> bill_services = bill_serviceService.findAllByReservationId(bill.getReservation().getId());
+		Status_bill_service status_bill_service = new Status_bill_service();
+		status_bill_service.setId(4L);
+		for (Bill_service bill_service : bill_services) {
+			if(bill_service.getStatus_bill_service().getId()==3L){
+				bill_service.setStatus_bill_service(status_bill_service);
+				bill_serviceService.save(bill_service);
+			}
+		}
+		bill=billService.save(bill);
 		// return a view which will be resolved by an excel view resolver
 		return new ModelAndView(new BillPDFBuilder(), "bill", bill);
 	}

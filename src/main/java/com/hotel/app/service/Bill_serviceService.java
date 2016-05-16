@@ -1,5 +1,6 @@
 package com.hotel.app.service;
 
+import com.hotel.app.domain.Bill;
 import com.hotel.app.domain.Bill_service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -44,4 +45,6 @@ public interface Bill_serviceService {
     public List<Bill_service> findAllByReservationId(Long reservationId);
     
     public List<Bill_service> findAllByListId(List<Long> listId);
+    
+    public List<Bill_service> findAllByReservationIdAndStatus(Long reservationId,Long statusId);
 }

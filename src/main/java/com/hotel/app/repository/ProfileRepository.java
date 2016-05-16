@@ -23,7 +23,7 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
 
 	@Query("select profile " + "from Profile profile " + "where ( ?1 =0L or profile.position.id=?1)"
 			+ "and (?2 =0L or profile.department.id=?2)" + "and (?3 =0L or profile.status_profile.id=?3)"
-			+ "and (?4='' or ?4 is null or profile.employee.full_name like %?4%)")
+			+ "and profile.employee.full_name like %?4%")
 	Page<Profile> findByMultiAttr(Pageable pageable, Long positionId, Long departmentId, Long statusId,
 			String full_name);
 
