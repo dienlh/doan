@@ -3,7 +3,7 @@
 	filters="queueLimit, customFilter">
 	<div class="col w-lg bg-light b-r bg-auto">
 		<div class="wrapper-md dker b-b">
-			<h3 class="m-n font-thin">Select files</h3>
+			<h3 class="m-n font-thin">Lựa chọn file trong thư mục</h3>
 		</div>
 		<div class="wrapper-md">
 			<div ng-show="uploader.isHTML5" class="m-b-md">
@@ -21,8 +21,8 @@
 			</div>
 
 			<!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
-			<p>Multiple</p>
-			<input type="file" nv-file-select="" uploader="uploader" multiple />
+<!-- 			<p>Multiple</p> -->
+<!-- 			<input type="file" nv-file-select="" uploader="uploader" multiple /> -->
 
 			<p class="m-t-md">Single</p>
 			<input type="file" nv-file-select="" uploader="uploader" accept=".xlsx,.xls"  />
@@ -31,7 +31,7 @@
 	<div class="col">
 		<div class="wrapper-md bg-light dk b-b">
 			<span class="pull-right m-t-xs">Mẫu excel import: <a
-				class="badge bg-info" href="scripts/app/entities/room/Roomsheet.xls">Tải
+				class="badge bg-info" href="scripts/app/entities/room/roomsheet.xls">Tải
 					tại đây!</a></span> <span class="pull-right m-t-xs">Queue length: <b
 				class="badge bg-info">{{ uploader.queue.length }}</b></span>
 			<h3 class="m-n font-thin">Upload queue</h3>
@@ -40,11 +40,11 @@
 			<table class="table bg-white-only b-a">
 				<thead>
 					<tr>
-						<th width="50%">Name</th>
-						<th ng-show="uploader.isHTML5">Size</th>
-						<th ng-show="uploader.isHTML5">Progress</th>
-						<th>Status</th>
-						<th>Actions</th>
+						<th width="50%">Tên file</th>
+						<th ng-show="uploader.isHTML5">Kích cỡ tệp</th>
+						<th ng-show="uploader.isHTML5">Tiến trình</th>
+						<th>Trạng thái</th>
+						<th>Hành động</th>
 					</tr>
 				</thead>
 				<tbody>

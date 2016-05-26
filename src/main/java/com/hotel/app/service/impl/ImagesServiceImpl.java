@@ -82,7 +82,11 @@ public class ImagesServiceImpl implements ImagesService{
     	String fileName = DateTime.now().getMillis() + file.getOriginalFilename();
     	byte[] bytes = file.getBytes();
 		BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(
-				new File("E:/apache-tomcat-8.0.32/webapps/hotel/src/main/webapp/upload/" + fileName)));
+				new File("E:/apache-tomcat-8.0.32/webapps/hotel/upload/" + fileName)));
+    	
+//    	BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(
+//				new File("D:/Leature/doantotnghiep/doantotnghiep/src/main/webapp/upload/" + fileName)));
+    			
 		buffStream.write(bytes);
 		buffStream.close();
 		return fileName;
