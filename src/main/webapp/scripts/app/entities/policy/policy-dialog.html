@@ -5,8 +5,7 @@
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-hidden="true" ng-click="clear()">&times;</button>
-		<h4 class="modal-title" id="myPolicyLabel">Create or edit a
-			Policy</h4>
+		<h4 class="modal-title" id="myPolicyLabel">Tạo mới</h4>
 	</div>
 	<div class="modal-body">
 		<jh-alert-error></jh-alert-error>
@@ -25,7 +24,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_decription">Mô tả</label>
+			<label class="control-label" for="field_decription">Đặc tả</label>
 			<textarea type="text" class="form-control" name="decription"
 				id="field_decription" ng-model="policy.decription"
 				ng-maxlength="255"></textarea>
@@ -36,10 +35,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="field_start_date">Ngày
-				triển khai</label> <input id="field_start_date" type="text"
-				class="form-control" uib-datepicker-popup="{{dateformat}}"
-				ng-model="policy.start_date"
+			<label class="control-label" for="field_start_date">Ngày bắt
+				đầu</label> <input id="field_start_date" type="text" class="form-control"
+				uib-datepicker-popup="{{dateformat}}" ng-model="policy.start_date"
 				is-open="datePickerForStart_date.status.opened" /> <span
 				class="input-group-btn">
 				<button type="button" class="btn btn-default"
@@ -88,7 +86,7 @@
 		<!--         </div> -->
 
 		<div class="form-group">
-			<label for="field_kind_of_policy">kind_of_policy</label> <select
+			<label for="field_kind_of_policy">Loại chính sách</label> <select
 				class="form-control" id="field_kind_of_policy" name="kind_of_policy"
 				ng-model="policy.kind_of_policy" required="required"
 				ng-options="kind_of_policy as kind_of_policy.name for kind_of_policy in kind_of_policys track by kind_of_policy.id">
@@ -96,7 +94,7 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="field_type_policy">type_policy</label> <select
+			<label for="field_type_policy">Kiểu QĐ & CS</label> <select
 				class="form-control" id="field_type_policy" name="type_policy"
 				ng-model="policy.type_policy" required="required"
 				ng-options="type_policy as type_policy.name for type_policy in type_policys track by type_policy.id">
@@ -104,38 +102,38 @@
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="field_status_policy">status_policy</label> <select
+			<label for="field_status_policy">Trạng thái</label> <select
 				class="form-control" id="field_status_policy" name="status_policy"
 				ng-model="policy.status_policy" required="required"
 				ng-options="status_policy as status_policy.name for status_policy in status_policys track by status_policy.id">
 				<option value=""></option>
 			</select>
 		</div>
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="field_create_by">create_by</label> <select -->
-<!-- 				class="form-control" id="field_create_by" name="create_by" -->
-<!-- 				ng-model="policy.create_by" -->
-<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
-<!-- 				<option value=""></option> -->
-<!-- 			</select> -->
-<!-- 		</div> -->
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="field_last_modified_by">last_modified_by</label> <select -->
-<!-- 				class="form-control" id="field_last_modified_by" -->
-<!-- 				name="last_modified_by" ng-model="policy.last_modified_by" -->
-<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
-<!-- 				<option value=""></option> -->
-<!-- 			</select> -->
-<!-- 		</div> -->
+		<!-- 		<div class="form-group"> -->
+		<!-- 			<label for="field_create_by">create_by</label> <select -->
+		<!-- 				class="form-control" id="field_create_by" name="create_by" -->
+		<!-- 				ng-model="policy.create_by" -->
+		<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
+		<!-- 				<option value=""></option> -->
+		<!-- 			</select> -->
+		<!-- 		</div> -->
+		<!-- 		<div class="form-group"> -->
+		<!-- 			<label for="field_last_modified_by">last_modified_by</label> <select -->
+		<!-- 				class="form-control" id="field_last_modified_by" -->
+		<!-- 				name="last_modified_by" ng-model="policy.last_modified_by" -->
+		<!-- 				ng-options="user as user.login for user in users track by user.id"> -->
+		<!-- 				<option value=""></option> -->
+		<!-- 			</select> -->
+		<!-- 		</div> -->
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal"
 			ng-click="clear()">
-			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Hủy</span>
 		</button>
 		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
 			class="btn btn-primary">
-			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Lưu lại</span>
 		</button>
 	</div>
 </form>

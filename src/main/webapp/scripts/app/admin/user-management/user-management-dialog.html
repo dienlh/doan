@@ -4,7 +4,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
         <h4 class="modal-title" id="myUserLabel">
-            Create or edit a User</h4>
+            Tạo tài khoản</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label">Login</label>
+            <label class="control-label">Tên đăng nhập</label>
             <input type="text" class="form-control" name="login"
                    ng-model="user.login" ng-required="user.id == null" ng-maxlength="50">
 
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">FirstName</label>
+            <label class="control-label">Họ tên đệm</label>
             <input type="text" class="form-control" name="firstName"
                    ng-model="user.firstName" ng-maxlength="50">
 
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label>LastName</label>
+            <label>Tên</label>
             <input type="text" class="form-control" name="lastName"
                    ng-model="user.lastName" ng-maxlength="50">
 
@@ -80,12 +80,12 @@
         <div class="form-group">
             <label for="activated">
                 <input type="checkbox" id="activated" ng-model="user.activated">
-                <span>Activated</span>
+                <span>Kích hoạt</span>
             </label>
         </div>
 
         <div class="form-group">
-            <label>Profiles</label>
+            <label>Quyền truy cập</label>
             <select class="form-control" multiple name="authority" ng-model="user.authorities"
                     ng-options="authority for authority in authorities">
             </select>
@@ -94,10 +94,10 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
-           >Cancel</span>
+           >Hủy bỏ</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Lưu lại</span>
         </button>
     </div>
 </form>

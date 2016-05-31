@@ -2,8 +2,11 @@
 
 angular.module('hotelApp').controller(
 		'RoomController',
-		function($scope, $state, Room, ParseLinks,Type_room,Status_room,$filter) {
-
+		function($scope, $state, Room, ParseLinks,Type_room,Status_room,$filter,Principal) {
+			Principal.identity().then(function(account) {
+	            $scope.account = account;
+//	            $scope.isAuthenticated = Principal.isAuthenticated;
+	        });
 			$scope.type_rooms = Type_room.query();
 	        $scope.status_rooms = Status_room.query();
 			$scope.rooms = [];
@@ -184,43 +187,68 @@ angular.module('hotelApp').controller(
 	                	return "help";
 	                }
 	             });
-	             $('#dg').datagrid({
-	             	toolbar: [{
-		             		iconCls: 'icon-add',
-		             		handler: function(){
-		             			$state.go('room.new');
-		             		}
-		             	},'-',{
-		             		iconCls: 'icon-edit',
-		             		handler: function(){
-		             			if(!$scope.Selected){
-		             				alert("Bạn chưa chọn phòng!");
-		             				return false;
-		             			}
-		             			$state.go('room.edit',$scope.Selected);
-		             		}
-		             	},'-',{
-		             		iconCls: 'icon-remove',
-		             		handler: function(){
-		             			if(!$scope.Selected){
-		             				alert("Bạn chưa chọn phòng!");
-		             				return false;
-		             			}
-		             			$state.go('room.delete',$scope.Selected);
-		             		}
-		             	}
-		             	,'-',{
-		             		iconCls: 'icon-help',
-		             		handler: function(){
-		             			if(!$scope.Selected){
-		             				alert("Bạn chưa chọn phòng!");
-		             				return false;
-		             			}
-		             			$state.go('room.detail',$scope.Selected);
-		             		}
-		             	}
-	             	]
-	             });
+	        	 $scope.checkRoles=false;
+	        	 angular.forEach($scope.account.authorities, function(value, key) {
+	        		 console.log(value);
+	        		  if(value=="ROLE_RECEPTIONIST"){
+	        			  $scope.checkRoles=true;
+	        			  return true;
+	        		  }
+	        		});
+	        	 if($scope.checkRoles==true){
+	        		 $('#dg').datagrid({
+	 	             	toolbar: [{
+	 		             		iconCls: 'icon-edit',
+	 		             		handler: function(){
+	 		             			if(!$scope.Selected){
+	 		             				alert("Bạn chưa chọn phòng!");
+	 		             				return false;
+	 		             			}
+	 		             			$state.go('room.edit',$scope.Selected);
+	 		             		}
+	 		             	}
+	 	             	]
+	 	             });
+	        	 }else{
+	        		 $('#dg').datagrid({
+	 	             	toolbar: [{
+	 		             		iconCls: 'icon-add',
+	 		             		handler: function(){
+	 		             			$state.go('room.new');
+	 		             		}
+	 		             	},'-',{
+	 		             		iconCls: 'icon-edit',
+	 		             		handler: function(){
+	 		             			if(!$scope.Selected){
+	 		             				alert("Bạn chưa chọn phòng!");
+	 		             				return false;
+	 		             			}
+	 		             			$state.go('room.edit',$scope.Selected);
+	 		             		}
+	 		             	},'-',{
+	 		             		iconCls: 'icon-remove',
+	 		             		handler: function(){
+	 		             			if(!$scope.Selected){
+	 		             				alert("Bạn chưa chọn phòng!");
+	 		             				return false;
+	 		             			}
+	 		             			$state.go('room.delete',$scope.Selected);
+	 		             		}
+	 		             	}
+	 		             	,'-',{
+	 		             		iconCls: 'icon-help',
+	 		             		handler: function(){
+	 		             			if(!$scope.Selected){
+	 		             				alert("Bạn chưa chọn phòng!");
+	 		             				return false;
+	 		             			}
+	 		             			$state.go('room.detail',$scope.Selected);
+	 		             		}
+	 		             	}
+	 	             	]
+	 	             });
+	        	 }
+	             
 	        }
 			function createPagination(totalItem){
 				$('#pp').pagination({

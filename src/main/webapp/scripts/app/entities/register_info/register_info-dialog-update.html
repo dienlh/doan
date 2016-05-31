@@ -5,8 +5,7 @@
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"
 			aria-hidden="true" ng-click="clear()">&times;</button>
-		<h4 class="modal-title" id="myRegister_infoLabel">Tạo mới hoặc
-			sửa thông tin đăng ký</h4>
+		<h4 class="modal-title" id="myRegister_infoLabel">Cập nhật thông tin đăng ký</h4>
 	</div>
 	<div class="modal-body">
 		<jh-alert-error></jh-alert-error>
@@ -147,7 +146,7 @@
 		<div class="form-group">
 			<label for="field_currency">Đơn vị tính</label> <select
 				class="form-control" id="field_currency" name="currency"
-				ng-model="register_info.currency" required="required"
+				ng-model="register_info.currency" required="required" disabled="disabled"
 				ng-options="currency as currency.code for currency in currencys track by currency.id">
 				<option value=""></option>
 			</select>
@@ -163,7 +162,7 @@
 		<div class="form-group">
 			<label for="field_customer">Khách hàng</label> <select
 				class="form-control" id="field_customer" name="customer"
-				ng-model="register_info.customer" required="required"
+				ng-model="register_info.customer" required="required" disabled="disabled"
 				ng-options="customer as customer.full_name for customer in customers track by customer.id">
 				<option value=""></option>
 			</select>
@@ -186,20 +185,20 @@
 		</div>
 		<div class="form-group">
 			<label for="field_method_register">Phương thức đăng ký</label> <select
-				class="form-control" id="field_method_register" required="required"
+				class="form-control" id="field_method_register" disabled="disabled"
 				name="method_register" ng-model="register_info.method_register"
 				ng-options="method_register as method_register.name for method_register in method_registers track by method_register.id">
 				<option value=""></option>
 			</select>
 		</div>
-<!-- 		<div class="form-group"> -->
-<!-- 			<label for="field_status_register">Trạng thái đăng ký</label> <select -->
-<!-- 				class="form-control" id="field_status_register" required="required" -->
-<!-- 				name="status_register" ng-model="register_info.status_register" -->
-<!-- 				ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id"> -->
-<!-- 				<option value=""></option> -->
-<!-- 			</select> -->
-<!-- 		</div> -->
+		<div class="form-group">
+			<label for="field_status_register">Trạng thái đăng ký</label> <select
+				class="form-control" id="field_status_register" required="required"
+				name="status_register" ng-model="register_info.status_register"
+				ng-options="status_register as status_register.name for status_register in status_registers track by status_register.id">
+				<option value=""></option>
+			</select>
+		</div>
 		<!--         <div class="form-group"> -->
 		<!--             <label for="field_create_by">create_by</label> -->
 		<!--             <select class="form-control" id="field_create_by" name="create_by" ng-model="register_info.create_by" ng-options="user as user.login for user in users track by user.id"> -->

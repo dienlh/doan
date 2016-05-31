@@ -1,11 +1,10 @@
 <div>
-    <h2>Departments</h2>
+    <h2>Danh sách phòng ban tại khách sạn</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="department.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Department</span>
+                <button class="btn btn-primary" ui-sref="department.new"><span>Tạo mới</span>
                 </button>
             </div>
         </div>
@@ -16,11 +15,11 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="phone_number"><span>Phone_number</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Phòng ban</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone_number"><span>SĐT</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,20 +34,20 @@
                         {{department.create_by.login}}
                     </td>
                     <td>
-                        <button type="submit"
-                                ui-sref="department.detail({id:department.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
+<!--                         <button type="submit" -->
+<!--                                 ui-sref="department.detail({id:department.id})" -->
+<!--                                 class="btn btn-info btn-sm"> -->
+<!--                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span> -->
+<!--                         </button> -->
                         <button type="submit"
                                 ui-sref="department.edit({id:department.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Sửa</span>
                         </button>
                         <button type="submit"
                                 ui-sref="department.delete({id:department.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Xóa</span>
                         </button>
                     </td>
                 </tr>

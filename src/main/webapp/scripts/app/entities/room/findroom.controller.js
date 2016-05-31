@@ -2,8 +2,11 @@
 
 angular.module('hotelApp').controller(
 		'FindRoomController',
-		function($scope, $state, Room, ParseLinks,Type_room,Status_room,$filter) {
-
+		function($scope, $state, Room, ParseLinks,Type_room,Status_room,$filter,Principal) {
+			Principal.identity().then(function(account) {
+	            $scope.account = account;
+//	            $scope.isAuthenticated = Principal.isAuthenticated;
+	        });
 			$scope.type_rooms = Type_room.query();
 //	        $scope.status_rooms = Status_room.query();
 			$scope.rooms = [];
@@ -176,19 +179,19 @@ angular.module('hotelApp').controller(
 	                	return "help";
 	                }
 	             });
-	             $('#dg').datagrid({
-	             	toolbar: [{
-		             		iconCls: 'icon-help',
-		             		handler: function(){
-		             			if(!$scope.roomSelected){
-		             				alert("Bạn chưa chọn phòng!");
-		             				return false;
-		             			}
-		             			$state.go('room.detail',$scope.roomSelected);
-		             		}
-		             	}
-	             	]
-	             });
+//	             $('#dg').datagrid({
+//	             	toolbar: [{
+//		             		iconCls: 'icon-help',
+//		             		handler: function(){
+//		             			if(!$scope.roomSelected){
+//		             				alert("Bạn chưa chọn phòng!");
+//		             				return false;
+//		             			}
+//		             			$state.go('room.detail',$scope.roomSelected);
+//		             		}
+//		             	}
+//	             	]
+//	             });
 	        }
 			function createPagination(totalItem){
 				$('#pp').pagination({

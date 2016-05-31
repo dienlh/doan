@@ -79,7 +79,7 @@ angular.module('hotelApp')
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/register_info/register_info-dialog.html',
+                        templateUrl: 'scripts/app/entities/register_info/register_info-dialog-update.html',
                         controller: 'Register_infoDialogController',
                         size: 'lg',
                         resolve: {

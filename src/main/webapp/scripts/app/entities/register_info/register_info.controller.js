@@ -4,7 +4,7 @@ angular.module('hotelApp').controller(
 		'Register_infoController',
 		function($scope, $state, Register_info, ParseLinks, Method_payment,
 				Status_payment, Method_register, Status_register,$filter) {
-
+			$scope.fromDate=$scope.toDate=new Date();
 			$scope.method_payments = Method_payment.query();
 			$scope.status_payments = Status_payment.query();
 			$scope.method_registers = Method_register.query();

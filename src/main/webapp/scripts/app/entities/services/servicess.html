@@ -18,15 +18,15 @@
 						</select>
 					</div>
 					<button type="submit" class="btn btn-default">Tìm kiếm</button>
-
+					<button class="btn btn-primary" ui-sref="services.new" has-any-authority="ROLE_SERVICES, ROLE_ADMIN">Tạo mới</button>
 				</form>
 			</div>
-			<div class="col-md-4" has-any-authority="ROLE_SERVICE, ROLE_ADMIN">
-				<button class="btn btn-primary" ui-sref="services.new">
-					<span class="glyphicon glyphicon-flash"></span> <span>Tạo
-						mới</span>
-				</button>
-			</div>
+<!-- 			<div class="col-md-4" has-any-authority="ROLE_SERVICE, ROLE_ADMIN"> -->
+<!-- 				<button class="btn btn-primary" ui-sref="services.new"> -->
+<!-- 					<span class="glyphicon glyphicon-flash"></span> <span>Tạo -->
+<!-- 						mới</span> -->
+<!-- 				</button> -->
+<!-- 			</div> -->
 		</div>
 	</div>
 
@@ -42,18 +42,18 @@
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="decription"><span>Mô tả</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-					<th jh-sort-by="currency.code"><span>currency</span> <span
+					<th jh-sort-by="currency.code"><span>Đơn vị tính</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
 					<th jh-sort-by="status_service.name"><span>Trạng thái</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
-<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span -->
+					<!-- 						class="glyphicon glyphicon-sort"></span></th> -->
 					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
 						class="glyphicon glyphicon-sort"></span></th>
-<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
-<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
-<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
-<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="last_modified_by.login"><span>Người sửa -->
+					<!-- 							cuối</span> <span class="glyphicon glyphicon-sort"></span></th> -->
+					<!-- 					<th jh-sort-by="last_modified_date"><span>Ngày sửa cuối</span> -->
+					<!-- 						<span class="glyphicon glyphicon-sort"></span></th> -->
 					<th></th>
 				</tr>
 			</thead>
@@ -68,23 +68,26 @@
 					<td><a
 						ui-sref="status_service.detail({id:services.status_service.id})">{{services.status_service.name}}</a>
 					</td>
-<!-- 					<td>{{services.create_by.login}}</td> -->
+					<!-- 					<td>{{services.create_by.login}}</td> -->
 					<td>{{services.create_date | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-<!-- 					<td>{{services.last_modified_by.login}}</td> -->
-<!-- 					<td>{{services.last_modified_date | date:'dd/MM/yyyy -->
-<!-- 						hh:mm:ss'}}</td> -->
+					<!-- 					<td>{{services.last_modified_by.login}}</td> -->
+					<!-- 					<td>{{services.last_modified_date | date:'dd/MM/yyyy -->
+					<!-- 						hh:mm:ss'}}</td> -->
 					<td>
 						<button type="submit" ui-sref="services.detail({id:services.id})"
 							class="btn btn-info btn-sm">
 							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span>
 								View</span>
 						</button>
-						<button has-any-authority="ROLE_SERVICE, ROLE_ADMIN" type="submit" ui-sref="services.edit({id:services.id})"
+						<button has-any-authority="ROLE_SERVICES, ROLE_ADMIN" type="submit"
+							ui-sref="services.edit({id:services.id})"
 							class="btn btn-primary btn-sm">
 							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
 								Edit</span>
 						</button>
-						<button has-any-authority="ROLE_SERVICE, ROLE_ADMIN" has-any-authority="ROLE_SERVICE, ROLE_ADMIN" type="submit" ui-sref="services.delete({id:services.id})"
+						<button has-any-authority="ROLE_SERVICES, ROLE_ADMIN"
+							has-any-authority="ROLE_SERVICE, ROLE_ADMIN" type="submit"
+							ui-sref="services.delete({id:services.id})"
 							class="btn btn-danger btn-sm">
 							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
 								Delete</span>

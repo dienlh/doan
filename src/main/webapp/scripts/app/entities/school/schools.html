@@ -1,59 +1,63 @@
 <div>
-    <h2>Schools</h2>
-    <jh-alert></jh-alert>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="school.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new School</span>
-                </button>
-            </div>
-        </div>
-    </div>
+	<h2>Danh sách trường đào tạo nhân viên</h2>
+	<jh-alert></jh-alert>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<button class="btn btn-primary" ui-sref="school.new">
+					<span>Tạo mới</span>
+				</button>
+			</div>
+		</div>
+	</div>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
-                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="school in schools track by school.id">
-                    <td><a ui-sref="school.detail({id:school.id})">{{school.id}}</a></td>
-                    <td>{{school.name}}</td>
-                    <td>{{school.decription}}</td>
-                    <td>{{school.create_date | date:'medium'}}</td>
-                    <td>
-                        {{school.create_by.login}}
-                    </td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="school.detail({id:school.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="school.edit({id:school.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="school.delete({id:school.id})"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="text-center">
-        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
-    </div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+					<th jh-sort-by="id"><span>ID</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="name"><span>Tên trường</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="decription"><span>Mô tả</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_date"><span>Ngày tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th jh-sort-by="create_by.login"><span>Người tạo</span> <span
+						class="glyphicon glyphicon-sort"></span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="school in schools track by school.id">
+					<td><a ui-sref="school.detail({id:school.id})">{{school.id}}</a></td>
+					<td>{{school.name}}</td>
+					<td>{{school.decription}}</td>
+					<td>{{school.create_date | date:'medium'}}</td>
+					<td>{{school.create_by.login}}</td>
+					<td>
+<!-- 						<button type="submit" ui-sref="school.detail({id:school.id})" -->
+<!-- 							class="btn btn-info btn-sm"> -->
+<!-- 							<span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> -->
+<!-- 								View</span> -->
+<!-- 						</button> -->
+						<button type="submit" ui-sref="school.edit({id:school.id})"
+							class="btn btn-primary btn-sm">
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;<span>
+								Sửa</span>
+						</button>
+						<button type="submit" ui-sref="school.delete({id:school.id})"
+							class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>
+								Xóa</span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<uib-pagination class="pagination-sm" total-items="totalItems"
+			ng-model="page" ng-change="loadAll()"></uib-pagination>
+	</div>
 </div>

@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.hotel.app.domain.Event;
 import com.hotel.app.domain.Register_info;
 import com.hotel.app.domain.Room;
+import com.hotel.app.domain.Status_register;
 import com.hotel.app.service.Register_infoExcelBuilder;
 import com.hotel.app.service.Register_infoService;
 import com.hotel.app.service.RoomExcelBuilder;
@@ -59,6 +60,9 @@ public class Register_infoResource {
 			return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("register_info", "idexists",
 					"A new register_info cannot already have an ID")).body(null);
 		}
+		Status_register status_register = new Status_register();
+		status_register.setId(1L);
+		register_info.setStatus_register(status_register);
 		Register_info result = register_infoService.save(register_info);
 		return ResponseEntity.created(new URI("/api/register_infos/" + result.getId()))
 				.headers(HeaderUtil.createEntityCreationAlert("register_info", result.getId().toString())).body(result);

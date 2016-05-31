@@ -1,7 +1,7 @@
 
 <div>
 	<h2>
-		<span>Reservation</span> {{reservation.id}}
+		<span>Chi tiết thuê phòng khách sạn mã : </span> {{reservation.id}}
 	</h2>
 	<div class="table-responsive">
 		<table class="table table-striped">
@@ -13,33 +13,33 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><span>Thời gian check-in</span></td>
+					<td><span>Thời gian nhận phòng</span></td>
 					<td><span class="form-control-static">{{reservation.time_checkin
 							| date:'dd/MM/yyyy hh:mm:ss'}}</span></td>
 				</tr>
 				<tr>
-					<td><span>Ghi chú check-in</span></td>
+					<td><span>Ghi chú nhận phòng</span></td>
 					<td><span class="form-control-static">{{reservation.note_checkin}}</span>
 					</td>
 				</tr>
 				<tr>
-					<td><span>Người check-in</span></td>
+					<td><span>Người nhận phòng</span></td>
 					<td><a class="form-control-static"
 						ui-sref="customer.detail({id:reservation.person_checkin.id})">{{reservation.person_checkin.full_name}}</a>
 					</td>
 				</tr>
 				<tr>
-					<td><span>Thời gian check-out</span></td>
+					<td><span>Thời gian trả phòng</span></td>
 					<td><span class="form-control-static">{{reservation.time_checkout
 							| date:'dd/MM/yyyy hh:mm:ss'}}</span></td>
 				</tr>
 				<tr>
-					<td><span>Ghi chú check-out</span></td>
+					<td><span>Ghi chú trả phòng</span></td>
 					<td><span class="form-control-static">{{reservation.note_checkout}}</span>
 					</td>
 				</tr>
 				<tr>
-					<td><span>Người check-out</span></td>
+					<td><span>Người trả phòng</span></td>
 					<td><a class="form-control-static"
 						ui-sref="customer.detail({id:reservation.person_checkout.id})">{{reservation.person_checkout.full_name}}</a>
 					</td>
@@ -56,6 +56,12 @@
 					<td><span>Mã đăng ký</span></td>
 					<td><a class="form-control-static"
 						ui-sref="register_info.detail({id:reservation.register_info.id})">{{reservation.register_info.id}}</a>
+					</td>
+				</tr>
+				<tr>
+					<td><span>Mã phongf</span></td>
+					<td><a class="form-control-static"
+						ui-sref="room.detail({id:reservation.register_info.room.id})">{{reservation.register_info.room.code}}</a>
 					</td>
 				</tr>
 				<tr>

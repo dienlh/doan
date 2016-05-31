@@ -3,7 +3,7 @@
 angular.module('hotelApp').controller(
 		'Bill_serviceController',
 		function($scope, $state, Bill_service, ParseLinks, Room, Services,
-				Status_bill_service,Reservation,$filter) {
+				Status_bill_service,Reservation,$filter,Principal) {
 			$scope.fromDate=$scope.toDate=new Date();
 			$scope.rooms = Room.query();
 			$scope.reservations=Reservation.query();
@@ -17,6 +17,12 @@ angular.module('hotelApp').controller(
 			$scope.defaultvalue={
 					id:0
 			};
+			Principal.identity().then(function(account) {
+	            $scope.account = account;
+	            console.log($scope.account);
+//	            $scope.isAuthenticated = Principal.isAuthenticated;
+	        });
+			
 			function checkNull(){
 				if(!$scope.reservation){
 					$scope.reservation=$scope.defaultvalue;
@@ -153,12 +159,21 @@ angular.module('hotelApp').controller(
 	                  	return "help";
 	                  }
 	               });
-	               $('#dg').datagrid({
+	          	 	angular.forEach($scope.account.authorities, function(value, key) {
+	          	 		if(value=="ROLE_RECEPTIONIST" || value=="ROLE_ADMIN"){
+	          	 			createIcon();
+	          	 			return false;
+	          	 		}
+		          	});
+	          }
+			function createIcon(){
+				$('#dg').datagrid({
 	               	toolbar: [{
 	   	             		iconCls: 'icon-add',
 	   	             		handler: function(){
 	   	             			$state.go('bill_service.new');
 	   	             		}
+	               			
 	   	             	},'-',{
 	   	             		iconCls: 'icon-edit',
 	   	             		handler: function(){
@@ -217,7 +232,7 @@ angular.module('hotelApp').controller(
 	   	             	}
 	               	]
 	               });
-	          }
+			}
 			function createPagination(totalItem){
 					$('#pp').pagination({
 			            total:totalItem,

@@ -7,7 +7,7 @@ angular
 				function($scope, $state, Bill, ParseLinks, Method_payment,
 						Status_payment, Method_register, Status_bill, $filter,
 						Room, Customer) {
-
+					$scope.fromDate=$scope.toDate=new Date();
 					$scope.method_payments = Method_payment.query();
 					$scope.status_payments = Status_payment.query();
 					$scope.method_registers = Method_register.query();

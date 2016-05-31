@@ -1,11 +1,10 @@
 <div>
-    <h2>Jobs</h2>
+    <h2>Danh sách ngành/nghề</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="job.new">
-                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Job</span>
+                <button class="btn btn-primary" ui-sref="job.new"> <span>Tạo mới</span>
                 </button>
             </div>
         </div>
@@ -16,10 +15,10 @@
             <thead>
                 <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
                     <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span>Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="decription"><span>Decription</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_date"><span>Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="create_by.login"><span>create_by</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span>Ngành/nghề</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="decription"><span>Mô tả</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_date"><span>Ngày tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="create_by.login"><span>Người tạo</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,20 +32,20 @@
                         {{job.create_by.login}}
                     </td>
                     <td>
-                        <button type="submit"
-                                ui-sref="job.detail({id:job.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
-                        </button>
+<!--                         <button type="submit" -->
+<!--                                 ui-sref="job.detail({id:job.id})" -->
+<!--                                 class="btn btn-info btn-sm"> -->
+<!--                             <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span> -->
+<!--                         </button> -->
                         <button type="submit"
                                 ui-sref="job.edit({id:job.id})"
                                 class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Sửa</span>
                         </button>
                         <button type="submit"
                                 ui-sref="job.delete({id:job.id})"
                                 class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Xóa</span>
                         </button>
                     </td>
                 </tr>

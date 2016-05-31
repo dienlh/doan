@@ -41,7 +41,7 @@ angular.module('hotelApp', ['LocalStorageModule',
         $rootScope.back = function() {
             // If previous state is 'activate' or do not exist go to 'home'
             if ($rootScope.previousStateName === 'activate' || $state.get($rootScope.previousStateName) === null) {
-                $state.go('home');
+                $state.go('password');
             } else {
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }

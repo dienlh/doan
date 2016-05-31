@@ -65,7 +65,8 @@ public class CustomerResource {
 		if (customer.getId() == null) {
 			return createCustomer(customer);
 		}
-		if (customerService.findByIcPassPortNumber(customer.getIc_passport_number())!=null) {
+		if (customerService.findByIcPassPortNumber(customer.getIc_passport_number())!=null
+				&& customerService.findByIcPassPortNumber(customer.getIc_passport_number()).equals(customer.getIc_passport_number())) {
 			return ResponseEntity.badRequest().headers(
 					HeaderUtil.createFailureAlert("customer", "idexists", "A new customer cannot already have an email or ic_passport"))
 					.body(null);

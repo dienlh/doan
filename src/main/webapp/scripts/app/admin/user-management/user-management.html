@@ -1,11 +1,11 @@
 <div>
-    <h2>Users</h2>
+    <h2>Quản lý tài khoản truy cập</h2>
     <jh-alert></jh-alert>
     <div class="container">
         <div class="row">
           <div class="col-md-4">
               <button class="btn btn-primary" ui-sref="user-management.new">
-                  <span class="glyphicon glyphicon-flash"></span> <span>Create a new User</span>
+                  <span class="glyphicon glyphicon-flash"></span> <span>Tạo mới</span>
               </button>
           </div>
         </div>
@@ -14,21 +14,21 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>ID</th>
-                <th>Login</th>
+                <th>STT</th>
+                <th>Tên tài khoản</th>
                 <th>Email</th>
                 <th></th>
                 
-                <th>Profiles</th>
+                <th>Quyền truy cập</th>
                 <th>CreatedDate</th>
-                <th>LastModifiedBy</th>
+<!--                 <th>LastModifiedBy</th> -->
                 <th>LastModifiedDate</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="user in users track by user.id">
-                <td><a ui-sref="user-management-detail({login:user.login})">{{user.id}}</a></td>
+                <td><a ui-sref="user-management-detail({login:user.login})">{{$index+1}}</a></td>
                 <td>{{user.login}}</td>
                 <td>{{user.email}}</td>
                 <td>
@@ -44,7 +44,7 @@
                     </div>
                 </td>
                 <td>{{user.createdDate | date:'dd/MM/yy HH:mm'}}</td>
-                <td>{{user.lastModifiedBy}}</td>
+<!--                 <td>{{user.lastModifiedBy}}</td> -->
                 <td>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</td>
                 <td class="text-right">
                     <button type="submit"

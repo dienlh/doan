@@ -188,7 +188,9 @@ public class PaymentResource {
 		Room room = roomService.findOne(Long.parseLong(id_room));
 		Customer customerInfo = customerService.findByIcPassPortNumber(social_security);
 		if (customerInfo == null) {
-			customerInfo.setFull_name(firstname + " " + lastname);
+			String a= firstname.trim() + " " + lastname.trim();
+			customerInfo= new Customer();
+			customerInfo.setFull_name(firstname.trim() + " " + lastname.trim());
 			customerInfo.setIc_passport_number(social_security);
 			customerInfo.setEmail(email);
 			customerInfo.setPhone_number(phone);
